@@ -138,6 +138,14 @@
                         <textbox class="form-control" id="nomBuque" value="" readonly="true" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:5px; color:black; text-transform:uppercase; "/>
                     </n:div>
                     
+                  
+                  
+                </n:div>
+                  <n:div class="row ">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                  
+                    
                     <n:div class="form-group col-lg-10 col-md-5 mydiv1">
                         <label class="mylabel" value="AGENCIA NAVIERA" style="font-size: 15px;"/>
                         <textbox class="form-control" id="naviera" value="" readonly="true" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:5px; color:black; text-transform:uppercase; "/>
