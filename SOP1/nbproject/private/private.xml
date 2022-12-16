@@ -10,14 +10,11 @@
             <file>file:/C:/Users/HP%2015/Documents/SOP1/src/java/Conexion/authbd.java</file>
         </group>
         <group name="Group 20210428-08:47:08">
-            <file>file:/C:/Users/Informatica/Documents/NetBeansProjects/SOP1/web/Views/Mantenimientoarribos.zul</file>
-            <file>file:/C:/Users/Informatica/Documents/NetBeansProjects/SOP1/src/java/ctrl/RendimientosGranelesCtrl.java</file>
-            <file>file:/C:/Users/Informatica/Documents/NetBeansProjects/SOP1/src/java/MD/MantenimientoarribosMd.java</file>
-            <file>file:/C:/Users/Informatica/Documents/NetBeansProjects/SOP1/src/java/DAL/RendimientosGranelesDal.java</file>
-            <file>file:/C:/Users/Informatica/Documents/NetBeansProjects/SOP1/src/java/DAL/MantenimientoarribosDal.java</file>
-            <file>file:/C:/Users/Informatica/Documents/NetBeansProjects/SOP1/src/java/MD/RendimientosGranelesMd.java</file>
-            <file>file:/C:/Users/Informatica/Documents/NetBeansProjects/SOP1/src/java/ctrl/MantenimientoarribosCtrl.java</file>
-            <file>file:/C:/Users/Informatica/Documents/NetBeansProjects/SOP1/web/Views/RendimientosGraneles.zul</file>
+            <file>file:/C:/Users/Informatica/Documents/GIT%20PRODUCCION/sop/SOP1/web/Views/RendimientosGraneles.zul</file>
+            <file>file:/C:/Users/Informatica/Documents/GIT%20PRODUCCION/sop/SOP1/src/java/MD/RendimientosGranelesMd.java</file>
+            <file>file:/C:/Users/Informatica/Documents/GIT%20PRODUCCION/sop/SOP1/src/java/ctrl/RendimientosGranelesCtrl.java</file>
+            <file>file:/C:/Users/Informatica/Documents/GIT%20PRODUCCION/sop/SOP1/src/java/DAL/RendimientosGranelesDal.java</file>
+            <file>file:/C:/Users/Informatica/Documents/GIT%20PRODUCCION/sop/SOP1/src/java/DAL/Actividad45Dal.java</file>
         </group>
     </open-files>
 </project-private>

@@ -20,6 +20,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Textbox estibadora;
     private Textbox muelle;
     private Textbox fech_atraque;
+    private Textbox fech_zarpe;
     private Textbox gruas;
     String lb;
 
@@ -48,7 +49,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             estibadora.setText(manteniMD1.getEstibadora());
             muelle.setText(manteniMD1.getMuelle());
             fech_atraque.setText(manteniMD1.getFecha_atraque());
-            
+            fech_zarpe.setText(manteniMD1.getFecha_zarpe());
             gruas.setText(manteniMD1.getGruas_buque());
 
         } else {
@@ -69,6 +70,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         estibadora.setText("");
         muelle.setText("");
         fech_atraque.setText("");
+        fech_zarpe.setText("");
         gruas.setText("");
         
         anio_arribo.focus();
