@@ -10,6 +10,8 @@ public class RendimientosGranelesMd {
     private String muelle;
     private String fecha_atraque;
     private String fecha_zarpe;
+    private String nombreAct;
+    private String numAct;
     //hasta aca boy
 
     private String hrs_plani;
@@ -27,6 +29,25 @@ public class RendimientosGranelesMd {
     private String resp;
     private String msg;
     private String dir;
+
+    public String getNombreAct() {
+        return nombreAct;
+    }
+
+    public void setNombreAct(String nombreAct) {
+        this.nombreAct = nombreAct;
+    }
+
+    public String getNumAct() {
+        return numAct;
+    }
+
+    public void setNumAct(String numAct) {
+        this.numAct = numAct;
+    }
+    
+    
+    
 
     public String getAnio() {
         return anio;

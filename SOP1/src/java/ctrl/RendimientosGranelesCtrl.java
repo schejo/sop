@@ -4,11 +4,15 @@ import DAL.RendimientosGranelesDal;
 import MD.RendimientosGranelesMd;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Include;
+import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Textbox;
 
 public class RendimientosGranelesCtrl extends GenericForwardComposer {
@@ -21,10 +25,13 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Textbox muelle;
     private Textbox fech_atraque;
     private Textbox gruas;
+    private Combobox producto;
     String lb;
 
+    List<RendimientosGranelesMd> alltipoact = new ArrayList<RendimientosGranelesMd>();
     RendimientosGranelesMd manteniMD1 = new RendimientosGranelesMd();
     RendimientosGranelesDal ManbuDal = new RendimientosGranelesDal();
+     RendimientosGranelesDal rg = new RendimientosGranelesDal();
 
     // private Listbox lb2;
     private Include rootPagina;
@@ -32,6 +39,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
+        alltipoact = rg.tipoactRSelect();
+        producto.setModel(new ListModelList(alltipoact));
 
     }
 
@@ -48,7 +57,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             estibadora.setText(manteniMD1.getEstibadora());
             muelle.setText(manteniMD1.getMuelle());
             fech_atraque.setText(manteniMD1.getFecha_atraque());
-            
+
             gruas.setText(manteniMD1.getGruas_buque());
 
         } else {
@@ -70,7 +79,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         muelle.setText("");
         fech_atraque.setText("");
         gruas.setText("");
-        
+
         anio_arribo.focus();
 
     }
