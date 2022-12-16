@@ -11,9 +11,11 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Combobox;
+import org.zkoss.zul.Doublebox;
 import org.zkoss.zul.Include;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Timebox;
 
 public class RendimientosGranelesCtrl extends GenericForwardComposer {
 
@@ -22,16 +24,22 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Textbox nomBuque;
     private Textbox naviera;
     private Textbox estibadora;
-    private Textbox muelle;
+    private Doublebox muelle;
     private Textbox fech_atraque;
-    private Textbox gruas;
+    private Doublebox gruas;
     private Combobox producto;
+    private Doublebox directa;
+    private Doublebox tmplanificadas;
+    private Doublebox terpac;
+    private Doublebox tmdespachadas;
+    private Doublebox otros;
+    private Timebox caladoMax;
     String lb;
 
     List<RendimientosGranelesMd> alltipoact = new ArrayList<RendimientosGranelesMd>();
     RendimientosGranelesMd manteniMD1 = new RendimientosGranelesMd();
     RendimientosGranelesDal ManbuDal = new RendimientosGranelesDal();
-     RendimientosGranelesDal rg = new RendimientosGranelesDal();
+    RendimientosGranelesDal rg = new RendimientosGranelesDal();
 
     // private Listbox lb2;
     private Include rootPagina;

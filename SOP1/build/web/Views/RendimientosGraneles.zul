@@ -141,7 +141,7 @@
                   
                   
                 </n:div>
-                  <n:div class="row ">
+                <n:div class="row ">
                     <n:div class="form-group col-lg-1 col-md-1 "></n:div>
                     
                   
@@ -163,7 +163,9 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="MUELLE" style="font-size: 15px;"/>
-                        <textbox class="form-control" id="muelle" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <!--  <textbox class="form-control" id="muelle" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
+                        <doublebox class="form-control" id="muelle"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+
                     </n:div>
                          
                 </n:div>
@@ -192,8 +194,10 @@
                     </n:div>
                                         
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
-                        <label class="mylabel" value="VIA" style="font-size: 15px;"/>
-                        <textbox class="form-control" id="via" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <label class="mylabel" value="TERPAC" style="font-size: 15px;"/>
+                        <!--   <textbox class="form-control" id="terpac" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
+                        <doublebox class="form-control" id="terpac"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+
                     </n:div>                    
                     
                 </n:div>
@@ -204,18 +208,20 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="TM PLANIFICADAS" style="font-size: 15px;"/>
-                        <textbox class="form-control" id="tmplanificadas" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <!--  <textbox class="form-control" id="tmplanificadas" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
+                        <doublebox class="form-control" id="tmplanificadas"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+
                     </n:div>
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="PRODUCTO" style="font-size: 15px;"/>
-                      <!--  <textbox class="form-control" id="producto" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
+                        <!--  <textbox class="form-control" id="producto" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
                         <combobox id="producto" buttonVisible="true" width="280px" autocomplete="true"  model="${alltipoact}" style="font-weight: bold; color:black; heigh:25px;"
-                              autodrop="true" >
-                        <template name="model">
-                            <comboitem label="${each.nombreAct}" value="${each.numAct}"/>
-                        </template>
-                    </combobox>
+                                  autodrop="true" >
+                            <template name="model">
+                                <comboitem label="${each.nombreAct}" value="${each.numAct}"/>
+                            </template>
+                        </combobox>
                     </n:div>
                     
                 </n:div>
@@ -224,12 +230,16 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="directa" style="font-size: 15px;"/>
-                        <textbox class="form-control" id="" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <!-- <textbox class="form-control" id="" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
+                        <doublebox class="form-control" id="directa"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+
                     </n:div>
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="TM DESPACHADAS" style="font-size: 15px;"/>
-                        <textbox class="form-control" id="tmdespachadas" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <!-- <textbox class="form-control" id="tmdespachadas" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
+                        <doublebox class="form-control" id="tmdespachadas"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+
                     </n:div>
                     
                 </n:div>
@@ -237,14 +247,24 @@
                 <n:div class="row">
                     <n:div class="form-group col-lg-1 col-md-1 "></n:div>
                     
-                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                    <n:div class="form-group col-lg-3 col-md-5 mydiv1">
                         <label class="mylabel" value="GRUAS BUQUE" style="font-size: 15px;"/>
-                        <textbox class="form-control" id="gruas" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <!-- <textbox class="form-control" id="gruas" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
+                        <doublebox class="form-control" id="gruas"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+
                     </n:div>
                     
-                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
-                        <label class="mylabel" value="TOTAL HRS OPERACION" style="font-size: 15px;"/>
-                        <textbox class="form-control" id="caladoMax" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    <n:div class="form-group col-lg-3 col-md-5 mydiv1">
+                        <label class="mylabel" value="OTROS" style="font-size: 15px;"/>
+                        <!-- <textbox class="form-control" id="otros" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
+                        <doublebox class="form-control" id="otros"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;  "/>
+
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-5 mydiv1">
+                        <label class="mylabel" value="HRS OPERACION" style="font-size: 15px;"/>
+                        <!--  <textbox class="form-control" id="caladoMax" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:10px; color:black; text-transform:uppercase; "/>-->
+                        <timebox cols="12" format="HH:mm"  id="caladoMax"     width="100%"  />
                     </n:div>
                                                             
                 </n:div>
