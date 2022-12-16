@@ -37,7 +37,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Timebox caladoMax;
 
     private Textbox fech_zarpe;
-    private Textbox gruas;
+    
 
     String lb;
 
