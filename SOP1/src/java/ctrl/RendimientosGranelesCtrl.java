@@ -24,7 +24,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Textbox nomBuque;
     private Textbox naviera;
     private Textbox estibadora;
-    private Doublebox muelle;
+    private Textbox muelle;
     private Textbox fech_atraque;
 
     private Doublebox gruas;
