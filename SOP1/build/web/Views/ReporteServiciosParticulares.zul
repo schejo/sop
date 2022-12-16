@@ -1,0 +1,77 @@
+<zk xmlns:n="native">
+    <style>
+        @font-face {
+        font-family: "Satisfy02";
+        src: url("font/Satisfy-Regular.ttf") format('truetype');
+        }
+        .ltitle2 {
+        font-family: "Satisfy02";
+        word-wrap: break-word; 
+        /*font-weight: bold; */
+        font-size: 25px; 
+        color: black; 
+        margin-left:1px; 
+        padding-left:0px;
+        }
+        
+        .z-datebox-input{
+        font-size: 25px;
+        height: 48px;
+        }
+        .z-datebox-button{
+        font-size: 25px;
+        height: 48px;
+        width:35px;
+        text-align: center;
+        padding-top: 15px;
+        }
+    </style>
+    <div>
+      
+    </div>
+    <div class="col col-md-12 col-sm-12" apply="ctrl.ReporteServiciosParticularesCtrl" >
+        <div class="col col-md-12 col-sm-12 text-center">
+            <div class="col col-md-12 col-xs-12">
+                <label value="REPORTE DE PARTICULARES POR FECHA" style="font-size:25px;font-weight:bold;color:blue;" />
+            </div>
+            
+            <div class="col col-md-12 col-xs-12">
+                
+                <label value="Fecha Inicio.: " style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <datebox id="fechaInicio" cols="11"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                
+                <label value="Fecha Fin.: " style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <datebox id="fechaFin" cols="11"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                
+                <label value="Codigo Particular.:" style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <combobox id="codPar" style="margin: 0px 0px 0px 0px;">
+                    <comboitem label = "SAAM ITZA" value = "144" />
+                    <comboitem label = "SAAM AMERICA" value = "130" /> 
+                    <comboitem label = "POSEIDON" value = "54" />
+                    <comboitem label = "HERCULES" value = "41" />
+                    <comboitem label = "TIKAL" value = "68" />
+                    <comboitem label = "GRANELSA" value = "2" />
+                    <comboitem label = "LANCHA POLARIS" value = "121" />
+                    <comboitem label = "CARLOS CRISTALES" value = "76" />
+                    <comboitem label = "BAYRON MAYEN" value = "36" />
+                    <comboitem label = "BAYRON BONILLA" value = "59" />
+                    <comboitem label = "CARLOS HURTADO" value = "75" />
+                    <comboitem label = "CARLOS RAMOS" value = "71" />
+                    <comboitem label = "FLORES MONTES" value = "33" />
+                    <comboitem label = "HECTOR ORTIZ" value = "79" />
+                    <comboitem label = "JOSE LEMUS" value = "58" />
+                    <comboitem label = "LOPEZ DIMAS" value = "34" />
+                    <comboitem label = "OSCAR ALAY" value = "154" />
+                </combobox>
+                
+                        
+            </div>
+                
+            <div class="col col-md-12 col-xs-12">
+                     
+                <button sclass="btn btn-danger" id="btnDescargar1" label="Descarga Reporte PDF" iconSclass="z-icon-download" />    
+            </div>             
+        </div>
+    </div>
+</zk>
+

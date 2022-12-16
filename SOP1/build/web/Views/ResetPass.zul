@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns:n="native" >
+    <style>
+        .z-loading { top: 50% !important; left: 45% !important; align:
+        center; vertical-align: middle; 
+        border: 10px;
+        border-top: 10px;
+        border-color: #d35400 #d35400 transparent;
+        border-style: solid;
+        border-radius: 50%;
+        background-color: transparent;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        }
+        
+        .z-loading-indicator {
+        border: 0px;
+        display:none;
+        }
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        .z-combobox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        .z-combobox-input{
+        height:35px;
+        }
+        
+        .z-bandbox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        .z-bandbox-input {
+        height:35px;
+        width:200px;
+        }
+        
+        .z-datebox-input{
+        height:35px;
+        font-size: 15px;
+        }
+        .z-datebox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-timebox-input{
+        height:35px;
+        font-size: 15px;
+        }
+        .z-timebox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+    </style>
+    
+    <div class="col-lg-12 col-md-12 col-sm-12" apply="Ctrl.ResetPassCtrl" style="">
+        
+        <n:h1>RECUPERAR CLAVE DE USUARIO</n:h1>
+        <n:div class="container " >
+            <n:div class="myformRU">
+                
+                <n:div class="row ">
+                    <n:div class="form-group col-lg-3 col-md-3 "></n:div>
+                    <n:div class="form-group col-lg-6 col-md-6 mydiv1">
+                        <label class="mylabel" value="Empresas" style=""/>
+                        <combobox id="empresas" buttonVisible="true" width="100%" autocomplete="true"  model="${allEmpresas}" 
+                                  autodrop="true" 
+                                  >
+                            <template name="model">
+                                <comboitem label="${each.empresa}" value="${each.empresa}" />
+                            </template>
+                        </combobox>
+                    </n:div>
+                    
+                </n:div>
+                
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-3 col-md-3 "></n:div>
+                    <n:div class="form-group col-lg-6 col-md-6 mydiv1">
+                        <label class="mylabel" value="Usuario" style=""/>
+                        <combobox id="user" buttonVisible="true" width="100%" autocomplete="true"  model="${allUser}" 
+                          style="font-weight: bold; font-size: 15px; margin-left:0; heigh:20px;" 
+                          onSelect="numTrans.value = self.selectedItem.value;"> <!-- onSelect="numTrans.value = self.selectedItem.value; "  -->
+                    <template name="model">
+                        <comboitem label="${each.useario}" value="${each.useario}"/>
+                    </template>
+                </combobox>
+                    </n:div>
+                </n:div>
+                
+                <!--
+                    <n:div class="form-group col-lg-2 col-md-2 "></n:div>
+                    <n:div class="form-group col-lg-8 col-md-8 mydiv1">
+                        <label class="mylabel" value="Contraseña" style=""/>
+                        <textbox class="form-control" type="password" id="pass" value=""  style="" placeholder="INGRESAR CONTRASEÑA"/>
+                    </n:div>
+                </n:div>
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-2 col-md-2 "></n:div>
+                    <n:div class="form-group col-lg-8 col-md-8 mydiv1">
+                        <textbox class="form-control" type="password" id="pass2" value=""  style="" placeholder="INGRESAR CONTRASEÑA"/>
+                    </n:div>
+                </n:div>
+                -->
+                <n:div class="row">
+                    <n:div class="form-group col-lg-3 col-md-3 col-sm-2"></n:div>
+                    <n:div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3 mydiv1" style="text-align:center;" >
+                        <button id="btnReset" label="Reset" image="bootstrap/img/reset.png" orient="vertical" height="90px" width="90px" style="border-radius: 40px;" />
+                    </n:div>
+                    <n:div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3 mydiv1" style="text-align:center;" >
+                        <button id="btnNuevo" label="Limpiar" image="bootstrap/img/registro.png" orient="vertical" height="90px" width="90px" style="border-radius: 40px;" />
+                    </n:div>
+                    <!--
+                    <n:div class="form-group col-lg-2 col-md-3 col-sm-3 col-xs-3 mydiv1" style="text-align:center;" >
+                        <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="90px" width="90px" style="border-radius: 40px;" />
+                    </n:div>
+                    -->
+                </n:div>
+                
+            </n:div>
+        </n:div>
+        
+        
+    </div>
+    
+</zk>
+
+

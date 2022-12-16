@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns:n="native" >
+    
+     
+    <style>
+        .z-loading { top: 50% !important; left: 45% !important; align:
+        center; vertical-align: middle; 
+        border: 10px;
+        border-top: 10px;
+        border-color: red red transparent;
+        border-style: solid;
+        border-radius: 50%;
+        background-color: transparent;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        }
+        
+        .z-loading-indicator {
+        border: 0px;
+        display:none;
+        }
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        .z-combobox-button{
+        height:50px;
+        width:50px;
+        }
+        .z-combobox-input{
+        height:50px;
+        }
+        
+    </style>
+    
+    <div class="col col-lg-12 col-md-12 col-sm-12" apply="ctrl.TipoparticularesCtrl" style="border: none; margin-top:50px;">
+        
+        <n:div class="form-control col-lg-12" style="border: none;  height: 100%;" >
+            <n:div class="col-lg-2" style="border: none; height: 90%; " ></n:div>
+            <n:div class="col-lg-8 col-md-9 d-flex justify-content-center" style="border: none; height: 90%; " >
+             
+                <auxhead >
+                    <auxheader colspan="2" label="PARTICULARES" style="text-align: center;font-size: 30px; color: blue;" ></auxheader>
+                </auxhead>
+                
+                <!-- FILA #01 -->
+                <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="border: 3px solid;">
+                    
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>                    
+                    
+                    
+                        <n:div class="form-group col-lg-1 col-md-1 dvlb" style="border: none;">
+                            <label class="txtlbs" value="Particular:" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="1" id="parPar" value="" cols="15" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:18px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                        
+                    </n:div>
+                    
+                    <!-- FILA #02 -->
+                    
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                        <n:div class="form-group col-lg-6 col-md-6 mydiv1">
+                            <label class="txtlbs" value="Nombre:" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="1" id="nomPar" value="" cols="5" style="font-weight: bold; font-size: 20px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                                        
+                    </n:div> 
+                    
+                    <!-- FILA #03 -->
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>                    
+                    
+                        <n:div class="form-group col-lg-5 col-md-4 dvlb" style="border: none; margin-top:21px;">
+                            <label class="txtlbs" value="Tipo"  style="color:blue; font-size: 20px;"/>
+                            <combobox id="tipPar" buttonVisible="true" width="300px" autocomplete="true"  model="${allParticulares}" style="font-weight: bold; font-size: 15px; color:black; heigh:20px;"
+                                      autodrop="true" >
+                                <template name="model">
+                                    <comboitem label="${each.descripcion}" value="${each.tipo}"/>
+                                </template>
+                            </combobox>
+                        </n:div> 
+                    
+                    </n:div>
+                   
+                    
+                    <!--  fin de  campos de la tabla-->
+                
+                    <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="border: 3px solid;">
+
+                        <n:div class="form-group col-lg-12 col-md-12 text-left dvfl" style="">
+                            
+                            <listbox id="lb2" model="${allTipoparticulares}" fixedLayout="true" height="300px" sizedByContent="true" span="true"  
+                                     style="border:none; background-color: transparent;" >
+                                <auxhead >
+                                    <auxheader colspan="2" label="Listado de Tipo de Particulares" style="text-align: center; font-size: 30px; color: blue;" ></auxheader>
+                                </auxhead>
+                                <listhead menupopup="auto" >
+                        
+                                    <listheader label="PARTICULAR" width="120px;" style="color:blue;" />
+                                    <listheader label="NOMBRE PARTICULAR" width="200px;" style="color:blue;" />
+                                    <listheader label="TIPO PARTICULAR" width="200px;" style="color:blue;" />                        
+                                </listhead>
+                                <template name="model">
+                                    <listitem  > 
+                                        <listcell label="${each.particular}" style="" />
+                                        <listcell label="${each.nombre}" style="" />
+                                        <listcell label="${each.tipo}" style="" /> 
+                                    </listitem>
+                                </template>
+                            </listbox>
+                            
+                        </n:div>
+                        
+                    </n:div> 
+                
+                    <!-- FILA #02 -->
+                
+                    <div class="form-group col-lg-12 col-md-12 text-center" style="border: none; margin-top:0px; margin-bottom:10px;">
+                        <button id="btnANuevo" label="Nuevo" image="bootstrap/img/registro.png" orient="vertical" height="80px" width="100px"/> 
+                        <button id="btnGuardar" label="Guardar" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
+                        <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="80px" width="100px"/>
+                    </div>
+                </n:div>
+            </n:div>
+        </n:div>
+    </div>
+</zk>
+

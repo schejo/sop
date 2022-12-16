@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="validar_usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_user2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_userid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_li_retry" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validar_usuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="validar_usuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_reestiba">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="il_anio" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="il_arribo" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_identifica_contene" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ldec_peso_bruto" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_fecha_operacion" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_descripcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_reestiba_mov" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_observacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gs_userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_tipo_contene" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_vacio_lleno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_lineas" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="li_cuenta" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_marchamoAd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_marchamo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_equipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_maquina" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_Area" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_naviera" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ldec_peso_tara" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_reestibaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="confirmar_reestibaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FueraManifiesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ls_tipo_contenedor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_via_directa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_marchamo_aduana" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_marchamo_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_marchamo_2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_marchamo_3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_area" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_ubicacion_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_vacio_lleno" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ll_estatus" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_modo_entrada" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_danos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_observa_contene" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_fecha_ingreso2" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ldt_hora_ingreso2" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="lc_peso_bruto" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="lc_peso_tara" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_identifica_equipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_linea1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_naviera1" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ls_actividad" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_transito" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ldt_hora_alta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_fecha_alta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ll_ano_manifiesto" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ll_manifiesto" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_identifica_contene" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ll_ano_arribo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ll_num_arribo" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_refrige_conectado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ll_estado_contenedor" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_nom_buque" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_calificador_manifi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_muelles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_user2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FueraManifiestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FueraManifiestoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_embarque">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_identifica_contene" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_tipo_contenedor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_vacio_lleno" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="p_peso_bruto" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_puerto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_via_directa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_marchamo_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_linea1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_naviera1" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="p_peso_bruto_docto" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_identifica_equipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_observaciones" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="p_cod_actividi" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_transitos" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="p_ano_arribo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="p_num_arribo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_nom_buque" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_empleado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_MAFI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_boleta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_maquina" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_embarqueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="confirmar_embarqueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_arribo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gs_userid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_li_codigo_actividad" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_naviera1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_linea1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_identifica_equipo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_lc_peso_tara" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_lc_peso_bruto" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ld_hora_ingreso2" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ld_fecha_ingreso2" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_observa_contene" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_danos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_modo_entrada" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_estatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_vacio_lleno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_ubicacion_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_area" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_marchamo_3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_marchamo_2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_marchamo_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_marchamo_aduana" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_via_directa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_tipo_contenedor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ll_manifiesto" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ll_ano_manifiesto" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_identifica_contene" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_entiempo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_transito" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_puerto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_nombre_buque" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_llnum_arribo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ll_ano_arribo" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="str_estado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_user2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_arriboResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="confirmar_arriboResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetStatusDUA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CorrelativoDua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirmaDua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoDua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contenedor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Manifiesto" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetStatusDUAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetStatusDUAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OTRODUA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CorrelativoDua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirmaDua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoDua" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contenedor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Manifiesto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NomUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DoctoDuas" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OTRODUAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OTRODUAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="test">
+        <s:complexType />
+      </s:element>
+      <s:element name="testResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_recepcion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="par_ld_fecha_final2" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ld_fecha_ciclo1" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ll_num_ciclo1" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_identifica_contene" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ll_codigo_actividad" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ld_hora_final4" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_area_ubicacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_ubicacion_1" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_lc_peso_tara" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_codigo_equipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_obse_activ2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_danos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_gs_userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_recepcionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="confirmar_recepcionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_despacho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="par_ld_fecha_final2" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ld_fecha_ciclo1" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ll_num_ciclo1" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_identifica_contene" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ll_codigo_actividad" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_area_ubicacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_ubicacion_1" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_ld_hora_final4" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_gs_userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_codigo_equipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_obse_activ2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_marchamo_aduana" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_marchamo_origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_danos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_maquina" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmar_despachoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="confirmar_despachoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="iGetContenedores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_identifica_contene" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_tipo_contene" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_vacio_lleno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="par_ls_reestiba_mov" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_il_anio" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="par_il_arribo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="iGetContenedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iGetContenedoresResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresaCamionParqueo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="il_anio" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="il_arribo" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_identifica_contene" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ldec_peso_bruto" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_fecha_operacion" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_descripcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_reestiba_mov" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_observacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gs_userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_tipo_contene" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_vacio_lleno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_lineas" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="li_cuenta" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresaCamionParqueoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IngresaCamionParqueoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_Ingreso_Camion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Fingreso_nuevo" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Ffecha_ciclo" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fciclo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fnum_transpor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fcod_pais_piloto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fnum_licen_piloto" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fcodigo_destino" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ftipo_operacion2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fnumero_placa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fobse_camion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fcodigo_pais1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FMaquina" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fpyd_codigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ftipo_via" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_Ingreso_CamionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Confirmar_Ingreso_CamionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_Desenganche">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Ffecha_ciclo" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fciclo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fls_contene" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fls_rampa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fls_oficio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fls_solicita" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FMaquina" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_DesengancheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Confirmar_DesengancheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_Salida_Camio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ld_fecha_ciclo" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_num_ciclo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_sobrepeso" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_aviso_arribo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="li_ano_arribo3" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="li_num_arribo3" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_codigo_pais1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_numero_placa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="li_num_transpor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_cod_pais_piloto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_num_licen_piloto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_tipo_operacion2" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_fecha_ing_parq" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_fecha_ing_recin" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_obse_camion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ldt_hora_ing_parq" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ldt_hora_ing_recin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="li_codigo_destino" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_num_parqueo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_ubicacion_tramo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="li_localidad_final" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_fecha_alta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ld_hora_alta" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="FUsuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="li_buque" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ls_tipo_via" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FMaquina" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_Salida_CamioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Confirmar_Salida_CamioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_Parqueo_Camion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FPaisPlaca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FPlaca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FCodAreaUbica" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FUbicacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FMaquina" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FIngreso" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_Parqueo_CamionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Confirmar_Parqueo_CamionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_SalidaParqueo_Camion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FPlaca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FUbica" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar_SalidaParqueo_CamionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Confirmar_SalidaParqueo_CamionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Actualiza_Licencia_Parqueo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FLicencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FPlaca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FPaisPiloto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FPaisPlaca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FFechaIni" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FFechaFin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FTransportista" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FAno_Arribo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FNum_Arribo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FNaviera" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FCita" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Actualiza_Licencia_ParqueoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Actualiza_Licencia_ParqueoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="validar_usuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:validar_usuario" />
+  </wsdl:message>
+  <wsdl:message name="validar_usuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:validar_usuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_reestibaSoapIn">
+    <wsdl:part name="parameters" element="tns:confirmar_reestiba" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_reestibaSoapOut">
+    <wsdl:part name="parameters" element="tns:confirmar_reestibaResponse" />
+  </wsdl:message>
+  <wsdl:message name="FueraManifiestoSoapIn">
+    <wsdl:part name="parameters" element="tns:FueraManifiesto" />
+  </wsdl:message>
+  <wsdl:message name="FueraManifiestoSoapOut">
+    <wsdl:part name="parameters" element="tns:FueraManifiestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_embarqueSoapIn">
+    <wsdl:part name="parameters" element="tns:confirmar_embarque" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_embarqueSoapOut">
+    <wsdl:part name="parameters" element="tns:confirmar_embarqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_arriboSoapIn">
+    <wsdl:part name="parameters" element="tns:confirmar_arribo" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_arriboSoapOut">
+    <wsdl:part name="parameters" element="tns:confirmar_arriboResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetStatusDUASoapIn">
+    <wsdl:part name="parameters" element="tns:SetStatusDUA" />
+  </wsdl:message>
+  <wsdl:message name="SetStatusDUASoapOut">
+    <wsdl:part name="parameters" element="tns:SetStatusDUAResponse" />
+  </wsdl:message>
+  <wsdl:message name="OTRODUASoapIn">
+    <wsdl:part name="parameters" element="tns:OTRODUA" />
+  </wsdl:message>
+  <wsdl:message name="OTRODUASoapOut">
+    <wsdl:part name="parameters" element="tns:OTRODUAResponse" />
+  </wsdl:message>
+  <wsdl:message name="testSoapIn">
+    <wsdl:part name="parameters" element="tns:test" />
+  </wsdl:message>
+  <wsdl:message name="testSoapOut">
+    <wsdl:part name="parameters" element="tns:testResponse" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_recepcionSoapIn">
+    <wsdl:part name="parameters" element="tns:confirmar_recepcion" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_recepcionSoapOut">
+    <wsdl:part name="parameters" element="tns:confirmar_recepcionResponse" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_despachoSoapIn">
+    <wsdl:part name="parameters" element="tns:confirmar_despacho" />
+  </wsdl:message>
+  <wsdl:message name="confirmar_despachoSoapOut">
+    <wsdl:part name="parameters" element="tns:confirmar_despachoResponse" />
+  </wsdl:message>
+  <wsdl:message name="iGetContenedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:iGetContenedores" />
+  </wsdl:message>
+  <wsdl:message name="iGetContenedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:iGetContenedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IngresaCamionParqueoSoapIn">
+    <wsdl:part name="parameters" element="tns:IngresaCamionParqueo" />
+  </wsdl:message>
+  <wsdl:message name="IngresaCamionParqueoSoapOut">
+    <wsdl:part name="parameters" element="tns:IngresaCamionParqueoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_Ingreso_CamionSoapIn">
+    <wsdl:part name="parameters" element="tns:Confirmar_Ingreso_Camion" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_Ingreso_CamionSoapOut">
+    <wsdl:part name="parameters" element="tns:Confirmar_Ingreso_CamionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_DesengancheSoapIn">
+    <wsdl:part name="parameters" element="tns:Confirmar_Desenganche" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_DesengancheSoapOut">
+    <wsdl:part name="parameters" element="tns:Confirmar_DesengancheResponse" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_Salida_CamioSoapIn">
+    <wsdl:part name="parameters" element="tns:Confirmar_Salida_Camio" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_Salida_CamioSoapOut">
+    <wsdl:part name="parameters" element="tns:Confirmar_Salida_CamioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_Parqueo_CamionSoapIn">
+    <wsdl:part name="parameters" element="tns:Confirmar_Parqueo_Camion" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_Parqueo_CamionSoapOut">
+    <wsdl:part name="parameters" element="tns:Confirmar_Parqueo_CamionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_SalidaParqueo_CamionSoapIn">
+    <wsdl:part name="parameters" element="tns:Confirmar_SalidaParqueo_Camion" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_SalidaParqueo_CamionSoapOut">
+    <wsdl:part name="parameters" element="tns:Confirmar_SalidaParqueo_CamionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Actualiza_Licencia_ParqueoSoapIn">
+    <wsdl:part name="parameters" element="tns:Actualiza_Licencia_Parqueo" />
+  </wsdl:message>
+  <wsdl:message name="Actualiza_Licencia_ParqueoSoapOut">
+    <wsdl:part name="parameters" element="tns:Actualiza_Licencia_ParqueoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Ws_ContenedorSoap">
+    <wsdl:operation name="validar_usuario">
+      <wsdl:input message="tns:validar_usuarioSoapIn" />
+      <wsdl:output message="tns:validar_usuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_reestiba">
+      <wsdl:input message="tns:confirmar_reestibaSoapIn" />
+      <wsdl:output message="tns:confirmar_reestibaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FueraManifiesto">
+      <wsdl:input message="tns:FueraManifiestoSoapIn" />
+      <wsdl:output message="tns:FueraManifiestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_embarque">
+      <wsdl:input message="tns:confirmar_embarqueSoapIn" />
+      <wsdl:output message="tns:confirmar_embarqueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_arribo">
+      <wsdl:input message="tns:confirmar_arriboSoapIn" />
+      <wsdl:output message="tns:confirmar_arriboSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetStatusDUA">
+      <wsdl:input message="tns:SetStatusDUASoapIn" />
+      <wsdl:output message="tns:SetStatusDUASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OTRODUA">
+      <wsdl:input message="tns:OTRODUASoapIn" />
+      <wsdl:output message="tns:OTRODUASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <wsdl:input message="tns:testSoapIn" />
+      <wsdl:output message="tns:testSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_recepcion">
+      <wsdl:input message="tns:confirmar_recepcionSoapIn" />
+      <wsdl:output message="tns:confirmar_recepcionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_despacho">
+      <wsdl:input message="tns:confirmar_despachoSoapIn" />
+      <wsdl:output message="tns:confirmar_despachoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="iGetContenedores">
+      <wsdl:input message="tns:iGetContenedoresSoapIn" />
+      <wsdl:output message="tns:iGetContenedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresaCamionParqueo">
+      <wsdl:input message="tns:IngresaCamionParqueoSoapIn" />
+      <wsdl:output message="tns:IngresaCamionParqueoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Ingreso_Camion">
+      <wsdl:input message="tns:Confirmar_Ingreso_CamionSoapIn" />
+      <wsdl:output message="tns:Confirmar_Ingreso_CamionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Desenganche">
+      <wsdl:input message="tns:Confirmar_DesengancheSoapIn" />
+      <wsdl:output message="tns:Confirmar_DesengancheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Salida_Camio">
+      <wsdl:input message="tns:Confirmar_Salida_CamioSoapIn" />
+      <wsdl:output message="tns:Confirmar_Salida_CamioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Parqueo_Camion">
+      <wsdl:input message="tns:Confirmar_Parqueo_CamionSoapIn" />
+      <wsdl:output message="tns:Confirmar_Parqueo_CamionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_SalidaParqueo_Camion">
+      <wsdl:input message="tns:Confirmar_SalidaParqueo_CamionSoapIn" />
+      <wsdl:output message="tns:Confirmar_SalidaParqueo_CamionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualiza_Licencia_Parqueo">
+      <wsdl:input message="tns:Actualiza_Licencia_ParqueoSoapIn" />
+      <wsdl:output message="tns:Actualiza_Licencia_ParqueoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Ws_ContenedorSoap" type="tns:Ws_ContenedorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validar_usuario">
+      <soap:operation soapAction="http://tempuri.org/validar_usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_reestiba">
+      <soap:operation soapAction="http://tempuri.org/confirmar_reestiba" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FueraManifiesto">
+      <soap:operation soapAction="http://tempuri.org/FueraManifiesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_embarque">
+      <soap:operation soapAction="http://tempuri.org/confirmar_embarque" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_arribo">
+      <soap:operation soapAction="http://tempuri.org/confirmar_arribo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetStatusDUA">
+      <soap:operation soapAction="http://tempuri.org/SetStatusDUA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OTRODUA">
+      <soap:operation soapAction="http://tempuri.org/OTRODUA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <soap:operation soapAction="http://tempuri.org/test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_recepcion">
+      <soap:operation soapAction="http://tempuri.org/confirmar_recepcion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_despacho">
+      <soap:operation soapAction="http://tempuri.org/confirmar_despacho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iGetContenedores">
+      <soap:operation soapAction="http://tempuri.org/iGetContenedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresaCamionParqueo">
+      <soap:operation soapAction="http://tempuri.org/IngresaCamionParqueo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Ingreso_Camion">
+      <soap:operation soapAction="http://tempuri.org/Confirmar_Ingreso_Camion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Desenganche">
+      <soap:operation soapAction="http://tempuri.org/Confirmar_Desenganche" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Salida_Camio">
+      <soap:operation soapAction="http://tempuri.org/Confirmar_Salida_Camio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Parqueo_Camion">
+      <soap:operation soapAction="http://tempuri.org/Confirmar_Parqueo_Camion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_SalidaParqueo_Camion">
+      <soap:operation soapAction="http://tempuri.org/Confirmar_SalidaParqueo_Camion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualiza_Licencia_Parqueo">
+      <soap:operation soapAction="http://tempuri.org/Actualiza_Licencia_Parqueo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Ws_ContenedorSoap12" type="tns:Ws_ContenedorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validar_usuario">
+      <soap12:operation soapAction="http://tempuri.org/validar_usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_reestiba">
+      <soap12:operation soapAction="http://tempuri.org/confirmar_reestiba" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FueraManifiesto">
+      <soap12:operation soapAction="http://tempuri.org/FueraManifiesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_embarque">
+      <soap12:operation soapAction="http://tempuri.org/confirmar_embarque" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_arribo">
+      <soap12:operation soapAction="http://tempuri.org/confirmar_arribo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetStatusDUA">
+      <soap12:operation soapAction="http://tempuri.org/SetStatusDUA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OTRODUA">
+      <soap12:operation soapAction="http://tempuri.org/OTRODUA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <soap12:operation soapAction="http://tempuri.org/test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_recepcion">
+      <soap12:operation soapAction="http://tempuri.org/confirmar_recepcion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmar_despacho">
+      <soap12:operation soapAction="http://tempuri.org/confirmar_despacho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="iGetContenedores">
+      <soap12:operation soapAction="http://tempuri.org/iGetContenedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresaCamionParqueo">
+      <soap12:operation soapAction="http://tempuri.org/IngresaCamionParqueo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Ingreso_Camion">
+      <soap12:operation soapAction="http://tempuri.org/Confirmar_Ingreso_Camion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Desenganche">
+      <soap12:operation soapAction="http://tempuri.org/Confirmar_Desenganche" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Salida_Camio">
+      <soap12:operation soapAction="http://tempuri.org/Confirmar_Salida_Camio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Parqueo_Camion">
+      <soap12:operation soapAction="http://tempuri.org/Confirmar_Parqueo_Camion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_SalidaParqueo_Camion">
+      <soap12:operation soapAction="http://tempuri.org/Confirmar_SalidaParqueo_Camion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualiza_Licencia_Parqueo">
+      <soap12:operation soapAction="http://tempuri.org/Actualiza_Licencia_Parqueo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ws_Contenedor">
+    <wsdl:port name="Ws_ContenedorSoap" binding="tns:Ws_ContenedorSoap">
+      <soap:address location="http://10.75.1.37:8082/Ws_Contenedor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Ws_ContenedorSoap12" binding="tns:Ws_ContenedorSoap12">
+      <soap12:address location="http://10.75.1.37:8082/Ws_Contenedor.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

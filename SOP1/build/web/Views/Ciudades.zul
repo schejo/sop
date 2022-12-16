@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns:n="native" >
+    
+    <div class="col col-lg-12 col-md-12 col-sm-12" apply="ctrl.CiudadesCtrl" style="border: none; margin-top:50px;">
+        
+        <n:div class="form-control col-lg-12" style="border: none;  height: 100%;" >
+            <n:div class="col-lg-2" style="border: none; height: 90%; " ></n:div>
+            <n:div class="col-lg-8 col-md-9 d-flex justify-content-center" style="border: none; height: 90%; " >
+                <n:h1>NUEVA REGION</n:h1>
+                
+                <!-- FILA #01 -->
+                <n:div class="form-group col-lg-10 col-md-12 text-center dvfl" style="border: 3px solid;">
+                    <n:div class="form-group col-lg-3"></n:div>
+                    <n:div class="form-group col-lg-3 col-md-2 dvlb" style="">
+                        <label class="txtlbs" value="Numero Ciudad" style=""/>
+                        <textbox id="numCiu" value=""  cols="20" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:blue;"/>
+                    </n:div>
+                
+                    <n:div class="form-group col-lg-3 col-md-2 dvlb" style="border: none;">
+                        <label class="txtlbs" value="Nombre Ciudad" />
+                        <textbox id="nomCiu" value="" cols="20" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:blue;"/>
+                    </n:div>
+                    
+                </n:div>
+                
+                 <n:div class="form-group col-lg-10 col-md-12 text-center dvfl" style="border: 3px solid;">
+                <n:div class="form-group col-lg-12 col-md-12 text-left dvfl" style="">
+                <listbox id="lb2" model="${allCiudades}" fixedLayout="true" height="300px" sizedByContent="true" span="true"  
+                        style="border:none; background-color: transparent;" >
+                    <auxhead >
+                        <auxheader colspan="2" label="Listado de Ciudades" style="text-align: center;" ></auxheader>
+                    </auxhead>
+                    <listhead menupopup="auto" >
+                        
+                        <listheader label="CODIGO" width="150px;"  />
+                        <listheader label="NOMBRE CIUDAD" width="180px;"  />
+                        
+                    </listhead>
+                    <template name="model">
+                        <listitem  >
+                            <listcell label="${each.numero}" style="" />
+                            <listcell label="${each.nombre}" style="" />
+                        </listitem>
+                    </template>
+                </listbox>
+                </n:div>
+                </n:div>
+                
+                
+                <!-- FILA #02 -->
+                <div class="form-group col-lg-12 col-md-12 text-center" style="border: none; margin-top:0px; margin-bottom:10px;">
+                    <button id="btnActualiza" label="Modificar" image="bootstrap/img/buscar.png" orient="vertical" height="50px" width="75px"/>
+                    <button id="btnGuardar" label="Guardar" image="bootstrap/img/salvar2.png" orient="vertical" height="50px" width="75px"/>
+                    <button id="btnDelete" label="Eliminar" image="bootstrap/img/borrar.png" orient="vertical" height="50px" width="75px"/>
+                    <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="50px" width="75px"/>
+                </div>
+            </n:div>
+        </n:div>
+    </div>
+</zk>
+

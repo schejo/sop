@@ -1,0 +1,118 @@
+<?page title="Sistema de Operaciones"?>
+<?link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"?>
+<?link rel="icon" href="img/marex.png" type="image/png"?>
+<?link href="style.css" rel="stylesheet" type="text/css"?>
+
+
+<zk xmlns:n="native">
+    <div apply="ctrl.CambioClave" sclass="col-md-12 col-sm-12">   
+        <div sclass="col-md-12 col-sm-12 navbar" style="background-color: #0070C5;">
+            <!-- Brand Logo -->
+            <n:br/>
+            
+            <vlayout>
+                <image sclass="img-responsive" src="bootstrap/img/epq.png" />
+              
+                <hlayout>    
+                    <label value="" id = "lbUser" width="100%" height="25px"  style="color:white;font-size: 1.8vw;"   /> 
+                    <button iconSclass="z-icon-power-off" id = "itemSalir" width="100%" height="25px"  /> 
+                </hlayout> 
+            </vlayout>
+            <n:br/>
+            
+        </div>       
+  
+        <div   sclass="col-md-12 col-sm-12">
+
+            <div sclass="col-md-12 col-sm-12 page-header text-center">       
+                <label id="lbInicio" value="" style="font-size:30px; font-weight: bold;"/>
+            </div>
+            <div>
+                <groupbox
+                    style="margin: 0 auto; border-radius: 5px; box-shadow: 1px 1px 1px"
+                    closable="false" width="90%;" mold="3d">
+                
+                    <div sclass="row" >
+                        <div sclass="col-md-12">
+            
+                            <n:br/>
+                            <div sclass="row" >
+                                <div sclass="col-sm-1 col-md-3"/>
+                                <div sclass="col-sm-10 col-md-6">
+                                    <label value="USUARIO " style="font-weight: bold; font-size: 24px; color: black "  />
+                                    <textbox   id="txtUsuario" style=" font-size: 24px; color: black "  readonly = "true"  width="100%" value=""    maxlength="900"/>
+                     
+                                </div>
+                                <div sclass="col-sm-1 col-md-3"/>
+                            </div>
+          
+                            <n:br/>
+                            <div sclass="row" >
+                        
+                                <div sclass="col-sm-1 col-md-3"/>
+                                <div sclass="col-sm-10 col-md-6">
+                                    <label value="CLAVE " style="font-weight: bold; font-size:24px; color: black "  />
+                                    <textbox   id="txtClave" style=" font-size: 24px; color: black " type="password"  value="" maxlength="1800" width="100%"/>
+                   
+                                </div>
+                                <div sclass="col-sm-1 col-md-3"/>
+                            </div>
+                    
+                            <n:br/>
+                            <div sclass="row" >
+                        
+                                <div sclass="col-sm-1 col-md-3"/>
+                                <div sclass="col-sm-10 col-md-6">
+                                    <label value="CONFIRMACION " style="font-weight: bold; font-size:24px; color: black "  />
+                                    <textbox   id="txtClave2" style=" font-size: 24px; color: black " type="password"  value="" maxlength="1800" width="100%"/>
+                   
+                                </div>
+                                <div sclass="col-sm-1 col-md-3"/>
+                            </div>
+                            <n:br/>
+                            <div sclass="row" >
+                        
+                                <div sclass="col-sm-1 col-md-3"/>
+                                <div sclass="col-sm-10 col-md-6">
+                                    <label id="lbPalabra" value="PALABRA SECRETA" style="font-weight: bold; font-size:24px; color: black "  />
+                                    <textbox   id="txtPalabra" style=" font-size: 24px; color: black "   value="" maxlength="1800" width="100%"/>
+                   
+                                </div>
+                                <div sclass="col-sm-1 col-md-3"/>
+                            </div>
+                            <n:br/>
+                            <div sclass="row" >
+                                <div sclass="col-sm-3 col-md-3"/>
+                                <div sclass="col-sm-2 col-md-3">
+                                    <button label="Guardar"  width="100%"    id="btnGuardar" sclass="btn btn-primary btn-md active" />
+                                </div>
+                                <div sclass="col-sm-3 col-md-3">
+                                    <button label="Cancelar" width="100%"    id="btnCancelar" sclass="btn btn-primary btn-md active" />
+                                </div>
+                                <div sclass="col-sm-1 col-md-3"/>
+                         
+                            </div>
+                    
+                            <n:br/>
+          
+                        </div> 
+                    </div>
+  
+                </groupbox>    
+
+            </div>
+            <div sclass="col-md-12 col-sm-12 row">
+                <n:br/>
+                <n:br/>
+                <n:br/>
+                <n:br/>
+                <n:br/>
+            </div>
+
+            <div sclass="col-md-12 col-sm-12  text-center py-12" >
+                © 2022  S.A. Todos los Derechos Reservados
+            </div>
+
+        </div>
+    </div>
+</zk>

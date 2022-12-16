@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns:n="native" >
+    <style>
+        .z-comboitem{
+        height: 35px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 15px;
+        }
+        
+        .z-combobox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-combobox-input{
+        height:35px;
+        }
+        
+        .z-bandbox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-bandbox-input {
+        height:35px;
+        width:200px;
+        }
+        
+        .z-datebox-input{
+        height:35px;
+        font-size: 15px;
+        }
+        
+        .z-datebox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-timebox-input{
+        height:35px;
+        font-size: 15px;
+        }
+        
+        .z-timebox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-listbox-header {
+        background: lightgray;
+        }
+        
+        .z-auxhead {
+        /*padding: 8px;*/
+        /*color:#FFF;	*/
+        color:black;
+        white-space: pre-wrap;
+        /*background: rgb(135, 206, 250,.7);*/
+        border-top-left-radius: 20px;
+        }
+        
+        .z-listheader-content{
+        color: black !important;
+        text-align: center;
+        /*background: rgb(135, 206, 250,.4);*/
+        background: aliceblue;
+        }
+        
+        .mycss-listcell{
+        font-weight: bold; font-size: 15px;
+        color:black;
+        background: rgb(128, 128, 128,0.1);
+        text-align: left;
+        cursor: pointer;
+        height:40px;
+        border-bottom: 1px solid black;
+        }
+        
+        .mycss-listcel2{
+        height: 30px;
+        margin-top: 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        font-weight: bold; font-size: 15px;
+        color:black;
+        height:30px;
+        text-align: center;
+        cursor:pointer;
+        /*background: rgb(128, 128, 128,0.2);*/
+        background: aliceblue;
+        border-bottom: 1px solid black;
+        }
+        
+        .mycss-listcell:hover{
+        font-weight: bold; font-size: 15px;
+        color:black;
+        height:30px;
+        text-align: center;
+        cursor:pointer;
+        background: rgb(128, 128, 128,0.9);}
+        
+    </style>
+    
+    <div class="col-lg-12 col-md-12 col-sm-12" apply="ctrl.MantenimientoBuquesCtrl"  style="border: none; margin-top:50px;">
+        
+        <n:h1>MANTENIMIENTO DE BUQUES</n:h1>
+        <n:div class="container " >
+            <n:div class="myform">
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                        <label class="mylabel" value="BUQUE" style="color:red;"/>
+                        <doublebox class="form-control" id="buque"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                         
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                        <label class="mylabel" value="IMO" style=""/>
+                        <textbox class="form-control" id="imo" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    
+                </n:div>
+                
+                <n:div class="row ">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    <n:div class="form-group col-lg-10 col-md-5 mydiv1">
+                        <label class="mylabel" value="NOMBRE" style="color:red;"/>
+                        <textbox class="form-control" id="nombre" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:5px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+               
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-2 col-md-5 mydiv1">
+                        <label class="mylabel" value="TIPO" style="color:red;"/>
+                        <textbox class="form-control" id="tipobuque" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-7 col-md-4 mydiv1">
+                        <label class="mylabel" value="NOMBRE BUQUE" style="color:red;"/>
+                        <textbox class="form-control" id="nomBuque" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                                        
+                </n:div>
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-2 col-md-5 mydiv1">
+                        <label class="mylabel" value="BANDERA" style=""/>
+                        <textbox class="form-control" id="bandera" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-8 col-md-5 mydiv1">
+                        <label class="mylabel" value="PAIS" style=""/>
+                        <textbox class="form-control" id="nomBandera" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    
+                </n:div>
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                        <label class="mylabel" value="AÑO CONSTRUCCION" style=""/>
+                        <textbox class="form-control" id="anoConstruc" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                        <label class="mylabel" value="ULTIMO ARRIBO" style=""/>
+                        <datebox id="ultimoArrib" cols="11"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    </n:div>
+                   
+                </n:div>
+                <n:div class="row ">
+                    
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="TRB" style=""/>
+                        <textbox class="form-control" id="trb" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="TRN" style=""/>
+                        <textbox class="form-control" id="trn" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                     
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="PESO MUERTO" style=""/>
+                        <textbox class="form-control" id="pesoMuerto" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                
+                <n:div class="row ">
+                    
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="ESLORA" style=""/>
+                        <textbox class="form-control" id="eslora" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="MANGA" style=""/>
+                        <textbox class="form-control" id="manga" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                     
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="CALADO MAXIMO" style=""/>
+                        <textbox class="form-control" id="caladoMax" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                <n:div class="row ">
+                    
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="CANT BODEGAS" style=""/>
+                        <textbox class="form-control" id="cantBodega" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="CANT GRUAS" style=""/>
+                        <textbox class="form-control" id="cantGrua" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                     
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
+                        <label class="mylabel" value="CANT PLUMAS" style=""/>
+                        <textbox class="form-control" id="cantPluma" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                
+                        
+                <!--
+                aqui termina
+                -->
+                
+                
+               
+                <!--
+                aqui va el otro
+                -->
+                <n:div class="row ">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    <n:div class="form-group col-lg-10 col-md-5 mydiv1">
+                        <label class="mylabel" value="CAPACIDAD GRÚAS" style=""/>
+                        <textbox class="form-control" id="capacidadGru" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                
+                <n:div class="row ">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    <n:div class="form-group col-lg-10 col-md-5 mydiv1">
+                        <label class="mylabel" value="OBSERVACIONES" style=""/>
+                        <textbox class="form-control" id="observaciones" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                        <label class="mylabel" value="LR" style=""/>
+                        <textbox class="form-control" id="lr" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                        <label class="mylabel" value="CALL SIGN" style=""/>
+                        <textbox class="form-control" id="callsign" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    
+                </n:div>
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                        <label class="mylabel" value="ULTIMA ACTUALIZACION" style="color:red;"/>
+                        <textbox class="form-control" id="ultimaActu" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                </n:div>
+                 
+            
+                <!--Botones-->
+                
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="border: none; margin-top:30px; margin-bottom:10px;">
+                    <button id="btnGuardar" label="Guardar" image="bootstrap/img/salvar2.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
+                    <button id="btnNuevo" label="Limpiar" image="bootstrap/img/registro.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
+                    <button id="btnModificar" label="Modificar" image="bootstrap/img/add.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
+                    <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
+                </div>
+                
+            </n:div>
+        </n:div>        
+    </div>
+</zk>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns:n="native" >
+    
+    <style>
+        .z-loading { top: 50% !important; left: 45% !important; align:
+        center; vertical-align: middle; 
+        border: 10px;
+        border-top: 10px;
+        border-color: red red transparent;
+        border-style: solid;
+        border-radius: 50%;
+        background-color: transparent;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        }
+        
+        .z-loading-indicator {
+        border: 0px;
+        display:none;
+        }
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        .z-combobox-button{
+        height:50px;
+        width:50px;
+        }
+        .z-combobox-input{
+        height:50px;
+        }
+        
+    </style>
+    
+    <div class="col col-lg-12 col-md-12 col-sm-12" apply="ctrl.NavierasCtrl" style="border: none; margin-top:50px;">
+        
+        <n:div class="form-control col-lg-12" style="border: none;  height: 100%;" >
+            <n:div class="col-lg-2" style="border: none; height: 90%; " ></n:div>
+            <n:div class="col-lg-8 col-md-9 d-flex justify-content-center" style="border: none; height: 90%; " >
+
+                <auxhead >
+                    <auxheader colspan="2" label="NUEVA NAVIERA" style="text-align: center;font-size: 30px; color: blue;" ></auxheader>
+                </auxhead>
+                
+                <!-- FILA #01 -->
+                <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="border: 3px solid;">
+                    
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Agencia" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" maxlength = "3" rows="2" id="numNav" value="" cols="5" placeholder="RRR" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Nombre" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="2" id="nomNav" value="" cols="5"  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="GLN" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="2" id="glnNav" value="" cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                    </n:div>
+                      
+                    <!-- FILA #02 -->
+                                        
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Representa" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="2" id="repNav" value="" cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Email" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="2" id="emaNav" value="" cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                        
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Contacto" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="2" id="conNav" value="" cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                    </n:div>
+                    
+              
+                    <!-- FILA #03 -->
+                    
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                        
+                    
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Telefono Contacto" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control"  rows="2" id="telNav" value="" cols="5" placeholder="12345678" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>
+                        </n:div>
+                        
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Agente" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="2" id="ageNav" value="" cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                        
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Tel. Agente" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="2" id="te2Nav" value="" cols="5" placeholder="12345678" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>
+                        </n:div>
+                    
+                    </n:div>
+                    
+                    <!-- FILA #04 -->
+                    
+                    
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                                                            
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Fecha Ingreso" style="color:blue; font-size: 20px;"/>
+                            <datebox id="ingNav" cols="15"   format="dd/MM/yyyy kk:mm" locale="gt" style="font-weight: bold; font-size: 20px; margin-left:0px; heigh:20px; color:black;"/>
+                        </n:div>
+                        
+                    </n:div>
+                    
+                    <!--  fin de  campos de la tabla-->
+                  
+                    <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="border: 3px solid;">
+                        
+                        <n:div class="form-group col-lg-12 col-md-12 text-left dvfl" style="">
+                    
+                            <listbox id="lb2" model="${allNavieras}" fixedLayout="true" height="300px" sizedByContent="true" span="true"  
+                                     style="border:none; background-color: transparent;" >
+                                
+                                <auxhead >
+                                    <auxheader colspan="2" label="Listado de Navieras" style="text-align: center;font-size: 30px; color: blue;" ></auxheader>
+                                </auxhead>
+                                
+                                <listhead menupopup="auto" >
+                        
+                                    <listheader label="AGENCIA" width="100px;" style="color: blue;"/>
+                                    <listheader label="NAVIERA" width="200px;" style="color: blue;"/>
+                                    <listheader label="GLN" width="150px;" style="color: blue;"/>
+                                    <listheader label="REPRESENTANTE" width="200px;" style="color: blue;"/>
+                                    <listheader label="EMAIL" width="200px;" style="color: blue;"/>
+                                    <!--Aqui le agregue otros campos para llegar a 10-->
+                                    <listheader label="CONTACTO" width="200px;" style="color: blue;"/>
+                                    <listheader label="TEL CONTACTO" width="200px;" style="color: blue;"/>
+                                    <listheader label="AGENTE" width="200px;" style="color: blue;"/>
+                                    <listheader label="TEL AGENTE" width="200px;" style="color: blue;"/>
+                                    <listheader label="INGRESO" width="200px;" style="color: blue;"/>
+                                    
+                                </listhead>
+                                
+                                <template name="model">
+                                    <listitem  >
+                                        <listcell label="${each.naviera1}" style="" />
+                                        <listcell label="${each.nom_naviera}" style="" />
+                                        <listcell label="${each.gln_nav}" style="" />
+                                        <listcell label="${each.representa}" style=""/>
+                                        <listcell label="${each.email}" style=""/>
+                                        <!--Aqui le agregue otros campos para llegar a 10-->
+                                        <listcell label="${each.contacto}" style=""/>
+                                        <listcell label="${each.tel_contacto}" style=""/>
+                                        <listcell label="${each.agente}" style=""/>
+                                        <listcell label="${each.tel_agente}" style=""/>
+                                        <listcell label="${each.ingreso}" style=""/>
+                                    </listitem>
+                                </template>
+                                
+                            </listbox>
+                        </n:div>
+                    </n:div>
+                
+                    <!--Botones-->
+                    <div class="form-group col-lg-12 col-md-12 text-center" style="border: none; margin-top:0px; margin-bottom:10px;">
+                        <button id="btnNuevo" label="Nuevo" image="bootstrap/img/registro.png" orient="vertical" height="80px" width="100px"/> 
+                        <button id="btnGuardar" label="Guardar" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
+                        <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="80px" width="100px"/>
+                    </div>
+                </n:div>
+            </n:div>
+        </n:div>
+    </div>
+</zk>
+

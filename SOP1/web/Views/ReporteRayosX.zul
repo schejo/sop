@@ -1,0 +1,86 @@
+<zk xmlns:n="native">
+    <style>
+        @font-face {
+        font-family: "Satisfy02";
+        src: url("font/Satisfy-Regular.ttf") format('truetype');
+        }
+        .ltitle2 {
+        font-family: "Satisfy02";
+        word-wrap: break-word; 
+        /*font-weight: bold; */
+        font-size: 25px; 
+        color: black; 
+        margin-left:1px; 
+        padding-left:0px;
+        }
+        
+        .z-datebox-input{
+        font-size: 25px;
+        height: 48px;
+        }
+        .z-datebox-button{
+        font-size: 25px;
+        height: 48px;
+        width:35px;
+        text-align: center;
+        padding-top: 15px;
+        }
+    </style>
+    <div>
+        <n:br/>
+        <n:br/>
+        <n:br/>
+        <n:br/>
+    </div>
+    <div class="col col-md-12 col-sm-12" apply="ctrl.ReporteRayosXCtrl" >
+        <div class="col col-md-12 col-sm-12 text-center"> 
+            <div class="col col-md-12 col-xs-12">
+                <label value="REPORTE DE CONTENEDORES POR TIPO DE OPERACION" style="font-size:25px;font-weight:bold;color:blue;" />
+            </div>
+            <n:br/>
+            <n:br/>
+            <n:br/>
+            
+            <div sclass="col-md-12 col-sm-12 text-center" > 
+               
+                <label value="Año de Arribo" style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <combobox id="anio" style="margin: 0px 0px 0px 0px;">
+                    <comboitem label = "2020" value = "2020" />
+                    <comboitem label = "2021" value = "2021" /> 
+                    <comboitem label = "2022" value = "2022" />
+                </combobox>
+                
+                <label class="txtlbs" value="Numero Arribo" style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <textbox id="arribo" value=""  cols="20" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                
+                <label class="txtlbs" value="Naviera" style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <textbox id="naviera" value=""  cols="20" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                
+                <label value="Operacion" style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <combobox id="act" style="margin: 0px 0px 0px 0px;">
+                    <comboitem label = "I" value = "I" />
+                    <comboitem label = "E" value = "E" /> 
+                </combobox>
+                <!--
+                <label value="Actividad" style="color: black; font-weight: bold; font-size: 20px;"/>
+                <combobox id="actividad" style="margin: 0px 0px 0px 0px;">
+                    <comboitem label = "IMPORTACION" value = "I" />
+                    <comboitem label = "EXPORTACION" value = "E" />
+                    <comboitem label = "AMBOS" value = "" />
+                </combobox>
+                -->
+                
+            </div> 
+            
+            <n:br/>
+            <n:br/>
+            <n:br/>
+            
+            <div class="col col-md-12 col-xs-12">
+                
+                <button sclass="btn btn-danger" id="btnDescargar" label="Descarga Reporte PDF" iconSclass="z-icon-download" />    
+                
+            </div>
+        </div>
+    </div>
+</zk>

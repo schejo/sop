@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns:n="native" >
+    
+    <div class="col col-lg-12 col-md-12 col-sm-12" apply="ctrl.ActividadesBuqueCtrl" style="border: none; margin-top:50px;">
+        
+        <n:div class="form-control col-lg-12" style="border: none;  height: 100%;" >
+            
+            <n:div class="col-lg-2" style="border: none; height: 90%; " ></n:div>
+            <n:div class="col-lg-8 col-md-9 d-flex justify-content-center" style="border: none; height: 90%; " >
+
+                
+                <auxhead >
+                    <auxheader colspan="2" label="ACTIVIDADES BUQUE" style="text-align: center;font-size: 30px; color: blue;" ></auxheader>
+                </auxhead>
+                
+                <!--CAMPOS EN LA PANTALLA DE LA BASE DE DATOS-->
+                <!-- FILA #01 -->
+                <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="border: 3px solid;">
+              
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                        <n:div class="form-group col-lg-2 col-md-2 mydiv1">
+                            <label class="txtlbs" value="No. Actividad" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="1"  id="numAct" value="" cols="5" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                        <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                            <label class="txtlbs" value="Nombre Actividad" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="1" id="nomAct" value="" cols="5" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                        <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                            <label class="txtlbs" value="Duracion" style="color:blue; font-size: 20px;"/>
+                            <textbox class="form-control" rows="1" id="durAct" value="" cols="5" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                    </n:div>
+                
+                    
+                    <!-- FILA #02 -->
+                    
+                    <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
+                        
+                        <n:div class="form-group col-lg-4 col-md-2 dvlb" style="border: none;">
+                            <label class="txtlbs" value="Acti. Calculo" style="color:blue; font-size: 20px;"/>
+                            <textbox id="nucAct" value=""  cols="4" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:20px; color:black;"/>
+                        </n:div>
+                      
+                        <n:div class="form-group col-lg-3 col-md-2 dvlb" style="">
+                            <label class="txtlbs" value="Atracadero" style="color:blue; font-size: 20px;"/>
+                            <combobox width="70px" cols="20" id="lleAct" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:20px; color:black;">
+                                <comboitem label="SI" value="S"/>
+                                <comboitem label="NO" value="N"/>
+                            </combobox> 
+                        </n:div>
+                       
+                        <n:div class="form-group col-lg-3 col-md-2 dvlb" style="">
+                            <label class="txtlbs" value="Practico" style="color:blue; font-size: 20px;"/>
+                            <combobox width="70px" cols="20" id="praAct" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:20px; color:black;">
+                                <comboitem label="SI" value="S"/>
+                                <comboitem label="NO" value="N"/>
+                            </combobox> 
+                        </n:div>
+                       
+                    </n:div>
+                    
+                    <!-- FILA #03 -->
+                    
+                    <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
+                      
+                        <n:div class="form-group col-lg-6 col-md-2 dvlb" style="">
+                            <label class="txtlbs" value="Remolcador" style="color:blue; font-size: 20px;"/>
+                            <combobox width="70px" cols="20" id="remAct" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:20px; color:black;">
+                                <comboitem label="SI" value="S"/>
+                                <comboitem label="NO" value="N"/>
+                            </combobox> 
+                        </n:div>
+
+                        <n:div class="form-group col-lg-3 col-md-2 dvlb" style="">
+                            <label class="txtlbs" value="Calado" style="color:blue; font-size: 20px;"/>
+                            <combobox width="70px" cols="5" id="calAct" style="font-weight: bold; font-size: 18px; margin-left:0px; heigh:20px; color:black;">
+                                <comboitem label="SI" value="S"/>
+                                <comboitem label="NO" value="N"/>
+                            </combobox> 
+                        </n:div> 
+                                                                                               
+                    </n:div>
+                    
+                    <!--PANTELLA DONDE APARECE EL LISTADO Y COLUMNAS DE INFORMACION-->
+                    
+                    <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="border: 3px solid;">
+                        <n:div class="form-group col-lg-12 col-md-12 text-left dvfl" style="">
+                    
+                            <listbox id="lb2" model="${allActividadesBuque}" fixedLayout="true" height="300px" sizedByContent="true" span="true"  
+                                     style="border:none; background-color: transparent;" >
+                                <auxhead >
+                                    <auxheader colspan="3" label="Listado de Actividades Buque" style="text-align: center;font-size: 30px; color:blue;" ></auxheader>
+                                </auxhead>
+                                <listhead menupopup="auto" >
+                        
+                                    <!--los campos que necesito-->
+                                    <listheader label="CODIGO ACTIVIDAD" width="120px;" style="color:blue;" />
+                                    <listheader label="NOMBRE ACTIVIDAD" width="200px;" style="color:blue;" />
+                                    <listheader label="NOMBRE DURACION" width="200px;"  style="color:blue;" />
+                                    <!--añadi campos para poder llamarlos de la lista a cada caja texto-->
+                                    <listheader label="CALCULO" width="200px;"  style="color:blue;" />
+                                    <listheader label="ATRACADERO" width="200px;"  style="color:blue;" />
+                                    <listheader label="PRACTICO" width="200px;"  style="color:blue;" />
+                                    <listheader label="REMOLCADOR" width="200px;"  style="color:blue;" />
+                                    <listheader label="CALADO" width="200px;"  style="color:blue;" />
+                                </listhead>
+                                <template name="model">
+                                    <listitem  >
+                                        <listcell label="${each.num_actividad1}" style="" />
+                                        <listcell label="${each.nom_actividad}" style="" />
+                                        <listcell label="${each.nombre_duracion}" style="" />
+                                        <!--añadi campos para poder llamarlos de la lista a cada caja texto-->
+                                        <listcell label="${each.num_activ_calculo}" style="" />
+                                        <listcell label="${each.lleva_atracadero}" style="" />
+                                        <listcell label="${each.lleva_practico}" style="" />
+                                        <listcell label="${each.lleva_remolcador}" style="" />
+                                        <listcell label="${each.lleva_calado}" style="" />
+                                    </listitem>
+                                </template>
+                            </listbox>
+                            
+                        </n:div>
+                    </n:div>
+                
+                    <!--Botones-->
+                    <div class="form-group col-lg-12 col-md-12 text-center" style="border: none; margin-top:0px; margin-bottom:10px;">
+                        <button id="btnNuevo" label="Nuevo" image="bootstrap/img/registro.png" orient="vertical" height="80px" width="100px"/> 
+                        <button id="btnGuardar" label="Guardar" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
+                        <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="80px" width="100px"/>
+                    </div>
+                </n:div>
+            </n:div>
+        </n:div>
+    </div>
+</zk>

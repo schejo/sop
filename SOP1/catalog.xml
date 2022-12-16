@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://10.75.1.37:8070/Consultar_Camiones.asmx?wsdl" uri="src/conf/xml-resources/web-service-references/Consultar_Camiones/wsdl/10.75.1.37_8070/Consultar_Camiones.asmx.wsdl"/>
+    <system systemId="http://10.75.1.37:8070/Consultar_Contenedores.asmx?wsdl" uri="src/conf/xml-resources/web-service-references/Consultar_Contenedores/wsdl/10.75.1.37_8070/Consultar_Contenedores.asmx.wsdl"/>
+    <system systemId="http://10.75.1.37:8082/Ws_Contenedor.asmx?wsdl" uri="src/conf/xml-resources/web-service-references/Ws_Contenedor/wsdl/10.75.1.37_8082/Ws_Contenedor.asmx.wsdl"/>
+</catalog>

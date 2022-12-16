@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns:n="native">
+
+    <div class="col col-md-12 col-sm-12 text-center" style="margin-top:20px;">
+        <auxhead >
+            <auxheader colspan="2" label="SISTEMA DE OPERACIONES PORTUARIAS WEB" style="text-align: center;font-size: 30px; color: blue;" ></auxheader>
+        </auxhead>
+        <!--    <n:h1 >
+            <n:strong class="text-primary" >SISTEMA DE OPERACIONES WEB</n:strong>
+        </n:h1>-->
+    </div>
+    <image id="" src="bootstrap/img/Puerto-Quetzal.jpeg" width="65%"  height="500"/>
+
+</zk>
