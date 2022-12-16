@@ -5,16 +5,54 @@ import MD.RendimientosGranelesMd;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import org.zkoss.zk.ui.util.Clients;
 
 public class RendimientosGranelesDal {
 
-    private Connection conn = null;
-    private Conexion obtener = new Conexion();
+    private Connection conexion = null;
+    private Conexion cnn = new Conexion();
     PreparedStatement ps = null;
     Statement st = null;
     ResultSet rs = null;
     RendimientosGranelesMd cl = new RendimientosGranelesMd();
+    
+    
+       public List<RendimientosGranelesMd> tipoactRSelect() throws SQLException {
+        List<RendimientosGranelesMd> alltipoact = new ArrayList<RendimientosGranelesMd>();
+        String query = "SELECT codigo_prod ,nvl(nom_prod,'s/d') FROM epqop.if_bq_plan_tprod";
+//                + "select trim(num_actividad1),"
+//                + "trim(nom_actividad) "
+//                + " from epqop.if_bq_activ_buque order by num_actividad1 asc ";
+        try {
+            conexion = cnn.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            RendimientosGranelesMd rg;
+            while (rs.next()) {
+                rg = new RendimientosGranelesMd();
+                rg.setNumAct(rs.getString(1));
+                rg.setNombreAct(rs.getString(2));
+                alltipoact.add(rg);
+            }
+
+            st.close();
+            rs.close();
+            conexion.close();
+            conexion = null;
+        } catch (SQLException e) {
+            st.close();
+            rs.close();
+            conexion.close();
+            conexion = null;
+            Clients.showNotification("ERROR AL CONSULTAR  (Rselect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+                    "warning", null, "middle_center", 0);
+        }
+        return alltipoact;
+    }
 
     public RendimientosGranelesMd Rendimientos(String anio, String num) {
         Statement st = null;
@@ -51,9 +89,9 @@ public class RendimientosGranelesDal {
                 + "AND       b.num_arribo = " + num + " ";
 
         try {
-            conn = obtener.Conexion();
+            conexion = cnn.Conexion();
 
-            st = conn.createStatement();
+            st = conexion.createStatement();
             rs = st.executeQuery(query0);
             while (rs.next()) {
                 resp = 1;
@@ -80,8 +118,8 @@ public class RendimientosGranelesDal {
                 cl.setMsg("NUMERO DE ARRIBO O BUQUE <br/>  <br/> NO EXISTE ");
 
             }
-            conn.close();
-            obtener.desconectar();
+            conexion.close();
+            cnn.desconectar();
 
         } catch (Exception e) {
             System.out.println("ERROR CATCH.: " + e.getMessage());
