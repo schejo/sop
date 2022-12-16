@@ -4,12 +4,18 @@ import DAL.RendimientosGranelesDal;
 import MD.RendimientosGranelesMd;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Combobox;
+import org.zkoss.zul.Doublebox;
 import org.zkoss.zul.Include;
+import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Timebox;
 
 public class RendimientosGranelesCtrl extends GenericForwardComposer {
 
@@ -18,13 +24,27 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Textbox nomBuque;
     private Textbox naviera;
     private Textbox estibadora;
-    private Textbox muelle;
+    private Doublebox muelle;
     private Textbox fech_atraque;
-    private Textbox gruas;
+
+    private Doublebox gruas;
+    private Combobox producto;
+    private Doublebox directa;
+    private Doublebox tmplanificadas;
+    private Doublebox terpac;
+    private Doublebox tmdespachadas;
+    private Doublebox otros;
+    private Timebox caladoMax;
+
+    private Textbox fech_zarpe;
+    
+
     String lb;
 
+    List<RendimientosGranelesMd> alltipoact = new ArrayList<RendimientosGranelesMd>();
     RendimientosGranelesMd manteniMD1 = new RendimientosGranelesMd();
     RendimientosGranelesDal ManbuDal = new RendimientosGranelesDal();
+    RendimientosGranelesDal rg = new RendimientosGranelesDal();
 
     // private Listbox lb2;
     private Include rootPagina;
@@ -32,6 +52,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
+        alltipoact = rg.tipoactRSelect();
+        producto.setModel(new ListModelList(alltipoact));
 
     }
 
@@ -48,7 +70,11 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             estibadora.setText(manteniMD1.getEstibadora());
             muelle.setText(manteniMD1.getMuelle());
             fech_atraque.setText(manteniMD1.getFecha_atraque());
-            
+
+
+
+            fech_zarpe.setText(manteniMD1.getFecha_zarpe());
+
             gruas.setText(manteniMD1.getGruas_buque());
 
         } else {
@@ -69,8 +95,9 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         estibadora.setText("");
         muelle.setText("");
         fech_atraque.setText("");
+        fech_zarpe.setText("");
         gruas.setText("");
-        
+
         anio_arribo.focus();
 
     }
