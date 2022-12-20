@@ -263,7 +263,7 @@
                     <n:div class="form-group col-lg-3 col-md-5 mydiv1">
                         <label class="mylabel" value="HRS OPERACION" style="font-size: 15px;"/>
                         <!--  <textbox class="form-control" id="caladoMax" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:10px; color:black; text-transform:uppercase; "/>-->
-                        <timebox cols="12" format="HH:mm"  id="caladoMax"     width="100%"  />
+                        <timebox cols="12" format="HH:mm"  id="hrs_operacion"     width="100%"  />
                     </n:div>
                                                             
                 </n:div>
