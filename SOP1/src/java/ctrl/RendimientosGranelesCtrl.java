@@ -24,19 +24,24 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Textbox nomBuque;
     private Textbox naviera;
     private Textbox estibadora;
-    private Doublebox muelle;
+    private Textbox muelle;
     private Textbox fech_atraque;
-    private Doublebox gruas;
+    private Textbox hrs_plani;
+    private Textbox fech_zarpe;
+    private Doublebox terpac;
+    private Doublebox tmplanificadas;
     private Combobox producto;
     private Doublebox directa;
-    private Doublebox tmplanificadas;
-    private Doublebox terpac;
     private Doublebox tmdespachadas;
+    private Doublebox gruas;
     private Doublebox otros;
-    private Timebox caladoMax;
+    private Timebox hrs_operacion;
+    private Textbox gruasolg;
+    private Textbox rendibuque;
+
     String lb;
 
-    List<RendimientosGranelesMd> alltipoact = new ArrayList<RendimientosGranelesMd>();
+    List<RendimientosGranelesMd> tipoprod = new ArrayList<RendimientosGranelesMd>();
     RendimientosGranelesMd manteniMD1 = new RendimientosGranelesMd();
     RendimientosGranelesDal ManbuDal = new RendimientosGranelesDal();
     RendimientosGranelesDal rg = new RendimientosGranelesDal();
@@ -47,8 +52,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-        alltipoact = rg.tipoactRSelect();
-        producto.setModel(new ListModelList(alltipoact));
+        tipoprod = rg.tipoactRSelect();
+        producto.setModel(new ListModelList(tipoprod));
 
     }
 
@@ -65,8 +70,19 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             estibadora.setText(manteniMD1.getEstibadora());
             muelle.setText(manteniMD1.getMuelle());
             fech_atraque.setText(manteniMD1.getFecha_atraque());
-
+            hrs_plani.setText(manteniMD1.getHrs_plani());
+            fech_zarpe.setText(manteniMD1.getFecha_zarpe());
+            terpac.setText(manteniMD1.getTerpac());
+            tmplanificadas.setText(manteniMD1.getTmplanificadas());
+          //producto.setValue(manteniMD1.getTipo_producto());
+            BuscaItem(manteniMD1.getTipo_producto(), this.producto);
+            directa.setText(manteniMD1.getDir());
+            tmdespachadas.setText(manteniMD1.getTm_despachadas());
             gruas.setText(manteniMD1.getGruas_buque());
+            otros.setText(manteniMD1.getOtros());
+            hrs_operacion.setText(manteniMD1.getTotal_hrs_operacion());
+            gruasolg.setText(manteniMD1.getGruas_olg());
+            rendibuque.setText(manteniMD1.getRendi_hr_buque());
 
         } else {
             clear();
@@ -75,6 +91,14 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
                     Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
         }
 
+    }
+      public void BuscaItem(String letra, Combobox cb) {
+        for (int i = 0; i < cb.getItemCount(); i++) {
+            if (letra.equals(cb.getItemAtIndex(i).getLabel())) {
+                cb.setSelectedIndex(i);
+                break;
+            }
+        }
     }
 
     public void clear() {
@@ -86,8 +110,18 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         estibadora.setText("");
         muelle.setText("");
         fech_atraque.setText("");
+        hrs_plani.setText("");
+        fech_zarpe.setText("");
+        terpac.setText("");
+        tmplanificadas.setText("");
+        producto.setSelectedIndex(-1);
+        directa.setText("");
+        tmdespachadas.setText("");
         gruas.setText("");
-
+        otros.setText("");
+        hrs_operacion.setText("");
+        gruasolg.setText("");
+        rendibuque.setText("");
         anio_arribo.focus();
 
     }
