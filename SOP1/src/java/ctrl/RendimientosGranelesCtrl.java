@@ -41,7 +41,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
 
     String lb;
 
-    List<RendimientosGranelesMd> alltipoact = new ArrayList<RendimientosGranelesMd>();
+    List<RendimientosGranelesMd> tipoprod = new ArrayList<RendimientosGranelesMd>();
     RendimientosGranelesMd manteniMD1 = new RendimientosGranelesMd();
     RendimientosGranelesDal ManbuDal = new RendimientosGranelesDal();
     RendimientosGranelesDal rg = new RendimientosGranelesDal();
@@ -52,8 +52,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-        alltipoact = rg.tipoactRSelect();
-        producto.setModel(new ListModelList(alltipoact));
+        tipoprod = rg.tipoactRSelect();
+        producto.setModel(new ListModelList(tipoprod));
 
     }
 
@@ -74,7 +74,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             fech_zarpe.setText(manteniMD1.getFecha_zarpe());
             terpac.setText(manteniMD1.getTerpac());
             tmplanificadas.setText(manteniMD1.getTmplanificadas());
-            producto.setText(manteniMD1.getTipo_producto());
+           // producto.setText(manteniMD1.getTipo_producto());
+            producto.getSelectedItem().getValue().toString();
             directa.setText(manteniMD1.getTipo_producto());
             tmdespachadas.setText(manteniMD1.getTm_despachadas());
             gruas.setText(manteniMD1.getGruas_buque());

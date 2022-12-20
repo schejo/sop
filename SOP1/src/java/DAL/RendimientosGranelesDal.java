@@ -65,7 +65,7 @@ public class RendimientosGranelesDal {
                 + "        TO_CHAR(b.fecha_atraque,'DD/MM/YYYY')||' '||TO_CHAR(b.hora_atraque,'HH24:MI:SS')AS FECHA_ATRAQUE,\n"
                 + "        i.tiempo_est_opera, \n"
                 + "        TO_CHAR(b.fecha_zarpe,'DD/MM/YYYY')   || ' ' || TO_CHAR(b.hora_zarpe,'HH24:MI:SS') FECHA_ZARPE,\n"
-                + "        j.rsilos,--tm_planificadas producto directa tm_despachadas, \n"
+                + "        j.rsilos,  k.nom_prod,--tm_planificadas,directa tm_despachadas, \n"
                 + "        j.rcamion,a.cant_gruas, j.rotros, --otros total horas operacion\n"
                 + "         i.doc_cant_gruas--rendimiento hora buque\n"
                 + "FROM      epqop.if_bq_buques       a,    \n"
@@ -77,7 +77,8 @@ public class RendimientosGranelesDal {
                 + "          epqop.if_bq_lineas_arrib g,\n"
                 + "          epqop.if_bq_atracaderos  h,\n"
                 + "          epqop.if_bq_planifica_conte i,\n"
-                + "          epqop.if_bq_plan_cargagen j\n"
+                + "          epqop.if_bq_plan_cargagen j,\n"
+                + "          epqop.if_bq_plan_tprod    k \n"
                 + "WHERE     a.buque = b.buque     \n"
                 + "AND       a.bandera = c.pais    \n"
                 + "AND       b.estibadora = d.codigo_particular    \n"
@@ -90,6 +91,7 @@ public class RendimientosGranelesDal {
                 + "AND       b.num_arribo =   i.num_arribo \n"
                 + "AND       b.ano_arribo =   j.ano_arrribo     \n"
                 + "AND       b.num_arribo =   j.num_arribo \n"
+                + "AND       j.producto1  =   k.codigo_prod \n"
                 + "AND       d.tipo_particular = 'A'    \n"
                 + "AND       b.ano_arribo = " + anio + "\n"
                 + "AND       b.num_arribo = " + num + " ";
@@ -111,10 +113,11 @@ public class RendimientosGranelesDal {
                 cl.setHrs_plani(rs.getString(8));
                 cl.setFecha_zarpe(rs.getString(9));
                 cl.setTerpac(rs.getString(10));
-                cl.setTm_despachadas(rs.getString(11));
-                cl.setGruas_buque(rs.getString(12));
-                cl.setOtros(rs.getString(13));
-                cl.setGruas_olg(rs.getString(14));
+                cl.setTipo_producto(rs.getString(11));
+                cl.setTm_despachadas(rs.getString(12));
+                cl.setGruas_buque(rs.getString(13));
+                cl.setOtros(rs.getString(14));
+                cl.setGruas_olg(rs.getString(15));
                 
                 cl.setResp("1");
                 cl.setMsg("ACTUALIZAR DATOS.!");
