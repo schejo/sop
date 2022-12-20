@@ -74,9 +74,15 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             fech_zarpe.setText(manteniMD1.getFecha_zarpe());
             terpac.setText(manteniMD1.getTerpac());
             tmplanificadas.setText(manteniMD1.getTmplanificadas());
+<<<<<<< HEAD
            // producto.setText(manteniMD1.getTipo_producto());
             producto.getSelectedItem().getValue().toString();
             directa.setText(manteniMD1.getVia());
+=======
+          //producto.setValue(manteniMD1.getTipo_producto());
+            BuscaItem(manteniMD1.getTipo_producto(), this.producto);
+            directa.setText(manteniMD1.getDir());
+>>>>>>> a0a64be1d8a747ad13d9e2c6bc7642dae986dbc0
             tmdespachadas.setText(manteniMD1.getTm_despachadas());
             gruas.setText(manteniMD1.getGruas_buque());
             otros.setText(manteniMD1.getOtros());
@@ -92,6 +98,14 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         }
 
     }
+      public void BuscaItem(String letra, Combobox cb) {
+        for (int i = 0; i < cb.getItemCount(); i++) {
+            if (letra.equals(cb.getItemAtIndex(i).getLabel())) {
+                cb.setSelectedIndex(i);
+                break;
+            }
+        }
+    }
 
     public void clear() {
 
@@ -106,7 +120,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         fech_zarpe.setText("");
         terpac.setText("");
         tmplanificadas.setText("");
-        producto.setText("");
+        producto.setSelectedIndex(-1);
         directa.setText("");
         tmdespachadas.setText("");
         gruas.setText("");

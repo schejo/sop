@@ -32,7 +32,7 @@ public class RendimientosGranelesDal {
             while (rs.next()) {
                 rg = new RendimientosGranelesMd();
                 rg.setNumAct(rs.getString(1));
-                rg.setNombreAct(rs.getString(2));
+                rg.setNombreAct(rs.getString(2).trim());
                 alltipoact.add(rg);
             }
 
@@ -113,7 +113,7 @@ public class RendimientosGranelesDal {
                 cl.setHrs_plani(rs.getString(8));
                 cl.setFecha_zarpe(rs.getString(9));
                 cl.setTerpac(rs.getString(10));
-                cl.setTipo_producto(rs.getString(11));
+                cl.setTipo_producto(rs.getString(11).trim());
                 cl.setTm_despachadas(rs.getString(12));
                 cl.setGruas_buque(rs.getString(13));
                 cl.setOtros(rs.getString(14));
