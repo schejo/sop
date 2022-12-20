@@ -9,45 +9,27 @@ public class RendimientosGranelesMd {
     private String estibadora;
     private String muelle;
     private String fecha_atraque;
-    private String fecha_zarpe;
-    private String nombreAct;
-    private String numAct;
-    //hasta aca boy
-
     private String hrs_plani;
+    private String fecha_zarpe;
     private String terpac;
-    private String tm_plani;
+    private String tmplanificadas;
     private String tipo_producto;
     private String via;
     private String tm_despachadas;
     private String gruas_buque;
+    private String otros;
     private String total_hrs_operacion;
     private String gruas_olg;
     private String rendi_hr_buque;
+
+    //para el producto
+    private String nombreAct;
+    private String numAct;
 
     //mensajes del sistema
     private String resp;
     private String msg;
     private String dir;
-
-    public String getNombreAct() {
-        return nombreAct;
-    }
-
-    public void setNombreAct(String nombreAct) {
-        this.nombreAct = nombreAct;
-    }
-
-    public String getNumAct() {
-        return numAct;
-    }
-
-    public void setNumAct(String numAct) {
-        this.numAct = numAct;
-    }
-    
-    
-    
 
     public String getAnio() {
         return anio;
@@ -105,21 +87,20 @@ public class RendimientosGranelesMd {
         this.fecha_atraque = fecha_atraque;
     }
 
-    public String getFecha_zarpe() {
-        return fecha_zarpe;
-    }
-
-    public void setFecha_zarpe(String fecha_zarpe) {
-        this.fecha_zarpe = fecha_zarpe;
-    }
-    //aqui boy
-
     public String getHrs_plani() {
         return hrs_plani;
     }
 
     public void setHrs_plani(String hrs_plani) {
         this.hrs_plani = hrs_plani;
+    }
+
+    public String getFecha_zarpe() {
+        return fecha_zarpe;
+    }
+
+    public void setFecha_zarpe(String fecha_zarpe) {
+        this.fecha_zarpe = fecha_zarpe;
     }
 
     public String getTerpac() {
@@ -130,12 +111,12 @@ public class RendimientosGranelesMd {
         this.terpac = terpac;
     }
 
-    public String getTm_plani() {
-        return tm_plani;
+    public String getTmplanificadas() {
+        return tmplanificadas;
     }
 
-    public void setTm_plani(String tm_plani) {
-        this.tm_plani = tm_plani;
+    public void setTmplanificadas(String tmplanificadas) {
+        this.tmplanificadas = tmplanificadas;
     }
 
     public String getTipo_producto() {
@@ -170,6 +151,14 @@ public class RendimientosGranelesMd {
         this.gruas_buque = gruas_buque;
     }
 
+    public String getOtros() {
+        return otros;
+    }
+
+    public void setOtros(String otros) {
+        this.otros = otros;
+    }
+
     public String getTotal_hrs_operacion() {
         return total_hrs_operacion;
     }
@@ -192,6 +181,22 @@ public class RendimientosGranelesMd {
 
     public void setRendi_hr_buque(String rendi_hr_buque) {
         this.rendi_hr_buque = rendi_hr_buque;
+    }
+
+    public String getNombreAct() {
+        return nombreAct;
+    }
+
+    public void setNombreAct(String nombreAct) {
+        this.nombreAct = nombreAct;
+    }
+
+    public String getNumAct() {
+        return numAct;
+    }
+
+    public void setNumAct(String numAct) {
+        this.numAct = numAct;
     }
 
     public String getResp() {
