@@ -75,13 +75,18 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             terpac.setText(manteniMD1.getTerpac());
             tmplanificadas.setText(manteniMD1.getTmplanificadas());
 
+
             directa.setText(manteniMD1.getVia());
 
 
 
+    
+            
+
+
           //producto.setValue(manteniMD1.getTipo_producto());
             BuscaItem(manteniMD1.getTipo_producto(), this.producto);
-            directa.setText(manteniMD1.getDir());
+            
 
             tmdespachadas.setText(manteniMD1.getTm_despachadas());
             gruas.setText(manteniMD1.getGruas_buque());
