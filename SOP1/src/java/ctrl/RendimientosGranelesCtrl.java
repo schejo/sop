@@ -76,7 +76,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             tmplanificadas.setText(manteniMD1.getTmplanificadas());
            // producto.setText(manteniMD1.getTipo_producto());
             producto.getSelectedItem().getValue().toString();
-            directa.setText(manteniMD1.getTipo_producto());
+            directa.setText(manteniMD1.getVia());
             tmdespachadas.setText(manteniMD1.getTm_despachadas());
             gruas.setText(manteniMD1.getGruas_buque());
             otros.setText(manteniMD1.getOtros());
