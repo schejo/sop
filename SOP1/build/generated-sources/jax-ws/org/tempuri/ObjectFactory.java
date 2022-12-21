@@ -66,6 +66,73 @@ public class ObjectFactory {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Create an instance of {@link ObtenerDetalleContenedor }
+     * 
+     */
+    public ObtenerDetalleContenedor createObtenerDetalleContenedor() {
+        return new ObtenerDetalleContenedor();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerDetalleContenedorResponse }
+     * 
+     */
+    public ObtenerDetalleContenedorResponse createObtenerDetalleContenedorResponse() {
+        return new ObtenerDetalleContenedorResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerDocumentosContenedor }
+     * 
+     */
+    public ObtenerDocumentosContenedor createObtenerDocumentosContenedor() {
+        return new ObtenerDocumentosContenedor();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerDocumentosContenedorResponse }
+     * 
+     */
+    public ObtenerDocumentosContenedorResponse createObtenerDocumentosContenedorResponse() {
+        return new ObtenerDocumentosContenedorResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerOperacionCiclo }
+     * 
+     */
+    public ObtenerOperacionCiclo createObtenerOperacionCiclo() {
+        return new ObtenerOperacionCiclo();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerOperacionCicloResponse }
+     * 
+     */
+    public ObtenerOperacionCicloResponse createObtenerOperacionCicloResponse() {
+        return new ObtenerOperacionCicloResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerCabecerasContenedor }
+     * 
+     */
+    public ObtenerCabecerasContenedor createObtenerCabecerasContenedor() {
+        return new ObtenerCabecerasContenedor();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerCabecerasContenedorResponse }
+     * 
+     */
+    public ObtenerCabecerasContenedorResponse createObtenerCabecerasContenedorResponse() {
+        return new ObtenerCabecerasContenedorResponse();
+    }
+
+    /**
+>>>>>>> a0a64be1d8a747ad13d9e2c6bc7642dae986dbc0
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
      * @param value
