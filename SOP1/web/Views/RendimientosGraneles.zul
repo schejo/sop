@@ -163,7 +163,7 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="MUELLE" style="font-size: 15px;"/>
-                          <textbox class="form-control" id="muelle" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <textbox class="form-control" id="muelle" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
 
                     </n:div>
                          
@@ -279,7 +279,21 @@
                         <textbox class="form-control" id="rendibuque" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
                     </n:div>
                 </n:div>
-                        
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                  
+                    <n:div class="form-group col-lg-3 col-md-5 mydiv1">
+                        <label class="mylabel" value="INICIO OPERACION" style="font-size: 15px;"/>
+                        <textbox class="form-control" id="iniopera" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-5 mydiv1">
+                        <label class="mylabel" value="FIN OPERACION" style="font-size: 15px;"/>
+                        <textbox class="form-control" id="finopera" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                </n:div>     
                 <!--Botones-->
                 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="border: none; margin-top:30px; margin-bottom:10px;">

@@ -21,6 +21,8 @@ public class RendimientosGranelesMd {
     private String total_hrs_operacion;
     private String gruas_olg;
     private String rendi_hr_buque;
+    private String inicio_operacion;
+    private String fin_operacion;
 
     //para el producto
     private String nombreAct;
@@ -181,6 +183,22 @@ public class RendimientosGranelesMd {
 
     public void setRendi_hr_buque(String rendi_hr_buque) {
         this.rendi_hr_buque = rendi_hr_buque;
+    }
+
+    public String getInicio_operacion() {
+        return inicio_operacion;
+    }
+
+    public void setInicio_operacion(String inicio_operacion) {
+        this.inicio_operacion = inicio_operacion;
+    }
+
+    public String getFin_operacion() {
+        return fin_operacion;
+    }
+
+    public void setFin_operacion(String fin_operacion) {
+        this.fin_operacion = fin_operacion;
     }
 
     public String getNombreAct() {
