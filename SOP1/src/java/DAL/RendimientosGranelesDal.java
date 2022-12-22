@@ -67,7 +67,7 @@ public class RendimientosGranelesDal {
                 + "        TO_CHAR(b.fecha_zarpe,'DD/MM/YYYY')   || ' ' || TO_CHAR(b.hora_zarpe,'HH24:MI:SS') FECHA_ZARPE,\n"
                 + "        j.rsilos,  k.nom_prod,--tm_planificadas,directa tm_despachadas, \n"
                 + "        j.rcamion,a.cant_gruas, j.rotros, --otros total horas operacion\n"
-                + "         i.doc_cant_gruas--rendimiento hora buque\n"
+                + "        i.doc_cant_gruas--rendimiento hora buque\n"
                 + "FROM      epqop.if_bq_buques       a,    \n"
                 + "          epqop.if_bq_arribos      b,    \n"
                 + "          epqop.if_bq_paises       c,    \n"
@@ -115,9 +115,9 @@ public class RendimientosGranelesDal {
                 cl.setTerpac(rs.getString(10));
                 cl.setTipo_producto(rs.getString(11).trim());
                 cl.setTm_despachadas(rs.getString(12));
-                cl.setGruas_buque(rs.getString(13));
+                cl.setGruas_buque(rs.getString(15));
                 cl.setOtros(rs.getString(14));
-                cl.setGruas_olg(rs.getString(15));
+                cl.setGruas_olg(rs.getString(13));
                 
                 cl.setResp("1");
                 cl.setMsg("ACTUALIZAR DATOS.!");

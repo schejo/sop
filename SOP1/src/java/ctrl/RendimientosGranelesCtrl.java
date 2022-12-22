@@ -38,6 +38,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Timebox hrs_operacion;
     private Textbox gruasolg;
     private Textbox rendibuque;
+    private Textbox iniopera;
+    private Textbox finopera;
 
     String lb;
 
@@ -74,7 +76,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             fech_zarpe.setText(manteniMD1.getFecha_zarpe());
             terpac.setText(manteniMD1.getTerpac());
             tmplanificadas.setText(manteniMD1.getTmplanificadas());
-          //producto.setValue(manteniMD1.getTipo_producto());
+            BuscaItem(manteniMD1.getTipo_producto(), this.producto);
+            //producto.setValue(manteniMD1.getTipo_producto());
             BuscaItem(manteniMD1.getTipo_producto(), this.producto);
             directa.setText(manteniMD1.getDir());
             tmdespachadas.setText(manteniMD1.getTm_despachadas());
@@ -84,6 +87,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             gruasolg.setText(manteniMD1.getGruas_olg());
             rendibuque.setText(manteniMD1.getRendi_hr_buque());
 
+            
         } else {
             clear();
 
@@ -92,7 +96,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         }
 
     }
-      public void BuscaItem(String letra, Combobox cb) {
+
+    public void BuscaItem(String letra, Combobox cb) {
         for (int i = 0; i < cb.getItemCount(); i++) {
             if (letra.equals(cb.getItemAtIndex(i).getLabel())) {
                 cb.setSelectedIndex(i);
