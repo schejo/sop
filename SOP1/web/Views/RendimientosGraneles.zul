@@ -207,7 +207,7 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="TM PLANIFICADAS" style="font-size: 15px;"/>
-                        <doublebox class="form-control" id="tmplanificadas"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <doublebox class="form-control" id="tmplanificadas"  constraint = "no negative" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
 
                     </n:div>
                     
@@ -226,7 +226,7 @@
                     <n:div class="form-group col-lg-1 col-md-1 "></n:div>
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
-                        <label class="mylabel" value="directa" style="font-size: 15px;"/>
+                        <label class="mylabel" value="DIRECTA" style="font-size: 15px;"/>
                         <!-- <textbox class="form-control" id="" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
                         <doublebox class="form-control" id="directa"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
 
@@ -235,7 +235,7 @@
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="TM DESPACHADAS" style="font-size: 15px;"/>
                         <!-- <textbox class="form-control" id="tmdespachadas" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>-->
-                        <doublebox class="form-control" id="tmdespachadas"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <doublebox class="form-control" id="tmdespachadas"  value="0" readonly="true" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
 
                     </n:div>
                     
@@ -258,11 +258,11 @@
 
                     </n:div>
                     
-                    <n:div class="form-group col-lg-3 col-md-5 mydiv1">
+                 <!--<n:div class="form-group col-lg-3 col-md-5 mydiv1">
                         <label class="mylabel" value="HRS OPERACION" style="font-size: 15px;"/>
-                        <!--  <textbox class="form-control" id="caladoMax" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:10px; color:black; text-transform:uppercase; "/>-->
+                          <textbox class="form-control" id="caladoMax" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:10px; color:black; text-transform:uppercase; "/>
                         <timebox cols="12" format="HH:mm"  id="hrs_operacion"     width="100%"  />
-                    </n:div>
+                    </n:div> -->
                                                             
                 </n:div>
                 
@@ -276,7 +276,7 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="RENDIMIENTO HRA BUQUE" style="font-size: 15px;"/>
-                        <textbox class="form-control" id="rendibuque" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        <doublebox class="form-control" id="rendibuque" value="0"  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;  "/>
                     </n:div>
                 </n:div>
                 
@@ -291,6 +291,10 @@
                     <n:div class="form-group col-lg-3 col-md-5 mydiv1">
                         <label class="mylabel" value="FIN OPERACION" style="font-size: 15px;"/>
                         <textbox class="form-control" id="finopera" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    <n:div class="form-group col-lg-3 col-md-5 mydiv1">
+                        <label class="mylabel" value="TOTAL HORAS DE OP" style="font-size: 15px;"/>
+                        <textbox class="form-control" id="totalHoras" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
                     </n:div>
                     
                 </n:div>     

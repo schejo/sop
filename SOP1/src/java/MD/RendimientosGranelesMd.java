@@ -1,5 +1,5 @@
 package MD;
-
+//package Modelo;
 public class RendimientosGranelesMd {
 
     private String anio;
@@ -23,6 +23,8 @@ public class RendimientosGranelesMd {
     private String rendi_hr_buque;
     private String inicio_operacion;
     private String fin_operacion;
+    private String horasOperacion;
+    
 
     //para el producto
     private String nombreAct;
@@ -32,6 +34,17 @@ public class RendimientosGranelesMd {
     private String resp;
     private String msg;
     private String dir;
+
+    public String getHorasOperacion() {
+        return horasOperacion;
+    }
+
+    public void setHorasOperacion(String horasOperacion) {
+        this.horasOperacion = horasOperacion;
+    }
+    
+    
+    
 
     public String getAnio() {
         return anio;

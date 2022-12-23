@@ -50,24 +50,22 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerPesaje }
+     * Create an instance of {@link ObtenerRetencionPesaje }
      * 
      */
-    public ObtenerPesaje createObtenerPesaje() {
-        return new ObtenerPesaje();
+    public ObtenerRetencionPesaje createObtenerRetencionPesaje() {
+        return new ObtenerRetencionPesaje();
     }
 
     /**
-     * Create an instance of {@link ObtenerPesajeResponse }
+     * Create an instance of {@link ObtenerRetencionPesajeResponse }
      * 
      */
-    public ObtenerPesajeResponse createObtenerPesajeResponse() {
-        return new ObtenerPesajeResponse();
+    public ObtenerRetencionPesajeResponse createObtenerRetencionPesajeResponse() {
+        return new ObtenerRetencionPesajeResponse();
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Create an instance of {@link ObtenerDetalleContenedor }
      * 
      */
@@ -132,7 +130,6 @@ public class ObjectFactory {
     }
 
     /**
->>>>>>> a0a64be1d8a747ad13d9e2c6bc7642dae986dbc0
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
      * @param value
