@@ -1,7 +1,8 @@
 package DAL;
-
+//package Dal;
 import Conexion.Conexion;
 import MD.RendimientosGranelesMd;
+//import Modelo.RendimientosGranelesMd;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -69,7 +70,7 @@ public class RendimientosGranelesDal {
 "                        nvl(j.rsilos,0),  k.nom_prod,--tm_planificadas,directa tm_despachadas, \n" +
 "                        j.rcamion,nvl(a.cant_gruas,0), nvl(j.rotros,0), --otros total horas operacion\n" +
 "                        i.doc_cant_gruas,TO_CHAR(b.opera_inicio,'DD/MM/YYYY HH24:MI:SS'),TO_CHAR(b.opera_fin,'DD/MM/YYYY HH24:MI:SS'),\n" +
-"                        TRUNC(24*(b.opera_fin - opera_inicio)) ||':'||ROUND(60*(24*(b.opera_fin - opera_inicio)- TRUNC(24*(b.opera_fin - opera_inicio)))) as total_horas--rendimiento hora buque\n" +
+"                        TRUNC(24*(b.opera_fin - opera_inicio)) ||':'||ROUND(60*(24*(b.opera_fin - opera_inicio)- TRUNC(24*(b.opera_fin - opera_inicio)))) as total_horas,round(24*(b.opera_fin - opera_inicio),2) as horas\n" +
 "                FROM      epqop.if_bq_buques       a,    \n" +
 "                          epqop.if_bq_arribos      b,    \n" +
 "                          epqop.if_bq_paises       c,    \n" +
@@ -159,6 +160,7 @@ public class RendimientosGranelesDal {
                 cl.setInicio_operacion(rs.getString(16));
                 cl.setFin_operacion(rs.getString(17));
                 cl.setTotal_hrs_operacion(rs.getString(18));
+                cl.setHorasOperacion(rs.getString(19));
 
                 cl.setResp("1");
                 cl.setMsg("ACTUALIZAR DATOS.!");
