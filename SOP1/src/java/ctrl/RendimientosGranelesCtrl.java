@@ -86,8 +86,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             hrs_operacion.setText(manteniMD1.getTotal_hrs_operacion());
             gruasolg.setText(manteniMD1.getGruas_olg());
             rendibuque.setText(manteniMD1.getRendi_hr_buque());
-            iniopera
-            finopera
+          
             
         } else {
             clear();
