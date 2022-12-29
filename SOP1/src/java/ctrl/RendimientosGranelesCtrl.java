@@ -2,6 +2,8 @@ package ctrl;
 
 import DAL.RendimientosGranelesDal;
 import MD.RendimientosGranelesMd;
+
+
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -38,7 +40,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Doublebox otros;
     private Timebox hrs_operacion;
     private Textbox gruasolg;
-    private Textbox rendibuque;
+    private Doublebox rendibuque;
     private Textbox iniopera;
     private Textbox finopera;
     private Textbox totalHoras;
@@ -66,46 +68,69 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         directa.setLocale(Locale.US);
         tmdespachadas.setFormat("###0.###");
         tmdespachadas.setLocale(Locale.US);
-        
+
+        rendibuque.setFormat("###0.###");
+        rendibuque.setLocale(Locale.US);
 
     }
-       public void onChange$terpac(Event e) {
+
+    public void onChange$terpac(Event e) {
         if (terpac.getText().equals("")) {
-            Clients.showNotification("<br/>" + "OC NO PUEDE ESTAR VACIO",
+            Clients.showNotification("<br/>" + "TERPAC NO PUEDE ESTAR VACIO",
                     Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
             terpac.setText("0");
-//            float vcanContra = Float.parseFloat(canContra.getText().replace(",", ""));
-//            float vots = Float.parseFloat(ots.getText().replace(",", ""));
-//            float vate = Float.parseFloat(ate.getText().replace(",", ""));
-//            float voc = Float.parseFloat(oc.getText().replace(",", ""));
-//            float total = vcanContra + vots + vate + voc;
-//            canAjustada.setText(String.valueOf(total));
-//            float vcanAjustada = Float.parseFloat(canAjustada.getText().replace(",", ""));
-//            float vpreUnitario = Float.parseFloat(preUnitario.getText().replace(",", ""));
-//            float total2 = vcanAjustada * vpreUnitario;
-//            montoAjusta.setText(String.valueOf(total2));
+            double directad = Double.parseDouble(directa.getText());
+            double terpacd = Double.parseDouble(terpac.getText());
+
+            double total = directad + terpacd;
+            tmdespachadas.setText(String.valueOf(total));
+
             terpac.focus();
         } else {
-//            float vcanContra = Float.parseFloat(canContra.getText().replace(",", ""));
-//            float vots = Float.parseFloat(ots.getText().replace(",", ""));
-//            float vate = Float.parseFloat(ate.getText().replace(",", ""));
-//            float voc = Float.parseFloat(oc.getText().replace(",", ""));
-//            float total = vcanContra + vots + vate + voc;
-//            canAjustada.setText(String.valueOf(total));
-//            float vcanAjustada = Float.parseFloat(canAjustada.getText().replace(",", ""));
-//            float vpreUnitario = Float.parseFloat(preUnitario.getText().replace(",", ""));
-//            float total2 = vcanAjustada * vpreUnitario;
-//            montoAjusta.setText(String.valueOf(total2));
+            double directad = Double.parseDouble(directa.getText());
+            double terpacd = Double.parseDouble(terpac.getText());
+            //para calcular el rendimiento
+            double total = directad + terpacd;
+            tmdespachadas.setText(String.valueOf(total));
+
+            double rendiHora = total / horasOperacion;
+            rendibuque.setText(String.valueOf(rendiHora));
 
         }
 
     }
 
+    public void onChange$directa(Event e) {
+        if (directa.getText().equals("")) {
+            Clients.showNotification("<br/>" + "DIRECTA NO PUEDE ESTAR VACIO",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+            directa.setText("0");
+            double directad = Double.parseDouble(directa.getText());
+            double terpacd = Double.parseDouble(terpac.getText());
+
+            double total = directad + terpacd;
+            tmdespachadas.setText(String.valueOf(total));
+
+            terpac.focus();
+        } else {
+            double directad = Double.parseDouble(directa.getText());
+            double terpacd = Double.parseDouble(terpac.getText());
+            //para calcular el rendimiento
+            double total = directad + terpacd;
+            tmdespachadas.setText(String.valueOf(total));
+            double rendiHora = total / horasOperacion;
+            rendibuque.setText(String.valueOf(rendiHora));
+
+        }
+
+    }
+
+    double horasOperacion = 0;
 
     public void onChange$num_arribo(Event e) throws SQLException {
         manteniMD1 = new RendimientosGranelesMd();
         manteniMD1 = ManbuDal.Rendimientos(anio_arribo.getText(), num_arribo.getText());
-        String a,b;
+        String a, b;
         if (manteniMD1.getResp().equals("1")) {
 
             anio_arribo.setText(manteniMD1.getAnio());
@@ -118,28 +143,30 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             hrs_plani.setText(manteniMD1.getHrs_plani());
             fech_zarpe.setText(manteniMD1.getFecha_zarpe());
             terpac.setText(manteniMD1.getTerpac());
-            a=manteniMD1.getTerpac();
-           // tmplanificadas.setText(manteniMD1.getTmplanificadas());
+            a = manteniMD1.getTerpac();
+            // tmplanificadas.setText(manteniMD1.getTmplanificadas());
             BuscaItem(manteniMD1.getTipo_producto(), this.producto);
             //producto.setValue(manteniMD1.getTipo_producto());
             BuscaItem(manteniMD1.getTipo_producto(), this.producto);
-          //  directa.setText(manteniMD1.getDir());
+            //  directa.setText(manteniMD1.getDir());
             directa.setText(manteniMD1.getTm_despachadas());
-            b=manteniMD1.getTm_despachadas();
+            b = manteniMD1.getTm_despachadas();
             gruas.setText(manteniMD1.getGruas_buque());
             otros.setText(manteniMD1.getOtros());
-            hrs_operacion.setText(manteniMD1.getTotal_hrs_operacion());
+           // hrs_operacion.setText(manteniMD1.getTotal_hrs_operacion());
             gruasolg.setText(manteniMD1.getGruas_olg());
             rendibuque.setText(manteniMD1.getRendi_hr_buque());
+
             iniopera.setText(manteniMD1.getInicio_operacion());
             finopera.setText(manteniMD1.getFin_operacion());
             totalHoras.setText(manteniMD1.getTotal_hrs_operacion());
-            double num= Double.parseDouble(a);
-            double num2= Double.parseDouble(b);
-            double suma=num+num2;
+            double num = Double.parseDouble(a);
+            double num2 = Double.parseDouble(b);
+            double suma = num + num2;
             tmplanificadas.setText(Double.toString(suma));
-          //  tmdespachadas.setText(Double.toString(suma));
-            
+            horasOperacion = Double.parseDouble(manteniMD1.getHorasOperacion());
+            //  tmdespachadas.setText(Double.toString(suma));
+
 
         } else {
             clear();
