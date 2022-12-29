@@ -163,6 +163,12 @@
                                     <menuitem label="Resumen Contenedores APM Por Mes" id="ItemAZ4" image="bootstrap/img/estadistica2.png"/>
                                 </menupopup>
                             </menu> 
+                             <menu id="menuInformatica" label="INFORMATICA" image="bootstrap/img/estadistica2.png" width="180px" height="25px">
+                                <menupopup>
+                                    <menuitem label="Mantenimiento de Camion Parq" id="ItemR1" image="bootstrap/img/estadistica2.png"/>
+                                    
+                                </menupopup>
+                            </menu> 
 
                         </menubar>
                     </n:div>  
