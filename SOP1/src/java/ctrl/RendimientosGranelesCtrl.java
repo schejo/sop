@@ -2,10 +2,13 @@ package ctrl;
 
 import DAL.RendimientosGranelesDal;
 import MD.RendimientosGranelesMd;
+
+
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
@@ -37,7 +40,10 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Doublebox otros;
     private Timebox hrs_operacion;
     private Textbox gruasolg;
-    private Textbox rendibuque;
+    private Doublebox rendibuque;
+    private Textbox iniopera;
+    private Textbox finopera;
+    private Textbox totalHoras;
 
     String lb;
 
@@ -54,13 +60,77 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         super.doAfterCompose(comp);
         tipoprod = rg.tipoactRSelect();
         producto.setModel(new ListModelList(tipoprod));
+        terpac.setFormat("###0.###");
+        terpac.setLocale(Locale.US);
+        tmplanificadas.setFormat("###0.###");
+        tmplanificadas.setLocale(Locale.US);
+        directa.setFormat("###0.###");
+        directa.setLocale(Locale.US);
+        tmdespachadas.setFormat("###0.###");
+        tmdespachadas.setLocale(Locale.US);
+
+        rendibuque.setFormat("###0.###");
+        rendibuque.setLocale(Locale.US);
 
     }
+
+    public void onChange$terpac(Event e) {
+        if (terpac.getText().equals("")) {
+            Clients.showNotification("<br/>" + "TERPAC NO PUEDE ESTAR VACIO",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+            terpac.setText("0");
+            double directad = Double.parseDouble(directa.getText());
+            double terpacd = Double.parseDouble(terpac.getText());
+
+            double total = directad + terpacd;
+            tmdespachadas.setText(String.valueOf(total));
+
+            terpac.focus();
+        } else {
+            double directad = Double.parseDouble(directa.getText());
+            double terpacd = Double.parseDouble(terpac.getText());
+            //para calcular el rendimiento
+            double total = directad + terpacd;
+            tmdespachadas.setText(String.valueOf(total));
+
+            double rendiHora = total / horasOperacion;
+            rendibuque.setText(String.valueOf(rendiHora));
+
+        }
+
+    }
+
+    public void onChange$directa(Event e) {
+        if (directa.getText().equals("")) {
+            Clients.showNotification("<br/>" + "DIRECTA NO PUEDE ESTAR VACIO",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+            directa.setText("0");
+            double directad = Double.parseDouble(directa.getText());
+            double terpacd = Double.parseDouble(terpac.getText());
+
+            double total = directad + terpacd;
+            tmdespachadas.setText(String.valueOf(total));
+
+            terpac.focus();
+        } else {
+            double directad = Double.parseDouble(directa.getText());
+            double terpacd = Double.parseDouble(terpac.getText());
+            //para calcular el rendimiento
+            double total = directad + terpacd;
+            tmdespachadas.setText(String.valueOf(total));
+            double rendiHora = total / horasOperacion;
+            rendibuque.setText(String.valueOf(rendiHora));
+
+        }
+
+    }
+
+    double horasOperacion = 0;
 
     public void onChange$num_arribo(Event e) throws SQLException {
         manteniMD1 = new RendimientosGranelesMd();
         manteniMD1 = ManbuDal.Rendimientos(anio_arribo.getText(), num_arribo.getText());
-
+        String a, b;
         if (manteniMD1.getResp().equals("1")) {
 
             anio_arribo.setText(manteniMD1.getAnio());
@@ -73,16 +143,30 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             hrs_plani.setText(manteniMD1.getHrs_plani());
             fech_zarpe.setText(manteniMD1.getFecha_zarpe());
             terpac.setText(manteniMD1.getTerpac());
-            tmplanificadas.setText(manteniMD1.getTmplanificadas());
-          //producto.setValue(manteniMD1.getTipo_producto());
+            a = manteniMD1.getTerpac();
+            // tmplanificadas.setText(manteniMD1.getTmplanificadas());
             BuscaItem(manteniMD1.getTipo_producto(), this.producto);
-            directa.setText(manteniMD1.getDir());
-            tmdespachadas.setText(manteniMD1.getTm_despachadas());
+            //producto.setValue(manteniMD1.getTipo_producto());
+            BuscaItem(manteniMD1.getTipo_producto(), this.producto);
+            //  directa.setText(manteniMD1.getDir());
+            directa.setText(manteniMD1.getTm_despachadas());
+            b = manteniMD1.getTm_despachadas();
             gruas.setText(manteniMD1.getGruas_buque());
             otros.setText(manteniMD1.getOtros());
-            hrs_operacion.setText(manteniMD1.getTotal_hrs_operacion());
+           // hrs_operacion.setText(manteniMD1.getTotal_hrs_operacion());
             gruasolg.setText(manteniMD1.getGruas_olg());
             rendibuque.setText(manteniMD1.getRendi_hr_buque());
+
+            iniopera.setText(manteniMD1.getInicio_operacion());
+            finopera.setText(manteniMD1.getFin_operacion());
+            totalHoras.setText(manteniMD1.getTotal_hrs_operacion());
+            double num = Double.parseDouble(a);
+            double num2 = Double.parseDouble(b);
+            double suma = num + num2;
+            tmplanificadas.setText(Double.toString(suma));
+            horasOperacion = Double.parseDouble(manteniMD1.getHorasOperacion());
+            //  tmdespachadas.setText(Double.toString(suma));
+
 
         } else {
             clear();
@@ -92,7 +176,8 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         }
 
     }
-      public void BuscaItem(String letra, Combobox cb) {
+
+    public void BuscaItem(String letra, Combobox cb) {
         for (int i = 0; i < cb.getItemCount(); i++) {
             if (letra.equals(cb.getItemAtIndex(i).getLabel())) {
                 cb.setSelectedIndex(i);
