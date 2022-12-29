@@ -7,12 +7,14 @@ import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Include;
 import org.zkoss.zul.Label;
+import org.zkoss.zul.Menu;
 
 public class menu extends GenericForwardComposer {
 
     @Wire
     private Include rootPagina;
     private Label lblUser;
+    private Menu menuInformatica;
 
     @SuppressWarnings("unchecked")
     @Override
@@ -22,6 +24,18 @@ public class menu extends GenericForwardComposer {
         System.out.println("Session.: " + User);
         lblUser.setValue(User);
         rootPagina.setSrc("/Views/Principal.zul");
+        Permisos(User);
+        
+    }
+    
+     public void Permisos(String permiso) {
+        if (permiso.equals("federicoc1672")) {
+            menuInformatica.setVisible(true);
+            
+        }else{
+            menuInformatica.setVisible(false);
+            
+        }
     }
 
     //LINK MENUS
