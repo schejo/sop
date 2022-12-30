@@ -3,7 +3,6 @@ package ctrl;
 import DAL.RendimientosGranelesDal;
 import MD.RendimientosGranelesMd;
 
-
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Timebox;
 
 public class RendimientosGranelesCtrl extends GenericForwardComposer {
-
+    
     private Textbox anio_arribo;
     private Textbox num_arribo;
     private Textbox nomBuque;
@@ -44,9 +43,9 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     private Textbox iniopera;
     private Textbox finopera;
     private Textbox totalHoras;
-
+    
     String lb;
-
+    
     List<RendimientosGranelesMd> tipoprod = new ArrayList<RendimientosGranelesMd>();
     RendimientosGranelesMd manteniMD1 = new RendimientosGranelesMd();
     RendimientosGranelesDal ManbuDal = new RendimientosGranelesDal();
@@ -54,7 +53,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
 
     // private Listbox lb2;
     private Include rootPagina;
-
+    
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
@@ -68,12 +67,12 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         directa.setLocale(Locale.US);
         tmdespachadas.setFormat("###0.###");
         tmdespachadas.setLocale(Locale.US);
-
+        
         rendibuque.setFormat("###0.###");
         rendibuque.setLocale(Locale.US);
-
+        
     }
-
+    
     public void onChange$terpac(Event e) {
         if (terpac.getText().equals("")) {
             Clients.showNotification("<br/>" + "TERPAC NO PUEDE ESTAR VACIO",
@@ -81,10 +80,10 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             terpac.setText("0");
             double directad = Double.parseDouble(directa.getText());
             double terpacd = Double.parseDouble(terpac.getText());
-
+            
             double total = directad + terpacd;
             tmdespachadas.setText(String.valueOf(total));
-
+            
             terpac.focus();
         } else {
             double directad = Double.parseDouble(directa.getText());
@@ -92,14 +91,14 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             //para calcular el rendimiento
             double total = directad + terpacd;
             tmdespachadas.setText(String.valueOf(total));
-
+            
             double rendiHora = total / horasOperacion;
             rendibuque.setText(String.valueOf(rendiHora));
-
+            
         }
-
+        
     }
-
+    
     public void onChange$directa(Event e) {
         if (directa.getText().equals("")) {
             Clients.showNotification("<br/>" + "DIRECTA NO PUEDE ESTAR VACIO",
@@ -107,10 +106,10 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             directa.setText("0");
             double directad = Double.parseDouble(directa.getText());
             double terpacd = Double.parseDouble(terpac.getText());
-
+            
             double total = directad + terpacd;
             tmdespachadas.setText(String.valueOf(total));
-
+            
             terpac.focus();
         } else {
             double directad = Double.parseDouble(directa.getText());
@@ -120,19 +119,19 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             tmdespachadas.setText(String.valueOf(total));
             double rendiHora = total / horasOperacion;
             rendibuque.setText(String.valueOf(rendiHora));
-
+            
         }
-
+        
     }
-
+    
     double horasOperacion = 0;
-
+    
     public void onChange$num_arribo(Event e) throws SQLException {
         manteniMD1 = new RendimientosGranelesMd();
         manteniMD1 = ManbuDal.Rendimientos(anio_arribo.getText(), num_arribo.getText());
         String a, b;
         if (manteniMD1.getResp().equals("1")) {
-
+            
             anio_arribo.setText(manteniMD1.getAnio());
             num_arribo.setText(manteniMD1.getArribo());
             nomBuque.setText(manteniMD1.getNombre_buque());
@@ -153,10 +152,9 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             b = manteniMD1.getTm_despachadas();
             gruas.setText(manteniMD1.getGruas_buque());
             otros.setText(manteniMD1.getOtros());
-           // hrs_operacion.setText(manteniMD1.getTotal_hrs_operacion());
+            // hrs_operacion.setText(manteniMD1.getTotal_hrs_operacion());
             gruasolg.setText(manteniMD1.getGruas_olg());
             rendibuque.setText(manteniMD1.getRendi_hr_buque());
-
             iniopera.setText(manteniMD1.getInicio_operacion());
             finopera.setText(manteniMD1.getFin_operacion());
             totalHoras.setText(manteniMD1.getTotal_hrs_operacion());
@@ -167,16 +165,15 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             horasOperacion = Double.parseDouble(manteniMD1.getHorasOperacion());
             //  tmdespachadas.setText(Double.toString(suma));
 
-
         } else {
             clear();
-
+            
             Clients.showNotification(manteniMD1.getMsg() + "<br/>",
                     Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
         }
-
+        
     }
-
+    
     public void BuscaItem(String letra, Combobox cb) {
         for (int i = 0; i < cb.getItemCount(); i++) {
             if (letra.equals(cb.getItemAtIndex(i).getLabel())) {
@@ -185,9 +182,9 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             }
         }
     }
-
+    
     public void clear() {
-
+        
         anio_arribo.setText("");
         num_arribo.setText("");
         nomBuque.setText("");
@@ -204,13 +201,15 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
         tmdespachadas.setText("");
         gruas.setText("");
         otros.setText("");
-        hrs_operacion.setText("");
         gruasolg.setText("");
         rendibuque.setText("");
+        iniopera.setText("");
+        finopera.setText("");
+        totalHoras.setText("");
         anio_arribo.focus();
-
+        
     }
-
+    
     public void onClick$btnNuevo() {
         clear();
     }
@@ -219,9 +218,9 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     public void onClick$btnGuardar(Event e) throws SQLException, ClassNotFoundException, ParseException {
         Clients.showNotification("No se Puede Modificar <br/>Comunicarse con informatica",
                 Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
-
+        
     }
-
+    
     public void onClick$btnSalir() {
         rootPagina.setSrc("/Views/Principal.zul");
     }

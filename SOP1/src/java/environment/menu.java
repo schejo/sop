@@ -42,13 +42,12 @@ public class menu extends GenericForwardComposer {
     public void onClick$menuHome(Event evt) {
         rootPagina.setSrc("/Views/Principal.zul");
     }
-    
-    
+
     //PROCESOS
-    
-     public void onClick$ItemYG(Event evt) {
+    public void onClick$ItemYG(Event evt) {
         rootPagina.setSrc("/Views/CitasPlanificacion.zul");
     }
+
      public void onClick$ItemCont(Event evt) {
         rootPagina.setSrc("/Views/MantenimientoContenedores1.zul");
     }
@@ -59,6 +58,7 @@ public class menu extends GenericForwardComposer {
         rootPagina.setSrc("/Views/MantenimientoPlanificacion.zul");
     }
     
+
 
     //CATALOGOS
     public void onClick$ItemAA(Event evt) {
@@ -135,7 +135,6 @@ public class menu extends GenericForwardComposer {
         rootPagina.setSrc("/Views/AreasTrabajo.zul");
     }
 
-
     public void onClick$ItemBN(Event evt) {
         rootPagina.setSrc("/Views/Personal.zul");
     }
@@ -207,8 +206,8 @@ public class menu extends GenericForwardComposer {
     public void onClick$ItemCJ(Event evt) {
         rootPagina.setSrc("/Views/Reporteactiviconte.zul");
     }
-    
-     public void onClick$ItemCK(Event evt) {
+
+    public void onClick$ItemCK(Event evt) {
         rootPagina.setSrc("/Views/ReporteGeneralPlani.zul");
     }
 
@@ -338,6 +337,11 @@ public class menu extends GenericForwardComposer {
 
     public void onClick$ItemAZ4(Event evt) {
         rootPagina.setSrc("/Views/ResumenReporteConteneFecha.zul");
+    }
+
+    //INFORMATICA
+    public void onClick$ItemR1(Event evt) {
+        rootPagina.setSrc("/Views/CamionParq.zul");
     }
 
     // CERRAR SESSION EN ZK FRAMEWORK

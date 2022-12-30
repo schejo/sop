@@ -166,13 +166,17 @@
                             </menu> 
                             <menu id="menuInformatica" label="INFORMATICA" image="bootstrap/img/estadistica2.png" width="180px" height="25px">
                                 <menupopup>
+
                                     <!--  <menuitem label="Reporte De Servicios" id="ItemAZ" image="bootstrap/img/estadistica2.png"/>-->
-                                    <menuitem label="Mantenimiento de Camion Parq" id="" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Mantenimiento de Pesaje Camion" id="Itempesaje" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Mantenimiento de Ciclos Camion" id="ItemCiclo" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Mantenimiento de Comtenedores" id="ItemCont" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Mantenimiento Avtiviti Conte" id="ItemACont" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Mantenimiento Planificacion" id="ItemPlani" image="bootstrap/img/estadistica2.png"/>
+
+
+                                    <menuitem label="Mantenimiento de Camion Parq" id="ItemR1" image="bootstrap/img/estadistica2.png"/>
+                                    
 
                                 </menupopup>
                             </menu> 
