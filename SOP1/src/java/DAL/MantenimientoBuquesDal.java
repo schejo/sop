@@ -118,16 +118,6 @@ public class MantenimientoBuquesDal {
                     + "                     ,OBSE_BUQUES = '" + data.getObservaciones_buque() + "'\n"
                     + "                     ,USUARIO = '" + data.getUltima_actualizacion() + "'\n"
                     + "                      WHERE BUQUE = '" + data.getBuque() + "'");
-//                    + ""
-//                    + "UPDATE EPQOP.IF_BQ_BUQUES SET "
-//                    + "'NOM_BUQUE = '" +data.getNom_buque()
-//                    + "',ANO_CONSTRUCCION = '" + data.getAnio_construccion()
-//                    + "',CANT_BODEGAS = '" + data.()
-//                    + "',CANT_GRUAS = '" + data.()
-//                    + "',CANT_PLUMAS = '" + data.()
-//                    + "',CAPACIDAD_GRUAS = '" + data.()
-//                    + "',OBSE_BUQUES = '" + data.getObservaciones_buque()
-//                    + "' WHERE BUQUE = '" + data.getBuque() + "'");
 
             if (vl > 0) {
                 cl.setResp("1");

@@ -3,6 +3,7 @@ package ctrl;
 import DAL.CamionParqDal;
 import MD.CamionParqMd;
 import java.sql.SQLException;
+import java.text.ParseException;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
@@ -81,6 +82,28 @@ public class CamionParqCtrl extends GenericForwardComposer {
 
     }
 
+    public void clear() {
+        placa.setDisabled(false);
+
+        placa.setText("");
+        cod_pais.setText("");
+        paispil.setText("");
+        licencia.setText("");
+        tipo_opera.setText("");
+        fecha_ing_parq.setText("");
+        naviera.setText("");
+        observaciones.setText("");
+        cod_destino.setText("");
+        fecha_inicio.setText("");
+        fecha_fin.setText("");
+        ubic_camion.setText("");
+        num_contene.setText("");
+    }
+
+    public void onClick$btnNuevo() {
+        clear();
+    }
+
     public void onClick$btnModificar(Event e) throws SQLException {
 
         Clients.showNotification(manteniMD.getMsg() + "<brRegistros Guardados con Exito/>",
@@ -88,19 +111,51 @@ public class CamionParqCtrl extends GenericForwardComposer {
 
         //SE HABILITAN LOS CAMPOS PARA UN UPDATE
         placa.setDisabled(false);
-        cod_pais.setDisabled(true);
-        paispil.setDisabled(true);
-        licencia.setDisabled(true);
-        tipo_opera.setDisabled(true);
-        fecha_ing_parq.setDisabled(true);
-        naviera.setDisabled(true);
-        observaciones.setDisabled(true);
-        cod_destino.setDisabled(true);
-        fecha_inicio.setDisabled(true);
-        fecha_fin.setDisabled(true);
-        ubic_camion.setDisabled(true);
-        num_contene.setDisabled(true);
+        cod_pais.setDisabled(false);
+        paispil.setDisabled(false);
+        licencia.setDisabled(false);
+        tipo_opera.setDisabled(false);
+        fecha_ing_parq.setDisabled(false);
+        naviera.setDisabled(false);
+        observaciones.setDisabled(false);
+        cod_destino.setDisabled(false);
+        fecha_inicio.setDisabled(false);
+        fecha_fin.setDisabled(false);
+        ubic_camion.setDisabled(false);
+        num_contene.setDisabled(false);
 
+    }
+
+    public void onClick$btnGuardar(Event e) throws SQLException, ClassNotFoundException, ParseException {
+
+        int op1 = 0;
+        //aqui se coloca lo que se va a guardar
+
+        manteniMD = new CamionParqMd();
+
+        manteniMD.setPlaca(placa.getText().toUpperCase());
+        manteniMD.setCod_pais(cod_pais.getText().toUpperCase());
+        manteniMD.setLicencia(licencia.getText());
+        manteniMD.setTipo_opera(tipo_opera.getText().toUpperCase());
+        manteniMD.setFecha_ing_parqueo(fecha_ing_parq.getText());
+        manteniMD.setNaviera(naviera.getText().toUpperCase());
+        manteniMD.setObservaciones(observaciones.getText().toUpperCase());
+        manteniMD.setCod_destino(cod_destino.getText());
+        manteniMD.setFecha_inicio(fecha_inicio.getText());
+        manteniMD.setFecha_fin(fecha_fin.getText());
+        manteniMD.setUbic_camion(ubic_camion.getText());
+        manteniMD.setNum_contene(num_contene.getText().toUpperCase());
+
+        manteniMD = ManbuDal.updatePlaca(manteniMD);
+
+        if (manteniMD.getResp().equals("1")) {
+            clear();
+            Clients.showNotification(manteniMD.getMsg() + "<brRegistros Guardados con Exito/>",
+                    Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
+        } else {
+            Clients.showNotification(manteniMD.getMsg() + "<brRegistro no Guardado revise los datos/>",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+        }
     }
 
 }
