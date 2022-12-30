@@ -7,12 +7,14 @@ import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Include;
 import org.zkoss.zul.Label;
+import org.zkoss.zul.Menu;
 
 public class menu extends GenericForwardComposer {
 
     @Wire
     private Include rootPagina;
     private Label lblUser;
+    private Menu menuInformatica;
 
     @SuppressWarnings("unchecked")
     @Override
@@ -22,24 +24,51 @@ public class menu extends GenericForwardComposer {
         System.out.println("Session.: " + User);
         lblUser.setValue(User);
         rootPagina.setSrc("/Views/Principal.zul");
+        Permisos(User);
+        
+    }
+    
+     public void Permisos(String permiso) {
+        if (permiso.equals("federicoc1672")) {
+            menuInformatica.setVisible(true);
+            
+        }else{
+            menuInformatica.setVisible(false);
+            
+        }
     }
 
     //LINK MENUS
     public void onClick$menuHome(Event evt) {
         rootPagina.setSrc("/Views/Principal.zul");
     }
-    
-    
+
     //PROCESOS
-    
-     public void onClick$ItemYG(Event evt) {
+    public void onClick$ItemYG(Event evt) {
         rootPagina.setSrc("/Views/CitasPlanificacion.zul");
     }
+
+     public void onClick$ItemCont(Event evt) {
+        rootPagina.setSrc("/Views/MantenimientoContenedores1.zul");
+    }
+       public void onClick$ItemACont(Event evt) {
+        rootPagina.setSrc("/Views/MantenimientoActiviConte.zul");
+    }
+          public void onClick$ItemPlani(Event evt) {
+        rootPagina.setSrc("/Views/MantenimientoPlanificacion.zul");
+    }
     
+
 
     //CATALOGOS
     public void onClick$ItemAA(Event evt) {
         rootPagina.setSrc("/Views/ManteActivi.zul");
+    }
+     public void onClick$Itempesaje(Event evt) {
+        rootPagina.setSrc("/Views/manCicloCamion.zul");
+    }
+        public void onClick$ItemCiclo(Event evt) {
+        rootPagina.setSrc("/Views/cicloCamion.zul");
     }
 
     public void onClick$ItemAAB(Event evt) {
@@ -105,7 +134,6 @@ public class menu extends GenericForwardComposer {
     public void onClick$ItemBL(Event evt) {
         rootPagina.setSrc("/Views/AreasTrabajo.zul");
     }
-
 
     public void onClick$ItemBN(Event evt) {
         rootPagina.setSrc("/Views/Personal.zul");
@@ -178,8 +206,8 @@ public class menu extends GenericForwardComposer {
     public void onClick$ItemCJ(Event evt) {
         rootPagina.setSrc("/Views/Reporteactiviconte.zul");
     }
-    
-     public void onClick$ItemCK(Event evt) {
+
+    public void onClick$ItemCK(Event evt) {
         rootPagina.setSrc("/Views/ReporteGeneralPlani.zul");
     }
 
@@ -309,6 +337,11 @@ public class menu extends GenericForwardComposer {
 
     public void onClick$ItemAZ4(Event evt) {
         rootPagina.setSrc("/Views/ResumenReporteConteneFecha.zul");
+    }
+
+    //INFORMATICA
+    public void onClick$ItemR1(Event evt) {
+        rootPagina.setSrc("/Views/CamionParq.zul");
     }
 
     // CERRAR SESSION EN ZK FRAMEWORK
