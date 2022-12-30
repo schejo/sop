@@ -24,7 +24,7 @@ import org.zkoss.zul.Textbox;
  */
 public class manCicloCamionCtrl extends GenericForwardComposer {
     
-    private Textbox ciclo1;
+    private Doublebox ciclo1;
     private Datebox fecha;
     private Textbox contenedor;
     private Textbox pesoTaCont;

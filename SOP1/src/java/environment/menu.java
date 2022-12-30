@@ -24,7 +24,7 @@ public class menu extends GenericForwardComposer {
         System.out.println("Session.: " + User);
         lblUser.setValue(User);
         rootPagina.setSrc("/Views/Principal.zul");
-        Permisos(User);
+        //Permisos(User);
         
     }
     
@@ -55,8 +55,11 @@ public class menu extends GenericForwardComposer {
     public void onClick$ItemAA(Event evt) {
         rootPagina.setSrc("/Views/ManteActivi.zul");
     }
-     public void onClick$ItemCiclo(Event evt) {
+     public void onClick$Itempesaje(Event evt) {
         rootPagina.setSrc("/Views/manCicloCamion.zul");
+    }
+        public void onClick$ItemCiclo(Event evt) {
+        rootPagina.setSrc("/Views/cicloCamion.zul");
     }
 
     public void onClick$ItemAAB(Event evt) {

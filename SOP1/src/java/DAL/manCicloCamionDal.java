@@ -21,8 +21,7 @@ public class manCicloCamionDal {
     Conexion obtener = new Conexion();
     Connection conn;
     manCicloCamionMd cl = new manCicloCamionMd();
-    private Connection conexion = null;
-    private Conexion cnn = new Conexion();
+  
     PreparedStatement ps = null;
     Statement st = null;
     ResultSet rs = null;
