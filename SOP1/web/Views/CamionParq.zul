@@ -157,7 +157,7 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="INGRESO PARQUEO"  style=""/>
-                        <datebox cols="12" format="dd/MM/yyyy" id="fecha_ing_parq"      width="100%"  />    
+                        <datebox cols="12" format="dd/MM/yyyy HH:mm" id="fecha_ing_parq"      width="100%"  />    
                     </n:div>
                     
                 </n:div>
@@ -187,7 +187,7 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="FECHA INICIO" style=""/>
-                        <datebox cols="12" format="dd/MM/yyyy" id="fecha_inicio"      width="100%"  />    
+                        <datebox cols="12" format="dd/MM/yyyy HH:mm" id="fecha_inicio"      width="100%"  />    
                     </n:div>
                     
                     
@@ -201,7 +201,7 @@
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="FECHA FIN" style=""/>
-                        <datebox cols="12" format="dd/MM/yyyy" id="fecha_fin"      width="100%"  />    
+                        <datebox cols="12" format="dd/MM/yyyy HH:mm" id="fecha_fin"      width="100%"  />    
                     </n:div>
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
