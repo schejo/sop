@@ -10,10 +10,17 @@
             <file>file:/C:/Users/Informatica/Documents/GIT%20PRODUCCION/sop/SOP1/src/java/DAL/Actividad45Dal.java</file>
         </group>
         <group>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/Views/CamionParq.zul</file>
             <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/Views/MantenimientoContenedores1.zul</file>
-            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/menu.zul</file>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/DAL/MantenimientoBuquesDal.java</file>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/Conexion/Conexion.java</file>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/DAL/CamionParqDal.java</file>
             <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/environment/menu.java</file>
-            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/Views/MantenimientoPlanificacion.zul</file>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/ctrl/CamionParqCtrl.java</file>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/Views/manCicloCamion.zul</file>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/Conexion/config.properties</file>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/menu.zul</file>
+            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/Conexion/authbd.java</file>
         </group>
     </open-files>
 </project-private>

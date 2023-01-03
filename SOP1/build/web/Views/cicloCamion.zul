@@ -10,6 +10,10 @@
         font-weight: bold;
         font-size: 15px;
         }
+        .z-label {
+        height: 25px;
+        font-size: 14px;
+        }
         
         .z-combobox-button{
         height:35px;
@@ -46,6 +50,10 @@
         .z-timebox-input{
         height:35px;
         font-size: 15px;
+        }
+        .z-textbox {
+        height: 25px;
+        font-size: 14px;
         }
         
         .z-timebox-button{
@@ -123,7 +131,7 @@
                     <n:div class="form-group col-lg-1 col-md-1 "></n:div>
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="FECHA" style=""/>
-                        <datebox id="fecha" cols="25"   format="dd/MM/yyyy" locale="gt"  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                        <datebox id="fecha" cols="30"   format="dd/MM/yyyy" locale="gt"  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                     </n:div>
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
                         <label class="mylabel" value="CICLO" style=""/>
