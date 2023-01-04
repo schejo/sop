@@ -230,6 +230,7 @@
                         <button id="btnGuardar" label="Guardar" image="bootstrap/img/salvar2.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
                         <button id="btnNuevo" label="Limpiar" image="bootstrap/img/registro.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
                         <button id="btnModificar" label="Modificar" image="bootstrap/img/add.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
+                        <button id="btnDelete" label="Eliminar" image="bootstrap/img/"  orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
                         <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
                     </div>
                 </n:div>

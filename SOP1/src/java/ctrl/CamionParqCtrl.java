@@ -9,6 +9,8 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Datebox;
+import org.zkoss.zul.Include;
+import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
 /**
@@ -33,6 +35,7 @@ public class CamionParqCtrl extends GenericForwardComposer {
 
     CamionParqMd manteniMD = new CamionParqMd();
     CamionParqDal ManbuDal = new CamionParqDal();
+    private Include rootPagina;
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
@@ -105,9 +108,13 @@ public class CamionParqCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnModificar(Event e) throws SQLException {
+        
+        if(placa.getText().equals("")){
 
-        Clients.showNotification(manteniMD.getMsg() + "<brRegistros Guardados con Exito/>",
-                Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
+        Clients.showNotification("<br/> Favor Ingrese Placa",
+                Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 3000);
+        }else{
+             
 
         //SE HABILITAN LOS CAMPOS PARA UN UPDATE
         placa.setDisabled(false);
@@ -123,6 +130,7 @@ public class CamionParqCtrl extends GenericForwardComposer {
         fecha_fin.setDisabled(false);
         ubic_camion.setDisabled(false);
         num_contene.setDisabled(false);
+        }
 
     }
 
@@ -135,6 +143,7 @@ public class CamionParqCtrl extends GenericForwardComposer {
 
         manteniMD.setPlaca(placa.getText().toUpperCase());
         manteniMD.setCod_pais(cod_pais.getText().toUpperCase());
+        manteniMD.setPais_piloto(paispil.getText().toUpperCase());
         manteniMD.setLicencia(licencia.getText());
         manteniMD.setTipo_opera(tipo_opera.getText().toUpperCase());
         manteniMD.setFecha_ing_parqueo(fecha_ing_parq.getText());
@@ -156,6 +165,31 @@ public class CamionParqCtrl extends GenericForwardComposer {
             Clients.showNotification(manteniMD.getMsg() + "<brRegistro no Guardado revise los datos/>",
                     Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
         }
+    }
+
+    public void onClick$btnDelete(Event e) throws SQLException {
+
+        Messagebox.show("Estas Seguro Que Deseas Borrar este numero de placa " + placa.getText() + "?",
+                "Question", Messagebox.OK | Messagebox.CANCEL,
+                Messagebox.QUESTION,
+                new org.zkoss.zk.ui.event.EventListener() {
+                    
+            public void onEvent(Event e) throws SQLException, ClassNotFoundException {
+                if (Messagebox.ON_OK.equals(e.getName())) {
+                    manteniMD = ManbuDal.REGdelete(placa.getText());
+                    Clients.evalJavaScript("msj('" + manteniMD.getMsg() + "','success')");
+                    clear();
+                } else if (Messagebox.ON_CANCEL.equals(e.getName())) {
+                    Clients.showNotification("REGISTRO NO SE HA <br/> BORRADO <br/>",
+                            "warning", null, "middle_center", 5000);
+                }
+            }
+        }
+        );
+    }
+
+    public void onClick$btnSalir() {
+        rootPagina.setSrc("/Views/Principal.zul");
     }
 
 }
