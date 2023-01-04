@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<zk xmlns:n="native" >
+    <style>
+        .z-comboitem{
+        height: 35px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 15px;
+        }
+        
+        .z-combobox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-combobox-input{
+        height:35px;
+        }
+        
+        .z-bandbox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-bandbox-input {
+        height:35px;
+        width:200px;
+        }
+        
+        .z-datebox-input{
+        height:35px;
+        font-size: 15px;
+        }
+        
+        .z-datebox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-timebox-input{
+        height:35px;
+        font-size: 15px;
+        }
+        
+        .z-timebox-button{
+        height:35px;
+        width:35px;
+        text-align: center;
+        }
+        
+        .z-listbox-header {
+        background: lightgray;
+        }
+        
+        .z-auxhead {
+        /*padding: 8px;*/
+        /*color:#FFF;	*/
+        color:black;
+        white-space: pre-wrap;
+        /*background: rgb(135, 206, 250,.7);*/
+        border-top-left-radius: 20px;
+        }
+        
+        .z-listheader-content{
+        color: black !important;
+        text-align: center;
+        /*background: rgb(135, 206, 250,.4);*/
+        background: aliceblue;
+        }
+        
+        .mycss-listcell{
+        font-weight: bold; font-size: 15px;
+        color:black;
+        background: rgb(128, 128, 128,0.1);
+        text-align: left;
+        cursor: pointer;
+        height:25px;
+        border-bottom: 1px solid black;
+        }
+        
+        .mycss-listcel2{
+        height: 30px;
+        margin-top: 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        font-weight: bold; font-size: 15px;
+        color:black;
+        height:30px;
+        text-align: center;
+        cursor:pointer;
+        /*background: rgb(128, 128, 128,0.2);*/
+        background: aliceblue;
+        border-bottom: 1px solid black;
+        }
+        
+        .mycss-listcell:hover{
+        font-weight: bold; font-size: 15px;
+        color:black;
+        height:30px;
+        text-align: center;
+        cursor:pointer;
+        background: rgb(128, 128, 128,0.9);}
+        
+    </style>
+    
+    <div class="col-lg-12 col-md-12 col-sm-12" apply="ctrl.MantenimientoContenedores1Ctrl" style="">
+        <n:h1>MANTENIMIENTO DE CONTENEDORES</n:h1>
+        
+        <n:div class="container " >
+            
+            <n:div id="dv1" class="">
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    <n:div class="form-group col-lg-3 col-md-3 ">
+                        <label>CONTENEDOR</label>
+
+                    <div class="input-group">
+                      <textbox id="contenedor" value="" class="form-control"/>
+                      <span class="input-group-btn">
+                        <button id="btnBusca1" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
+                        </button>
+                      </span>
+                    </div>
+                    </n:div>
+                    <!--
+                    <n:div class="form-group col-lg-7 col-md-7 mydiv1">
+                        <label class="" value="Generado por:" style=""/>
+                        <textbox class="form-control" id="usuario" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    -->
+                </n:div>
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Tipo Contenedor" style=""/>
+                        <textbox class="form-control" id="tipo" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Linea" style=""/>
+                        <textbox class="form-control" id="linea" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Naviera" style=""/>
+                        <textbox class="form-control" id="naviera" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Fecha Ingreso" style=""/>
+                        <datebox id="fechaIn" width="100%" format="dd/MM/yyyy" locale="es" onCreate="self.value = new Date()" style="font-weight: bold; color:BLACK;"/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Hora Ingreso" style=""/>
+                        <textbox class="form-control" id="horaIn" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Ubicacion" style=""/>
+                        <textbox class="form-control" id="ubicacion1" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Peso Bruto Rec" style=""/>
+                        <textbox class="form-control" id="pesobrutor" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Peso Tara" style=""/>
+                        <textbox class="form-control" id="pesotara" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Peso Neto Bascula" style=""/>
+                        <textbox class="form-control" id="pesonetob" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Vacio / Lleno" style=""/>
+                        <textbox class="form-control" id="vacio" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Estatus" style=""/>
+                        <textbox class="form-control" id="estado" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Factura Entrada" style=""/>
+                        <textbox class="form-control" id="facentra" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                
+                <n:div class="row">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Manifiesto" style=""/>
+                        <textbox class="form-control" id="manifiesto" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Anio Manifiesto" style=""/>
+                        <textbox class="form-control" id="anomanif" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label class="" value="Area Ubicacion" style=""/>
+                        <textbox class="form-control" id="areau" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                </n:div>
+                
+                
+                <n:div  class="row ">
+                    <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                    <!--
+                    <n:div class="form-group col-lg-2 col-md-2 mydiv1">
+                        <label class="mylabel" value="Codigo Empleado" style=""/>
+                        <textbox class="form-control" id="codempd" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                    </n:div>
+                    -->
+                    
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <label id="lbdestino" class="" value="Transito" style=""/>
+                        <textbox class="form-control" id="transito" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        
+                    </n:div>
+                    
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <button  id="btnActualizar" label="" type="button" iconSclass="z-icon-save" class="btn btn btn-success btn-lg" style="float: left; margin-top:9px;" />
+                    </n:div>
+                    <n:div class="form-group col-lg-3 col-md-3 mydiv1">
+                        <button  id="btnEliminar" label="" type="button" iconSclass="z-icon-trash-o" class="btn btn btn-danger btn-lg" style="float: left; margin-top:9px; margin-left:10px;" />
+                    </n:div>
+                </n:div>
+                
+               
+                
+            </n:div>
+            
+        </n:div>
+        
+    </div>
+    
+</zk>
