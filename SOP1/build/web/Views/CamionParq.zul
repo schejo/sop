@@ -113,7 +113,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12" apply="ctrl.CamionParqCtrl" style="">
         
         
-        <n:h1>REVISION DE CAMION</n:h1>
+        <n:h1>MANTENIMIENTO DE CAMION PARQ</n:h1>
         <n:div class="container " style="color:blue;" >
             <n:div class="myform">
                                 
