@@ -54,7 +54,7 @@ public class manCicloCamionCtrl extends GenericForwardComposer {
         ciclo1.setDisabled(false);
         fecha.setDisabled(false);
         
-    }
+    }   
       public void onClick$btnDelete(Event e) throws SQLException {
             Messagebox.show("Estas Seguro Que Deseas Borrar El Ciclo "+ciclo1.getText()+"?",
                     "Question", Messagebox.OK | Messagebox.CANCEL,
