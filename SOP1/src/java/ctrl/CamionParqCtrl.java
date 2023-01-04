@@ -108,28 +108,27 @@ public class CamionParqCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnModificar(Event e) throws SQLException {
-        
-        if(placa.getText().equals("")){
 
-        Clients.showNotification("<br/> Favor Ingrese Placa",
-                Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 3000);
-        }else{
-             
+        if (placa.getText().equals("")) {
 
-        //SE HABILITAN LOS CAMPOS PARA UN UPDATE
-        placa.setDisabled(false);
-        cod_pais.setDisabled(false);
-        paispil.setDisabled(false);
-        licencia.setDisabled(false);
-        tipo_opera.setDisabled(false);
-        fecha_ing_parq.setDisabled(false);
-        naviera.setDisabled(false);
-        observaciones.setDisabled(false);
-        cod_destino.setDisabled(false);
-        fecha_inicio.setDisabled(false);
-        fecha_fin.setDisabled(false);
-        ubic_camion.setDisabled(false);
-        num_contene.setDisabled(false);
+            Clients.showNotification("<br/> Favor Ingrese Placa",
+                    Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 3000);
+        } else {
+
+            //SE HABILITAN LOS CAMPOS PARA UN UPDATE
+            placa.setDisabled(false);
+            cod_pais.setDisabled(false);
+            paispil.setDisabled(false);
+            licencia.setDisabled(false);
+            tipo_opera.setDisabled(false);
+            fecha_ing_parq.setDisabled(false);
+            naviera.setDisabled(false);
+            observaciones.setDisabled(false);
+            cod_destino.setDisabled(false);
+            fecha_inicio.setDisabled(false);
+            fecha_fin.setDisabled(false);
+            ubic_camion.setDisabled(false);
+            num_contene.setDisabled(false);
         }
 
     }
@@ -168,25 +167,33 @@ public class CamionParqCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnDelete(Event e) throws SQLException {
+        if (placa.getText().equals("")) {
 
-        Messagebox.show("Estas Seguro Que Deseas Borrar este numero de placa " + placa.getText() + "?",
-                "Question", Messagebox.OK | Messagebox.CANCEL,
-                Messagebox.QUESTION,
-                new org.zkoss.zk.ui.event.EventListener() {
-                    
-            public void onEvent(Event e) throws SQLException, ClassNotFoundException {
-                if (Messagebox.ON_OK.equals(e.getName())) {
-                    manteniMD = ManbuDal.REGdelete(placa.getText());
-                    Clients.evalJavaScript("msj('" + manteniMD.getMsg() + "','success')");
-                    clear();
-                } else if (Messagebox.ON_CANCEL.equals(e.getName())) {
-                    Clients.showNotification("REGISTRO NO SE HA <br/> BORRADO <br/>",
-                            "warning", null, "middle_center", 5000);
+            Clients.showNotification("<br/> Favor Ingrese Placa",
+                    Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 3000);
+        } else {
+
+            Messagebox.show("Estas Seguro Que Deseas Borrar este numero de placa " + placa.getText() + "?",
+                    "Question", Messagebox.OK | Messagebox.CANCEL,
+                    Messagebox.QUESTION,
+                    new org.zkoss.zk.ui.event.EventListener() {
+
+                public void onEvent(Event e) throws SQLException, ClassNotFoundException {
+                    if (Messagebox.ON_OK.equals(e.getName())) {
+                        manteniMD = ManbuDal.REGdelete(placa.getText());
+                        Clients.evalJavaScript("msj('" + manteniMD.getMsg() + "','success')");
+                        clear();
+                    } else if (Messagebox.ON_CANCEL.equals(e.getName())) {
+                        Clients.showNotification("REGISTRO NO SE HA <br/> BORRADO <br/>",
+                                "warning", null, "middle_center", 5000);
+                    }
                 }
             }
+            );
         }
-        );
-    }
+        }
+
+    
 
     public void onClick$btnSalir() {
         rootPagina.setSrc("/Views/Principal.zul");
