@@ -96,15 +96,15 @@ public class CamionParqDal {
 
             vl = st.executeUpdate("UPDATE epqop.if_cm_camion_parq SET\n"
                     + "                      codigo_pais1 = '" + data.getCod_pais() + "'\n"
-                    + "                     ,cod_pais_piloto = '" + data.getCod_pais() + "'\n"
+                    + "                     ,cod_pais_piloto = '" + data.getPais_piloto() + "'\n"
                     + "                     ,num_licen_piloto = '" + data.getLicencia() + "'\n"
                     + "                     ,tipo_operacion2 = '" + data.getTipo_opera() + "'\n"
-                    + "                     ,fch_hora_ing_parq = TO_CHAR('" + data.getFecha_ing_parqueo() + "', 'DD/MM/YYYY, HH24:MI')\n"
+                    + "                     ,fch_hora_ing_parq = TO_DATE('" + data.getFecha_ing_parqueo() + "', 'DD/MM/YYYY HH24:MI')\n"
                     + "                     ,naviera3 = '" + data.getNaviera() + "'\n"
                     + "                     ,obse_camio1 = '" + data.getObservaciones() + "'\n"
                     + "                     ,codigo_destino = '" + data.getCod_destino() + "'\n"
-                    + "                     ,fecha_inicial = TO_CHAR('" + data.getFecha_inicio() + "', 'DD/MM/YYYY, HH24:MI')\n"
-                    + "                     ,fecha_final = TO_CHAR('" + data.getFecha_fin() + "', 'DD/MM/YYYY, HH24:MI')\n"
+                    + "                     ,fecha_inicial = TO_DATE('" + data.getFecha_inicio() + "', 'DD/MM/YYYY HH24:MI')\n"
+                    + "                     ,fecha_final = TO_DATE('" + data.getFecha_fin() + "', 'DD/MM/YYYY HH24:MI')\n"
                     + "                     ,ubica_camion = '" + data.getUbic_camion() + "'\n"
                     + "                     ,numero_contenedor = '" + data.getNum_contene() + "'\n"
                     + "                WHERE num_placa_camion = '" + data.getPlaca() + "'");
@@ -128,6 +128,45 @@ public class CamionParqDal {
             System.out.println("ERROR CATCH.: " + e.getMessage());
             conn.rollback();
             conn.close();
+            cl.setResp("0");
+            cl.setMsg(e.getMessage());
+
+        }
+
+        return cl;
+    }
+
+    public CamionParqMd REGdelete(String placa) {
+        Statement st = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String id = "";
+        int resp = 0;
+        cl = new CamionParqMd();
+        try {
+            conn = obtener.Conexion();
+            conn.setAutoCommit(false);
+            int vl = 0;
+            st = conn.createStatement();
+            vl = st.executeUpdate("DELETE FROM epqop.if_cm_camion_parq WHERE num_placa_camion = '" + placa + "'");
+
+            if (vl > 0) {
+                cl.setResp("1");
+                cl.setMsg("DATO BORRADO CORRECTAMENTE");
+                System.out.println("Actualizacion Exitosa");
+            } else {
+                cl.setResp("0");
+                cl.setMsg("DATOS NO ACTUALIZADOS");
+                System.out.println("Actualizacion Fallida");
+            }
+            st.close();
+
+            conn.commit();
+            conn.close();
+            obtener.desconectar();
+
+        } catch (Exception e) {
+            System.out.println("ERROR CATCH.: " + e.getMessage());
             cl.setResp("0");
             cl.setMsg(e.getMessage());
 
