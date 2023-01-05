@@ -25,7 +25,9 @@ public class menu extends GenericForwardComposer {
         lblUser.setValue(User);
         rootPagina.setSrc("/Views/Principal.zul");
 
-        Permisos(User);
+
+      //  Permisos(User);
+
 
         
     }
