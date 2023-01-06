@@ -39,10 +39,7 @@ public class manCicloCamionDal {
                 + "to_char(fecha_pesaje_2,'dd/mm/yyyy hh24:mi'),ticket1,ticket2,num_bascula_1,num_bascula_2,nvl(empresa_bascula_1,0),"
                 + "nvl(empresa_bascula_2,0),indicador_tabla, nvl(ident_cuadrilla,0),correlativo9,nvl(hist_act,0)\n"
                 + "from epqop.if_cm_pesaje_camio where fecha_ciclo= to_date('" + fecha + "','dd/mm/yyyy') and num_ciclo='" + ciclo + "'";
-//                + "SELECT pro_descripcion,pro_tipo,pro_tipo_servicio,pro_marca,pro_presentacion,pro_precio_compra,pro_precio_venta,\n"
-//                + "pro_descuento,pro_stock_barrita,pro_stock_Carrizal,pro_stock_angeles,pro_conversion,pro_medida,pro_minimo,pro_maximo,pro_ubicacion,pro_ferreteria\n"
-//                + "from  productos\n"
-//                + " where pro_id='" + producto + "';";
+
         try {
             conn = obtener.Conexion();
 

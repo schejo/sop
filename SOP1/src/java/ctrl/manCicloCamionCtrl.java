@@ -46,8 +46,9 @@ public class manCicloCamionCtrl extends GenericForwardComposer {
     private Textbox tipoAct;
     
     manCicloCamionMd pesajeModelo = new manCicloCamionMd();
+     manCicloCamionDal ProductoDal = new manCicloCamionDal();
     manCicloCamionMd borrajeModelo = new manCicloCamionMd();
-    manCicloCamionDal ProductoDal = new manCicloCamionDal();
+   
     
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);

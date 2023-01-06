@@ -86,6 +86,9 @@ public class menu extends GenericForwardComposer {
     public void onClick$ItemAAD(Event evt) {
         rootPagina.setSrc("/Views/MantenimientoBuques.zul");
     }
+     public void onClick$ItemServ(Event evt) {
+        rootPagina.setSrc("/Views/ManteServicios.zul");
+    }
 
     public void onClick$ItemB(Event evt) {
         rootPagina.setSrc("/Views/Regiones.zul");
