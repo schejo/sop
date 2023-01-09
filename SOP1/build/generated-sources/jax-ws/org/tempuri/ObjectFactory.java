@@ -50,28 +50,88 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ObtenerPesaje }
+     * Create an instance of {@link ObtenerRetencionPesaje }
      * 
      */
-    public ObtenerPesaje createObtenerPesaje() {
-        return new ObtenerPesaje();
+    public ObtenerRetencionPesaje createObtenerRetencionPesaje() {
+        return new ObtenerRetencionPesaje();
     }
 
     /**
-     * Create an instance of {@link ObtenerPesajeResponse }
+     * Create an instance of {@link ObtenerRetencionPesajeResponse }
      * 
      */
-    public ObtenerPesajeResponse createObtenerPesajeResponse() {
-        return new ObtenerPesajeResponse();
+    public ObtenerRetencionPesajeResponse createObtenerRetencionPesajeResponse() {
+        return new ObtenerRetencionPesajeResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     * Create an instance of {@link ObtenerDetalleContenedor }
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     */
+    public ObtenerDetalleContenedor createObtenerDetalleContenedor() {
+        return new ObtenerDetalleContenedor();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerDetalleContenedorResponse }
+     * 
+     */
+    public ObtenerDetalleContenedorResponse createObtenerDetalleContenedorResponse() {
+        return new ObtenerDetalleContenedorResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerDocumentosContenedor }
+     * 
+     */
+    public ObtenerDocumentosContenedor createObtenerDocumentosContenedor() {
+        return new ObtenerDocumentosContenedor();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerDocumentosContenedorResponse }
+     * 
+     */
+    public ObtenerDocumentosContenedorResponse createObtenerDocumentosContenedorResponse() {
+        return new ObtenerDocumentosContenedorResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerOperacionCiclo }
+     * 
+     */
+    public ObtenerOperacionCiclo createObtenerOperacionCiclo() {
+        return new ObtenerOperacionCiclo();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerOperacionCicloResponse }
+     * 
+     */
+    public ObtenerOperacionCicloResponse createObtenerOperacionCicloResponse() {
+        return new ObtenerOperacionCicloResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerCabecerasContenedor }
+     * 
+     */
+    public ObtenerCabecerasContenedor createObtenerCabecerasContenedor() {
+        return new ObtenerCabecerasContenedor();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerCabecerasContenedorResponse }
+     * 
+     */
+    public ObtenerCabecerasContenedorResponse createObtenerCabecerasContenedorResponse() {
+        return new ObtenerCabecerasContenedorResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
      */
     @XmlElementDecl(namespace = "http://tempuri.org/", name = "string")
     public JAXBElement<String> createString(String value) {

@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="Group 20210428-08:47:08">
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ManteActivi.zul</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/CamionParq.zul</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/manCicloCamion.zul</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/DAL/CamionParqDal.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/CamionParqCtrl.java</file>
-        </group>
         <group>
             <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/DAL/ManteServiciosDal.java</file>
             <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/DAL/manCicloCamionDal.java</file>
@@ -18,6 +11,10 @@
             <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/Views/ManteServicios.zul</file>
             <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/MD/ManteServiciosMd.java</file>
             <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/ctrl/ManteServiciosCtrl.java</file>
+        </group>
+        <group name="Group 20210428-08:47:08">
+            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/Mantenimientoarribos.zul</file>
+            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ManteServicios.zul</file>
         </group>
     </open-files>
 </project-private>

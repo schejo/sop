@@ -17,35 +17,35 @@ import org.zkoss.zul.Textbox;
  *
  * @author HP 15
  */
-public class ManteServiciosCtrl extends GenericForwardComposer{
-     private Textbox txtAnioArribo;
+public class ManteServiciosCtrl extends GenericForwardComposer {
+
+    private Textbox txtAnioArribo;
     private Textbox txtNumArribo;
     private Textbox txtCodigoBuque;
     private Textbox txtNombreBuque;
-      ManteServiciosMd serviciosModelo = new ManteServiciosMd();
-     ManteServiciosDal ProductoDal = new ManteServiciosDal();
-    
-    
-       public void doAfterCompose(Component comp) throws Exception {
+    ManteServiciosMd serviciosModelo = new ManteServiciosMd();
+    ManteServiciosDal ProductoDal = new ManteServiciosDal();
+
+    public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-        
+
     }
-       
-         public void onChange$txtNumArribo(Event evt)  {
+
+    public void onChange$txtNumArribo(Event evt) {
 
         if (!txtAnioArribo.getText().equals("") && !txtNumArribo.getText().equals("")) {
-             serviciosModelo = new ManteServiciosMd();
-              serviciosModelo = ProductoDal.MostrarProducto( txtAnioArribo.getText(),txtNumArribo.getText());
-              if (serviciosModelo.getResp().equals("1")) {
-                  txtCodigoBuque.setText(serviciosModelo.getNumBuque());
-                  txtNombreBuque.setText(serviciosModelo.getNomBuque());
-                  
-              }else {
+            serviciosModelo = new ManteServiciosMd();
+            serviciosModelo = ProductoDal.MostrarProducto(txtAnioArribo.getText(), txtNumArribo.getText());
+            if (serviciosModelo.getResp().equals("1")) {
+                txtCodigoBuque.setText(serviciosModelo.getNumBuque());
+                txtNombreBuque.setText(serviciosModelo.getNomBuque());
 
-            Clients.evalJavaScript("msj('ERROR "+serviciosModelo.getMsg()+"','error')");
-        }
+            } else {
+
+                Clients.evalJavaScript("msj('ERROR " + serviciosModelo.getMsg() + "','error')");
+            }
         }
 
     }
-    
+
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAL;
 
 import Conexion.Conexion;
@@ -39,12 +34,6 @@ public class ManteServiciosDal {
                 + "WHERE B.BUQUE = A.BUQUE \n"
                 + "AND A.ANO_ARRIBO ='" + ano + "'\n"
                 + "AND A.NUM_ARRIBO ='" + arribo + "'";
-//                + "select identif_contenedor,peso_tara_contened, nvl(pesaje_1,0), nvl(pesaje_2,0),peso_bruto,peso_tara,"
-//                + "to_char(fecha_pesaje_1,'dd/mm/yyyy hh24:mi'), \n"
-//                + "to_char(fecha_pesaje_2,'dd/mm/yyyy hh24:mi'),ticket1,ticket2,num_bascula_1,num_bascula_2,nvl(empresa_bascula_1,0),"
-//                + "nvl(empresa_bascula_2,0),indicador_tabla, nvl(ident_cuadrilla,0),correlativo9,nvl(hist_act,0)\n"
-//                + "from epqop.if_cm_pesaje_camio where fecha_ciclo= to_date('" + ano + "','dd/mm/yyyy') and num_ciclo='" + arribo + "'";
-
         try {
             conn = obtener.Conexion();
 
