@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns:n="native">
-      <div  xmlns:n="native" sclass="col-md-12 col-sm-12" apply="ctrl.ManteServiciosCtrl" >
+    <div  xmlns:n="native" sclass="col-md-12 col-sm-12" apply="ctrl.ManteServiciosCtrl" >
         <groupbox
             style="margin: 0 auto; border-radius: 5px; box-shadow: 1px 1px 1px"
             closable="false" width="100%;" mold="3d">
@@ -28,6 +28,11 @@
                         <div sclass="col-md-3">
                             <label value="ARRIBO " style="font-weight:bold;"  />
                             <textbox   id="txtNumArribo"  width="100%" value=""   maxlength="5"/>
+                            <span class="input-group-btn">
+                                <button id="btnBusca1" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
+                                </button>
+                            </span>
+                            
                      
                         </div>
                         <div sclass="col-md-3">
@@ -62,5 +67,5 @@
             
         </groupbox>
     
-  </div>
+    </div>
 </zk>
