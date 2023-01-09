@@ -162,6 +162,8 @@
                                     <menuitem label="Reporte Contenedores APM" id="ItemAZ2" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Resumen Contenedores APM" id="ItemAZ3" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Resumen Contenedores APM Por Mes" id="ItemAZ4" image="bootstrap/img/estadistica2.png"/>
+                                    <menuitem label="Mantenimiento De Servicios" id="ItemServ" image="bootstrap/img/estadistica2.png"/>
+
                                 </menupopup>
                             </menu> 
                             <menu id="menuInformatica" label="INFORMATICA" image="bootstrap/img/estadistica2.png" width="180px" height="25px">

@@ -134,6 +134,12 @@ public class CamionParqCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnGuardar(Event e) throws SQLException, ClassNotFoundException, ParseException {
+            if (placa.getText().equals("")) {
+
+            Clients.showNotification("<br/> Favor Ingrese Placa",
+                    Clients.NOTIFICATION_TYPE_ERROR, null, "middle_center", 3000);
+        } else {
+
 
         int op1 = 0;
         //aqui se coloca lo que se va a guardar
@@ -164,6 +170,7 @@ public class CamionParqCtrl extends GenericForwardComposer {
             Clients.showNotification(manteniMD.getMsg() + "<brRegistro no Guardado revise los datos/>",
                     Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
         }
+            }
     }
 
     public void onClick$btnDelete(Event e) throws SQLException {
