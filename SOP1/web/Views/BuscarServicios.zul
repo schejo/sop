@@ -25,7 +25,9 @@
                         <n:div class="form-group col-lg-10 col-md-10 mydiv1" style="">
                             <listbox id="lb2" model="${data}" fixedLayout="true" height="300px" sizedByContent="true" span="true"  
                                      onSelect="cod1.value = self.selectedItem.getChildren().get(0).getLabel(); 
-                                                nom1.value = self.selectedItem.getChildren().get(1).getLabel();
+                                                codparti.value = self.selectedItem.getChildren().get(3).getLabel();
+                                                codcliFac.value = self.selectedItem.getChildren().get(4).getLabel();
+                                                fecha_inicio.value = self.selectedItem.getChildren().get(5).getLabel();
                                                 " 
                                      style="border:none; background-color: transparent;" >
                              
@@ -43,6 +45,9 @@
                                         <listcell  class = "mycss-listcell" label="${each.codigo}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.servi}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.parti}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.codparti}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.codcliFac}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.fecha_inicio}" style="" />
                                         
                                         <!--
                                         <listcell>
@@ -59,7 +64,9 @@
                         <n:div class="form-group col-lg-1 col-md-1 "></n:div>
                         <n:div class="form-group col-lg-8 col-md-8 mydiv1">
                             <textbox class="form-control" id="cod1" value=""  style="display:none; "/>
-                            <textbox class="form-control" id="nom1" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="codparti" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="codcliFac" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="fecha_inicio" value=""  style="display:none; "/>
                            
                         </n:div>
                     
@@ -68,7 +75,6 @@
                     <n:div class="row ">
                         <n:div class="form-group col-lg-1 col-md-1 "></n:div>
                         <n:div class="form-group col-lg-10 col-md-10 mydiv1">
-                            <button id="btnAgregar1" label="" type="button" iconSclass="z-icon-exclamation-circle" class="btn btn btn-primary btn-lg" style="float: left; margin-top:9px;" />
                             <button id="btnAgregar" label="" type="button" iconSclass="z-icon-plus-circle" class="btn btn btn-primary btn-lg" style="float: right; margin-top:9px;" />
 
                             <!--

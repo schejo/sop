@@ -29,7 +29,9 @@ public class CatalogoDal {
         List<CatalogosMd> lista = new ArrayList<CatalogosMd>();
 
         CatalogosMd data;
-        String sql = "select TRIM(a.CODIGO_SERVICIO) codi,TRIM(b.DESCRIPCION_SERVIC),TRIM(c.NOMBRE_PARTICULAR)\n"
+        String sql = "select TRIM(a.CODIGO_SERVICIO) codi,TRIM(b.DESCRIPCION_SERVIC),TRIM(c.NOMBRE_PARTICULAR)"
+                + ",a.CODIGO_PARTICULAR,a.COD_CLI_FACT"
+                + ",to_char(a.FECHA_INICIO1,'dd/mm/yyyy')||' '||to_char(a.HORA_INICIO1,'hh24:mi') fecha\n"
                 + "from epqop.if_bq_servicios a,\n"
                 + "     epqop.if_ca_tarifas b,\n"
                 + "     epqop.particulares c\n"
@@ -49,6 +51,9 @@ public class CatalogoDal {
                 data.setCodigo(rs.getString(1));
                 data.setServi(rs.getString(2));
                 data.setParti(rs.getString(3));
+                data.setCodparti(rs.getString(4));
+                data.setCodcliFac(rs.getString(5));
+                data.setFecha_inicio(rs.getString(6));
 
                 lista.add(data);
             }
