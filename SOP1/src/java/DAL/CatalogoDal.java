@@ -31,7 +31,8 @@ public class CatalogoDal {
         CatalogosMd data;
         String sql = "select TRIM(a.CODIGO_SERVICIO) codi,TRIM(b.DESCRIPCION_SERVIC),TRIM(c.NOMBRE_PARTICULAR)"
                 + ",a.CODIGO_PARTICULAR,a.COD_CLI_FACT"
-                + ",to_char(a.FECHA_INICIO1,'dd/mm/yyyy')||' '||to_char(a.HORA_INICIO1,'hh24:mi') fecha\n"
+                + ",to_char(a.FECHA_INICIO1,'dd/mm/yyyy')||' '||to_char(a.HORA_INICIO1,'hh24:mi') fecha"
+                + ",to_char(a.FECHA_FIN1,'dd/mm/yyyy')||' '||to_char(a.HORA_FIN2,'hh24:mi') fecha_fin\n"
                 + "from epqop.if_bq_servicios a,\n"
                 + "     epqop.if_ca_tarifas b,\n"
                 + "     epqop.particulares c\n"
