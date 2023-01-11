@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MD;
 
 /**
@@ -13,7 +8,7 @@ public class CatalogosMd {
 
     private String codigo;
     private String servi;
-    private String nom_serv;
+    private String nom_servicio;
     private String parti;
     private String codparti;
     private String codcliFac;
@@ -26,8 +21,6 @@ public class CatalogosMd {
     public void setFecha_inicio(String fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
-    
-    
 
     public String getCodcliFac() {
         return codcliFac;
@@ -61,12 +54,12 @@ public class CatalogosMd {
         this.servi = servi;
     }
 
-    public String getNom_serv() {
-        return nom_serv;
+    public String getNom_servicio() {
+        return nom_servicio;
     }
 
-    public void setNom_serv(String nom_serv) {
-        this.nom_serv = nom_serv;
+    public void setNom_servicio(String nom_servicio) {
+        this.nom_servicio = nom_servicio;
     }
 
     public String getParti() {

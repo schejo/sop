@@ -35,24 +35,29 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     private Textbox cod_serv;
     private Combobox nombreServicio;
     private Textbox cod_part;
+    private Combobox nombreParticular;
     private Textbox cod_cli;
+    private Combobox nombreCliente;
     private Datebox fechaInicio;
-
-    private Listbox lb2;
 
     ManteServiciosMd serviciosModelo = new ManteServiciosMd();
     ManteServiciosDal ProductoDal = new ManteServiciosDal();
-
-    List<CatalogosMd> lista = new ArrayList<CatalogosMd>();
-    List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
-
     CatalogoDal ctd = new CatalogoDal();
+    List<CatalogosMd> lista = new ArrayList<CatalogosMd>();
+
+    List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
+    List<ManteServiciosMd> allparticulares = new ArrayList<ManteServiciosMd>();
+    List<ManteServiciosMd> allclientes = new ArrayList<ManteServiciosMd>();
 
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
 
-        allservicios = ProductoDal.RSelect();
+        allservicios = ProductoDal.Servicios();
         nombreServicio.setModel(new ListModelList(allservicios));
+        allparticulares = ProductoDal.Particulares();
+        nombreParticular.setModel(new ListModelList(allparticulares));
+        allclientes = ProductoDal.Clientes();
+        nombreCliente.setModel(new ListModelList(allclientes));
 
         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
@@ -65,11 +70,13 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                             cod_part.setText("");
                             cod_cli.setText("");
                             fechaInicio.setText("");
+                            nombreServicio.setText("");
 
                         } else {
                             for (CatalogosMd item : data) {
                                 if (data.size() == 1) {
                                     cod_serv.setText(item.getCodigo());
+                                    nombreServicio.setText(item.getNom_servicio());
                                     cod_part.setText(item.getCodparti());
                                     cod_cli.setText(item.getCodcliFac());
                                     fechaInicio.setText(item.getFecha_inicio());

@@ -73,14 +73,14 @@ public class ManteServiciosDal {
         return cl;
     }
 
-    public List<ManteServiciosMd> RSelect() throws SQLException {
+    public List<ManteServiciosMd> Servicios() throws SQLException {
         List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
 
         String query = "SELECT codigo_servicio, descripcion_servic\n"
                 + "FROM   epqop.if_ca_tarifas\n"
                 + "WHERE  tipo_particular_2 = '1'\n"
                 + "ORDER BY codigo_servicio ASC";
-               
+
         try {
             conn = obtener.Conexion();
             st = conn.createStatement();
@@ -102,9 +102,77 @@ public class ManteServiciosDal {
         } catch (SQLException e) {
             conn.close();
             conn = null;
-            Clients.showNotification("ERROR AL CONSULTAR (Rselect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+            Clients.showNotification("ERROR AL CONSULTAR (Servicios) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
                     "warning", null, "middle_center", 0);
         }
         return allservicios;
+    }
+
+    public List<ManteServiciosMd> Particulares() throws SQLException {
+        List<ManteServiciosMd> allparticulares = new ArrayList<ManteServiciosMd>();
+
+        String query = "SELECT codigo_particular, nombre_particular\n"
+                + "FROM epqop.particulares \n"
+                + "WHERE estatus = 1\n"
+                + "ORDER BY codigo_particular ASC";
+
+        try {
+            conn = obtener.Conexion();
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            ManteServiciosMd rg;
+            while (rs.next()) {
+                rg = new ManteServiciosMd();
+
+                rg.setCod_particular(rs.getString(1));
+                rg.setNom_particular(rs.getString(2));
+
+                allparticulares.add(rg);
+            }
+
+            st.close();
+            rs.close();
+            conn.close();
+            conn = null;
+        } catch (SQLException e) {
+            conn.close();
+            conn = null;
+            Clients.showNotification("ERROR AL CONSULTAR (Particulares) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+                    "warning", null, "middle_center", 0);
+        }
+        return allparticulares;
+    }
+
+    public List<ManteServiciosMd> Clientes() throws SQLException {
+        List<ManteServiciosMd> allclientes = new ArrayList<ManteServiciosMd>();
+
+        String query = "SELECT codigo_cliente, nombre_comercial\n"
+                + "FROM   epqop.if_clientes \n"
+                + "ORDER BY codigo_cliente ASC";
+        try {
+            conn = obtener.Conexion();
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            ManteServiciosMd rg;
+            while (rs.next()) {
+                rg = new ManteServiciosMd();
+
+                rg.setCod_cliente(rs.getString(1));
+                rg.setNom_cliente(rs.getString(2));
+
+                allclientes.add(rg);
+            }
+
+            st.close();
+            rs.close();
+            conn.close();
+            conn = null;
+        } catch (SQLException e) {
+            conn.close();
+            conn = null;
+            Clients.showNotification("ERROR AL CONSULTAR (Particulares) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+                    "warning", null, "middle_center", 0);
+        }
+        return allclientes;
     }
 }

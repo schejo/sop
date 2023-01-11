@@ -14,8 +14,11 @@ public class ManteServiciosMd {
     //variables de Ramiro 
     private String cod_servicio;
     private String nom_servicio;
+    private String cod_particular;
+    private String nom_particular;
+    private String cod_cliente;
+    private String nom_cliente;
 
-    
     //mensajes del sistema
     private String resp;
     private String msg;
@@ -77,6 +80,7 @@ public class ManteServiciosMd {
         this.nomBuque = nomBuque;
     }
 
+    //variables Ramiro
     public String getCod_servicio() {
         return cod_servicio;
     }
@@ -93,5 +97,36 @@ public class ManteServiciosMd {
         this.nom_servicio = nom_servicio;
     }
 
-    
+    public String getCod_particular() {
+        return cod_particular;
+    }
+
+    public void setCod_particular(String cod_particular) {
+        this.cod_particular = cod_particular;
+    }
+
+    public String getNom_particular() {
+        return nom_particular;
+    }
+
+    public void setNom_particular(String nom_particular) {
+        this.nom_particular = nom_particular;
+    }
+
+    public String getCod_cliente() {
+        return cod_cliente;
+    }
+
+    public void setCod_cliente(String cod_cliente) {
+        this.cod_cliente = cod_cliente;
+    }
+
+    public String getNom_cliente() {
+        return nom_cliente;
+    }
+
+    public void setNom_cliente(String nom_cliente) {
+        this.nom_cliente = nom_cliente;
+    }
+
 }
