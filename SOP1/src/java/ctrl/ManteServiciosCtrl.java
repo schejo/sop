@@ -48,7 +48,6 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
 
     CatalogoDal ctd = new CatalogoDal();
 
-    @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
 
