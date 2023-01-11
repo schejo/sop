@@ -5,12 +5,18 @@ package MD;
  * @author HP 15
  */
 public class ManteServiciosMd {
+
     private String anoArri;
     private String numArri;
     private String numBuque;
     private String nomBuque;
+
+    //variables de Ramiro 
+    private String cod_servicio;
+    private String nom_servicio;
+
     
-      //mensajes del sistema
+    //mensajes del sistema
     private String resp;
     private String msg;
     private String dir;
@@ -38,9 +44,6 @@ public class ManteServiciosMd {
     public void setDir(String dir) {
         this.dir = dir;
     }
-    
-    
-    
 
     public String getAnoArri() {
         return anoArri;
@@ -73,7 +76,22 @@ public class ManteServiciosMd {
     public void setNomBuque(String nomBuque) {
         this.nomBuque = nomBuque;
     }
-    
-    
+
+    public String getCod_servicio() {
+        return cod_servicio;
+    }
+
+    public void setCod_servicio(String cod_servicio) {
+        this.cod_servicio = cod_servicio;
+    }
+
+    public String getNom_servicio() {
+        return nom_servicio;
+    }
+
+    public void setNom_servicio(String nom_servicio) {
+        this.nom_servicio = nom_servicio;
+    }
+
     
 }

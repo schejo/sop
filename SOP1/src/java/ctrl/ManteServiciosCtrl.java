@@ -1,28 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ctrl;
 
 import DAL.CatalogoDal;
 import DAL.ManteServiciosDal;
 import MD.CatalogosMd;
 import MD.ManteServiciosMd;
-
 import java.util.ArrayList;
 import java.util.List;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
-
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Datebox;
+import org.zkoss.zul.ListModelList;
+import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -35,20 +31,31 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     private Textbox txtAnioArribo;
     private Textbox txtNumArribo;
     private Textbox txtCodigoBuque;
-    private Textbox cod_serv;
-     private Textbox cod_part;
-     private Textbox cod_cli;
-     private Datebox fechaInicio;
     private Textbox txtNombreBuque;
+    private Textbox cod_serv;
+    private Combobox nombreServicio;
+    private Textbox cod_part;
+    private Textbox cod_cli;
+    private Datebox fechaInicio;
+
+    private Listbox lb2;
+
     ManteServiciosMd serviciosModelo = new ManteServiciosMd();
     ManteServiciosDal ProductoDal = new ManteServiciosDal();
 
     List<CatalogosMd> lista = new ArrayList<CatalogosMd>();
+    List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
+
     CatalogoDal ctd = new CatalogoDal();
 
+    @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
+
+        allservicios = ProductoDal.RSelect();
+        nombreServicio.setModel(new ListModelList(allservicios));
+
+        EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
                         List<CatalogosMd> data = new ArrayList<CatalogosMd>();
@@ -62,11 +69,11 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
 
                         } else {
                             for (CatalogosMd item : data) {
-                                if(data.size()==1){
-                                cod_serv.setText(item.getCodigo());
-                                cod_part.setText(item.getCodparti());
-                                cod_cli.setText(item.getCodcliFac());
-                                fechaInicio.setText(item.getFecha_inicio());
+                                if (data.size() == 1) {
+                                    cod_serv.setText(item.getCodigo());
+                                    cod_part.setText(item.getCodparti());
+                                    cod_cli.setText(item.getCodcliFac());
+                                    fechaInicio.setText(item.getFecha_inicio());
 //                                 txtProductoId.setFocus(true);
                                 }
                             }
@@ -75,7 +82,8 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 });
 
     }
-       Session session = Sessions.getCurrent();
+    Session session = Sessions.getCurrent();
+
     public void onClick$btnBusca1(Event e) {
 //         lista = ctd.consulta(txtAnioArribo.getText(), txtNumArribo.getText());
 //
