@@ -6,13 +6,6 @@
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/Mantenimientoarribos.zul</file>
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ManteServicios.zul</file>
         </group>
-        <group>
-            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/Views/BuscarServicios.zul</file>
-            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/web/Views/ManteServicios.zul</file>
-            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/ctrl/BuscarServiciosCtrl.java</file>
-            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/MD/CatalogosMd.java</file>
-            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/ctrl/ManteServiciosCtrl.java</file>
-            <file>file:/C:/Users/HP%2015/Documents/Git%20Produccion/SOP/SOP1/src/java/DAL/CatalogoDal.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
