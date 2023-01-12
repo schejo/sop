@@ -559,7 +559,8 @@ public class MantenimientoarribosDal {
 
         String query = "SELECT TRIM(buque), "
                 + " TRIM(nom_buque) "
-                + " FROM epqop.if_bq_buques ORDER BY buque ASC ";
+                + " FROM epqop.if_bq_buques"
+                + " ORDER BY buque ASC ";
         try {
             conexion = cnn.Conexion();
             st = conexion.createStatement();

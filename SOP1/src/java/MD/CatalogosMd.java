@@ -13,6 +13,7 @@ public class CatalogosMd {
 
     private String codigo;
     private String servi;
+    private String nom_serv;
     private String parti;
     private String codparti;
     private String codcliFac;
@@ -69,6 +70,14 @@ public class CatalogosMd {
 
     public void setServi(String servi) {
         this.servi = servi;
+    }
+
+    public String getNom_serv() {
+        return nom_serv;
+    }
+
+    public void setNom_serv(String nom_serv) {
+        this.nom_serv = nom_serv;
     }
 
     public String getParti() {

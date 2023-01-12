@@ -5,7 +5,11 @@ import MD.ManteServiciosMd;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import org.zkoss.zk.ui.util.Clients;
 
 /**
  *
@@ -69,4 +73,38 @@ public class ManteServiciosDal {
         return cl;
     }
 
+    public List<ManteServiciosMd> RSelect() throws SQLException {
+        List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
+
+        String query = "SELECT codigo_servicio, descripcion_servic\n"
+                + "FROM   epqop.if_ca_tarifas\n"
+                + "WHERE  tipo_particular_2 = '1'\n"
+                + "ORDER BY codigo_servicio ASC";
+               
+        try {
+            conn = obtener.Conexion();
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            ManteServiciosMd rg;
+            while (rs.next()) {
+                rg = new ManteServiciosMd();
+
+                rg.setCod_servicio(rs.getString(1));
+                rg.setNom_servicio(rs.getString(2));
+
+                allservicios.add(rg);
+            }
+
+            st.close();
+            rs.close();
+            conn.close();
+            conn = null;
+        } catch (SQLException e) {
+            conn.close();
+            conn = null;
+            Clients.showNotification("ERROR AL CONSULTAR (Rselect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+                    "warning", null, "middle_center", 0);
+        }
+        return allservicios;
+    }
 }

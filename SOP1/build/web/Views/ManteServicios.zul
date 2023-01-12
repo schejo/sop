@@ -192,8 +192,8 @@
                     
                     <n:div class="form-group col-lg-5 col-md-4 mydiv1">
                         <label class="mylabel" value="SERVICIO :" style="font-size: 15px; color:blue;"/>
-                        <combobox id="nombreServicio" style="font-size: 15px;" buttonVisible="true" width="630px" autocomplete="true"  model="${allBuques}" 
-                                  onSelect="codigoServicio.value = self.selectedItem.value;"
+                        <combobox id="nombreServicio" style="font-size: 15px;" buttonVisible="true" width="630px" autocomplete="true"  model="${allservicios}" 
+                                 
                                   autodrop="true" >
                             <template name="model">
                                 <comboitem label="${each.nom_servicio}" value="${each.cod_servicio}"/>
