@@ -34,7 +34,8 @@ public class ManteServiciosDal {
         cl = new ManteServiciosMd();
         String query0
                 = "SELECT B.BUQUE CODIGO,UPPER(TRIM(B.NOM_BUQUE)) NOMBRE \n"
-                + "FROM EPQOP.IF_BQ_BUQUES B, EPQOP.IF_BQ_ARRIBOS A\n"
+                + "FROM EPQOP.IF_BQ_BUQUES B,"
+                + "     EPQOP.IF_BQ_ARRIBOS A\n"
                 + "WHERE B.BUQUE = A.BUQUE \n"
                 + "AND A.ANO_ARRIBO ='" + ano + "'\n"
                 + "AND A.NUM_ARRIBO ='" + arribo + "'";
