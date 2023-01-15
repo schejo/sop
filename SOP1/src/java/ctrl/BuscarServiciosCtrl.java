@@ -37,6 +37,9 @@ public class BuscarServiciosCtrl extends GenericForwardComposer {
     private Textbox codparti;
     private Textbox codcliFac;
     private Textbox fecha_inicio;
+    private Textbox fecha_fin;
+    private Textbox boleta;
+    private Textbox obs;
 
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
@@ -58,6 +61,9 @@ public class BuscarServiciosCtrl extends GenericForwardComposer {
             da.setCodparti(item.getCodparti());
             da.setCodcliFac(item.getCodcliFac());
             da.setFecha_inicio(item.getFecha_inicio());
+            da.setFecha_fin(item.getFecha_fin());
+            da.setBoleta(item.getBoleta());
+            da.setObs(item.getObs());
 
             data.add(da);
 
@@ -73,6 +79,9 @@ public class BuscarServiciosCtrl extends GenericForwardComposer {
         data.setCodparti(codparti.getText());
         data.setCodcliFac(codcliFac.getText());
         data.setFecha_inicio(fecha_inicio.getText());
+        data.setFecha_fin(fecha_fin.getText());
+         data.setBoleta(boleta.getText());
+        data.setObs(obs.getText());
 
         items.add(data);
         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)

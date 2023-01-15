@@ -28,6 +28,9 @@
                                                 codparti.value = self.selectedItem.getChildren().get(3).getLabel();
                                                 codcliFac.value = self.selectedItem.getChildren().get(4).getLabel();
                                                 fecha_inicio.value = self.selectedItem.getChildren().get(5).getLabel();
+                                                fecha_fin.value = self.selectedItem.getChildren().get(6).getLabel();
+                                                boleta.value = self.selectedItem.getChildren().get(7).getLabel();
+                                                obs.value = self.selectedItem.getChildren().get(8).getLabel();
                                                 " 
                                      style="border:none; background-color: transparent;" >
                              
@@ -48,6 +51,9 @@
                                         <listcell  class = "mycss-listcell" label="${each.codparti}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.codcliFac}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.fecha_inicio}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.fecha_fin}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.boleta}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.obs}" style="" />
                                         
                                         <!--
                                         <listcell>
@@ -67,6 +73,9 @@
                             <textbox class="form-control" id="codparti" value=""  style="display:none; "/>
                             <textbox class="form-control" id="codcliFac" value=""  style="display:none; "/>
                             <textbox class="form-control" id="fecha_inicio" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="fecha_fin" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="boleta" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="obs" value=""  style="display:none; "/>
                            
                         </n:div>
                     

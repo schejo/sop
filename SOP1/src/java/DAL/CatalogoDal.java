@@ -32,7 +32,8 @@ public class CatalogoDal {
         String sql = "select TRIM(a.CODIGO_SERVICIO) codi,TRIM(b.DESCRIPCION_SERVIC),TRIM(c.NOMBRE_PARTICULAR)"
                 + ",a.CODIGO_PARTICULAR,a.COD_CLI_FACT"
                 + ",to_char(a.FECHA_INICIO1,'dd/mm/yyyy')||' '||to_char(a.HORA_INICIO1,'hh24:mi') fecha"
-                + ",to_char(a.FECHA_FIN1,'dd/mm/yyyy')||' '||to_char(a.HORA_FIN2,'hh24:mi') fecha_fin\n"
+                + ",to_char(a.FECHA_FIN1,'dd/mm/yyyy')||' '||to_char(a.HORA_FIN2,'hh24:mi') fecha_fin"
+                + ",nvl(a.NUMERO_FACTURA,0),nvl(a.OBSE_SERVICIO,'SIN DATO')\n"
                 + "from epqop.if_bq_servicios a,\n"
                 + "     epqop.if_ca_tarifas b,\n"
                 + "     epqop.particulares c\n"
@@ -55,6 +56,9 @@ public class CatalogoDal {
                 data.setCodparti(rs.getString(4));
                 data.setCodcliFac(rs.getString(5));
                 data.setFecha_inicio(rs.getString(6));
+                data.setFecha_fin(rs.getString(7));
+                data.setBoleta(rs.getString(8));
+                data.setObs(rs.getString(9));
 
                 lista.add(data);
             }

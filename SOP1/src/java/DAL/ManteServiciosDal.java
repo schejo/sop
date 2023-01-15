@@ -77,7 +77,7 @@ public class ManteServiciosDal {
     public List<ManteServiciosMd> Servicios() throws SQLException {
         List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
 
-        String query = "SELECT codigo_servicio, TRIM(descripcion_servic)\n"
+        String query = "SELECT TRIM(codigo_servicio), TRIM(descripcion_servic)\n"
                 + "FROM   epqop.if_ca_tarifas\n"
                 + "WHERE  tipo_particular_2 = '1'\n"
                 + "ORDER BY codigo_servicio ASC";

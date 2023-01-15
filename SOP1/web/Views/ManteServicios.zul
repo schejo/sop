@@ -140,9 +140,15 @@
                             <label value="ARRIBO " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtNumArribo"  width="100%" value=""   maxlength="5"/>
                             <span class="input-group-btn">
-                                <button id="btnBusca1" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
+                                <button id="btnBusca1" tooltip="status" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
                                 </button>
                             </span>
+                            <popup id="status" width="150px">
+                                <vlayout>
+                                    Seleccione Servicios!
+                                   
+                                </vlayout>
+                            </popup>
                             
                      
                         </div>
@@ -247,7 +253,7 @@
                 </n:div>
                 
                 
-                <n:div class="row ">
+<!--                <n:div class="row ">
                    
                     <n:div class="form-group col-lg-4 col-md-4 dvlb" style="border: none;">
                         <label class="mylabel" value="CANTIDAD 1 :" style="font-size: 15px; color:blue;"/>
@@ -259,7 +265,7 @@
                         <doublebox id="cant2" format="#,###.000" constraint = "no negative" locale="gt" value="00.000" cols="35" style="font-size: 15px; margin-left:0px; heigh:20px;"/>
                     </n:div>
                                                        
-                </n:div>
+                </n:div>-->
                 
                 
                 
@@ -281,7 +287,9 @@
                      
                     <n:div class="form-group col-lg-2 col-md-4 mydiv1">
                         <label class="mylabel" value="BOLETA :" style="font-size: 15px; color: blue;"/>
-                        <textbox class="form-control" id="boleta" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>
+                        <!--<textbox class="form-control" id="boleta" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>-->
+                         <doublebox id="boleta" format="" constraint = "no negative" locale="gt"   style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+
                     </n:div>
                       
                 </n:div>

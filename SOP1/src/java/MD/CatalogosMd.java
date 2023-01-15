@@ -14,6 +14,26 @@ public class CatalogosMd {
     private String codcliFac;
     private String fecha_inicio;
     private String fecha_fin;
+    private String boleta;
+    private String obs;
+
+    public String getBoleta() {
+        return boleta;
+    }
+
+    public void setBoleta(String boleta) {
+        this.boleta = boleta;
+    }
+
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+    
+    
 
     public String getFecha_fin() {
         return fecha_fin;
