@@ -74,6 +74,143 @@ public class ManteServiciosDal {
         return cl;
     }
 
+    public ManteServiciosMd saveIngreso(ManteServiciosMd data) throws ClassNotFoundException, SQLException {
+        Statement st = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String corre = "";
+        int resp = 0;
+        cl = new ManteServiciosMd();
+
+        String query1 = "select correlativo+1 AS corre from epqop.if_bq_servicios where"
+                + " ano_arribo='" + data.getAnoArri() + "' AND num_arribo='" + data.getNumArri() + "'"
+                + " and rownum=1 ORDER BY correlativo desc";
+
+        String sql = "insert into epqop.if_bq_servicios (ano_arribo,\n"
+                + " num_arribo,correlativo,CODIGO_PARTICULAR,CODIGO_SERVICIO,\n"
+                + " FECHA_INICIO1,HORA_INICIO1,FECHA_FIN1,HORA_FIN2,NUMERO_FACTURA,FECHA_ALTA,\n"
+                + " usuario,obse_servicio,cod_cli_fact\n"
+                + ")values (?,?,?\n"
+                + "  ,?,?,to_date(?,'dd/mm/yyyy hh24:mi'),to_date(?,'dd/mm/yyyy hh24:mi' ),"
+                + "to_date(?,'dd/mm/yyyy hh24:mi'),to_date(?,'dd/mm/yyyy hh24:mi'),\n"
+                + "  ?,sysdate,?,?,?)";
+//                + " INSERT INTO "
+//                + "epqop.if_cm_camiones_ent_sal "
+//                + "(fecha_ciclo,"
+//                + " num_ciclo,\n"
+//                + " num_licen_piloto,\n"
+//                + " fch_hora_ing_recin,\n"
+//                + " numero_contenedor_ent,\n"
+//                + " numero_placa,\n"
+//                + " fecha_alta,\n"
+//                + " obse_camion,\n"
+//                + " garita_entrada,\n"
+//                + " usuario_ent,\n"
+//                + " maquina,\n"
+//                + " marchamo_entrada,\n"
+//                + " numero_poliza_ent,"
+//                + " estatus_entrada,"
+//                + " cod_pais_piloto,estatus_ent_sal,revision_camion) \n"
+//                + "  VALUES (TO_date(? , 'dd/mm/yyyy'),?,?,sysdate,?,?,sysdate,?,?,?,?,?,?,?,?,'1','0')";
+
+        try {
+            conn = obtener.Conexion();
+            conn.setAutoCommit(false);
+
+            st = conn.createStatement();
+            rs = st.executeQuery(query1);
+            while (rs.next()) {
+                corre = rs.getString("corre");
+            }
+            st.close();
+            rs.close();
+
+            ps = conn.prepareStatement(sql);
+            ps.setString(3, corre);
+
+            ps.setString(1, data.getAnoArri());
+            ps.setString(2, data.getNumArri());
+            ps.setString(4, data.getCod_particular());
+
+            ps.setString(5, data.getCod_servicio());
+            ps.setString(6, data.getFechaInicio());
+            ps.setString(7, data.getHoraInicio());
+            ps.setString(8, data.getFechaFin());
+            ps.setString(9, data.getHoraFin());
+            ps.setString(10, data.getBoleta());
+            ps.setString(11, data.getUsuario());
+            ps.setString(12, data.getObs());
+            ps.setString(13, data.getCod_cliente());
+
+            ps.executeUpdate();
+            ps.close();
+            conn.commit();
+//            cl.setCodigo(id);
+            cl.setResp("1");
+            cl.setMsg("REGISTRO GUARDADO CORRECTAMENTE");
+
+            conn.close();
+            obtener.desconectar();
+
+        } catch (SQLException e) {
+            System.out.println("EXCEPTION..: " + e.getMessage());
+            cl.setResp("0");
+            cl.setMsg(e.getMessage());
+        }
+
+        return cl;
+    }
+
+    public ManteServiciosMd OpteCorre(String ano, String arribo) {
+        Statement st = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String id = "";
+        int resp = 0;
+        cl = new ManteServiciosMd();
+        String query0
+                = "select correlativo+1 corre from epqop.if_bq_servicios where"
+                + " ano_arribo='" + ano + "' AND num_arribo='" + arribo + "' and rownum=1 ORDER BY correlativo desc";
+//                + "SELECT B.BUQUE CODIGO,UPPER(TRIM(B.NOM_BUQUE)) NOMBRE \n"
+//                + "FROM EPQOP.IF_BQ_BUQUES B,"
+//                + "     EPQOP.IF_BQ_ARRIBOS A\n"
+//                + "WHERE B.BUQUE = A.BUQUE \n"
+//                + "AND A.ANO_ARRIBO ='" + ano + "'\n"
+//                + "AND A.NUM_ARRIBO ='" + arribo + "'";
+        try {
+            conn = obtener.Conexion();
+
+            st = conn.createStatement();
+            rs = st.executeQuery(query0);
+            while (rs.next()) {
+                resp = 1;
+                cl.setCorrelativo(rs.getString(1));
+
+                cl.setResp("1");
+                cl.setMsg("ACTUALIZAR!");
+            }
+            st.close();
+            rs.close();
+
+            if (resp == 0) {
+
+                cl.setResp("0");
+                cl.setMsg(" NO EXISTE <br/> EL ARRIBO <br/> VALIDE INFORMACION");
+
+            }
+            conn.close();
+            obtener.desconectar();
+
+        } catch (Exception e) {
+            System.out.println("ERROR CATCH.: " + e.getMessage());
+            cl.setResp("0");
+            cl.setMsg(e.getMessage());
+
+        }
+
+        return cl;
+    }
+
     public List<ManteServiciosMd> Servicios() throws SQLException {
         List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
 

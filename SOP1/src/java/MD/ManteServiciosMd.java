@@ -18,11 +18,97 @@ public class ManteServiciosMd {
     private String nom_particular;
     private String cod_cliente;
     private String nom_cliente;
+    private String correlativo;
+    private String fechaInicio;
+    private String horaInicio;
+    private String fechaFin;
+    private String horaFin;
+    private String boleta;
+    private String usuario;
+    private String obs;
 
     //mensajes del sistema
     private String resp;
     private String msg;
     private String dir;
+
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+    
+    
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    
+    
+
+    public String getBoleta() {
+        return boleta;
+    }
+
+    public void setBoleta(String boleta) {
+        this.boleta = boleta;
+    }
+    
+    
+
+     
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public String getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(String horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    
+    
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+    
+    
+
+    public String getCorrelativo() {
+        return correlativo;
+    }
+
+    public void setCorrelativo(String correlativo) {
+        this.correlativo = correlativo;
+    }
+    
+    
 
     public String getResp() {
         return resp;

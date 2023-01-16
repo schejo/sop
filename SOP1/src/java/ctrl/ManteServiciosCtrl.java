@@ -46,9 +46,10 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     private Button btnBusca1;
     private Doublebox boleta;
     private Textbox observaciones;
-    
 
     ManteServiciosMd serviciosModelo = new ManteServiciosMd();
+    ManteServiciosMd InsertModelo = new ManteServiciosMd();
+    ManteServiciosMd correModelo = new ManteServiciosMd();
     ManteServiciosDal ProductoDal = new ManteServiciosDal();
     CatalogoDal ctd = new CatalogoDal();
     List<CatalogosMd> lista = new ArrayList<CatalogosMd>();
@@ -70,7 +71,6 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
 //        nombreParticular.setModel(new ListModelList(allparticulares));
 //        allclientes = ProductoDal.Clientes();
 //        nombreCliente.setModel(new ListModelList(allclientes));
-
         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
@@ -84,10 +84,8 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                             cod_cli.setText("");
                             fechaInicio.setText("");
                             fechaFin.setText("");
-                             boleta.setText("");
+                            boleta.setText("");
                             observaciones.setText("");
-                            
-                            
 
                         } else {
                             for (CatalogosMd item : data) {
@@ -108,50 +106,84 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 });
 
     }
+
+    public void onClick$btninsert(Event e) throws ClassNotFoundException, SQLException {
+//        correModelo = new ManteServiciosMd();
+//        correModelo = ProductoDal.OpteCorre(txtAnioArribo.getText(), txtNumArribo.getText());
+
+        InsertModelo.setAnoArri(txtAnioArribo.getText().toUpperCase());
+        InsertModelo.setNumArri(txtNumArribo.getText().toUpperCase());
+//        InsertModelo.setCorrelativo(correModelo.getCorrelativo());
+        InsertModelo.setCod_particular(cod_part.getText().toUpperCase());
+        InsertModelo.setCod_servicio(cod_serv.getText().toUpperCase());
+        InsertModelo.setFechaInicio(fechaInicio.getText().toUpperCase());
+        InsertModelo.setHoraInicio(fechaInicio.getText().toUpperCase());
+        InsertModelo.setFechaFin(fechaFin.getText().toUpperCase());
+        InsertModelo.setHoraFin(fechaFin.getText().toUpperCase());
+        InsertModelo.setBoleta(boleta.getText().toUpperCase());
+        InsertModelo.setUsuario(desktop.getSession().getAttribute("USER").toString());
+        InsertModelo.setObs(observaciones.getText().toUpperCase());
+        InsertModelo.setCod_cliente(cod_cli.getText().toUpperCase());
+
+        InsertModelo = ProductoDal.saveIngreso(InsertModelo);
+          if (InsertModelo.getResp().equals("1")) {
+               
+
+                Clients.showNotification(InsertModelo.getMsg() + "<br/>",
+                        Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
+            } else {
+                Clients.showNotification(InsertModelo.getMsg() + "<br/>",
+                        Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+            }
+        
+    }
+
     //aqui inicio las acciones del primer codigo
     public void onClick$cod_serv(Event e) {
         onChange$cod_serv(e);
     }
-    
+
     public void onChange$cod_serv(Event e) {
         BuscaItem(cod_serv.getText(), this.nombreServicio);
         nombreServicio.setVisible(true);
-        
-        
+
     }
+
     public void onSelect$nombreServicio(Event evt) throws SQLException {
         cod_serv.setText(nombreServicio.getSelectedItem().getValue().toString());
     }
     //aqui inicio las acciones del segundo codigo
-    
-     public void onClick$cod_part(Event e) {
+
+    public void onClick$cod_part(Event e) {
         onChange$cod_part(e);
     }
-    
+
     public void onChange$cod_part(Event e) {
         BuscaItem(cod_part.getText(), this.nombreParticular);
         nombreParticular.setVisible(true);
-        
+
     }
-      public void onSelect$nombreParticular(Event evt) throws SQLException {
+
+    public void onSelect$nombreParticular(Event evt) throws SQLException {
         cod_part.setText(nombreParticular.getSelectedItem().getValue().toString());
     }
-      
-         //aqui inicio las acciones del segundo codigo
-         public void onClick$cod_cli(Event e) {
+
+    //aqui inicio las acciones del segundo codigo
+    public void onClick$cod_cli(Event e) {
         onChange$cod_cli(e);
     }
-    
+
     public void onChange$cod_cli(Event e) {
         BuscaItem(cod_cli.getText(), this.nombreCliente);
         nombreCliente.setVisible(true);
-        
+
     }
-      public void onSelect$nombreCliente(Event evt) throws SQLException {
+
+    public void onSelect$nombreCliente(Event evt) throws SQLException {
         cod_cli.setText(nombreCliente.getSelectedItem().getValue().toString());
     }
-      
-      public void BuscaItem(String letra, Combobox cb) {
+
+    public void BuscaItem(String letra, Combobox cb) {
         for (int i = 0; i < cb.getItemCount(); i++) {
             if (letra.equals(cb.getItemAtIndex(i).getValue())) {
                 cb.setSelectedIndex(i);
@@ -175,10 +207,10 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         window.doModal();
     }
 
-    
-       public void onOK$txtNumArribo(Event evt) {
-           onChange$txtNumArribo(evt);
-       }
+    public void onOK$txtNumArribo(Event evt) {
+        onChange$txtNumArribo(evt);
+    }
+
     public void onChange$txtNumArribo(Event evt) {
 
         if (!txtAnioArribo.getText().equals("") && !txtNumArribo.getText().equals("")) {
