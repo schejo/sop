@@ -288,7 +288,7 @@
                     <n:div class="form-group col-lg-2 col-md-4 mydiv1">
                         <label class="mylabel" value="BOLETA :" style="font-size: 15px; color: blue;"/>
                         <!--<textbox class="form-control" id="boleta" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>-->
-                         <doublebox id="boleta"  constraint = "no negative"  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                        <doublebox id="boleta"  constraint = "no negative"  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
 
                     </n:div>
                       
@@ -304,7 +304,9 @@
                 </n:div>
 
                 <div class="form-group col-lg-12 col-md-12 text-center" style="border: none; margin-top:0px; margin-bottom:10px;">
-                    <button id="btninsert" label="Guardar" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
+                    <button id="btninsert" label="Guardar Inser" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
+                    <button id="btnUpdate" label="Guardar Update" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
+
                     <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="80px" width="100px"/>
                     <button id="btnNuevo" label="Anular BOLETA" image="bootstrap/img/registro.png" orient="vertical" height="80px" width="100px"/> 
                 </div>

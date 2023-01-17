@@ -5,6 +5,7 @@ import DAL.ManteServiciosDal;
 import MD.CatalogosMd;
 import MD.ManteServiciosMd;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import org.zkoss.zk.ui.Component;
@@ -44,6 +45,8 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     private Datebox fechaInicio;
     private Datebox fechaFin;
     private Button btnBusca1;
+    private Button btninsert;
+    private Button btnUpdate;
     private Doublebox boleta;
     private Textbox observaciones;
 
@@ -62,6 +65,8 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         super.doAfterCompose(comp);
         nombreServicio.setVisible(false);
         btnBusca1.setVisible(false);
+        btninsert.setVisible(false);
+        btnUpdate.setVisible(false);
         nombreParticular.setVisible(false);
         nombreCliente.setVisible(false);
 
@@ -98,12 +103,18 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                                     fechaFin.setText(item.getFecha_fin());
                                     boleta.setText(item.getBoleta());
                                     observaciones.setText(item.getObs());
+                                    //aqui va el boton update
+                                    btnUpdate.setVisible(true);
 
                                 }
                             }
                         }
                     }
                 });
+
+    }
+
+    public void onClick$btnUpdate(Event e) throws SQLException, ClassNotFoundException, ParseException {
 
     }
 
@@ -126,16 +137,16 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         InsertModelo.setCod_cliente(cod_cli.getText().toUpperCase());
 
         InsertModelo = ProductoDal.saveIngreso(InsertModelo);
-          if (InsertModelo.getResp().equals("1")) {
-               
+        if (InsertModelo.getResp().equals("1")) {
+            clear();
 
-                Clients.showNotification(InsertModelo.getMsg() + "<br/>",
-                        Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
-            } else {
-                Clients.showNotification(InsertModelo.getMsg() + "<br/>",
-                        Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
-            }
-        
+            Clients.showNotification(InsertModelo.getMsg() + "<br/>",
+                    Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
+        } else {
+            Clients.showNotification(InsertModelo.getMsg() + "<br/>",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+        }
+
     }
 
     //aqui inicio las acciones del primer codigo
@@ -194,6 +205,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     Session session = Sessions.getCurrent();
 
     public void onClick$btnBusca1(Event e) {
+        btninsert.setVisible(false);
 //         lista = ctd.consulta(txtAnioArribo.getText(), txtNumArribo.getText());
 //
 //        EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
@@ -220,13 +232,36 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 txtCodigoBuque.setText(serviciosModelo.getNumBuque());
                 txtNombreBuque.setText(serviciosModelo.getNomBuque());
                 btnBusca1.setVisible(true);
+                btninsert.setVisible(true);
 
             } else {
-
+                btninsert.setVisible(false);
                 Clients.evalJavaScript("msj('ERROR " + serviciosModelo.getMsg() + "','error')");
             }
         }
 
     }
 
+    public void clear() {
+
+        txtAnioArribo.setText("");
+//        anioarribo.setDisabled(false);
+        txtNumArribo.setText("");
+
+        txtCodigoBuque.setText("");
+        txtNombreBuque.setText("");
+        cod_serv.setText("");
+        nombreServicio.setText("");
+        cod_part.setText("");
+        nombreParticular.setText("");
+        cod_cli.setText("");
+        nombreCliente.setSelectedIndex(-1);
+        fechaInicio.setText("");
+        fechaFin.setText("");
+        boleta.setText("");
+        observaciones.setText("");
+        btnUpdate.setVisible(false);
+        btninsert.setVisible(false);
+
+    }
 }
