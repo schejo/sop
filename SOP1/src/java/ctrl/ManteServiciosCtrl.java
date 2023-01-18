@@ -24,6 +24,7 @@ import org.zkoss.zul.Doublebox;
 import org.zkoss.zul.Include;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -54,6 +55,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     ManteServiciosMd serviciosModelo = new ManteServiciosMd();
     ManteServiciosMd InsertModelo = new ManteServiciosMd();
     ManteServiciosMd UpdatetModelo = new ManteServiciosMd();
+    ManteServiciosMd borrajeModelo = new ManteServiciosMd();
     ManteServiciosMd correModelo = new ManteServiciosMd();
     ManteServiciosDal ProductoDal = new ManteServiciosDal();
     CatalogoDal ctd = new CatalogoDal();
@@ -128,6 +130,24 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 });
 
     }
+       public void onClick$btnDelete(Event e) throws SQLException {
+            Messagebox.show("Estas Seguro Que Deseas Anular la Boleta "+boleta.getText()+"?",
+                    "Question", Messagebox.OK | Messagebox.CANCEL,
+                    Messagebox.QUESTION,
+                    new org.zkoss.zk.ui.event.EventListener() {
+                public void onEvent(Event e) throws SQLException, ClassNotFoundException {
+                    if (Messagebox.ON_OK.equals(e.getName())) {
+                        borrajeModelo=ProductoDal.REGdelete(txtAnioArribo.getText(),txtNumArribo.getText(),correla);
+                        Clients.evalJavaScript("msj('" + borrajeModelo.getMsg() + "','success')");
+                          clear();
+                    } else if (Messagebox.ON_CANCEL.equals(e.getName())) {
+                        Clients.showNotification("BOLETA NO SE HA <br/> ANULADO <br/>",
+                                "warning", null, "middle_center", 5000);
+                    }
+                }
+            }
+            );
+      }
 
     public void onClick$btnUpdate(Event e) throws SQLException, ClassNotFoundException, ParseException {
         UpdatetModelo = new ManteServiciosMd();

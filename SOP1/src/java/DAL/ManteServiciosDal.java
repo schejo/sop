@@ -2,6 +2,7 @@ package DAL;
 
 import Conexion.Conexion;
 import MD.ManteServiciosMd;
+import MD.manCicloCamionMd;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,6 +62,44 @@ public class ManteServiciosDal {
                 cl.setMsg(" NO EXISTE <br/> EL ARRIBO <br/> VALIDE INFORMACION");
 
             }
+            conn.close();
+            obtener.desconectar();
+
+        } catch (Exception e) {
+            System.out.println("ERROR CATCH.: " + e.getMessage());
+            cl.setResp("0");
+            cl.setMsg(e.getMessage());
+
+        }
+
+        return cl;
+    }
+     public ManteServiciosMd REGdelete(String ano,String arribo,String corre) {
+        Statement st = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String id = "";
+        int resp = 0;
+        cl = new ManteServiciosMd();
+        try {
+            conn = obtener.Conexion();
+            conn.setAutoCommit(false);
+            int vl = 0;
+            st = conn.createStatement();
+            vl = st.executeUpdate(" DELETE from epqop.if_bq_servicios WHERE ano_arribo='"+ano+"' AND num_arribo='"+arribo+"' and correlativo='"+corre+"'");
+            
+            if (vl > 0) {
+                cl.setResp("1");
+                cl.setMsg("BOLETA ANULADA CORRECTAMENTE");
+                System.out.println("Actualizacion Exitosa");
+            } else {
+                cl.setResp("0");
+                cl.setMsg("DATOS NO ACTUALIZADOS");
+                System.out.println("Actualizacion Fallida");
+            }
+            st.close();
+
+            conn.commit();
             conn.close();
             obtener.desconectar();
 

@@ -296,7 +296,7 @@
                     <button id="btninsert" label="Guardar Inser" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
                     <button id="btnUpdate" label="Guardar Update" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
                     <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="80px" width="100px"/>
-                    <button id="btnNuevo" label="Anular BOLETA" image="bootstrap/img/registro.png" orient="vertical" height="80px" width="100px"/> 
+                    <button id="btnDelete" label="Anular BOLETA" image="bootstrap/img/registro.png" orient="vertical" height="80px" width="100px"/> 
                 </div>
                 
             </n:div>
