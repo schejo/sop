@@ -40,6 +40,7 @@ public class BuscarServiciosCtrl extends GenericForwardComposer {
     private Textbox fecha_fin;
     private Textbox boleta;
     private Textbox obs;
+    private Textbox correla;
 
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
@@ -64,6 +65,7 @@ public class BuscarServiciosCtrl extends GenericForwardComposer {
             da.setFecha_fin(item.getFecha_fin());
             da.setBoleta(item.getBoleta());
             da.setObs(item.getObs());
+            da.setCorrela(item.getCorrela());
 
             data.add(da);
 
@@ -82,6 +84,7 @@ public class BuscarServiciosCtrl extends GenericForwardComposer {
         data.setFecha_fin(fecha_fin.getText());
          data.setBoleta(boleta.getText());
         data.setObs(obs.getText());
+        data.setCorrela(correla.getText());
 
         items.add(data);
         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
@@ -90,8 +93,12 @@ public class BuscarServiciosCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnSalir(Event e) {
+        List<CatalogosMd> items = new ArrayList<CatalogosMd>();
+         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
+                .publish(new Event("onChangeNickname", null, items));
 
         modalDialog.detach();
+        
     }
 
 }

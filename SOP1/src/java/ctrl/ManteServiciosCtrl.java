@@ -21,6 +21,7 @@ import org.zkoss.zul.Button;
 import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Doublebox;
+import org.zkoss.zul.Include;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
@@ -52,6 +53,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
 
     ManteServiciosMd serviciosModelo = new ManteServiciosMd();
     ManteServiciosMd InsertModelo = new ManteServiciosMd();
+    ManteServiciosMd UpdatetModelo = new ManteServiciosMd();
     ManteServiciosMd correModelo = new ManteServiciosMd();
     ManteServiciosDal ProductoDal = new ManteServiciosDal();
     CatalogoDal ctd = new CatalogoDal();
@@ -60,22 +62,25 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
     List<ManteServiciosMd> allparticulares = new ArrayList<ManteServiciosMd>();
     List<ManteServiciosMd> allclientes = new ArrayList<ManteServiciosMd>();
+    private String correla = null;
+    private Include rootPagina;
 
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-        nombreServicio.setVisible(false);
+
         btnBusca1.setVisible(false);
         btninsert.setVisible(false);
         btnUpdate.setVisible(false);
         nombreParticular.setVisible(false);
         nombreCliente.setVisible(false);
+        nombreServicio.setVisible(false);
 
-//        allservicios = ProductoDal.Servicios();
-//        nombreServicio.setModel(new ListModelList(allservicios));
-//        allparticulares = ProductoDal.Particulares();
-//        nombreParticular.setModel(new ListModelList(allparticulares));
-//        allclientes = ProductoDal.Clientes();
-//        nombreCliente.setModel(new ListModelList(allclientes));
+        allservicios = ProductoDal.Servicios();
+        nombreServicio.setModel(new ListModelList(allservicios));
+        allparticulares = ProductoDal.Particulares();
+        nombreParticular.setModel(new ListModelList(allparticulares));
+        allclientes = ProductoDal.Clientes();
+        nombreCliente.setModel(new ListModelList(allclientes));
         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
@@ -91,6 +96,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                             fechaFin.setText("");
                             boleta.setText("");
                             observaciones.setText("");
+                            btninsert.setVisible(true);
 
                         } else {
                             for (CatalogosMd item : data) {
@@ -103,8 +109,17 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                                     fechaFin.setText(item.getFecha_fin());
                                     boleta.setText(item.getBoleta());
                                     observaciones.setText(item.getObs());
+                                    correla = item.getCorrela();
+                                    nombreCliente.setSelectedIndex(-1);
+                                    nombreParticular.setText("");
+                                    nombreServicio.setText("");
+                                    nombreParticular.setVisible(false);
+                                    nombreCliente.setVisible(false);
+                                    nombreServicio.setVisible(false);
+
                                     //aqui va el boton update
                                     btnUpdate.setVisible(true);
+                                    btninsert.setVisible(false);
 
                                 }
                             }
@@ -115,6 +130,32 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnUpdate(Event e) throws SQLException, ClassNotFoundException, ParseException {
+        UpdatetModelo = new ManteServiciosMd();
+        UpdatetModelo.setAnoArri(txtAnioArribo.getText().toUpperCase());
+        UpdatetModelo.setNumArri(txtNumArribo.getText().toUpperCase());
+        UpdatetModelo.setCod_servicio(cod_serv.getText().toUpperCase());
+        UpdatetModelo.setCod_particular(cod_part.getText().toUpperCase());
+        UpdatetModelo.setCod_cliente(cod_cli.getText().toUpperCase());
+        UpdatetModelo.setFechaInicio(fechaInicio.getText().toUpperCase());
+        UpdatetModelo.setHoraInicio(fechaInicio.getText().toUpperCase());
+        UpdatetModelo.setFechaFin(fechaFin.getText().toUpperCase());
+        UpdatetModelo.setHoraFin(fechaFin.getText().toUpperCase());
+        UpdatetModelo.setBoleta(boleta.getText().toUpperCase());
+        UpdatetModelo.setUsuario(desktop.getSession().getAttribute("USER").toString());
+        UpdatetModelo.setObs(observaciones.getText().toUpperCase());
+        UpdatetModelo.setCorrelativo(correla);
+
+        UpdatetModelo = ProductoDal.updatePro(UpdatetModelo);
+        if (UpdatetModelo.getResp().equals("1")) {
+            clear();
+//                bloquear();
+//                ubiFerrete.setSelectedIndex(-1);
+            Clients.showNotification(UpdatetModelo.getMsg() + "<br/>",
+                    Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
+        } else {
+            Clients.showNotification(UpdatetModelo.getMsg() + "<br/>",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+        }
 
     }
 
@@ -205,7 +246,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     Session session = Sessions.getCurrent();
 
     public void onClick$btnBusca1(Event e) {
-        btninsert.setVisible(false);
+//        btninsert.setVisible(false);
 //         lista = ctd.consulta(txtAnioArribo.getText(), txtNumArribo.getText());
 //
 //        EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
@@ -262,6 +303,11 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         observaciones.setText("");
         btnUpdate.setVisible(false);
         btninsert.setVisible(false);
+        btnBusca1.setVisible(false);
 
+    }
+
+    public void onClick$btnSalir() {
+        rootPagina.setSrc("/Views/Principal.zul");
     }
 }

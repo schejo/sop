@@ -16,6 +16,17 @@ public class CatalogosMd {
     private String fecha_fin;
     private String boleta;
     private String obs;
+    private String correla;
+
+    public String getCorrela() {
+        return correla;
+    }
+
+    public void setCorrela(String correla) {
+        this.correla = correla;
+    }
+    
+    
 
     public String getBoleta() {
         return boleta;

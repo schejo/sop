@@ -30,15 +30,15 @@ public class CatalogoDal {
 
         CatalogosMd data;
         String sql = "select TRIM(a.CODIGO_SERVICIO) codi,TRIM(b.DESCRIPCION_SERVIC),TRIM(c.NOMBRE_PARTICULAR)"
-                + ",a.CODIGO_PARTICULAR,a.COD_CLI_FACT"
+                + ",TRIM(a.CODIGO_PARTICULAR),TRIM(a.COD_CLI_FACT)"
                 + ",to_char(a.FECHA_INICIO1,'dd/mm/yyyy')||' '||to_char(a.HORA_INICIO1,'hh24:mi') fecha"
                 + ",to_char(a.FECHA_FIN1,'dd/mm/yyyy')||' '||to_char(a.HORA_FIN2,'hh24:mi') fecha_fin"
-                + ",nvl(a.NUMERO_FACTURA,0),nvl(a.OBSE_SERVICIO,'SIN DATO')\n"
+                + ",nvl(a.NUMERO_FACTURA,0),TRIM(nvl(a.OBSE_SERVICIO,'SIN DATO')),a.CORRELATIVO\n"
                 + "from epqop.if_bq_servicios a,\n"
                 + "     epqop.if_ca_tarifas b,\n"
                 + "     epqop.particulares c\n"
                 + "     WHERE a.CODIGO_PARTICULAR=c.CODIGO_PARTICULAR and "
-                + "a.CODIGO_SERVICIO=b.CODIGO_SERVICIO and ano_arribo='"+ano+"' AND num_arribo='"+arribo+"' ";
+                + "a.CODIGO_SERVICIO=b.CODIGO_SERVICIO and ano_arribo='"+ano+"' AND num_arribo='"+arribo+"' order by a.CORRELATIVO";
 //                + "select pro_id, CONCAT(pro_descripcion,' MARCA: ',pro_marca,' PRECIO Q',pro_precio_venta) from productos;";
 
 //                
@@ -59,6 +59,7 @@ public class CatalogoDal {
                 data.setFecha_fin(rs.getString(7));
                 data.setBoleta(rs.getString(8));
                 data.setObs(rs.getString(9));
+                data.setCorrela(rs.getString(10));
 
                 lista.add(data);
             }

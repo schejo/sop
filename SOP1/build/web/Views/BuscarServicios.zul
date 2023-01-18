@@ -31,6 +31,7 @@
                                                 fecha_fin.value = self.selectedItem.getChildren().get(6).getLabel();
                                                 boleta.value = self.selectedItem.getChildren().get(7).getLabel();
                                                 obs.value = self.selectedItem.getChildren().get(8).getLabel();
+                                                correla.value = self.selectedItem.getChildren().get(9).getLabel();
                                                 " 
                                      style="border:none; background-color: transparent;" >
                              
@@ -54,6 +55,7 @@
                                         <listcell  class = "mycss-listcell" label="${each.fecha_fin}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.boleta}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.obs}" style="" />
+                                         <listcell  class = "mycss-listcell" label="${each.correla}" style="" />
                                         
                                         <!--
                                         <listcell>
@@ -76,6 +78,7 @@
                             <textbox class="form-control" id="fecha_fin" value=""  style="display:none; "/>
                             <textbox class="form-control" id="boleta" value=""  style="display:none; "/>
                             <textbox class="form-control" id="obs" value=""  style="display:none; "/>
+                             <textbox class="form-control" id="correla" value=""  style="display:none; "/>
                            
                         </n:div>
                     

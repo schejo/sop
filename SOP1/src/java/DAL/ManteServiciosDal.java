@@ -74,6 +74,59 @@ public class ManteServiciosDal {
         return cl;
     }
 
+    public ManteServiciosMd updatePro(ManteServiciosMd data) {
+        Statement st = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String id = "";
+        int resp = 0;
+        cl = new ManteServiciosMd();
+        try {
+            conn = obtener.Conexion();
+            conn.setAutoCommit(false);
+            int vl = 0;
+            st = conn.createStatement();
+            vl = st.executeUpdate(" update epqop.if_bq_servicios  set codigo_particular='" + data.getCod_particular()+ "',"
+                    + " CODIGO_SERVICIO='" + data.getCod_servicio()+ "', FECHA_INICIO1=to_date('" + data.getFechaInicio()+ "','dd/mm/yyyy hh24:mi'),\n"
+                    + " HORA_INICIO1=to_date('" + data.getFechaInicio()+ "','dd/mm/yyyy hh24:mi' ),FECHA_FIN1=to_date('" + data.getFechaFin()+ "','dd/mm/yyyy hh24:mi' ),\n"
+                    + " HORA_FIN2=to_date('" + data.getFechaFin()+ "','dd/mm/yyyy hh24:mi' ),numero_factura='" + data.getBoleta()+ "',FECHA_ALTA=sysdate,\n"
+                    + " USUARIO='" + data.getUsuario()+ "', OBSE_SERVICIO='" + data.getObs()+ "', COD_CLI_FACT='" + data.getCod_cliente()+ "'  where  ano_arribo='" + data.getAnoArri()+ "' "
+                    + "AND num_arribo='" + data.getNumArri()+ "' and correlativo='" + data.getCorrelativo()+ "' ");
+//                    + "UPDATE productos SET "
+//                    + "pro_descripcion='" + data.getDescripcion() + "',"
+//                    + "pro_tipo='" + data.getTipo_pro() + "',pro_tipo_servicio='" + data.getTipo_ser() + "',pro_marca='" + data.getMarca()
+//                    + "',pro_presentacion='" + data.getPresentacion() + "',pro_precio_compra='" + data.getPre_compra() + "',pro_precio_venta='" + data.getPre_venta()
+//                    + "',pro_descuento='" + data.getDescuento() + "',pro_stock_barrita='" + data.getPro_stock_Barrita()
+//                    + "',pro_conversion='" + data.getPro_conver() + "',pro_medida='" + data.getMedi_pro()
+//                    + "',pro_minimo='" + data.getMinimo() + "',pro_maximo='" + data.getMaximo() + "'"
+//                    + ",pro_ubicacion='" + data.getUbicacion() + "'"
+//                    + ",pro_ferreteria='1',pro_fecha_modifica=NOW(),pro_usuario_modifica='" + data.getUsuario() + "' "
+//                    + "where pro_id='" + data.getCodigo() + "' ");
+            if (vl > 0) {
+                cl.setResp("1");
+                cl.setMsg("DATOS ACTUALIZADOS CORRECTAMENTE");
+                System.out.println("Actualizacion Exitosa");
+            } else {
+                cl.setResp("0");
+                cl.setMsg("DATOS NO ACTUALIZADOS");
+                System.out.println("Actualizacion Fallida");
+            }
+            st.close();
+
+            conn.commit();
+            conn.close();
+            obtener.desconectar();
+
+        } catch (Exception e) {
+            System.out.println("ERROR CATCH.: " + e.getMessage());
+            cl.setResp("0");
+            cl.setMsg(e.getMessage());
+
+        }
+
+        return cl;
+    }
+
     public ManteServiciosMd saveIngreso(ManteServiciosMd data) throws ClassNotFoundException, SQLException {
         Statement st = null;
         PreparedStatement ps = null;

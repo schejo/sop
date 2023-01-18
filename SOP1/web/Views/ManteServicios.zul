@@ -59,18 +59,18 @@
         }
         
         .z-auxhead {
-        /*padding: 8px;*/
+        /padding: 8px;/
         /*color:#FFF;	*/
         color:black;
         white-space: pre-wrap;
-        /*background: rgb(135, 206, 250,.7);*/
+        /background: rgb(135, 206, 250,.7);/
         border-top-left-radius: 20px;
         }
         
         .z-listheader-content{
         color: black !important;
         text-align: center;
-        /*background: rgb(135, 206, 250,.4);*/
+        /background: rgb(135, 206, 250,.4);/
         background: aliceblue;
         }
         
@@ -94,7 +94,7 @@
         height:30px;
         text-align: center;
         cursor:pointer;
-        /*background: rgb(128, 128, 128,0.2);*/
+        /background: rgb(128, 128, 128,0.2);/
         background: aliceblue;
         border-bottom: 1px solid black;
         }
@@ -111,6 +111,7 @@
     
 
     <div  xmlns:n="native" sclass="col-md-12 col-sm-12" apply="ctrl.ManteServiciosCtrl" >
+        
         <groupbox
             style="margin: 0 auto; border-radius: 5px; box-shadow: 1px 1px 1px"
             closable="false" width="100%;" mold="3d">
@@ -130,19 +131,21 @@
                     <n:br/>
                     
                     <div sclass="row" >
-                        <div sclass="col-md-3">
+                        <div sclass="col-xs-6 col-md-3">
                             <label value="AÑO " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtAnioArribo"   width="100%" value=""    maxlength="4"/>
                      
                         </div>
                         
-                        <div sclass="col-md-3">
+                        <div sclass="col-xs-6 col-md-3">
                             <label value="ARRIBO " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtNumArribo"  width="100%" value=""   maxlength="5"/>
+                            
                             <span class="input-group-btn">
                                 <button id="btnBusca1" tooltip="status" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
                                 </button>
                             </span>
+                            
                             <popup id="status" width="150px">
                                 <vlayout>
                                     Seleccione Servicios!
@@ -153,12 +156,12 @@
                      
                         </div>
                         
-                        <div sclass="col-md-3">
+                        <div sclass="col-xs-6 col-md-3">
                             <label value="CODIGO " style="font-weight:bold; color:blue;"/>
                             <textbox    id="txtCodigoBuque"   value="" readonly="true"  width="100%"  maxlength="5"/>
                         </div>
                       
-                        <div sclass="col-md-3">
+                        <div sclass="col-xs-6 col-md-3">
                             <label value="NOMBRE BUQUE " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtNombreBuque"   value=""  readonly="true" maxlength="1800" width="100%"/>
                         </div>
@@ -178,6 +181,9 @@
         <!--division de lineas-->
         <groupbox
             style="margin: 0 auto; border-radius: 5px; box-shadow: 1px 1px 1px"
+            
+            
+            
             closable="false" width="100%;" mold="3d">
         </groupbox> 
         <!--division de lineas-->
@@ -191,15 +197,14 @@
                 
                 <n:div class="row ">
                     
-                    <n:div class="form-group col-lg-2 col-md-4 mydiv1">
+                    <n:div class="form-group col-md-2 mydiv1">
                         <label class="mylabel" value="CODIGO" style="font-size: 15px; color:blue;"/>
                         <textbox class="form-control" id="cod_serv" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>
                     </n:div>
                     
-                    <n:div class="form-group col-lg-5 col-md-4 mydiv1">
+                    <n:div class="form-group col-md-10 mydiv1">
                         <label class="mylabel" value="SERVICIO :" style="font-size: 15px; color:blue;"/>
-                        <combobox id="nombreServicio" style="font-size: 15px;" buttonVisible="true" width="630px" autocomplete="true"  model="${allservicios}" 
-                                 
+                        <combobox  id="nombreServicio" value="" style="font-size: 15px;" buttonVisible="true" width="100%" autocomplete="true"  model="${allservicios}" 
                                   autodrop="true" >
                             <template name="model">
                                 <comboitem label="${each.nom_servicio}" value="${each.cod_servicio}"/>
@@ -211,14 +216,14 @@
                 
                 <n:div class="row ">
                     
-                    <n:div class="form-group col-lg-2 col-md-4 mydiv1">
+                    <n:div class="form-group col-md-2 mydiv1">
                         <label class="mylabel" value="CODIGO" style="font-size: 15px; color:blue;"/>
                         <textbox class="form-control" id="cod_part" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>
                     </n:div>
                     
-                    <n:div class="form-group col-lg-5 col-md-4 mydiv1">
-                        <label class="mylabel" value="PARTICULAR :" style="font-size: 15px; color:blue;"/>
-                        <combobox id="nombreParticular" style="font-size: 15px;" buttonVisible="true" width="630px" autocomplete="true"  model="${allBuques}" 
+                    <n:div class="form-group col-md-10 mydiv1">
+                        <label class="mylabel" value="PARTICULAR :" style="font-size: 15px;"/>
+                        <combobox id="nombreParticular" style="font-size: 15px;" buttonVisible="true" width="100%" autocomplete="true"  model="${allBuques}" 
                                   onSelect="codigoParticular.value = self.selectedItem.value;"
                                   autodrop="true" >
                             <template name="model">
@@ -233,14 +238,14 @@
                
                 <n:div class="row ">
                     
-                    <n:div class="form-group col-lg-2 col-md-4 mydiv1">
+                    <n:div class="form-group col-md-2 mydiv1">
                         <label class="mylabel" value="CODIGO" style="font-size: 15px; color:blue;"/>
                         <textbox class="form-control" id="cod_cli" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>
                     </n:div>
                     
-                    <n:div class="form-group col-lg-5 col-md-4 mydiv1">
+                    <n:div class="form-group col-md-10 mydiv1">
                         <label class="mylabel" value="CLIENTE FACT. :" style="font-size: 15px; color:blue;"/>
-                        <combobox id="nombreCliente" style="font-size: 15px;" buttonVisible="true" width="630px" autocomplete="true"  model="${allBuques}" 
+                        <combobox id="nombreCliente" style="font-size: 15px;" buttonVisible="true" width="100%" autocomplete="true"  model="${allBuques}" 
                                   onSelect="codigo_cliente.value = self.selectedItem.value;"
                                   autodrop="true" >
                             <template name="model">
@@ -251,33 +256,18 @@
                      
                   
                 </n:div>
-                
-                
-<!--                <n:div class="row ">
-                   
-                    <n:div class="form-group col-lg-4 col-md-4 dvlb" style="border: none;">
-                        <label class="mylabel" value="CANTIDAD 1 :" style="font-size: 15px; color:blue;"/>
-                        <doublebox id="cant1" format="#,###.000" constraint = "no negative" locale="gt" value="00.000" cols="35" style="font-size: 15px; margin-left:0px; heigh:20px;"/>                    
-                    </n:div>
-                    
-                    <n:div class="form-group col-lg-6 col-md-4 dvlb" style="border: none;">
-                        <label class="mylabel" value="CANTIDAD 2 :" style="font-size: 15px; color:blue;"/>
-                        <doublebox id="cant2" format="#,###.000" constraint = "no negative" locale="gt" value="00.000" cols="35" style="font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    </n:div>
-                                                       
-                </n:div>-->
-                
-                
-                
+                                
                 <n:div class="row ">
+                    
+                    
                    
-                    <n:div class="form-group col-lg-3 col-md-1 dvlb" style="border: none;">
+                    <n:div class="form-group col-md-2 mydiv1" style="border: none;">
                         <label class="mylabel" value="FECHA Y HORA INICIO :" style="font-size: 15px; color: blue;"/>
                         <datebox id="fechaInicio" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                     </n:div>
                   
-                    <n:div class="form-group col-lg-3 col-md-1 dvlb" style="border: none;">
-                        <label class="mylabel" value="FECHA Y HORA FIN :" style="font-size: 15px; color: blue;"/>
+                    <n:div class="form-group col-md-10 mydiv1" style="border: none;">
+                        <label class="mylabel" value="FECHA Y HORA FIN    :" style="font-size: 15px; color: blue;"/>
                         <datebox id="fechaFin" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                     </n:div>
                    
@@ -285,9 +275,8 @@
                 
                 <n:div class="row ">
                      
-                    <n:div class="form-group col-lg-2 col-md-4 mydiv1">
+                    <n:div class="form-group col-lg-4 col-md-4 mydiv1">
                         <label class="mylabel" value="BOLETA :" style="font-size: 15px; color: blue;"/>
-                        <!--<textbox class="form-control" id="boleta" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; "/>-->
                         <doublebox id="boleta"  constraint = "no negative"  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
 
                     </n:div>
@@ -306,7 +295,6 @@
                 <div class="form-group col-lg-12 col-md-12 text-center" style="border: none; margin-top:0px; margin-bottom:10px;">
                     <button id="btninsert" label="Guardar Inser" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
                     <button id="btnUpdate" label="Guardar Update" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
-
                     <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="80px" width="100px"/>
                     <button id="btnNuevo" label="Anular BOLETA" image="bootstrap/img/registro.png" orient="vertical" height="80px" width="100px"/> 
                 </div>
