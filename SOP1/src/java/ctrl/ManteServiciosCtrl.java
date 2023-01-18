@@ -23,7 +23,6 @@ import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Doublebox;
 import org.zkoss.zul.Include;
 import org.zkoss.zul.ListModelList;
-import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -286,7 +285,6 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     public void clear() {
 
         txtAnioArribo.setText("");
-//        anioarribo.setDisabled(false);
         txtNumArribo.setText("");
 
         txtCodigoBuque.setText("");
