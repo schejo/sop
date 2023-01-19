@@ -125,22 +125,14 @@ public class ManteServiciosDal {
             conn.setAutoCommit(false);
             int vl = 0;
             st = conn.createStatement();
-            vl = st.executeUpdate(" update epqop.if_bq_servicios  set codigo_particular='" + data.getCod_particular()+ "',"
-                    + " CODIGO_SERVICIO='" + data.getCod_servicio()+ "', FECHA_INICIO1=to_date('" + data.getFechaInicio()+ "','dd/mm/yyyy hh24:mi'),\n"
-                    + " HORA_INICIO1=to_date('" + data.getFechaInicio()+ "','dd/mm/yyyy hh24:mi' ),FECHA_FIN1=to_date('" + data.getFechaFin()+ "','dd/mm/yyyy hh24:mi' ),\n"
-                    + " HORA_FIN2=to_date('" + data.getFechaFin()+ "','dd/mm/yyyy hh24:mi' ),numero_factura='" + data.getBoleta()+ "',FECHA_ALTA=sysdate,\n"
-                    + " USUARIO='" + data.getUsuario()+ "', OBSE_SERVICIO='" + data.getObs()+ "', COD_CLI_FACT='" + data.getCod_cliente()+ "'  where  ano_arribo='" + data.getAnoArri()+ "' "
-                    + "AND num_arribo='" + data.getNumArri()+ "' and correlativo='" + data.getCorrelativo()+ "' ");
-//                    + "UPDATE productos SET "
-//                    + "pro_descripcion='" + data.getDescripcion() + "',"
-//                    + "pro_tipo='" + data.getTipo_pro() + "',pro_tipo_servicio='" + data.getTipo_ser() + "',pro_marca='" + data.getMarca()
-//                    + "',pro_presentacion='" + data.getPresentacion() + "',pro_precio_compra='" + data.getPre_compra() + "',pro_precio_venta='" + data.getPre_venta()
-//                    + "',pro_descuento='" + data.getDescuento() + "',pro_stock_barrita='" + data.getPro_stock_Barrita()
-//                    + "',pro_conversion='" + data.getPro_conver() + "',pro_medida='" + data.getMedi_pro()
-//                    + "',pro_minimo='" + data.getMinimo() + "',pro_maximo='" + data.getMaximo() + "'"
-//                    + ",pro_ubicacion='" + data.getUbicacion() + "'"
-//                    + ",pro_ferreteria='1',pro_fecha_modifica=NOW(),pro_usuario_modifica='" + data.getUsuario() + "' "
-//                    + "where pro_id='" + data.getCodigo() + "' ");
+            
+            vl = st.executeUpdate("UPDATE epqop.if_bq_servicios  SET codigo_particular='" + data.getCod_particular() + "',"
+                    + " codigo_servicio = '" + data.getCod_servicio() + "', fecha_inicio1 = TO_DATE('" + data.getFechaInicio() + "','dd/mm/yyyy hh24:mi'),\n"
+                    + " hora_inicio1 = TO_DATE('" + data.getFechaInicio() + "','dd/mm/yyyy hh24:mi' ),fecha_fin1 = TO_DATE('" + data.getFechaFin() + "','dd/mm/yyyy hh24:mi' ),\n"
+                    + " hora_fin2 = TO_DATE('" + data.getFechaFin() + "','dd/mm/yyyy hh24:mi' ),numero_factura='" + data.getBoleta() + "',fecha_alta = sysdate,\n"
+                    + " usuario = '" + data.getUsuario() + "', obse_servicio = '" + data.getObs() + "', cod_cli_fact = '" + data.getCod_cliente() + "'  WHERE  ano_arribo='" + data.getAnoArri() + "' "
+                    + " AND num_arribo='" + data.getNumArri() + "' AND correlativo='" + data.getCorrelativo() + "' ");
+
             if (vl > 0) {
                 cl.setResp("1");
                 cl.setMsg("DATOS ACTUALIZADOS CORRECTAMENTE");
@@ -174,36 +166,18 @@ public class ManteServiciosDal {
         int resp = 0;
         cl = new ManteServiciosMd();
 
-        String query1 = "select correlativo+1 AS corre from epqop.if_bq_servicios where"
-                + " ano_arribo='" + data.getAnoArri() + "' AND num_arribo='" + data.getNumArri() + "'"
-                + " and rownum=1 ORDER BY correlativo desc";
+        String query1 = "SELECT correlativo+1 AS corre FROM epqop.if_bq_servicios "
+                + "      WHERE ano_arribo = '" + data.getAnoArri() + "' AND num_arribo='" + data.getNumArri() + "'"
+                + "      AND rownum = 1 ORDER BY correlativo DESC";
 
-        String sql = "insert into epqop.if_bq_servicios (ano_arribo,\n"
+        String sql = "INSERT INTO epqop.if_bq_servicios (ano_arribo,\n"
                 + " num_arribo,correlativo,CODIGO_PARTICULAR,CODIGO_SERVICIO,\n"
                 + " FECHA_INICIO1,HORA_INICIO1,FECHA_FIN1,HORA_FIN2,NUMERO_FACTURA,FECHA_ALTA,\n"
                 + " usuario,obse_servicio,cod_cli_fact\n"
-                + ")values (?,?,?\n"
-                + "  ,?,?,to_date(?,'dd/mm/yyyy hh24:mi'),to_date(?,'dd/mm/yyyy hh24:mi' ),"
-                + "to_date(?,'dd/mm/yyyy hh24:mi'),to_date(?,'dd/mm/yyyy hh24:mi'),\n"
+                + ")VALUES (?,?,?\n"
+                + "  ,?,?,TO_DATE(?,'dd/mm/yyyy hh24:mi'),TO_DATE(?,'dd/mm/yyyy hh24:mi' ),"
+                + "TO_DATE(?,'dd/mm/yyyy hh24:mi'),TO_DATE(?,'dd/mm/yyyy hh24:mi'),\n"
                 + "  ?,sysdate,?,?,?)";
-//                + " INSERT INTO "
-//                + "epqop.if_cm_camiones_ent_sal "
-//                + "(fecha_ciclo,"
-//                + " num_ciclo,\n"
-//                + " num_licen_piloto,\n"
-//                + " fch_hora_ing_recin,\n"
-//                + " numero_contenedor_ent,\n"
-//                + " numero_placa,\n"
-//                + " fecha_alta,\n"
-//                + " obse_camion,\n"
-//                + " garita_entrada,\n"
-//                + " usuario_ent,\n"
-//                + " maquina,\n"
-//                + " marchamo_entrada,\n"
-//                + " numero_poliza_ent,"
-//                + " estatus_entrada,"
-//                + " cod_pais_piloto,estatus_ent_sal,revision_camion) \n"
-//                + "  VALUES (TO_date(? , 'dd/mm/yyyy'),?,?,sysdate,?,?,sysdate,?,?,?,?,?,?,?,?,'1','0')";
 
         try {
             conn = obtener.Conexion();
@@ -223,7 +197,6 @@ public class ManteServiciosDal {
             ps.setString(1, data.getAnoArri());
             ps.setString(2, data.getNumArri());
             ps.setString(4, data.getCod_particular());
-
             ps.setString(5, data.getCod_servicio());
             ps.setString(6, data.getFechaInicio());
             ps.setString(7, data.getHoraInicio());
@@ -260,15 +233,9 @@ public class ManteServiciosDal {
         String id = "";
         int resp = 0;
         cl = new ManteServiciosMd();
-        String query0
-                = "select correlativo+1 corre from epqop.if_bq_servicios where"
-                + " ano_arribo='" + ano + "' AND num_arribo='" + arribo + "' and rownum=1 ORDER BY correlativo desc";
-//                + "SELECT B.BUQUE CODIGO,UPPER(TRIM(B.NOM_BUQUE)) NOMBRE \n"
-//                + "FROM EPQOP.IF_BQ_BUQUES B,"
-//                + "     EPQOP.IF_BQ_ARRIBOS A\n"
-//                + "WHERE B.BUQUE = A.BUQUE \n"
-//                + "AND A.ANO_ARRIBO ='" + ano + "'\n"
-//                + "AND A.NUM_ARRIBO ='" + arribo + "'";
+        String query0 = "SELECT correlativo+1 corre FROM epqop.if_bq_servicios "
+                + "      WHERE ano_arribo='" + ano + "' AND num_arribo='" + arribo + "' AND rownum = 1 ORDER BY correlativo DESC";
+
         try {
             conn = obtener.Conexion();
 
@@ -306,9 +273,9 @@ public class ManteServiciosDal {
     public List<ManteServiciosMd> Servicios() throws SQLException {
         List<ManteServiciosMd> allservicios = new ArrayList<ManteServiciosMd>();
 
-        String query = "SELECT TRIM(codigo_servicio), TRIM(descripcion_servic)\n"
+        String query = "SELECT TRIM(codigo_servicio), "
+                + "            TRIM(descripcion_servic)\n"
                 + "FROM   epqop.if_ca_tarifas\n"
-                + "WHERE  tipo_particular_2 = '1'\n"
                 + "ORDER BY codigo_servicio ASC";
 
         try {
@@ -341,10 +308,11 @@ public class ManteServiciosDal {
     public List<ManteServiciosMd> Particulares() throws SQLException {
         List<ManteServiciosMd> allparticulares = new ArrayList<ManteServiciosMd>();
 
-        String query = "SELECT codigo_particular, TRIM(nombre_particular)\n"
-                + "FROM epqop.particulares \n"
-                + "WHERE estatus = 1\n"
-                + "ORDER BY codigo_particular ASC";
+        String query = "SELECT TRIM(codigo_particular),"
+                + "            TRIM(nombre_particular)\n"
+                + "     FROM epqop.particulares \n"
+                + "     WHERE estatus = 1\n"
+                + "     ORDER BY codigo_particular ASC";
 
         try {
             conn = obtener.Conexion();
@@ -376,9 +344,10 @@ public class ManteServiciosDal {
     public List<ManteServiciosMd> Clientes() throws SQLException {
         List<ManteServiciosMd> allclientes = new ArrayList<ManteServiciosMd>();
 
-        String query = "SELECT codigo_cliente, TRIM(nombre_comercial)\n"
-                + "FROM   epqop.if_clientes \n"
-                + "ORDER BY codigo_cliente ASC";
+        String query = "SELECT TRIM(codigo_cliente), "
+                + "            TRIM(nombre_comercial)\n"
+                + "     FROM   epqop.if_clientes \n"
+                + "     ORDER BY codigo_cliente ASC";
         try {
             conn = obtener.Conexion();
             st = conn.createStatement();
