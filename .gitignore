@@ -3,7 +3,8 @@
 
 # Log file
 *.log
-
+private.xml
+project.properties
 # BlueJ files
 *.ctxt
 
