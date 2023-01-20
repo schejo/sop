@@ -1,5 +1,0 @@
-<?page title="Redireccionando"?>
-<window title="SOP WEB" border="none" width="200px" apply="environment.index">
-    <label value="Redireccionando..." />
-</window>
-
