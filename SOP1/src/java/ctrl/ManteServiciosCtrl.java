@@ -23,10 +23,7 @@ import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Doublebox;
 import org.zkoss.zul.Include;
 import org.zkoss.zul.ListModelList;
-
-import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Messagebox;
-
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -40,6 +37,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     private Textbox txtNumArribo;
     private Textbox txtCodigoBuque;
     private Textbox txtNombreBuque;
+    private Textbox txtTrbBuque;
     private Textbox cod_serv;
     private Combobox nombreServicio;
     private Textbox cod_part;
@@ -85,6 +83,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         nombreParticular.setModel(new ListModelList(allparticulares));
         allclientes = ProductoDal.Clientes();
         nombreCliente.setModel(new ListModelList(allclientes));
+        
         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
@@ -294,6 +293,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
             if (serviciosModelo.getResp().equals("1")) {
                 txtCodigoBuque.setText(serviciosModelo.getNumBuque());
                 txtNombreBuque.setText(serviciosModelo.getNomBuque());
+                txtTrbBuque.setText(serviciosModelo.getTrb());
                 btnBusca1.setVisible(true);
                 btninsert.setVisible(true);
 
@@ -312,6 +312,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
 
         txtCodigoBuque.setText("");
         txtNombreBuque.setText("");
+        txtTrbBuque.setText("");
         cod_serv.setText("");
         nombreServicio.setText("");
         cod_part.setText("");

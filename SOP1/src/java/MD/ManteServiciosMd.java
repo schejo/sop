@@ -10,6 +10,7 @@ public class ManteServiciosMd {
     private String numArri;
     private String numBuque;
     private String nomBuque;
+    private String trb;
 
     //variables de Ramiro 
     private String cod_servicio;
@@ -39,8 +40,6 @@ public class ManteServiciosMd {
     public void setObs(String obs) {
         this.obs = obs;
     }
-    
-    
 
     public String getUsuario() {
         return usuario;
@@ -49,9 +48,6 @@ public class ManteServiciosMd {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
-    
-    
 
     public String getBoleta() {
         return boleta;
@@ -60,10 +56,7 @@ public class ManteServiciosMd {
     public void setBoleta(String boleta) {
         this.boleta = boleta;
     }
-    
-    
 
-     
     public String getFechaFin() {
         return fechaFin;
     }
@@ -80,8 +73,6 @@ public class ManteServiciosMd {
         this.horaFin = horaFin;
     }
 
-    
-    
     public String getFechaInicio() {
         return fechaInicio;
     }
@@ -97,8 +88,6 @@ public class ManteServiciosMd {
     public void setHoraInicio(String horaInicio) {
         this.horaInicio = horaInicio;
     }
-    
-    
 
     public String getCorrelativo() {
         return correlativo;
@@ -107,8 +96,6 @@ public class ManteServiciosMd {
     public void setCorrelativo(String correlativo) {
         this.correlativo = correlativo;
     }
-    
-    
 
     public String getResp() {
         return resp;
@@ -164,6 +151,14 @@ public class ManteServiciosMd {
 
     public void setNomBuque(String nomBuque) {
         this.nomBuque = nomBuque;
+    }
+
+    public String getTrb() {
+        return trb;
+    }
+
+    public void setTrb(String trb) {
+        this.trb = trb;
     }
 
     //variables Ramiro
