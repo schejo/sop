@@ -127,31 +127,27 @@
                             <label value="INFORMACION DEL BUQUE " style="font-size:20px; font-weight:bold;"  />
                         </div>
                     </div>
-                    
-                    <n:br/>
-                    
+                                        
                     <div sclass="row" >
-                        <div sclass="col-xs-6 col-md-3">
+                        <div sclass="col-xs-7 col-md-3">
                             <label value="AÑO " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtAnioArribo"   width="100%" value=""    maxlength="4"/>
                         </div>
                         
-                        <div sclass="col-xs-6 col-md-3">
+                        <div sclass="col-xs-7 col-md-3">
                             <label value="ARRIBO " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtNumArribo"  width="100%" value=""   maxlength="5"/>
                         </div>
                         
                     </div>
                     
-                    <n:br/>
-
                     <div sclass="row" >
                         <span class="input-group-btn">
                             <button id="btnBusca1" tooltip="status" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
                             </button>
                         </span>
                             
-                        <popup id="status" width="100%">
+                        <popup id="status" width="10%">
                             <vlayout>
                                 Seleccione Servicios!
                                    
@@ -159,9 +155,7 @@
                         </popup>
                         
                     </div>
-                    
-                    <n:br/>
-                    
+                                        
                     <div sclass="row" >
                         <div sclass="col-xs-3 col-md-3">
                             <label value="CODIGO " style="font-weight:bold; color:blue;"/>
