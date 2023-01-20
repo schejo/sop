@@ -134,7 +134,6 @@
                         <div sclass="col-xs-6 col-md-3">
                             <label value="AÑO " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtAnioArribo"   width="100%" value=""    maxlength="4"/>
-                     
                         </div>
                         
                         <div sclass="col-xs-6 col-md-3">
@@ -142,6 +141,28 @@
                             <textbox   id="txtNumArribo"  width="100%" value=""   maxlength="5"/>
                         </div>
                         
+                    </div>
+                    
+                    <n:br/>
+
+                    <div sclass="row" >
+                        <span class="input-group-btn">
+                            <button id="btnBusca1" tooltip="status" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
+                            </button>
+                        </span>
+                            
+                        <popup id="status" width="100%">
+                            <vlayout>
+                                Seleccione Servicios!
+                                   
+                            </vlayout>
+                        </popup>
+                        
+                    </div>
+                    
+                    <n:br/>
+                    
+                    <div sclass="row" >
                         <div sclass="col-xs-3 col-md-3">
                             <label value="CODIGO " style="font-weight:bold; color:blue;"/>
                             <textbox    id="txtCodigoBuque"   value="" readonly="true"  width="100%"  maxlength="5"/>
@@ -156,19 +177,7 @@
                             <label value="TRB " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtTrbBuque"   value=""  readonly="true" maxlength="1800" width="100%"/>
                         </div>
-            
-                        <span class="input-group-btn">
-                            <button id="btnBusca1" tooltip="status" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
-                            </button>
-                        </span>
-                            
-                        <popup id="status" width="150px">
-                            <vlayout>
-                                Seleccione Servicios!
-                                   
-                            </vlayout>
-                        </popup>
-            
+                        
                     </div>
           
                       
@@ -304,7 +313,6 @@
                 
             </n:div>
         </n:div> 
-              
 
     </div>
 </zk>
