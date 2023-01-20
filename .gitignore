@@ -61,4 +61,5 @@ build/
 # sbt
 
 target/
+SOP1/build/web/WEB-INF/classes/ctrl/*.class
 
