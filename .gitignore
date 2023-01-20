@@ -24,10 +24,7 @@ project.properties
 hs_err_pid*
 replay_pid*
 private.xml
-<<<<<<< HEAD
 
-=======
->>>>>>> sergio
 # Compiled class file
 *.class
 
@@ -51,11 +48,7 @@ hs_err_pid*
 # IntelliJ
 out/
 
-<<<<<<< HEAD
-# Eclipse
-bin/
-=======
->>>>>>> sergio
+SOP1/nbproject/private/private.xml
 
 # NetBeans
 build/
@@ -66,5 +59,6 @@ nbproject/private/
 build/
 
 # sbt
+
 target/
 
