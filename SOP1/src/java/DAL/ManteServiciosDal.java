@@ -2,7 +2,6 @@ package DAL;
 
 import Conexion.Conexion;
 import MD.ManteServiciosMd;
-import MD.manCicloCamionMd;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,8 +32,9 @@ public class ManteServiciosDal {
         String id = "";
         int resp = 0;
         cl = new ManteServiciosMd();
-        String query0
-                = "SELECT B.BUQUE CODIGO,UPPER(TRIM(B.NOM_BUQUE)) NOMBRE \n"
+        
+        String query0 = "SELECT B.BUQUE CODIGO,UPPER(TRIM(B.NOM_BUQUE)) NOMBRE,"
+                + "             B.BUQ_TRB \n"
                 + "FROM EPQOP.IF_BQ_BUQUES B,"
                 + "     EPQOP.IF_BQ_ARRIBOS A\n"
                 + "WHERE B.BUQUE = A.BUQUE \n"
@@ -49,6 +49,7 @@ public class ManteServiciosDal {
                 resp = 1;
                 cl.setNumBuque(rs.getString(1));
                 cl.setNomBuque(rs.getString(2));
+                cl.setTrb(rs.getString(3));
 
                 cl.setResp("1");
                 cl.setMsg("ACTUALIZAR!");
@@ -74,7 +75,8 @@ public class ManteServiciosDal {
 
         return cl;
     }
-     public ManteServiciosMd REGdelete(String ano,String arribo,String corre) {
+
+    public ManteServiciosMd REGdelete(String ano, String arribo, String corre) {
         Statement st = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -86,8 +88,8 @@ public class ManteServiciosDal {
             conn.setAutoCommit(false);
             int vl = 0;
             st = conn.createStatement();
-            vl = st.executeUpdate(" DELETE from epqop.if_bq_servicios WHERE ano_arribo='"+ano+"' AND num_arribo='"+arribo+"' and correlativo='"+corre+"'");
-            
+            vl = st.executeUpdate(" DELETE from epqop.if_bq_servicios WHERE ano_arribo = '" + ano + "' AND num_arribo = '" + arribo + "' AND correlativo='" + corre + "'");
+
             if (vl > 0) {
                 cl.setResp("1");
                 cl.setMsg("BOLETA ANULADA CORRECTAMENTE");
@@ -125,7 +127,7 @@ public class ManteServiciosDal {
             conn.setAutoCommit(false);
             int vl = 0;
             st = conn.createStatement();
-            
+
             vl = st.executeUpdate("UPDATE epqop.if_bq_servicios  SET codigo_particular='" + data.getCod_particular() + "',"
                     + " codigo_servicio = '" + data.getCod_servicio() + "', fecha_inicio1 = TO_DATE('" + data.getFechaInicio() + "','dd/mm/yyyy hh24:mi'),\n"
                     + " hora_inicio1 = TO_DATE('" + data.getFechaInicio() + "','dd/mm/yyyy hh24:mi' ),fecha_fin1 = TO_DATE('" + data.getFechaFin() + "','dd/mm/yyyy hh24:mi' ),\n"

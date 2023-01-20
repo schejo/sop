@@ -140,23 +140,9 @@
                         <div sclass="col-xs-6 col-md-3">
                             <label value="ARRIBO " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtNumArribo"  width="100%" value=""   maxlength="5"/>
-                            
-                            <span class="input-group-btn">
-                                <button id="btnBusca1" tooltip="status" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
-                                </button>
-                            </span>
-                            
-                            <popup id="status" width="150px">
-                                <vlayout>
-                                    Seleccione Servicios!
-                                   
-                                </vlayout>
-                            </popup>
-                            
-                     
                         </div>
                         
-                        <div sclass="col-xs-6 col-md-3">
+                        <div sclass="col-xs-3 col-md-3">
                             <label value="CODIGO " style="font-weight:bold; color:blue;"/>
                             <textbox    id="txtCodigoBuque"   value="" readonly="true"  width="100%"  maxlength="5"/>
                         </div>
@@ -165,6 +151,23 @@
                             <label value="NOMBRE BUQUE " style="font-weight:bold; color:blue;"/>
                             <textbox   id="txtNombreBuque"   value=""  readonly="true" maxlength="1800" width="100%"/>
                         </div>
+            
+                        <div sclass="col-xs-3 col-md-3">
+                            <label value="TRB " style="font-weight:bold; color:blue;"/>
+                            <textbox   id="txtTrbBuque"   value=""  readonly="true" maxlength="1800" width="100%"/>
+                        </div>
+            
+                        <span class="input-group-btn">
+                            <button id="btnBusca1" tooltip="status" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
+                            </button>
+                        </span>
+                            
+                        <popup id="status" width="150px">
+                            <vlayout>
+                                Seleccione Servicios!
+                                   
+                            </vlayout>
+                        </popup>
             
                     </div>
           
@@ -205,7 +208,7 @@
                     <n:div class="form-group col-md-10 mydiv1">
                         <label class="mylabel" value="SERVICIO :" style="font-size: 15px; color:blue;"/>
                         <combobox  id="nombreServicio" value="" style="font-size: 15px;" buttonVisible="true" width="100%" autocomplete="true"  model="${allservicios}" 
-                                  autodrop="true" >
+                                   autodrop="true" >
                             <template name="model">
                                 <comboitem label="${each.nom_servicio}" value="${each.cod_servicio}"/>
                             </template>
