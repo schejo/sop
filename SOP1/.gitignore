@@ -62,4 +62,5 @@ build/
 
 target/
 SOP1/build/web/WEB-INF/classes/ctrl/*.class
+SOP1/nbproject/project.properties
 
