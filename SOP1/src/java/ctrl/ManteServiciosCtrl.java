@@ -83,6 +83,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         nombreParticular.setModel(new ListModelList(allparticulares));
         allclientes = ProductoDal.Clientes();
         nombreCliente.setModel(new ListModelList(allclientes));
+        
         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
@@ -305,16 +306,16 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
 
     public void clear() {
 
-        txtAnioArribo.setText("");
+//        txtAnioArribo.setText("");
 //        anioarribo.setDisabled(false);
-        txtNumArribo.setText("");
+//        txtNumArribo.setText("");
 
         txtCodigoBuque.setText("");
         txtNombreBuque.setText("");
         cod_serv.setText("");
-        nombreServicio.setText("");
+        nombreServicio.setSelectedIndex(-1);
         cod_part.setText("");
-        nombreParticular.setText("");
+        nombreParticular.setSelectedIndex(-1);
         cod_cli.setText("");
         nombreCliente.setSelectedIndex(-1);
         fechaInicio.setText("");
