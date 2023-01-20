@@ -307,16 +307,15 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
 
     public void clear() {
 
-        txtAnioArribo.setText("");
-        txtNumArribo.setText("");
+
 
         txtCodigoBuque.setText("");
         txtNombreBuque.setText("");
         txtTrbBuque.setText("");
         cod_serv.setText("");
-        nombreServicio.setText("");
+        nombreServicio.setSelectedIndex(-1);
         cod_part.setText("");
-        nombreParticular.setText("");
+        nombreParticular.setSelectedIndex(-1);
         cod_cli.setText("");
         nombreCliente.setSelectedIndex(-1);
         fechaInicio.setText("");
