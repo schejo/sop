@@ -264,19 +264,14 @@
                 </n:div>
                                 
                 <n:div class="row ">
-                    
-                    
-                   
-                    <n:div class="form-group col-md-2 mydiv1" style="border: none;">
+                    <n:div class="form-group col-md-6 mydiv1" style="border: none;">
                         <label class="mylabel" value="FECHA Y HORA INICIO :" style="font-size: 15px; color: blue;"/>
                         <datebox id="fechaInicio" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                    </n:div>
-                  
-                    <n:div class="form-group col-md-10 mydiv1" style="border: none;">
+                    </n:div>                  
+                    <n:div class="form-group col-md-6 mydiv1" style="border: none;">
                         <label class="mylabel" value="FECHA Y HORA FIN    :" style="font-size: 15px; color: blue;"/>
                         <datebox id="fechaFin" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                     </n:div>
-                   
                 </n:div>
                 
                 <n:div class="row ">

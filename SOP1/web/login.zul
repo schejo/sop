@@ -15,7 +15,7 @@
             
                 <div class="loginBox">
                     <image class="user" src="bootstrap/img/usuario.png" width="80px" height="80px" style="margin-top: 10px; margin-left: 10px;" />
-                    <n:h1 style="margin-top:50px; margin-bottom:30px; color:black; font-family:Times;" >LOGIN PRUEBAS</n:h1>
+                    <n:h1 style="margin-top:50px; margin-bottom:30px; color:black; font-family:Times;" >LOGIN</n:h1>
                     <div class="form-group" style="text-align: left; margin-top:15px; margin-left:10px;  padding-right: 0;">
                         <label value="Usuario " style="text-transform: uppercase; word-wrap: break-word; color: black; font-family:Times; font-weight: bold; font-size: 18px;"/>
                         <textbox class="form-control textbox" id="txtUsuario" style="margin-top:10px;" maxlength="30" width="250px" constraint="no empty: Debe ingresar su usuario" focus="true" placeholder="INGRESAR USUARIO"/>
