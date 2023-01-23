@@ -163,7 +163,7 @@
                                     <menuitem label="Reporte Contenedores APM" id="ItemAZ2" image="bootstrap/img/Nestadistica.png"/>
                                     <menuitem label="Resumen Contenedores APM" id="ItemAZ3" image="bootstrap/img/Nestadistica.png"/>
                                     <menuitem label="Resumen Contenedores APM Por Mes" id="ItemAZ4" image="bootstrap/img/Nestadistica.png"/>
-                                <!--    <menuitem label="Mantenimiento De Servicios" id="ItemServ" image="bootstrap/img/Nestadistica.png"/>-->
+                                   <menuitem label="Mantenimiento De Servicios" id="ItemServ" image="bootstrap/img/Nestadistica.png"/>
 
                                 </menupopup>
                             </menu> 
