@@ -21,6 +21,7 @@ public class ActividadesDal {
 
     public List<ActividadesMd> REGselect(String ano, String arribo, String actividad) throws SQLException {
         List<ActividadesMd> allActividades = new ArrayList<ActividadesMd>();
+        
         String query = "SELECT     a.ano_arribo, a.num_arribo,\n"
                 + "           h.nom_actividad,\n"
                 + "           TO_CHAR (a.fecha_act, 'dd/mm/yyyy'),\n"
@@ -70,7 +71,6 @@ public class ActividadesDal {
                 rg.setAno_arribo(rs.getString(1));
                 rg.setNum_arribo(rs.getString(2));
                 rg.setNom_actividad(rs.getString(3));
-
                 rg.setFecha(rs.getString(4));
                 rg.setHora(rs.getString(5));
                 rg.setFecha_fin_act(rs.getString(6));
@@ -78,22 +78,16 @@ public class ActividadesDal {
                 rg.setCalado_medio(rs.getString(8));
                 rg.setCalado_popa(rs.getString(9));
                 rg.setNom_atracadero(rs.getString(10));
-                
                 rg.setNombre_practico(rs.getString(11));
                 rg.setBoleta(rs.getString(12));
                 rg.setFecha_inicio1(rs.getString(13));
                 rg.setFecha_fin1(rs.getString(14));
                 rg.setDuracion1(rs.getString(15));
-                
                 rg.setNom_remolcador1(rs.getString(16));
                 rg.setBoleta2(rs.getString(18));
                 rg.setFecha_inicio2(rs.getString(19));
-                
                 rg.setNom_remolcador2(rs.getString(20));
-                
-                
-                
-                
+                                
                 
 //                rg.setBoleta1(rs.getString(18));
 //                rg.setFecha_inicio2(rs.getString(19));
@@ -137,7 +131,7 @@ public class ActividadesDal {
             rs.close();
             conexion.close();
             conexion = null;
-            Clients.showNotification("ERROR AL CONSULTAR <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+            Clients.showNotification("ERROR AL CONSULTAR (REGselect)<br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
                     "warning", null, "middle_center", 0);
         }
         return allActividades;
@@ -207,7 +201,7 @@ public class ActividadesDal {
                 + " " + (cod_fondeo.equals("") ? "null" : cod_fondeo) + ",?)"
                 + " " + (estatus_cobro.equals("") ? "null" : estatus_cobro) + ",?)";
 
-        String sql0 = "select max(correlativo2)+1 as correlativo from epqop.if_bq_reg_activida";
+        String sql0 = "SELECT MAX(correlativo2)+1 AS correlativo FROM epqop.if_bq_reg_activida";
 
         try {
             conexion = cnn.Conexion();
@@ -295,7 +289,7 @@ public class ActividadesDal {
             st = conexion.createStatement();
 
             //los nombres de las tablas van siempre con a. b. c. d.?
-            st.executeUpdate("UPDATE epqop.if_bq_activ_buque set"
+            st.executeUpdate("UPDATE epqop.if_bq_activ_buque SET"
                     //  + "num_actividad1 = '" + cod_actividad + "',"
                     + "nom_actividad = '" + nom_actividad + "',"
                     //  + "correlativo2 = '" + correlativo + "',"
@@ -344,8 +338,9 @@ public class ActividadesDal {
                     //  + "codigofonAct = '" + cod_fondeo + "' "
                     + "nomfondeoAct = '" + fondeo + "' "
                     + "estatus2Act = '" + estatus_cobro + "' "
-                    + "where ano_arribo = '" + ano_arribo + "' "
-                    + "and   num_arribo = '" + num_arribo + "' ");
+                    + "WHERE ano_arribo = '" + ano_arribo + "' "
+                    + "AND   num_arribo = '" + num_arribo + "' ");
+            //CODIGO DE LA ACTIVIDAD QUE SE QUIERE ACTUALIZAR
 
             Clients.showNotification("REGISTRO ACTUALIZADO <br/> CON EXITO  <br/>");
             System.out.println("Actualizacion Exitosa.! ");
@@ -372,8 +367,11 @@ public class ActividadesDal {
             System.out.println("Eliminar " + num);
             st = conexion.createStatement();
 
-            st.executeUpdate("DELETE epqop.if_activ_buque where  ano_arribo = '" + anio + "' "
-                    + " and num_arribo = '" + num);
+            st.executeUpdate("DELETE epqop.if_activ_buque"
+                    + "       WHERE  ano_arribo = '" + anio + "' "
+                    + "       AND num_arribo = '" + num);
+            //CODIGO DE LA ACTIVIDAD
+            
             Clients.showNotification("REGISTRO ELIMINADO <br/> CON EXITO  <br/>");
             System.out.println("Eliminacion Exitosa.! ");
             st.close();
@@ -393,9 +391,10 @@ public class ActividadesDal {
     //ACTIVIDADES
     public List<ActividadesMd> tipoactRSelect() throws SQLException {
         List<ActividadesMd> alltipoact = new ArrayList<ActividadesMd>();
-        String query = "select trim(num_actividad1),"
-                + "trim(nom_actividad) "
-                + " from epqop.if_bq_activ_buque order by num_actividad1 asc ";
+        
+        String query = "SELECT TRIM(num_actividad1),"
+                + "            TRIM(nom_actividad) "
+                + " FROM epqop.if_bq_activ_buque ORDER BY num_actividad1 ASC ";
         try {
             conexion = cnn.Conexion();
             st = conexion.createStatement();
@@ -417,7 +416,7 @@ public class ActividadesDal {
             rs.close();
             conexion.close();
             conexion = null;
-            Clients.showNotification("ERROR AL CONSULTAR TIPO ACTIVIDAD (Rselect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+            Clients.showNotification("ERROR AL CONSULTAR TIPO ACTIVIDAD (tipoactRSelect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
                     "warning", null, "middle_center", 0);
         }
         return alltipoact;
@@ -426,10 +425,11 @@ public class ActividadesDal {
     //ATRACADEROS
     public List<ActividadesMd> atracaderoRSelect() throws SQLException {
         List<ActividadesMd> allatracadero = new ArrayList<ActividadesMd>();
-        String query = "select trim(num_atracadero1),"
-                + "trim(tipo_terminal) "
-                + " from epqop.if_bq_atracaderos "
-                + "order by num_atracadero1 asc ";
+        
+        String query = "SELECT TRIM(num_atracadero1),"
+                + "            TRIM(tipo_terminal) "
+                + " FROM epqop.if_bq_atracaderos "
+                + " ORDER BY num_atracadero1 ASC ";
         try {
             conexion = cnn.Conexion();
             st = conexion.createStatement();
@@ -451,7 +451,7 @@ public class ActividadesDal {
             rs.close();
             conexion.close();
             conexion = null;
-            Clients.showNotification("ERROR AL CONSULTAR ATRACADERO (Rselect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+            Clients.showNotification("ERROR AL CONSULTAR ATRACADERO (atracaderoRSelect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
                     "warning", null, "middle_center", 0);
         }
         return allatracadero;
@@ -460,11 +460,12 @@ public class ActividadesDal {
     //PRACTICOS
     public List<ActividadesMd> tipoPracticoRSelect() throws SQLException {
         List<ActividadesMd> alltipoPractico = new ArrayList<ActividadesMd>();
-        String query = "select trim(codigo_particular),"
-                + "trim(nombre_particular) "
-                + " from epqop.particulares "
-                + "where tipo_particular = 'E'"
-                + "order by codigo_particular asc ";
+        
+        String query = "SELECT TRIM(codigo_particular),"
+                + "            TRIM(nombre_particular) "
+                + " FROM epqop.particulares "
+                + "WHERE tipo_particular = 'E'"
+                + "ORDER BY codigo_particular ASC ";
 
         try {
             conexion = cnn.Conexion();
@@ -487,7 +488,7 @@ public class ActividadesDal {
             rs.close();
             conexion.close();
             conexion = null;
-            Clients.showNotification("ERROR AL CONSULTAR PARTICULAR REMOLCADOR (Rselect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+            Clients.showNotification("ERROR AL CONSULTAR PARTICULAR REMOLCADOR (tipoPracticoRSelect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
                     "warning", null, "middle_center", 0);
         }
         return alltipoPractico;
@@ -496,11 +497,12 @@ public class ActividadesDal {
     //REMOLCADORES
     public List<ActividadesMd> tipoParticularRSelect() throws SQLException {
         List<ActividadesMd> alltipoParticular = new ArrayList<ActividadesMd>();
-        String query = "select trim(codigo_particular),"
-                + "trim(nombre_particular) "
-                + " from epqop.particulares "
-                + "where tipo_particular = 'C'"
-                + "order by codigo_particular asc ";
+        
+        String query = "SELECT TRIM(codigo_particular),"
+                + "            TRIM(nombre_particular) "
+                + " FROM epqop.particulares "
+                + " WHERE tipo_particular = 'C'"
+                + " ORDER BY codigo_particular ASC ";
 
         try {
             conexion = cnn.Conexion();
@@ -523,7 +525,7 @@ public class ActividadesDal {
             rs.close();
             conexion.close();
             conexion = null;
-            Clients.showNotification("ERROR AL CONSULTAR PARTICULAR REMOLCADOR (Rselect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+            Clients.showNotification("ERROR AL CONSULTAR PARTICULAR REMOLCADOR (tipoParticularRSelect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
                     "warning", null, "middle_center", 0);
         }
         return alltipoParticular;
@@ -532,11 +534,12 @@ public class ActividadesDal {
     //LANCHAS PILOTO
     public List<ActividadesMd> LanchaPilotoRSelect() throws SQLException {
         List<ActividadesMd> allLanchaPiloto = new ArrayList<ActividadesMd>();
-        String query = "select trim(codigo_particular),"
-                + "trim(nombre_particular) "
-                + " from epqop.particulares "
-                + "where tipo_particular = 'L'"
-                + "order by codigo_particular asc ";
+        
+        String query = "SELECT TRIM(codigo_particular),"
+                + "            TRIM(nombre_particular) "
+                + " FROM epqop.particulares "
+                + "WHERE tipo_particular = 'L'"
+                + "ORDER BY codigo_particular ASC ";
 
         try {
             conexion = cnn.Conexion();
@@ -559,7 +562,7 @@ public class ActividadesDal {
             rs.close();
             conexion.close();
             conexion = null;
-            Clients.showNotification("ERROR AL CONSULTAR PARTICULAR LANCHA PILOTO (Rselect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+            Clients.showNotification("ERROR AL CONSULTAR PARTICULAR LANCHA PILOTO (LanchaPilotoRSelect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
                     "warning", null, "middle_center", 0);
         }
         return allLanchaPiloto;

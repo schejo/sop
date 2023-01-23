@@ -25,20 +25,17 @@ public class menu extends GenericForwardComposer {
         lblUser.setValue(User);
         rootPagina.setSrc("/Views/Principal.zul");
 
-
         Permisos(User);
 
-
-        
     }
-    
-     public void Permisos(String permiso) {
+
+    public void Permisos(String permiso) {
         if (permiso.equals("federicoc1672")) {
             menuInformatica.setVisible(true);
-            
-        }else{
+
+        } else {
             menuInformatica.setVisible(false);
-            
+
         }
     }
 
@@ -52,27 +49,13 @@ public class menu extends GenericForwardComposer {
         rootPagina.setSrc("/Views/CitasPlanificacion.zul");
     }
 
-     public void onClick$ItemCont(Event evt) {
-        rootPagina.setSrc("/Views/MantenimientoContenedores1.zul");
+    public void onClick$ItemRH(Event evt) {
+        rootPagina.setSrc("/Views/Actividades.zul");
     }
-       public void onClick$ItemACont(Event evt) {
-        rootPagina.setSrc("/Views/MantenimientoActiviConte.zul");
-    }
-          public void onClick$ItemPlani(Event evt) {
-        rootPagina.setSrc("/Views/MantenimientoPlanificacion.zul");
-    }
-    
-
 
     //CATALOGOS
     public void onClick$ItemAA(Event evt) {
         rootPagina.setSrc("/Views/ManteActivi.zul");
-    }
-     public void onClick$Itempesaje(Event evt) {
-        rootPagina.setSrc("/Views/manCicloCamion.zul");
-    }
-        public void onClick$ItemCiclo(Event evt) {
-        rootPagina.setSrc("/Views/cicloCamion.zul");
     }
 
     public void onClick$ItemAAB(Event evt) {
@@ -86,7 +69,8 @@ public class menu extends GenericForwardComposer {
     public void onClick$ItemAAD(Event evt) {
         rootPagina.setSrc("/Views/MantenimientoBuques.zul");
     }
-     public void onClick$ItemServ(Event evt) {
+
+    public void onClick$ItemServ(Event evt) {
         rootPagina.setSrc("/Views/ManteServicios.zul");
     }
 
@@ -329,7 +313,7 @@ public class menu extends GenericForwardComposer {
         rootPagina.setSrc("/Views/ReporteBuquesFecha.zul");
     }
 
-    //SERVICIOS PARTICULARES
+    //SERVICIOS 
     public void onClick$ItemAZ(Event evt) {
         rootPagina.setSrc("/Views/ReporteServiciosParticulares.zul");
     }
@@ -346,7 +330,28 @@ public class menu extends GenericForwardComposer {
         rootPagina.setSrc("/Views/ResumenReporteConteneFecha.zul");
     }
 
+    
     //INFORMATICA
+    public void onClick$Itempesaje(Event evt) {
+        rootPagina.setSrc("/Views/manCicloCamion.zul");
+    }
+
+    public void onClick$ItemCiclo(Event evt) {
+        rootPagina.setSrc("/Views/cicloCamion.zul");
+    }
+
+    public void onClick$ItemCont(Event evt) {
+        rootPagina.setSrc("/Views/MantenimientoContenedores1.zul");
+    }
+
+    public void onClick$ItemACont(Event evt) {
+        rootPagina.setSrc("/Views/MantenimientoActiviConte.zul");
+    }
+
+    public void onClick$ItemPlani(Event evt) {
+        rootPagina.setSrc("/Views/MantenimientoPlanificacion.zul");
+    }
+
     public void onClick$ItemR1(Event evt) {
         rootPagina.setSrc("/Views/CamionParq.zul");
     }
