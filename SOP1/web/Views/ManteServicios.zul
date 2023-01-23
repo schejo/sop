@@ -127,6 +127,20 @@
                             <label value="INFORMACION DEL BUQUE " style="font-size:20px; font-weight:bold;"  />
                         </div>
                     </div>
+                     <div sclass="row" >
+                        <span class="input-group-btn">
+                            <button id="btnBusAct" tooltip="status2" class="btn btn-primary" type="button" iconSclass="z-icon-check" > 
+                            </button>
+                        </span>
+                            
+                        <popup id="status2" width="10%">
+                            <vlayout>
+                                Actividades!
+                                   
+                            </vlayout>
+                        </popup>
+                        
+                    </div>
                                         
                     <div sclass="row" >
                         <div sclass="col-xs-7 col-md-3">

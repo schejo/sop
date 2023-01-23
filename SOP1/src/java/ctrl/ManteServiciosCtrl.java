@@ -48,6 +48,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     private Datebox fechaFin;
     private Button btnBusca1;
     private Button btninsert;
+    private Button btnBusAct;
     private Button btnUpdate;
     private Doublebox boleta;
     private Textbox observaciones;
@@ -73,6 +74,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         btnBusca1.setVisible(false);
         btninsert.setVisible(false);
         btnUpdate.setVisible(false);
+        btnBusAct.setVisible(false);
         nombreParticular.setVisible(false);
         nombreCliente.setVisible(false);
         nombreServicio.setVisible(false);
@@ -83,7 +85,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         nombreParticular.setModel(new ListModelList(allparticulares));
         allclientes = ProductoDal.Clientes();
         nombreCliente.setModel(new ListModelList(allclientes));
-        
+
         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
@@ -131,24 +133,37 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 });
 
     }
-       public void onClick$btnDelete(Event e) throws SQLException {
-            Messagebox.show("Estas Seguro Que Deseas Anular la Boleta "+boleta.getText()+"?",
-                    "Question", Messagebox.OK | Messagebox.CANCEL,
-                    Messagebox.QUESTION,
-                    new org.zkoss.zk.ui.event.EventListener() {
-                public void onEvent(Event e) throws SQLException, ClassNotFoundException {
-                    if (Messagebox.ON_OK.equals(e.getName())) {
-                        borrajeModelo=ProductoDal.REGdelete(txtAnioArribo.getText(),txtNumArribo.getText(),correla);
-                        Clients.evalJavaScript("msj('" + borrajeModelo.getMsg() + "','success')");
-                          clear();
-                    } else if (Messagebox.ON_CANCEL.equals(e.getName())) {
-                        Clients.showNotification("BOLETA NO SE HA <br/> ANULADO <br/>",
-                                "warning", null, "middle_center", 5000);
-                    }
+    
+        public void onClick$btnBusAct(Event e) {
+
+
+        session.setAttribute("anioArribo", txtAnioArribo.getText());
+        session.setAttribute("numeroArribo", txtNumArribo.getText());
+
+        //INVOCAR MODAL
+        Window window = (Window) Executions.createComponents(
+                "/Views/VerActividad.zul", null, null);
+        window.doModal();
+    }
+
+    public void onClick$btnDelete(Event e) throws SQLException {
+        Messagebox.show("Estas Seguro Que Deseas Anular la Boleta " + boleta.getText() + "?",
+                "Question", Messagebox.OK | Messagebox.CANCEL,
+                Messagebox.QUESTION,
+                new org.zkoss.zk.ui.event.EventListener() {
+            public void onEvent(Event e) throws SQLException, ClassNotFoundException {
+                if (Messagebox.ON_OK.equals(e.getName())) {
+                    borrajeModelo = ProductoDal.REGdelete(txtAnioArribo.getText(), txtNumArribo.getText(), correla);
+                    Clients.evalJavaScript("msj('" + borrajeModelo.getMsg() + "','success')");
+                    clear();
+                } else if (Messagebox.ON_CANCEL.equals(e.getName())) {
+                    Clients.showNotification("BOLETA NO SE HA <br/> ANULADO <br/>",
+                            "warning", null, "middle_center", 5000);
                 }
             }
-            );
-      }
+        }
+        );
+    }
 
     public void onClick$btnUpdate(Event e) throws SQLException, ClassNotFoundException, ParseException {
         UpdatetModelo = new ManteServiciosMd();
@@ -296,6 +311,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 txtTrbBuque.setText(serviciosModelo.getTrb());
                 btnBusca1.setVisible(true);
                 btninsert.setVisible(true);
+                btnBusAct.setVisible(true);
 
             } else {
                 btninsert.setVisible(false);
@@ -306,8 +322,6 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     }
 
     public void clear() {
-
-
 
         txtCodigoBuque.setText("");
         txtNombreBuque.setText("");
