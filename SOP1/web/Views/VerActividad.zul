@@ -2,8 +2,8 @@
 <zk xmlns:n="native">
     
     <window id="modalDialog"  position="center,center" closable="true"
-    >
-    
+         apply="ctrl.VerActividadCtrl">
+
         <div class="col-lg-12 col-md-12 col-sm-12" style="" >
             <button id="btnSalir" label="Cerrar" image="bootstrap/img/cerrar.png" orient="vertical" height="50px" width="75px" style="float: right; font-weight: bold; background: transparent; border:none; border-radius: 20px; margin-right:0px; padding-right:0px;"/>
             <n:h2>ACTIVIDADES DE LOS ARRIBOS DE BUQUES</n:h2>
