@@ -26,12 +26,12 @@ public class Conexion {
          try {
                 prop.load(is);
                 
-                driver = prop.getProperty("driver2");
-                db = prop.getProperty("ipdb2");
-                port = prop.getProperty("port2");
-                sid = prop.getProperty("sid2");
-                user = prop.getProperty("user2");
-                pwd = prop.getProperty("pwd2");
+                driver = prop.getProperty("driver");
+                db = prop.getProperty("ipdb");
+                port = prop.getProperty("port");
+                sid = prop.getProperty("sid");
+                user = prop.getProperty("user");
+                pwd = prop.getProperty("pwd");
 
                 Class.forName(driver);
                 

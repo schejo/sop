@@ -6,16 +6,12 @@
     
         <div class="col-lg-12 col-md-12 col-sm-12" style="" >
             <button id="btnSalir" label="Cerrar" image="bootstrap/img/cerrar.png" orient="vertical" height="50px" width="75px" style="float: right; font-weight: bold; background: transparent; border:none; border-radius: 20px; margin-right:0px; padding-right:0px;"/>
-            <n:h1>SELECCIONAR SERVICIOS DE LOS ARRIBOS</n:h1>
+            <n:h2>SELECCIONAR SERVICIOS DE LOS ARRIBOS</n:h2>
             <n:div class="container " >
                 <n:div id="dv1" class="">
                     <n:div class="row">
                         <n:div class="form-group col-lg-1 col-md-1 "></n:div>
-                        <!--                        <n:div class="form-group col-lg-8 col-md-8 mydiv1">
-                            <label class="mylabel" value="Nombre Producto" style=""/>
-                            <textbox class="form-control" id="bemp1" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
-                        </n:div>-->
-                    
+                       
                     </n:div>
                     
                     <n:div class="row">
@@ -23,7 +19,7 @@
                         <n:div class="form-group col-lg-1 col-md-1 "></n:div>
                 
                         <n:div class="form-group col-lg-10 col-md-10 mydiv1" style="">
-                            <listbox id="lb2" model="${data}" fixedLayout="true" height="300px" sizedByContent="true" span="true"  
+                            <listbox id="lb2" model="${data}" fixedLayout="true" height="400px" sizedByContent="true" span="true"  
                                      onSelect="cod1.value = self.selectedItem.getChildren().get(0).getLabel(); 
                                                 codparti.value = self.selectedItem.getChildren().get(3).getLabel();
                                                 codcliFac.value = self.selectedItem.getChildren().get(4).getLabel();
@@ -39,8 +35,8 @@
                                     
                                     <listheader label="CODIGO" width="10%" style="" />
                                     
-                                    <listheader label="SERVICIO" width="50%"  />
-                                    <listheader label="PARTICULAR" width="20%"  />
+                                    <listheader label="SERVICIO" width="60%"  />
+                                    <listheader label="PARTICULAR" width="30%"  />
                                     
                               
                                 </listhead>
@@ -54,14 +50,9 @@
                                         <listcell  class = "mycss-listcell" label="${each.fecha_inicio}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.fecha_fin}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.boleta}" style="" />
-                                        <listcell  class = "mycss-listcell" label="${each.obs}" style="" />
-                                         <listcell  class = "mycss-listcell" label="${each.correla}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.obs}" style="height:50px; width:600px;" />
+                                        <listcell  class = "mycss-listcell" label="${each.correla}" style="" />
                                         
-                                        <!--
-                                        <listcell>
-                                            <button label="" type="button" iconSclass="z-icon-search" class="btn btn btn-primary btn-lg search" style="float: center; margin-top:9px;" forward="onClick=lb2.onSelectItem(${each})" />
-                                        </listcell>
-                                        -->
                                     </listitem>
                                 </template>
                             </listbox>
@@ -77,8 +68,8 @@
                             <textbox class="form-control" id="fecha_inicio" value=""  style="display:none; "/>
                             <textbox class="form-control" id="fecha_fin" value=""  style="display:none; "/>
                             <textbox class="form-control" id="boleta" value=""  style="display:none; "/>
-                            <textbox class="form-control" id="obs" value=""  style="display:none; "/>
-                             <textbox class="form-control" id="correla" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="obs" value=""  style="display:none;"/>
+                            <textbox class="form-control" id="correla" value=""  style="display:none; "/>
                            
                         </n:div>
                     
