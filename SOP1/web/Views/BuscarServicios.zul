@@ -11,11 +11,7 @@
                 <n:div id="dv1" class="">
                     <n:div class="row">
                         <n:div class="form-group col-lg-1 col-md-1 "></n:div>
-                        <!--                        <n:div class="form-group col-lg-8 col-md-8 mydiv1">
-                            <label class="mylabel" value="Nombre Producto" style=""/>
-                            <textbox class="form-control" id="bemp1" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
-                        </n:div>-->
-                    
+                       
                     </n:div>
                     
                     <n:div class="row">
@@ -55,13 +51,8 @@
                                         <listcell  class = "mycss-listcell" label="${each.fecha_fin}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.boleta}" style="" />
                                         <listcell  class = "mycss-listcell" label="${each.obs}" style="height:50px; width:600px;" />
-                                         <listcell  class = "mycss-listcell" label="${each.correla}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.correla}" style="" />
                                         
-                                        <!--
-                                        <listcell>
-                                            <button label="" type="button" iconSclass="z-icon-search" class="btn btn btn-primary btn-lg search" style="float: center; margin-top:9px;" forward="onClick=lb2.onSelectItem(${each})" />
-                                        </listcell>
-                                        -->
                                     </listitem>
                                 </template>
                             </listbox>
@@ -78,7 +69,7 @@
                             <textbox class="form-control" id="fecha_fin" value=""  style="display:none; "/>
                             <textbox class="form-control" id="boleta" value=""  style="display:none; "/>
                             <textbox class="form-control" id="obs" value=""  style="display:none;"/>
-                             <textbox class="form-control" id="correla" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="correla" value=""  style="display:none; "/>
                            
                         </n:div>
                     
