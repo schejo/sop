@@ -21,10 +21,10 @@
                         <n:div class="form-group col-lg-10 col-md-10 mydiv1" style="">
                             <listbox id="lb2" model="${data}" fixedLayout="true" height="400px" sizedByContent="true" span="true"  
                                      onSelect="nom_actividad.value = self.selectedItem.getChildren().get(0).getLabel(); 
-                                                fecha_actividad.value = self.selectedItem.getChildren().get(3).getLabel();
-                                                hora_actividad.value = self.selectedItem.getChildren().get(4).getLabel();
-                                                nombre_duracion.value = self.selectedItem.getChildren().get(5).getLabel();
-                                                duracion.value = self.selectedItem.getChildren().get(6).getLabel();
+                                                fecha_actividad.value = self.selectedItem.getChildren().get(1).getLabel();
+                                                hora_actividad.value = self.selectedItem.getChildren().get(2).getLabel();
+                                                nombre_duracion.value = self.selectedItem.getChildren().get(3).getLabel();
+                                                duracion.value = self.selectedItem.getChildren().get(4).getLabel();
                                                
                                                 " 
                                      style="border:none; background-color: transparent;" >

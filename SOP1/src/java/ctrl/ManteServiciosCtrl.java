@@ -131,6 +131,16 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                         }
                     }
                 });
+        
+         EventQueues.lookup("myEventQueue1", EventQueues.DESKTOP, true)
+                .subscribe(new EventListener() {
+                    public void onEvent(Event event) throws Exception {
+                       
+                                rootPagina.setSrc("/Views/Actividades.zul");
+                            
+                        
+                    }
+                });
 
     }
     
