@@ -135,6 +135,12 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
          EventQueues.lookup("myEventQueue1", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
+                         List<CatalogosMd> data = new ArrayList<CatalogosMd>();
+                        data.clear();
+                        data = (List<CatalogosMd>) event.getData();
+                         EventQueues.lookup("myEventQueue2", EventQueues.DESKTOP, true)
+               .publish(new Event("onChangeNickname", null, data));
+
                        
                   rootPagina.setSrc("/Views/Actividades.zul");
                                 

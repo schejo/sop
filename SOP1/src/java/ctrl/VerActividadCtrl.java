@@ -59,6 +59,7 @@ public class VerActividadCtrl extends GenericForwardComposer {
     public void onClick$btnAgregar(Event e) {
         List<VerActividadMd> items = new ArrayList<VerActividadMd>();
         VerActividadMd data = new VerActividadMd();
+        data.setAnoArriBo(Session.getAttribute("anioArribo").toString());
         data.setActividad(nom_actividad.getText());
         data.setFecha_act(fecha_actividad.getText());
         data.setHora_act(hora_actividad.getText());

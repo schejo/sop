@@ -2,11 +2,15 @@ package ctrl;
 
 import DAL.ActividadesDal;
 import MD.ActividadesMd;
+import MD.CatalogosMd;
+import MD.VerActividadMd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Combobox;
@@ -96,6 +100,28 @@ public class ActividadesCtrl extends GenericForwardComposer {
         nomlanchaAct.setModel(new ListModelList(allLancha1Piloto));
 
         anoarriboAct.focus();
+        
+         EventQueues.lookup("myEventQueue2", EventQueues.DESKTOP, true)
+                .subscribe(new EventListener() {
+                    public void onEvent(Event event) throws Exception {
+                        List<VerActividadMd> data = new ArrayList<VerActividadMd>();
+                        data.clear();
+                        data = (List<VerActividadMd>) event.getData();
+                        if (data.isEmpty()) {
+                            anoarriboAct.setText("");
+                           
+
+                        } else {
+                            for (VerActividadMd item : data) {
+                                if (data.size() == 1) {
+                                    anoarriboAct.setText(item.getAnoArriBo());
+                                    
+
+                                }
+                            }
+                        }
+                    }
+                });
 
     }
 
