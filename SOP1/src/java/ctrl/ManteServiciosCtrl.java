@@ -136,7 +136,8 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
                        
-                                rootPagina.setSrc("/Views/Actividades.zul");
+                  rootPagina.setSrc("/Views/Actividades.zul");
+                                
                             
                         
                     }

@@ -56,17 +56,17 @@ public class VerActividadCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnAgregar(Event e) {
-//        List<VerActividadMd> items = new ArrayList<VerActividadMd>();
-//        VerActividadMd data = new VerActividadMd();
-//        data.setActividad(nom_actividad.getText());
-//        data.setFecha_act(fecha_actividad.getText());
-//        data.setHora_act(hora_actividad.getText());
-//        data.setNom_duracion(nombre_duracion.getText());
-//        data.setDuracion(duracion.getText());
-//
-//        items.add(data);
+        List<VerActividadMd> items = new ArrayList<VerActividadMd>();
+        VerActividadMd data = new VerActividadMd();
+        data.setActividad(nom_actividad.getText());
+        data.setFecha_act(fecha_actividad.getText());
+        data.setHora_act(hora_actividad.getText());
+        data.setNom_duracion(nombre_duracion.getText());
+        data.setDuracion(duracion.getText());
+
+        items.add(data);
        EventQueues.lookup("myEventQueue1", EventQueues.DESKTOP, true)
-               .publish(new Event("onChangeNickname", null));
+               .publish(new Event("onChangeNickname", null, items));
       modalDialog.detach();
     
 
