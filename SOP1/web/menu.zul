@@ -66,6 +66,7 @@
                                     <menuitem label="Mantenimiento de Arribos" id="ItemAAB" image="bootstrap/img/casa.png"/>
                                     <menuitem label="Actividades de Buques" id="ItemAA" image="bootstrap/img/casa.png"/>
                                     <menuitem label="Rendimiento de Graneles" id="ItemRG" image="bootstrap/img/casa.png"/>
+                                    <menuitem label="Actividades Buque Ramiro" id="ItemRH" image="bootstrap/img/casa.png"/>
                                 </menupopup>
                             </menu> 
                             
@@ -162,7 +163,7 @@
                                     <menuitem label="Reporte Contenedores APM" id="ItemAZ2" image="bootstrap/img/Nestadistica.png"/>
                                     <menuitem label="Resumen Contenedores APM" id="ItemAZ3" image="bootstrap/img/Nestadistica.png"/>
                                     <menuitem label="Resumen Contenedores APM Por Mes" id="ItemAZ4" image="bootstrap/img/Nestadistica.png"/>
-                                    <menuitem label="Mantenimiento De Servicios" id="ItemServ" image="bootstrap/img/Nestadistica.png"/>
+                                   <menuitem label="Mantenimiento De Servicios" id="ItemServ" image="bootstrap/img/Nestadistica.png"/>
 
                                 </menupopup>
                             </menu> 
@@ -175,8 +176,6 @@
                                     <menuitem label="Mantenimiento de Comtenedores" id="ItemCont" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Mantenimiento Avtiviti Conte" id="ItemACont" image="bootstrap/img/estadistica2.png"/>
                                     <menuitem label="Mantenimiento Planificacion" id="ItemPlani" image="bootstrap/img/estadistica2.png"/>
-
-
                                     <menuitem label="Mantenimiento de Camion Parq" id="ItemR1" image="bootstrap/img/estadistica2.png"/>
                                     
 

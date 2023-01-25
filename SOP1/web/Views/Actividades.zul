@@ -77,7 +77,7 @@
             <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="border: 0px solid;">
               
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
+                    <label class="txtlbs" value="Fecha" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:10px;"/>
                     <datebox id="fechaAct" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         

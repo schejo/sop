@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAL;
 
 import Conexion.Conexion;
@@ -34,10 +29,11 @@ public class ManteActiviDal {
 
     public List<ManteActiviMd> atracaderoRSelect() throws SQLException {
         List<ManteActiviMd> allatracadero = new ArrayList<ManteActiviMd>();
-        String query = "select trim(num_atracadero1),"
-                + "trim(tipo_terminal) "
-                + " from epqop.if_bq_atracaderos "
-                + "order by num_atracadero1 asc ";
+
+        String query = "SELECT TRIM(num_atracadero1),"
+                + "            TRIM(tipo_terminal) "
+                + " FROM epqop.if_bq_atracaderos "
+                + " ORDER BY num_atracadero1 ASC ";
         try {
             conexion = cnn.Conexion();
             st = conexion.createStatement();
@@ -73,13 +69,11 @@ public class ManteActiviDal {
         String id = "";
         int resp = 0;
         cl = new ManteActiviMd();
-        String query1 = " select max(correlativo2)+1 as id from EPQOP.IF_BQ_REG_ACTIVIDA where ano_arribo="+data.getAno_arribo()+" and num_arribo="+data.getNum_arribo()+" ";
-        String sql =" insert into EPQOP.IF_BQ_REG_ACTIVIDA (ano_arribo,num_arribo,correlativo2,num_actividad1,fecha_act,hora_act,calado_proa,calado_medio,calado_popa,num_atracadero3,fecha_alta,usuario,hora_alta) \n" +
-"  values (?,?,?,?,to_date(?,'dd/mm/yyyy hh24:mi' ),to_date(?,'dd/mm/yyyy hh24:mi'),?,?,?,?,sysdate,?,sysdate)";
-//                + "insert into EPQOP.IF_BQ_REG_ACTIVIDA (ano_arribo,num_arribo,correlativo2,num_actividad1,fecha_act,hora_act,calado_proa,calado_medio,calado_popa,"
-//                + "num_atracadero3,num_atracadero3,fecha_alta,usuario) \n"
-//                + "  values   (?,?,?,?,to_date(?,'dd/mm/yyyy hh24:mi'),to_date(?,'dd/mm/yyyy hh24:mi'),?,?,?,?,sysdate,?)";
-           
+        String query1 = " SELECT MAX(correlativo2)+1 AS id FROM epqop.if_bq_reg_activida"
+                + " WHERE ano_arribo = " + data.getAno_arribo() + " AND num_arribo = " + data.getNum_arribo() + " ";
+
+        String sql = " INSERT INTO epqop.if_bq_reg_activida (ano_arribo,num_arribo,correlativo2,num_actividad1,fecha_act,hora_act,calado_proa,calado_medio,calado_popa,num_atracadero3,fecha_alta,usuario,hora_alta) \n"
+                  + "  VALUES (?,?,?,?,TO_DATE(?,'dd/mm/yyyy hh24:mi' ),TO_DATE(?,'dd/mm/yyyy hh24:mi'),?,?,?,?,sysdate,?,sysdate)";
 
         try {
             conn = obtener.Conexion();
@@ -105,7 +99,7 @@ public class ManteActiviDal {
             ps.setString(8, data.getCaMedio());
             ps.setString(9, data.getCaPopa());
             ps.setString(10, data.getNumAtra());
-            ps.setString(11,data.getUsuario());
+            ps.setString(11, data.getUsuario());
 
             ps.executeUpdate();
             ps.close();
@@ -128,9 +122,10 @@ public class ManteActiviDal {
 
     public List<ManteActiviMd> tipoactRSelect() throws SQLException {
         List<ManteActiviMd> alltipoact = new ArrayList<ManteActiviMd>();
-        String query = "select trim(num_actividad1),"
-                + "trim(nom_actividad) "
-                + " from epqop.if_bq_activ_buque order by num_actividad1 asc ";
+        
+        String query = "SELECT TRIM(num_actividad1),"
+                + "             TRIM(nom_actividad) "
+                + " FROM epqop.if_bq_activ_buque ORDER BY num_actividad1 ASC ";
         try {
             conexion = cnn.Conexion();
             st = conexion.createStatement();
