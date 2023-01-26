@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Group 20210428-08:47:08">
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/BuscarServicios.zul</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/DAL/CatalogoDal.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/VerActividad.zul</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/BuscarServiciosCtrl.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/MD/VerActividadMd.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/VerActividadCtrl.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/DAL/VerActividadDal.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/MD/CatalogosMd.java</file>
+            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/Actividades.zul</file>
+            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/MD/ActividadesMd.java</file>
+            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/ActividadesCtrl.java</file>
+            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/DAL/ActividadesDal.java</file>
         </group>
     </open-files>
 </project-private>
