@@ -76,12 +76,12 @@ public class ActividadesCtrl extends GenericForwardComposer {
         super.doAfterCompose(comp);
         
         allatracadero = rg.atracaderoRSelect();
-        alltipoact = rg.tipoactRSelect();
+        
         alltipoParticular = rg.tipoParticularRSelect();
         alltipoPractico = rg.tipoPracticoRSelect();
         allLancha1Piloto = rg.LanchaPilotoRSelect();
         
-        nombreAct.setModel(new ListModelList(alltipoact));
+       
         nomremolcador1Act.setModel(new ListModelList(alltipoParticular));
         nomremolcador2Act.setModel(new ListModelList(alltipoParticular));
         nomremolcador3Act.setModel(new ListModelList(alltipoParticular));
@@ -90,6 +90,11 @@ public class ActividadesCtrl extends GenericForwardComposer {
         
         anoarriboAct.focus();
         
+    }
+    public void onChange$numarriboAct(Event e) throws SQLException{
+         
+         alltipoact = rg.tipoactRSelect( anoarriboAct.getText(),numarriboAct.getText());
+         nombreAct.setModel(new ListModelList(alltipoact));
     }
     
     public void onClick$btnNuevo(Event e) throws SQLException {
@@ -135,12 +140,16 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
     //metodo para llamar un combobox con la informacion que se desea mostrar en pantalla
     public void BuscaItem(String letra, Combobox cb) {
-        for (int i = 0; i < cb.getItemCount(); i++) {
+        if(letra!=null){
+             for (int i = 0; i < cb.getItemCount(); i++) {
             if (letra.trim().equals(cb.getItemAtIndex(i).getLabel())) {
                 cb.setSelectedIndex(i);
                 break;
             }
         }
+        }
+       
+        
     }
 
     //fin metodo

@@ -88,18 +88,18 @@ public class ActividadesDal {
                 rg.setFecha_inicio4(rs.getString(18));
                 rg.setFecha_fin4(rs.getString(19));
 
-                 rg.setNom_lancha_piloto(rs.getString(20));
-                 rg.setBoleta5(rs.getString(21));
-                 rg.setFecha_inicio5(rs.getString(22));
-                 rg.setFecha_fin5(rs.getString(23));
-                                               
+                rg.setNom_lancha_piloto(rs.getString(20));
+                rg.setBoleta5(rs.getString(21));
+                rg.setFecha_inicio5(rs.getString(22));
+                rg.setFecha_fin5(rs.getString(23));
+
                 rg.setNombre_lancha(rs.getString(24));
                 rg.setBoleta5(rs.getString(25));
-                
+
                 rg.setObservaciones(rs.getString(26));
                 rg.setFondeo(rs.getString(27));
                 rg.setEstatus_cobro(rs.getString(28));
-                
+
                 allActividades.add(rg);
             }
 
@@ -329,12 +329,17 @@ public class ActividadesDal {
     }
 
     //ACTIVIDADES
-    public List<ActividadesMd> tipoactRSelect() throws SQLException {
+    public List<ActividadesMd> tipoactRSelect(String ano,String numarribo) throws SQLException {
         List<ActividadesMd> alltipoact = new ArrayList<ActividadesMd>();
 
-        String query = "SELECT TRIM(num_actividad1),"
-                + "            TRIM(nom_actividad) "
-                + " FROM epqop.if_bq_activ_buque ORDER BY num_actividad1 ASC ";
+        String query = "SELECT TRIM(a.num_actividad1),\n"
+                + "TRIM(a.nom_actividad) \n"
+                + "FROM epqop.if_bq_activ_buque a,\n"
+                + "     epqop.if_bq_reg_activida b\n"
+                + " where  a.NUM_ACTIVIDAD1=b.NUM_ACTIVIDAD1 and b.ano_arribo = "+ano+" AND b.num_arribo = "+numarribo+" ORDER BY a.num_actividad1 ASC";
+//                + "SELECT TRIM(num_actividad1),"
+//                + "            TRIM(nom_actividad) "
+//                + " FROM epqop.if_bq_activ_buque ORDER BY num_actividad1 ASC ";
         try {
             conexion = cnn.Conexion();
             st = conexion.createStatement();
