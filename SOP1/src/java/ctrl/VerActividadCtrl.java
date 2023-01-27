@@ -11,12 +11,14 @@ import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Include;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
 public class VerActividadCtrl extends GenericForwardComposer {
+    private Include rootPagina;
 
     Window modalDialog;
     List<VerActividadMd> lista = new ArrayList<VerActividadMd>();
@@ -24,16 +26,16 @@ public class VerActividadCtrl extends GenericForwardComposer {
     private Listbox lb2;
     VerActividadDal ctd = new VerActividadDal();
     Session Session = Sessions.getCurrent();
-    
+
     private Textbox nom_actividad;
     private Textbox fecha_actividad;
     private Textbox hora_actividad;
     private Textbox nombre_duracion;
     private Textbox duracion;
-    
+
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-        
+
         lista = ctd.consulta(Session.getAttribute("anioArribo").toString(), Session.getAttribute("numeroArribo").toString());
         data.clear();
 
@@ -63,18 +65,22 @@ public class VerActividadCtrl extends GenericForwardComposer {
         data.setDuracion(duracion.getText());
 
         items.add(data);
-        EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
-                .publish(new Event("onChangeNickname", null, items));
-        modalDialog.detach();
+       EventQueues.lookup("myEventQueue1", EventQueues.DESKTOP, true)
+               .publish(new Event("onChangeNickname", null, items));
+      modalDialog.detach();
+    
+
+       
+
     }
 
     public void onClick$btnSalir(Event e) {
         List<VerActividadMd> items = new ArrayList<VerActividadMd>();
-         EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
+        EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
                 .publish(new Event("onChangeNickname", null, items));
 
         modalDialog.detach();
-        
+
     }
 
 }
