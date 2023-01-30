@@ -2,13 +2,19 @@ package ctrl;
 
 import DAL.ActividadesDal;
 import MD.ActividadesMd;
+import MD.CatalogosMd;
+import MD.VerActividadMd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.EventQueues;
+import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Button;
 import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Include;
@@ -53,6 +59,9 @@ public class ActividadesCtrl extends GenericForwardComposer {
     private Datebox inicio4Act;
     private Datebox fin4Act;
 
+    private Button VerDatos;
+
+
     private Textbox lalmiranteAct;
     private Combobox nomlalmiranteAct;
     private Textbox boletas5Act;
@@ -67,29 +76,92 @@ public class ActividadesCtrl extends GenericForwardComposer {
     List<ActividadesMd> alltipoParticular = new ArrayList<ActividadesMd>();
     List<ActividadesMd> alltipoPractico = new ArrayList<ActividadesMd>();
     List<ActividadesMd> allLancha1Piloto = new ArrayList<ActividadesMd>();
+
     List<ActividadesMd> allLanchaalmirante = new ArrayList<ActividadesMd>();
 
     ActividadesDal rg = new ActividadesDal();
     private Include rootPagina;
+
+    String actividadGlo = "";
+
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
 
         allatracadero = rg.atracaderoRSelect();
+
         alltipoParticular = rg.tipoParticularRSelect();
         alltipoPractico = rg.tipoPracticoRSelect();
         allLancha1Piloto = rg.LanchaPilotoRSelect();
         allLanchaalmirante = rg.LanchaalmirnateRSelect();
 
         nompracticoAct.setModel(new ListModelList(alltipoPractico));
+
+
+        alltipoParticular = rg.tipoParticularRSelect();
+        alltipoPractico = rg.tipoPracticoRSelect();
+        allLancha1Piloto = rg.LanchaPilotoRSelect();
+
         nomremolcador1Act.setModel(new ListModelList(alltipoParticular));
         nomremolcador2Act.setModel(new ListModelList(alltipoParticular));
         nomremolcador3Act.setModel(new ListModelList(alltipoParticular));
         nomlanchaAct.setModel(new ListModelList(allLancha1Piloto));
+
         nomlalmiranteAct.setModel(new ListModelList(allLanchaalmirante));
 
         anoarriboAct.focus();
+
+
+
+        anoarriboAct.focus();
+        VerDatos.setVisible(false);
+
+        EventQueues.lookup("myEventQueue2", EventQueues.DESKTOP, true)
+                .subscribe(new EventListener() {
+                    public void onEvent(Event event) throws Exception {
+                        List<VerActividadMd> data = new ArrayList<VerActividadMd>();
+                        data.clear();
+                        data = (List<VerActividadMd>) event.getData();
+                        if (data.isEmpty()) {
+                            anoarriboAct.setText("");
+
+                        } else {
+                            for (VerActividadMd item : data) {
+                                if (data.size() == 1) {
+                                    anoarriboAct.setText(item.getAnoArriBo());
+                                    numarriboAct.setText(item.getNumArrib());
+                                    Events.postEvent("onChange", numarriboAct, null);
+                                    actividadGlo = item.getNumActiv();
+                                    VerDatos.setVisible(true);
+                                    
+
+                                }
+                            }
+                        }
+                    }
+                });
+
+       
+
+    }
+
+    public void BuscaItemAct(String letra, Combobox cb) {
+        if (letra != null) {
+            for (int i = 0; i < cb.getItemCount(); i++) {
+                if (letra.trim().equals(cb.getItemAtIndex(i).getValue())) {
+                    cb.setSelectedIndex(i);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    public void onClick$VerDatos(Event e) {
+         BuscaItemAct(actividadGlo, this.nombreAct);
+         Events.postEvent("onChange", nombreAct, null);
+        
 
     }
 
@@ -97,7 +169,14 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
         alltipoact = rg.tipoactRSelect(anoarriboAct.getText(), numarriboAct.getText());
         nombreAct.setModel(new ListModelList(alltipoact));
+
     }
+
+
+
+    
+
+    
 
     public void onClick$btnNuevo(Event e) throws SQLException {
 
@@ -131,6 +210,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
         estatus2Act.setText("");
         
         anoarriboAct.focus();
+        VerDatos.setVisible(false);
     }
 
     //metodo para llamar un combobox con la informacion que se desea mostrar en pantalla
@@ -184,9 +264,14 @@ public class ActividadesCtrl extends GenericForwardComposer {
             
             nomlalmiranteAct.setText("");
             boletas5Act.setText("");
+
             
             observacionesAct.setText("");
             nomfondeoAct.setText("");
+
+            observacionesAct.setText("");
+            codigofonAct.setText("");
+
             estatus2Act.setText("");
 
         } else {
@@ -229,6 +314,10 @@ public class ActividadesCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnGuardar(Event e) throws SQLException {
+
+
+
+                    VerDatos.setVisible(false);
 
         int op = 0;
 
@@ -323,6 +412,49 @@ public class ActividadesCtrl extends GenericForwardComposer {
         }
 
     }
+
+
+    public void onClick$btnActualiza(Event e) throws SQLException {
+
+        anoarriboAct.setText("");
+        numarriboAct.setText("");
+        actividadAct.setText("");
+        nombreAct.setText("");
+        practicoAct.setText("");
+        nompracticoAct.setText("");
+        boletasAct.setText("");
+        inicioAct.setText("");
+        finAct.setText("");
+        remolcadorAct.setText("");
+        nomremolcador1Act.setText("");
+        boletas1Act.setText("");
+        inicio1Act.setText("");
+        fin1Act.setText("");
+        remolcador2Act.setText("");
+        nomremolcador2Act.setText("");
+        boletas2Act.setText("");
+        inicio2Act.setText("");
+        fin2Act.setText("");
+        remolcador3Act.setText("");
+        nomremolcador3Act.setText("");
+        boletas3Act.setText("");
+        inicio3Act.setText("");
+        fin3Act.setText("");
+        lanchaAct.setText("");
+        nomlanchaAct.setText("");
+        boletas4Act.setText("");
+        inicio4Act.setText("");
+        fin4Act.setText("");
+        lalmiranteAct.setText("");
+        nomlalmiranteAct.setText("");
+        boletas5Act.setText("");
+        observacionesAct.setText("");
+        codigofonAct.setText("");
+        nomfondeoAct.setText("");
+        estatus2Act.setText("");
+        anoarriboAct.focus();
+    }
+
 
     public void onClick$btnDelete(Event e) throws SQLException {
         if (!anoarriboAct.getText().equals("") && !anoarriboAct.getText().equals("")) {
