@@ -224,11 +224,11 @@ public class ActividadesCtrl extends GenericForwardComposer {
                 
                 BuscaItem(dt.getNombre_lancha(), this.nomlalmiranteAct);
                 boletas5Act.setText(dt.getBoleta5());
-                
+
                 observacionesAct.setText(dt.getObservaciones());
-                BuscaItem(dt.getFondeo(), this.nomfondeoAct);
-                BuscaItem(dt.getEstatus_cobro(), this.estatus2Act);
-                
+//                BuscaItem(dt.getFondeo(), this.nomfondeoAct);
+//                BuscaItem(dt.getEstatus_cobro(), this.estatus2Act);
+
             }
         }
     }
