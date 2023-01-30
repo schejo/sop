@@ -74,55 +74,8 @@
             </n:div>
                 
             <!--FILA #02 -->
-            <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="border: 0px solid;">
-              
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:10px;"/>
-                    <datebox id="fechaAct" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-                        
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Hora" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
-                    <textbox id="horaAct" value=""  cols="8" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-                    
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fin Actividad" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
-                    <datebox id="fechafinAct" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-                
-            </n:div>
                     
             <!-- FILA #03 -->
-            <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
-                    
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Calado Proa" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
-                    <textbox id="proaAct" value=""  cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div> 
-                        
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Calado Medio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
-                    <textbox id="medioAct" value=""  cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-                        
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Calado Popa" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
-                    <textbox id="popaAct" value=""  cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-               
-                <n:div class="form-group col-lg-3 col-md-2 dvlb" style="color:blue; border: none; margin-top:21px;">
-                    <label class="txtlbs" value="Atracadero" />
-                    <combobox id="nomterminalAct" buttonVisible="true" width="200px" autocomplete="true"  model="${allatracadero}" style="font-weight: bold; color:black; heigh:20px;"
-                              autodrop="true" >
-                        <template name="model">
-                            <comboitem label="${each.nom_atracadero}" value="${each.cod_atracadero}"/>
-                        </template>
-                    </combobox>
-                </n:div> 
-                          
-            </n:div>
-
             <!-- FILA #04 --> 
             <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
               
@@ -143,18 +96,14 @@
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
-                    <datebox id="inicioAct" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="inicioAct" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
-                    <datebox id="finAct" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="finAct" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Duracion" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
-                    <textbox id="duracionaAct" value=""  cols="10" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
             </n:div>   
                     
             <!-- FILA #05 -->
@@ -177,17 +126,12 @@
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Inicio" style="color:blue;  font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    <datebox id="inicio1Act" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="inicio1Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Fin" style="color:blue;  font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    <datebox id="fin1Act" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-                        
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Duracion" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    <textbox id="duracionbAct" value=""  cols="10" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="fin1Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                 
             </n:div>
@@ -212,19 +156,14 @@
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    <datebox id="inicio2Act" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="inicio2Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    <datebox id="fin2Act" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="fin2Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Duracion" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    <textbox id="duracion2Act" value=""  cols="10" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-                   
             </n:div>
                     
             <!-- FILA #07 -->
@@ -247,19 +186,14 @@
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
-                    <datebox id="inicio3Act" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="inicio3Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
-                    <datebox id="fin3Act" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="fin3Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
-                        
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Duracion" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
-                    <textbox id="duracion3Act" value=""  cols="10" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-                     
+                                             
             </n:div>
                 
             <!-- FILA #08 -->
@@ -283,17 +217,12 @@
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
-                    <datebox id="inicio4Act" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="inicio4Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Fecha Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
-                    <datebox id="fin4Act" cols="6"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>
-                        
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Duracion" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
-                    <textbox id="duracion4Act" value=""  cols="10" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <datebox id="fin4Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
             </n:div>
@@ -330,11 +259,6 @@
                     
             <!-- FILA #11 -->
             <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
-                        
-                <!--   <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Codigo Fondeo" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    <textbox id="codigofonAct" value=""  cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
-                </n:div>-->
                         
                 <n:div class="form-group col-lg-3 col-md-3 dvlb" style="color:blue;">
                     <label class="txtlbs" value="Fondeo" />

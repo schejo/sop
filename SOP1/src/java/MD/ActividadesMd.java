@@ -7,47 +7,44 @@ public class ActividadesMd {
     private String Actividad;
     private String correlativo;
     private String nom_actividad;
-    private String fecha;
-    private String hora;
-    private String fecha_fin_act;
-    private String calado_proa;
-    private String calado_medio;
-    private String calado_popa;
+    
     private String cod_atracadero;
     private String nom_atracadero;
+    
     private String codigo_practico;
     private String nombre_practico;
     private String boleta;
     private String fecha_inicio1;
     private String fecha_fin1;
-    private String duracion1;
+    
     private String codigo_remolcador;
     private String nombre_remolcador;
     private String boleta1;
     private String fecha_inicio2;
     private String fecha_fin2;
-    private String duracion2;
+    
     private String cod_remolcador1;
     private String nom_remolcador1;
     private String boleta2;
     private String fecha_inicio3;
     private String fecha_fin3;
-    private String duracion3;
+    
     private String cod_remolcador2;
     private String nom_remolcador2;
     private String boleta3;
     private String fecha_inicio4;
     private String fecha_fin4;
-    private String duracion4;
+    
     private String cod_lancha_piloto;
     private String nom_lancha_piloto;
     private String boleta4;
     private String fecha_inicio5;
     private String fecha_fin5;
-    private String duracion5;
+    
     private String codigo_lancha;
     private String nombre_lancha;
     private String boleta5;
+    
     private String observaciones;
     private String cod_fondeo;
     private String fondeo;
@@ -111,54 +108,6 @@ public class ActividadesMd {
         this.nom_actividad = nom_actividad;
     }
 
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public String getFecha_fin_act() {
-        return fecha_fin_act;
-    }
-
-    public void setFecha_fin_act(String fecha_fin_act) {
-        this.fecha_fin_act = fecha_fin_act;
-    }
-
-    public String getCalado_proa() {
-        return calado_proa;
-    }
-
-    public void setCalado_proa(String calado_proa) {
-        this.calado_proa = calado_proa;
-    }
-
-    public String getCalado_medio() {
-        return calado_medio;
-    }
-
-    public void setCalado_medio(String calado_medio) {
-        this.calado_medio = calado_medio;
-    }
-
-    public String getCalado_popa() {
-        return calado_popa;
-    }
-
-    public void setCalado_popa(String calado_popa) {
-        this.calado_popa = calado_popa;
-    }
-
     public String getCod_atracadero() {
         return cod_atracadero;
     }
@@ -215,14 +164,6 @@ public class ActividadesMd {
         this.fecha_fin1 = fecha_fin1;
     }
 
-    public String getDuracion1() {
-        return duracion1;
-    }
-
-    public void setDuracion1(String duracion1) {
-        this.duracion1 = duracion1;
-    }
-
     public String getCodigo_remolcador() {
         return codigo_remolcador;
     }
@@ -261,14 +202,6 @@ public class ActividadesMd {
 
     public void setFecha_fin2(String fecha_fin2) {
         this.fecha_fin2 = fecha_fin2;
-    }
-
-    public String getDuracion2() {
-        return duracion2;
-    }
-
-    public void setDuracion2(String duracion2) {
-        this.duracion2 = duracion2;
     }
 
     public String getCod_remolcador2() {
@@ -312,14 +245,6 @@ public class ActividadesMd {
         this.fecha_fin3 = fecha_fin3;
     }
 
-    public String getDuracion3() {
-        return duracion3;
-    }
-
-    public void setDuracion3(String duracion3) {
-        this.duracion3 = duracion3;
-    }
-
     public String getCod_remolcador1() {
         return cod_remolcador1;
     }
@@ -360,14 +285,6 @@ public class ActividadesMd {
         this.fecha_fin4 = fecha_fin4;
     }
 
-    public String getDuracion4() {
-        return duracion4;
-    }
-
-    public void setDuracion4(String duracion4) {
-        this.duracion4 = duracion4;
-    }
-
     public String getCod_lancha_piloto() {
         return cod_lancha_piloto;
     }
@@ -406,14 +323,6 @@ public class ActividadesMd {
 
     public void setFecha_fin5(String fecha_fin5) {
         this.fecha_fin5 = fecha_fin5;
-    }
-
-    public String getDuracion5() {
-        return duracion5;
-    }
-
-    public void setDuracion5(String duracion5) {
-        this.duracion5 = duracion5;
     }
 
     public String getCodigo_lancha() {

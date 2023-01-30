@@ -1,12 +1,22 @@
 package MD;
 
 public class VerActividadMd {
-    
+    private String anoArriBo;
     private String actividad;
     private String fecha_act;
     private String hora_act;
     private String nom_duracion;
     private String duracion;
+
+    public String getAnoArriBo() {
+        return anoArriBo;
+    }
+
+    public void setAnoArriBo(String anoArriBo) {
+        this.anoArriBo = anoArriBo;
+    }
+    
+    
 
     public String getActividad() {
         return actividad;
