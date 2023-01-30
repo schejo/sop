@@ -27,7 +27,7 @@ public class VerActividadDal {
 
         String sql = "SELECT TRIM(a.NUM_ACTIVIDAD1) || ' '|| TRIM(b.NOM_ACTIVIDAD) actividad,\n"
                 + "            a.FECHA_ACT,to_char(a.HORA_ACT,'hh24:mi') hora,\n"
-                + "            b.NOMBRE_DURACION,a.DURACION \n"
+                + "            b.NOMBRE_DURACION,a.DURACION,a.num_actividad1 \n"
                 + "FROM epqop.if_bq_reg_activida a,\n"
                 + "      epqop.if_bq_activ_buque b \n"
                 + "WHERE a.NUM_ACTIVIDAD1 = b.NUM_ACTIVIDAD1 \n"
@@ -47,6 +47,7 @@ public class VerActividadDal {
                 data.setHora_act(rs.getString(3));
                 data.setNom_duracion(rs.getString(4));
                 data.setDuracion(rs.getString(5));
+                data.setNumActiv(rs.getString(6));
 
                 lista.add(data);
             }
