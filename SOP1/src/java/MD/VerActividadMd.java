@@ -2,11 +2,33 @@ package MD;
 
 public class VerActividadMd {
     private String anoArriBo;
+    private String numArrib;
     private String actividad;
     private String fecha_act;
     private String hora_act;
     private String nom_duracion;
     private String duracion;
+    private String numActiv;
+
+    public String getNumArrib() {
+        return numArrib;
+    }
+
+    public void setNumArrib(String numArrib) {
+        this.numArrib = numArrib;
+    }
+    
+    
+
+    public String getNumActiv() {
+        return numActiv;
+    }
+
+    public void setNumActiv(String numActiv) {
+        this.numActiv = numActiv;
+    }
+    
+    
 
     public String getAnoArriBo() {
         return anoArriBo;

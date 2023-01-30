@@ -51,14 +51,16 @@
             <!--FILA #01-->
             <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
                 
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
+                <n:div class="form-group col-lg-4 col-md-4 dvlb" style="border: none;">
                     <label class="txtlbs" value="Año Arribo" style="color:red; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
                     <textbox id="anoarriboAct" value=""  cols="4" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>    
                 
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
+                <n:div class="form-group col-lg-4 col-md-2 dvlb" style="border: none;">
                     <label class="txtlbs" value="Numero Arribo" style="color:red; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
                     <textbox id="numarriboAct" value=""  cols="5" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                    <button sclass="btn btn-success" id="VerDatos" label="Ver Datos" iconSclass="z-icon-download" />    
+
                 </n:div> 
                 
                 <n:div class="form-group col-lg-4 col-md-2 dvlb" style="color:blue; border: none; margin-top:25px;">

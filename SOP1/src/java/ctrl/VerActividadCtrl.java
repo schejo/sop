@@ -33,6 +33,7 @@ public class VerActividadCtrl extends GenericForwardComposer {
     private Textbox hora_actividad;
     private Textbox nombre_duracion;
     private Textbox duracion;
+    private Textbox numActiv;
 
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
@@ -48,6 +49,8 @@ public class VerActividadCtrl extends GenericForwardComposer {
             da.setHora_act(item.getHora_act());
             da.setNom_duracion(item.getNom_duracion());
             da.setDuracion(item.getDuracion());
+            da.setNumArrib(item.getNumArrib());
+            da.setNumActiv(item.getNumActiv());
 
             data.add(da);
 
@@ -60,11 +63,9 @@ public class VerActividadCtrl extends GenericForwardComposer {
         List<VerActividadMd> items = new ArrayList<VerActividadMd>();
         VerActividadMd data = new VerActividadMd();
         data.setAnoArriBo(Session.getAttribute("anioArribo").toString());
-        data.setActividad(nom_actividad.getText());
-        data.setFecha_act(fecha_actividad.getText());
-        data.setHora_act(hora_actividad.getText());
-        data.setNom_duracion(nombre_duracion.getText());
-        data.setDuracion(duracion.getText());
+        data.setNumArrib(Session.getAttribute("numeroArribo").toString());
+        data.setNumActiv(numActiv.getText());
+       
 
         items.add(data);
        EventQueues.lookup("myEventQueue1", EventQueues.DESKTOP, true)
