@@ -63,7 +63,7 @@
                 
                 <n:div class="form-group col-lg-4 col-md-2 dvlb" style="color:blue; border: none; margin-top:25px;">
                     <label class="txtlbs" value="Actividad" />
-                    <combobox id="nombreAct" buttonVisible="true" width="280px" autocomplete="true"  model="${alltipoact}" style="font-weight: bold; color:black; heigh:25px;"
+                    <combobox id="nombreAct" buttonVisible="true" width="300px" autocomplete="true"  model="${alltipoact}" style="font-weight: bold; color:black; heigh:25px;"
                               autodrop="true" >
                         <template name="model">
                             <comboitem label="${each.nombreAct}" value="${each.numAct}"/>
@@ -205,7 +205,7 @@
                     <combobox id="nomlanchaAct" buttonVisible="true" width="250px" autocomplete="true"  model="${allLanchaPiloto}" style="font-weight: bold; color:black; heigh:20px;"
                               autodrop="true" >
                         <template name="model">
-                            <comboitem label="${each.nombre_lancha}" value="${each.codigo_lancha}"/>
+                            <comboitem label="${each.nom_lancha_piloto}" value="${each.cod_lancha_piloto}"/>
                         </template>
                     </combobox>
                 </n:div>
@@ -232,7 +232,7 @@
                        
                 <n:div class="form-group col-lg-3 col-md-2 dvlb" style="color:blue; border: none; margin-top:21px;">
                     <label class="txtlbs" value="Lancha Almirante" />
-                    <combobox id="nomlalmiranteAct" buttonVisible="true" width="250px" autocomplete="true"  model="${allLanchaPiloto}" style="font-weight: bold; color:black; heigh:20px;"
+                    <combobox id="nomlalmiranteAct" buttonVisible="true" width="250px" autocomplete="true"  model="${allLanchaalmirante}" style="font-weight: bold; color:black; heigh:20px;"
                               autodrop="true" >
                         <template name="model">
                             <comboitem label="${each.nombre_lancha}" value="${each.codigo_lancha}"/>
@@ -267,6 +267,13 @@
                         <comboitem label="ZARPE SIN NOVEDAD" value="2"/>
                         <comboitem label="MOVIMIENTO INTERNO REMUNERADO" value="3"/>
                         <comboitem label="ZARPE A FONDEO" value="4"/>
+                        <comboitem label="FONDEO A SOLICITUD DE NAVIERO" value="5"/>
+                        <comboitem label="FONDEO POR FALTA DE ESPACIO" value="6"/>
+                        <comboitem label="FONDEO EN ESPERA DE TERMINAL ESPECIALIZADA" value="7"/>
+                        <comboitem label="FONDEO POR TIPO DE CARGA" value="8"/>
+                        <comboitem label="MOVIMIENTO INTERNO NO REMUNERADO" value="9"/>
+                        <comboitem label="MOVIMIENTO POR BAJO RENDIMIENTO" value="10"/>
+                        <comboitem label="A CONVENIENCIA DE PUERTO QUETZAL" value="11"/>
                     </combobox> 
                 </n:div>
                     
@@ -287,7 +294,7 @@
             
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="border: none; margin-top:30px; margin-bottom:10px;">
                 <button id="btnGuardar" label="Guardar" image="bootstrap/img/salvar2.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
-                <button id="btnNuevo" label="Limpiar" image="bootstrap/img/registro.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
+                <button id="btnNuevo" label="Limpiar" image="bootstrap/img/registro.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/> 
                 <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="100px" width="100px" style="border-radius: 40px;"/>
             </div>
             

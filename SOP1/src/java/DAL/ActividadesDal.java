@@ -36,7 +36,10 @@ public class ActividadesDal {
                 + "                                           a.boleta_lancha, TO_CHAR(a.fecha_lan1i,'dd/mm/yyyy hh24:mi'), TO_CHAR( a.fecha_lan1f,'dd/mm/yyyy hh24:mi'),\n"
                 + "                                           g.nombre_particular,\n"
                 + "                                           a.boleta_lanad,\n"
-                + "                                           a.obse_actividad1\n"
+                + "                                           a.obse_actividad1,"
+                + "                                    DECODE(a.codigo_fondeos,'1','ATRAQUE SIN NOVEDAD','2','ZARPE SIN NOVEDAD','3','MOVIMIENTO INTERNO REMUNERADO','4',\n"
+                + "                                           'ZARPE A FONDEO','5','FONDEO A SOLICITUD DE NAVIERO','6','FONDEO POR FALTA DE ESPACIO','7','FONDEO EN ESPERA DE TERMINAL ESPECIALIZADA',\n"
+                + "                                           '8','FONDEO POR TIPO DE CARGA','9','MOVIMIENTO INTERNO NO REMUNERADO','10','MOVIMIENTO POR BAJO RENDIMIENTO','11','A CONVENIENCIA DE PUERTO QUETZAL') AS FONDEO\n"
                 + "                                FROM     epqop.if_bq_reg_activida a,\n"
                 + "                                         epqop.particulares b,\n"
                 + "                                         epqop.particulares c,\n"
@@ -97,7 +100,7 @@ public class ActividadesDal {
                 rg.setBoleta5(rs.getString(25));
 
                 rg.setObservaciones(rs.getString(26));
-//                rg.setFondeo(rs.getString(27));
+                rg.setFondeo(rs.getString(27));
 //                rg.setEstatus_cobro(rs.getString(28));
 
                 allActividades.add(rg);
@@ -280,9 +283,8 @@ public class ActividadesDal {
                     + "estatus2Act = '" + estatus_cobro + "' "
                     + "WHERE ano_arribo = '" + ano_arribo + "' "
                     + "AND   num_arribo = '" + num_arribo + "' ");
-            
-            //CODIGO DE LA ACTIVIDAD QUE SE QUIERE ACTUALIZAR
 
+            //CODIGO DE LA ACTIVIDAD QUE SE QUIERE ACTUALIZAR
             Clients.showNotification("REGISTRO ACTUALIZADO <br/> CON EXITO  <br/>");
             System.out.println("Actualizacion Exitosa.! ");
             st.close();
@@ -338,9 +340,7 @@ public class ActividadesDal {
                 + "FROM epqop.if_bq_activ_buque a,\n"
                 + "     epqop.if_bq_reg_activida b\n"
                 + " where  a.NUM_ACTIVIDAD1=b.NUM_ACTIVIDAD1 and b.ano_arribo = " + ano + " AND b.num_arribo = " + numarribo + " ORDER BY a.num_actividad1 ASC";
-//                + "SELECT TRIM(num_actividad1),"
-//                + "            TRIM(nom_actividad) "
-//                + " FROM epqop.if_bq_activ_buque ORDER BY num_actividad1 ASC ";
+
         try {
             conexion = cnn.Conexion();
             st = conexion.createStatement();
@@ -350,6 +350,7 @@ public class ActividadesDal {
                 rg = new ActividadesMd();
                 rg.setNumAct(rs.getString(1));
                 rg.setNombreAct(rs.getString(2));
+
                 alltipoact.add(rg);
             }
 
@@ -385,6 +386,7 @@ public class ActividadesDal {
                 rg = new ActividadesMd();
                 rg.setCod_atracadero(rs.getString(1));
                 rg.setNom_atracadero(rs.getString(2));
+
                 allatracadero.add(rg);
             }
 
@@ -422,6 +424,7 @@ public class ActividadesDal {
                 rg = new ActividadesMd();
                 rg.setCodigo_practico(rs.getString(1));
                 rg.setNombre_practico(rs.getString(2));
+
                 alltipoPractico.add(rg);
             }
 
@@ -459,6 +462,7 @@ public class ActividadesDal {
                 rg = new ActividadesMd();
                 rg.setCodigo_remolcador(rs.getString(1));
                 rg.setNombre_remolcador(rs.getString(2));
+
                 alltipoParticular.add(rg);
             }
 
@@ -494,8 +498,9 @@ public class ActividadesDal {
             ActividadesMd rg;
             while (rs.next()) {
                 rg = new ActividadesMd();
-                rg.setCodigo_lancha(rs.getString(1));
-                rg.setNombre_lancha(rs.getString(2));
+                rg.setCod_lancha_piloto(rs.getString(1));
+                rg.setNom_lancha_piloto(rs.getString(2));
+
                 allLanchaPiloto.add(rg);
             }
 
@@ -514,4 +519,41 @@ public class ActividadesDal {
         return allLanchaPiloto;
     }
 
+    //LANCHAS ALMIRANTE
+    public List<ActividadesMd> LanchaalmirnateRSelect() throws SQLException {
+        List<ActividadesMd> allLanchaalmirante = new ArrayList<ActividadesMd>();
+
+        String query = "SELECT TRIM(codigo_particular),"
+                + "            TRIM(nombre_particular) "
+                + " FROM epqop.particulares "
+                + "WHERE tipo_particular = 'L'"
+                + "ORDER BY codigo_particular ASC ";
+
+        try {
+            conexion = cnn.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            ActividadesMd rg;
+            while (rs.next()) {
+                rg = new ActividadesMd();
+                rg.setCodigo_lancha(rs.getString(1));
+                rg.setNombre_lancha(rs.getString(2));
+
+                allLanchaalmirante.add(rg);
+            }
+
+            st.close();
+            rs.close();
+            conexion.close();
+            conexion = null;
+        } catch (SQLException e) {
+            st.close();
+            rs.close();
+            conexion.close();
+            conexion = null;
+            Clients.showNotification("ERROR AL CONSULTAR PARTICULAR LANCHA PILOTO (LanchaPilotoRSelect) <br/> <br/> REGISTROS! <br/> " + e.getMessage().toString(),
+                    "warning", null, "middle_center", 0);
+        }
+        return allLanchaalmirante;
+    }
 }
