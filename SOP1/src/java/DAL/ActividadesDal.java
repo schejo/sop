@@ -23,40 +23,40 @@ public class ActividadesDal {
         List<ActividadesMd> allActividades = new ArrayList<ActividadesMd>();
 
         String query = "SELECT     a.ano_arribo, a.num_arribo,\n"
-                + "                           h.nom_actividad,\n"
-                + "                           b.nombre_particular AS PRACTICO,\n"
-                + "                           a.boleta_prac,TO_CHAR ( a.fecha_piloi, 'dd/mm/yyyy hh24:mi'), TO_CHAR(a.fecha_pilof, 'dd/mm/yyyy hh24:mi'), \n"
-                + "                           c.nombre_particular AS REMOLCADOR,\n"
-                + "                           a.boleta_rem1, TO_CHAR ( a.fecha_rem1i, 'dd/mm/yyyy hh24:mi'), TO_CHAR (a.fecha_rem1f, 'dd/mm/yyyy hh24:mi'),\n"
-                + "                           d.nombre_particular AS REMOLCADOR2,\n"
-                + "                           a.boleta_rem2, TO_CHAR(a.fecha_rem2i, 'dd/mm/yyyy hh24:mi'), TO_CHAR(a.fecha_rem2f,'dd/mm/yyyy hh24:mi'),\n"
-                + "                           a.remolcador3, e.nombre_particular AS REMOLCADOR3,\n"
-                + "                           a.boleta_rem3, TO_CHAR(a.fecha_rem3i,'dd/mm/yyyy hh24:mi'), TO_CHAR( a.fecha_rem3f,'dd/mm/yyyy hh24:mi'),\n"
-                + "                           a.lancha_piloto, f.nombre_particular  AS LANCHA_PILOTO,\n"
-                + "                           a.boleta_lancha, TO_CHAR(a.fecha_lan1i,'dd/mm/yyyy hh24:mi'), TO_CHAR( a.fecha_lan1f,'dd/mm/yyyy hh24:mi'),\n"
-                + "                           a.lancha_almirante, g.nombre_particular,\n"
-                + "                           a.boleta_lanad,\n"
-                + "                           a.obse_actividad1\n"
-                + "                FROM     epqop.if_bq_reg_activida a,\n"
-                + "                         epqop.particulares b,\n"
-                + "                         epqop.particulares c,\n"
-                + "                         epqop.particulares d,\n"
-                + "                         epqop.particulares e,\n"
-                + "                         epqop.particulares f,\n"
-                + "                         epqop.particulares g,\n"
-                + "                         epqop.if_bq_activ_buque h,\n"
-                + "                         epqop.if_bq_atracaderos i\n"
-                + "                WHERE   a.practico         = b.codigo_particular (+)\n"
-                + "                AND     a.remolcador       = c.codigo_particular (+)\n"
-                + "                AND     a.remolcador2      = d.codigo_particular (+)\n"
-                + "                AND     a.remolcador3      = e.codigo_particular(+)\n"
-                + "                AND     a.lancha_piloto    = f.codigo_particular(+)\n"
-                + "                AND     a.lancha_almirante = g.codigo_particular (+)\n"
-                + "                AND     a.num_actividad1   = h.num_actividad1  (+)\n"
-                + "                AND     a.num_atracadero3  = i.num_atracadero1   (+)\n"
-                + "                AND     a.ano_arribo = '" + ano + "' \n"
-                + "                AND     a.num_arribo = '" + arribo + "'\n"
-                + "                AND     a.num_actividad1 = '" + actividad + "' \n";
+                + "                                           h.nom_actividad,\n"
+                + "                                           b.nombre_particular AS PRACTICO,\n"
+                + "                                           a.boleta_prac,TO_CHAR ( a.fecha_piloi, 'dd/mm/yyyy hh24:mi'), TO_CHAR(a.fecha_pilof, 'dd/mm/yyyy hh24:mi'), \n"
+                + "                                           c.nombre_particular AS REMOLCADOR,\n"
+                + "                                           a.boleta_rem1, TO_CHAR ( a.fecha_rem1i, 'dd/mm/yyyy hh24:mi'), TO_CHAR (a.fecha_rem1f, 'dd/mm/yyyy hh24:mi'),\n"
+                + "                                           d.nombre_particular AS REMOLCADOR2,\n"
+                + "                                           a.boleta_rem2, TO_CHAR(a.fecha_rem2i, 'dd/mm/yyyy hh24:mi'), TO_CHAR(a.fecha_rem2f,'dd/mm/yyyy hh24:mi'),\n"
+                + "                                           e.nombre_particular AS REMOLCADOR3,\n"
+                + "                                           a.boleta_rem3, TO_CHAR(a.fecha_rem3i,'dd/mm/yyyy hh24:mi'), TO_CHAR( a.fecha_rem3f,'dd/mm/yyyy hh24:mi'),\n"
+                + "                                           f.nombre_particular  AS LANCHA_PILOTO,\n"
+                + "                                           a.boleta_lancha, TO_CHAR(a.fecha_lan1i,'dd/mm/yyyy hh24:mi'), TO_CHAR( a.fecha_lan1f,'dd/mm/yyyy hh24:mi'),\n"
+                + "                                           g.nombre_particular,\n"
+                + "                                           a.boleta_lanad,\n"
+                + "                                           a.obse_actividad1\n"
+                + "                                FROM     epqop.if_bq_reg_activida a,\n"
+                + "                                         epqop.particulares b,\n"
+                + "                                         epqop.particulares c,\n"
+                + "                                         epqop.particulares d,\n"
+                + "                                         epqop.particulares e,\n"
+                + "                                         epqop.particulares f,\n"
+                + "                                         epqop.particulares g,\n"
+                + "                                         epqop.if_bq_activ_buque h,\n"
+                + "                                         epqop.if_bq_atracaderos i\n"
+                + "                                WHERE   a.practico         = b.codigo_particular (+)\n"
+                + "                                AND     a.remolcador       = c.codigo_particular (+)\n"
+                + "                                AND     a.remolcador2      = d.codigo_particular (+)\n"
+                + "                                AND     a.remolcador3      = e.codigo_particular(+)\n"
+                + "                                AND     a.lancha_piloto    = f.codigo_particular(+)\n"
+                + "                                AND     a.lancha_almirante = g.codigo_particular (+)\n"
+                + "                                AND     a.num_actividad1   = h.num_actividad1  (+)\n"
+                + "                                AND     a.num_atracadero3  = i.num_atracadero1   (+)\n"
+                + "                                AND     a.ano_arribo = '" + ano + "' \n"
+                + "                                AND     a.num_arribo = '" + arribo + "'\n"
+                + "                                AND     a.num_actividad1 = '" + actividad + "' \n";
 
         try {
             conexion = cnn.Conexion();
@@ -89,7 +89,7 @@ public class ActividadesDal {
                 rg.setFecha_fin4(rs.getString(19));
 
                 rg.setNom_lancha_piloto(rs.getString(20));
-                rg.setBoleta5(rs.getString(21));
+                rg.setBoleta4(rs.getString(21));
                 rg.setFecha_inicio5(rs.getString(22));
                 rg.setFecha_fin5(rs.getString(23));
 
@@ -97,8 +97,8 @@ public class ActividadesDal {
                 rg.setBoleta5(rs.getString(25));
 
                 rg.setObservaciones(rs.getString(26));
-                rg.setFondeo(rs.getString(27));
-                rg.setEstatus_cobro(rs.getString(28));
+//                rg.setFondeo(rs.getString(27));
+//                rg.setEstatus_cobro(rs.getString(28));
 
                 allActividades.add(rg);
             }
@@ -130,7 +130,7 @@ public class ActividadesDal {
         String sql = "INSERT INTO epqop.if_bq_reg_activida "
                 + "      (ano_arribo,      num_arribo,          correlativo2,  num_actividad1,  "
                 + "       practico,            boleta_prac,   fecha_piloI,     fecha_piloF,\n"
-                + "       fecha_pilod,     remolcador,          boleta_rem1,   fecha_rem1I,     fecha_rem1F ,\n"
+                + "       fecha_pilod,         remolcador,    boleta_rem1,   fecha_rem1I,     fecha_rem1F ,\n"
                 + "       remolcador2,         boleta_rem2,   fecha_rem2I,     fecha_rem2F,\n"
                 + "       remolcador3,         boleta_rem3,   fecha_rem3I,     fecha_rem3f,\n"
                 + "       lancha_piloto,       boleta_lancha, fecha_lan1I,     fecha_lan1F,\n"
@@ -280,6 +280,7 @@ public class ActividadesDal {
                     + "estatus2Act = '" + estatus_cobro + "' "
                     + "WHERE ano_arribo = '" + ano_arribo + "' "
                     + "AND   num_arribo = '" + num_arribo + "' ");
+            
             //CODIGO DE LA ACTIVIDAD QUE SE QUIERE ACTUALIZAR
 
             Clients.showNotification("REGISTRO ACTUALIZADO <br/> CON EXITO  <br/>");
@@ -329,14 +330,14 @@ public class ActividadesDal {
     }
 
     //ACTIVIDADES
-    public List<ActividadesMd> tipoactRSelect(String ano,String numarribo) throws SQLException {
+    public List<ActividadesMd> tipoactRSelect(String ano, String numarribo) throws SQLException {
         List<ActividadesMd> alltipoact = new ArrayList<ActividadesMd>();
 
         String query = "SELECT TRIM(a.num_actividad1),\n"
                 + "TRIM(a.nom_actividad) \n"
                 + "FROM epqop.if_bq_activ_buque a,\n"
                 + "     epqop.if_bq_reg_activida b\n"
-                + " where  a.NUM_ACTIVIDAD1=b.NUM_ACTIVIDAD1 and b.ano_arribo = "+ano+" AND b.num_arribo = "+numarribo+" ORDER BY a.num_actividad1 ASC";
+                + " where  a.NUM_ACTIVIDAD1=b.NUM_ACTIVIDAD1 and b.ano_arribo = " + ano + " AND b.num_arribo = " + numarribo + " ORDER BY a.num_actividad1 ASC";
 //                + "SELECT TRIM(num_actividad1),"
 //                + "            TRIM(nom_actividad) "
 //                + " FROM epqop.if_bq_activ_buque ORDER BY num_actividad1 ASC ";
