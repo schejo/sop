@@ -14,6 +14,7 @@ import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Button;
 import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Include;
@@ -57,6 +58,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
     private Textbox boletas4Act;
     private Datebox inicio4Act;
     private Datebox fin4Act;
+    private Button VerDatos;
 
     private Textbox lalmiranteAct;
     private Combobox nomlalmiranteAct;
@@ -94,6 +96,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
         nomlanchaAct.setModel(new ListModelList(allLancha1Piloto));
 
         anoarriboAct.focus();
+        VerDatos.setVisible(false);
 
         EventQueues.lookup("myEventQueue2", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
@@ -111,6 +114,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
                                     numarriboAct.setText(item.getNumArrib());
                                     Events.postEvent("onChange", numarriboAct, null);
                                     actividadGlo = item.getNumActiv();
+                                    VerDatos.setVisible(true);
                                     
 
                                 }
@@ -189,6 +193,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
         nomfondeoAct.setText("");
         estatus2Act.setText("");
         anoarriboAct.focus();
+        VerDatos.setVisible(false);
     }
 
     //metodo para llamar un combobox con la informacion que se desea mostrar en pantalla
@@ -286,7 +291,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnGuardar(Event e) throws SQLException {
-
+                    VerDatos.setVisible(false);
         int op = 0;
 
         for (ActividadesMd dt : allatracadero) {
