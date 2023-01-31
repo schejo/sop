@@ -2,7 +2,6 @@ package ctrl;
 
 import DAL.ActividadesDal;
 import MD.ActividadesMd;
-import MD.CatalogosMd;
 import MD.VerActividadMd;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -61,7 +60,6 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
     private Button VerDatos;
 
-
     private Textbox lalmiranteAct;
     private Combobox nomlalmiranteAct;
     private Textbox boletas5Act;
@@ -76,14 +74,12 @@ public class ActividadesCtrl extends GenericForwardComposer {
     List<ActividadesMd> alltipoParticular = new ArrayList<ActividadesMd>();
     List<ActividadesMd> alltipoPractico = new ArrayList<ActividadesMd>();
     List<ActividadesMd> allLancha1Piloto = new ArrayList<ActividadesMd>();
-
     List<ActividadesMd> allLanchaalmirante = new ArrayList<ActividadesMd>();
 
     ActividadesDal rg = new ActividadesDal();
     private Include rootPagina;
 
     String actividadGlo = "";
-
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
@@ -97,22 +93,13 @@ public class ActividadesCtrl extends GenericForwardComposer {
         allLanchaalmirante = rg.LanchaalmirnateRSelect();
 
         nompracticoAct.setModel(new ListModelList(alltipoPractico));
-
-
-        alltipoParticular = rg.tipoParticularRSelect();
-        alltipoPractico = rg.tipoPracticoRSelect();
-        allLancha1Piloto = rg.LanchaPilotoRSelect();
-
         nomremolcador1Act.setModel(new ListModelList(alltipoParticular));
         nomremolcador2Act.setModel(new ListModelList(alltipoParticular));
         nomremolcador3Act.setModel(new ListModelList(alltipoParticular));
         nomlanchaAct.setModel(new ListModelList(allLancha1Piloto));
-
         nomlalmiranteAct.setModel(new ListModelList(allLanchaalmirante));
 
         anoarriboAct.focus();
-
-
 
         anoarriboAct.focus();
         VerDatos.setVisible(false);
@@ -134,15 +121,12 @@ public class ActividadesCtrl extends GenericForwardComposer {
                                     Events.postEvent("onChange", numarriboAct, null);
                                     actividadGlo = item.getNumActiv();
                                     VerDatos.setVisible(true);
-                                    
 
                                 }
                             }
                         }
                     }
                 });
-
-       
 
     }
 
@@ -159,9 +143,8 @@ public class ActividadesCtrl extends GenericForwardComposer {
     }
 
     public void onClick$VerDatos(Event e) {
-         BuscaItemAct(actividadGlo, this.nombreAct);
-         Events.postEvent("onChange", nombreAct, null);
-        
+        BuscaItemAct(actividadGlo, this.nombreAct);
+        Events.postEvent("onChange", nombreAct, null);
 
     }
 
@@ -171,12 +154,6 @@ public class ActividadesCtrl extends GenericForwardComposer {
         nombreAct.setModel(new ListModelList(alltipoact));
 
     }
-
-
-
-    
-
-    
 
     public void onClick$btnNuevo(Event e) throws SQLException {
 
@@ -208,7 +185,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
         observacionesAct.setText("");
         nomfondeoAct.setText("");
         estatus2Act.setText("");
-        
+
         anoarriboAct.focus();
         VerDatos.setVisible(false);
     }
@@ -232,40 +209,39 @@ public class ActividadesCtrl extends GenericForwardComposer {
         allatracadero = rg.REGselect(anoarriboAct.getText(), numarriboAct.getText(), nombreAct.getSelectedItem().getValue().toString());
 
         if (anoarriboAct.getText().isEmpty()) {
-            
+
             anoarriboAct.setText("");
             numarriboAct.setText("");
             nombreAct.setText("");
-            
+
             nompracticoAct.setText("");
             boletasAct.setText("");
             inicioAct.setText("");
             finAct.setText("");
-            
+
             nomremolcador1Act.setText("");
             boletas1Act.setText("");
             inicio1Act.setText("");
             fin1Act.setText("");
-            
+
             nomremolcador2Act.setText("");
             boletas2Act.setText("");
             inicio2Act.setText("");
             fin2Act.setText("");
-            
+
             nomremolcador3Act.setText("");
             boletas3Act.setText("");
             inicio3Act.setText("");
             fin3Act.setText("");
-            
+
             nomlanchaAct.setText("");
             boletas4Act.setText("");
             inicio4Act.setText("");
             fin4Act.setText("");
-            
+
             nomlalmiranteAct.setText("");
             boletas5Act.setText("");
 
-            
             observacionesAct.setText("");
             nomfondeoAct.setText("");
 
@@ -315,9 +291,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
     public void onClick$btnGuardar(Event e) throws SQLException {
 
-
-
-                    VerDatos.setVisible(false);
+        VerDatos.setVisible(false);
 
         int op = 0;
 
@@ -413,7 +387,6 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
     }
 
-
     public void onClick$btnActualiza(Event e) throws SQLException {
 
         anoarriboAct.setText("");
@@ -454,7 +427,6 @@ public class ActividadesCtrl extends GenericForwardComposer {
         estatus2Act.setText("");
         anoarriboAct.focus();
     }
-
 
     public void onClick$btnDelete(Event e) throws SQLException {
         if (!anoarriboAct.getText().equals("") && !anoarriboAct.getText().equals("")) {
