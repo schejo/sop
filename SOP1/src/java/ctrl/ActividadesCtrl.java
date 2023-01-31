@@ -193,15 +193,19 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
     //metodo para llamar un combobox con la informacion que se desea mostrar en pantalla
     public void BuscaItem(String letra, Combobox cb) {
-        if (letra != null) {
+        if (letra == null) {
+                cb.setSelectedIndex(-1);   
+        } else {
+//        if (letra != null) {
             for (int i = 0; i < cb.getItemCount(); i++) {
                 if (letra.trim().equals(cb.getItemAtIndex(i).getLabel())) {
                     cb.setSelectedIndex(i);
                     break;
                 }
             }
-        }
+//        }
 
+    }
     }
 
     //fin metodo
@@ -214,35 +218,28 @@ public class ActividadesCtrl extends GenericForwardComposer {
             anoarriboAct.setText("");
             numarriboAct.setText("");
             nombreAct.setText("");
-
             nompracticoAct.setText("");
             boletasAct.setText("");
             inicioAct.setText("");
             finAct.setText("");
-
             nomremolcador1Act.setText("");
             boletas1Act.setText("");
             inicio1Act.setText("");
             fin1Act.setText("");
-
             nomremolcador2Act.setText("");
             boletas2Act.setText("");
             inicio2Act.setText("");
             fin2Act.setText("");
-
             nomremolcador3Act.setText("");
             boletas3Act.setText("");
             inicio3Act.setText("");
             fin3Act.setText("");
-
             nomlanchaAct.setText("");
             boletas4Act.setText("");
             inicio4Act.setText("");
             fin4Act.setText("");
-
             nomlalmiranteAct.setText("");
             boletas5Act.setText("");
-
             observacionesAct.setText("");
             nomfondeoAct.setText("");
 
@@ -252,6 +249,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
             estatus2Act.setText("");
 
         } else {
+            VerDatos.setVisible(false);
             for (ActividadesMd dt : allatracadero) {
 
                 BuscaItem(dt.getNombre_practico(), this.nompracticoAct);
@@ -289,30 +287,9 @@ public class ActividadesCtrl extends GenericForwardComposer {
             }
         }
     }
-
-    public void onClick$btnGuardar(Event e) throws SQLException {
-
-        VerDatos.setVisible(false);
-
-        int op = 0;
-
-        for (ActividadesMd dt : allatracadero) {
-            if (dt.getAno_arribo().equals(anoarriboAct.getText())) {
-                op++;
-            }
-        }
-
-        if (op == 0) {
-            rg.REGinsert(anoarriboAct.getText(), numarriboAct.getText(), actividadAct.getText(),
-                    practicoAct.getText(), boletasAct.getText(), inicioAct.getText(), finAct.getText(),
-                    remolcadorAct.getText(), boletas1Act.getText(), inicio1Act.getText(), fin1Act.getText(),
-                    remolcador2Act.getText(), boletas2Act.getText(), inicio2Act.getText(), fin2Act.getText(),
-                    remolcador3Act.getText(), boletas3Act.getText(), inicio3Act.getText(), fin3Act.getText(),
-                    lanchaAct.getText(), boletas4Act.getText(), inicio4Act.getText(), fin4Act.getText(),
-                    lalmiranteAct.getText(), boletas5Act.getText(), observacionesAct.getText(), nomfondeoAct.getText(),
-                    estatus2Act.getText());
-
-            anoarriboAct.setText("");
+    
+    public void clear(){
+        anoarriboAct.setText("");
             numarriboAct.setText("");
             actividadAct.setText("");
             practicoAct.setText("");
@@ -340,53 +317,105 @@ public class ActividadesCtrl extends GenericForwardComposer {
             observacionesAct.setText("");
             nomfondeoAct.setText("");
             estatus2Act.setText("");
-
-        } else {
-
-            rg.REGupdate(anoarriboAct.getText(), numarriboAct.getText(), nombreAct.getText(),
-                    nompracticoAct.getText(), boletasAct.getText(), inicioAct.getText(), finAct.getText(),
-                    nomremolcador1Act.getText(), boletas1Act.getText(), inicio1Act.getText(), fin1Act.getText(),
-                    nomremolcador2Act.getText(), boletas2Act.getText(), inicio2Act.getText(), fin2Act.getText(),
-                    nomremolcador3Act.getText(), boletas3Act.getText(), inicio3Act.getText(), fin3Act.getText(),
-                    nomlanchaAct.getText(), boletas4Act.getText(), inicio4Act.getText(), fin4Act.getText(),
-                    nomlalmiranteAct.getText(), boletas5Act.getText(), observacionesAct.getText(), nomfondeoAct.getText(), estatus2Act.getText());
-
-            anoarriboAct.setDisabled(false);
-            anoarriboAct.setText("");
-            numarriboAct.setText("");
-            nombreAct.setText("");
-            nompracticoAct.setText("");
-            boletasAct.setText("");
-            inicioAct.setText("");
-            finAct.setText("");
-            nomremolcador1Act.setText("");
-            boletas1Act.setText("");
-            inicio1Act.setText("");
-            fin1Act.setText("");
-            nomremolcador2Act.setText("");
-            boletas2Act.setText("");
-            inicio2Act.setText("");
-            fin2Act.setText("");
-            nomremolcador3Act.setText("");
-            boletas3Act.setText("");
-            inicio3Act.setText("");
-            fin3Act.setText("");
-            nomlanchaAct.setText("");
-            boletas4Act.setText("");
-            inicio4Act.setText("");
-            fin4Act.setText("");
-            nomlalmiranteAct.setText("");
-            boletas5Act.setText("");
-            observacionesAct.setText("");
-            nomfondeoAct.setText("");
-            estatus2Act.setText("");
-            anoarriboAct.focus();
-
-            // allatracadero = rg.RSelect();
-            //  lb2.setModel(new ListModelList(allatracadero));
-        }
-
     }
+
+//    public void onClick$btnGuardar(Event e) throws SQLException {
+//
+//        VerDatos.setVisible(false);
+//
+//        int op = 0;
+//
+//        for (ActividadesMd dt : allatracadero) {
+//            if (dt.getAno_arribo().equals(anoarriboAct.getText())) {
+//                op++;
+//            }
+//        }
+//
+//        if (op == 0) {
+//            rg.REGinsert(anoarriboAct.getText(), numarriboAct.getText(), actividadAct.getText(),
+//                    practicoAct.getText(), boletasAct.getText(), inicioAct.getText(), finAct.getText(),
+//                    remolcadorAct.getText(), boletas1Act.getText(), inicio1Act.getText(), fin1Act.getText(),
+//                    remolcador2Act.getText(), boletas2Act.getText(), inicio2Act.getText(), fin2Act.getText(),
+//                    remolcador3Act.getText(), boletas3Act.getText(), inicio3Act.getText(), fin3Act.getText(),
+//                    lanchaAct.getText(), boletas4Act.getText(), inicio4Act.getText(), fin4Act.getText(),
+//                    lalmiranteAct.getText(), boletas5Act.getText(), observacionesAct.getText(), nomfondeoAct.getText(),
+//                    estatus2Act.getText());
+//
+//            anoarriboAct.setText("");
+//            numarriboAct.setText("");
+//            actividadAct.setText("");
+//            practicoAct.setText("");
+//            boletasAct.setText("");
+//            inicioAct.setText("");
+//            finAct.setText("");
+//            remolcadorAct.setText("");
+//            boletas1Act.setText("");
+//            inicio1Act.setText("");
+//            fin1Act.setText("");
+//            remolcador2Act.setText("");
+//            boletas2Act.setText("");
+//            inicio2Act.setText("");
+//            fin2Act.setText("");
+//            remolcador3Act.setText("");
+//            boletas3Act.setText("");
+//            inicio3Act.setText("");
+//            fin3Act.setText("");
+//            lanchaAct.setText("");
+//            boletas4Act.setText("");
+//            inicio4Act.setText("");
+//            fin4Act.setText("");
+//            lalmiranteAct.setText("");
+//            boletas5Act.setText("");
+//            observacionesAct.setText("");
+//            nomfondeoAct.setText("");
+//            estatus2Act.setText("");
+//
+//        } else {
+//
+//            rg.REGupdate(anoarriboAct.getText(), numarriboAct.getText(), nombreAct.getText(),
+//                    nompracticoAct.getText(), boletasAct.getText(), inicioAct.getText(), finAct.getText(),
+//                    nomremolcador1Act.getText(), boletas1Act.getText(), inicio1Act.getText(), fin1Act.getText(),
+//                    nomremolcador2Act.getText(), boletas2Act.getText(), inicio2Act.getText(), fin2Act.getText(),
+//                    nomremolcador3Act.getText(), boletas3Act.getText(), inicio3Act.getText(), fin3Act.getText(),
+//                    nomlanchaAct.getText(), boletas4Act.getText(), inicio4Act.getText(), fin4Act.getText(),
+//                    nomlalmiranteAct.getText(), boletas5Act.getText(), observacionesAct.getText(), nomfondeoAct.getText(), estatus2Act.getText());
+//
+//            anoarriboAct.setDisabled(false);
+//            anoarriboAct.setText("");
+//            numarriboAct.setText("");
+//            nombreAct.setText("");
+//            nompracticoAct.setText("");
+//            boletasAct.setText("");
+//            inicioAct.setText("");
+//            finAct.setText("");
+//            nomremolcador1Act.setText("");
+//            boletas1Act.setText("");
+//            inicio1Act.setText("");
+//            fin1Act.setText("");
+//            nomremolcador2Act.setText("");
+//            boletas2Act.setText("");
+//            inicio2Act.setText("");
+//            fin2Act.setText("");
+//            nomremolcador3Act.setText("");
+//            boletas3Act.setText("");
+//            inicio3Act.setText("");
+//            fin3Act.setText("");
+//            nomlanchaAct.setText("");
+//            boletas4Act.setText("");
+//            inicio4Act.setText("");
+//            fin4Act.setText("");
+//            nomlalmiranteAct.setText("");
+//            boletas5Act.setText("");
+//            observacionesAct.setText("");
+//            nomfondeoAct.setText("");
+//            estatus2Act.setText("");
+//            anoarriboAct.focus();
+//
+//            // allatracadero = rg.RSelect();
+//            //  lb2.setModel(new ListModelList(allatracadero));
+//        }
+//
+//    }
 
     public void onClick$btnActualiza(Event e) throws SQLException {
 
