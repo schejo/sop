@@ -60,7 +60,7 @@ public class CitasPlanificacionCtrl extends GenericForwardComposer {
             //para identifiacar si el arribo existe
             for (CitasPlanificacionMd dt : allProductos1) {
 
-                if (dt.getNum_arribo().equals(numarribo.getText())) {
+                if (    dt.getNum_arribo().equals(numarribo.getText())  && dt.getAnio_arribo().equals(anioarribo.getText())   ) {
                     op1++;
 
                 }
