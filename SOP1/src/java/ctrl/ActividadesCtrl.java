@@ -75,8 +75,10 @@ public class ActividadesCtrl extends GenericForwardComposer {
     List<ActividadesMd> alltipoPractico = new ArrayList<ActividadesMd>();
     List<ActividadesMd> allLancha1Piloto = new ArrayList<ActividadesMd>();
     List<ActividadesMd> allLanchaalmirante = new ArrayList<ActividadesMd>();
+     ActividadesMd pesajeModelo = new ActividadesMd();
 
     ActividadesDal rg = new ActividadesDal();
+    
     private Include rootPagina;
 
     String actividadGlo = "";
@@ -317,6 +319,16 @@ public class ActividadesCtrl extends GenericForwardComposer {
             observacionesAct.setText("");
             nomfondeoAct.setText("");
             estatus2Act.setText("");
+    }
+    
+    public void onClick$btnGuardar(Event e) throws SQLException {
+         pesajeModelo.setAno_arribo(anoarriboAct.getText().toUpperCase());
+         pesajeModelo.setNum_arribo(numarriboAct.getText().toUpperCase());
+         pesajeModelo.setActividad(nombreAct.getSelectedItem().getValue());
+         pesajeModelo.setCodigo_practico(nompracticoAct.getSelectedItem().getValue());
+         pesajeModelo.setBoleta(boletasAct.getText().toUpperCase());
+         
+        
     }
 
 //    public void onClick$btnGuardar(Event e) throws SQLException {
