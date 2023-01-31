@@ -22,7 +22,7 @@ public class Conexion {
         String sid = "";
         String user = "";
         String pwd = "";
-
+        
          try {
                 prop.load(is);
                 
