@@ -188,6 +188,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
         anoarriboAct.focus();
         VerDatos.setVisible(false);
+        
     }
 
     //metodo para llamar un combobox con la informacion que se desea mostrar en pantalla
@@ -431,7 +432,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
     public void onClick$btnDelete(Event e) throws SQLException {
         if (!anoarriboAct.getText().equals("") && !anoarriboAct.getText().equals("")) {
             Messagebox.show("Estas seguro que Deseas Borrar este Registro?",
-                    "Question", Messagebox.OK | Messagebox.CANCEL,
+                    "Pregunta?", Messagebox.OK | Messagebox.CANCEL,
                     Messagebox.QUESTION,
                     new org.zkoss.zk.ui.event.EventListener() {
                 public void onEvent(Event e) throws SQLException {

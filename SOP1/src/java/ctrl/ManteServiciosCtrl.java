@@ -94,7 +94,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                         data = (List<CatalogosMd>) event.getData();
                         if (data.isEmpty()) {
                             cod_serv.setText("");
-                            nombreServicio.setText("");
+                           
                             cod_part.setText("");
                             cod_cli.setText("");
                             fechaInicio.setText("");
@@ -107,7 +107,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                             for (CatalogosMd item : data) {
                                 if (data.size() == 1) {
                                     cod_serv.setText(item.getCodigo());
-                                    nombreServicio.setText(item.getNom_servicio());
+                                    //nombreServicio.setText(item.getNom_servicio());
                                     cod_part.setText(item.getCodparti());
                                     cod_cli.setText(item.getCodcliFac());
                                     fechaInicio.setText(item.getFecha_inicio());
@@ -115,9 +115,11 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                                     boleta.setText(item.getBoleta());
                                     observaciones.setText(item.getObs());
                                     correla = item.getCorrela();
+                                    nombreParticular.setSelectedIndex(-1);
                                     nombreCliente.setSelectedIndex(-1);
-                                    nombreParticular.setText("");
-                                    nombreServicio.setText("");
+                                    nombreServicio.setSelectedIndex(-1);
+                                    //nombreParticular.setText("");
+                                    
                                     nombreParticular.setVisible(false);
                                     nombreCliente.setVisible(false);
                                     nombreServicio.setVisible(false);
