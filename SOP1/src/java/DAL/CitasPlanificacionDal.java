@@ -25,8 +25,8 @@ public class CitasPlanificacionDal {
         ResultSet rs = null;//copie de usuarios
         List<CitasPlanificacionMd> allProductos = new ArrayList<CitasPlanificacionMd>();
 
-        String query = "SELECT  num_arribo FROM"
-                + " epqop.if_bq_citas_plani ORDER BY  num_arribo ASC ";
+        String query = "SELECT  ANO_ARRIBO,num_arribo FROM"
+                + " epqop.if_bq_citas_plani where ROWNUM <=500 ORDER BY  num_arribo ASC ";
 
         try {
             conn = obtener.Conexion();
@@ -35,7 +35,8 @@ public class CitasPlanificacionDal {
             CitasPlanificacionMd rg;
             while (rs.next()) {
                 rg = new CitasPlanificacionMd();
-                rg.setNum_arribo(rs.getString(1));
+                rg.setAnio_arribo(rs.getString(1));
+                rg.setNum_arribo(rs.getString(2));
 
                 allProductos.add(rg);
             }
