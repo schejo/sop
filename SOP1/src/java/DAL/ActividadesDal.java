@@ -19,6 +19,8 @@ public class ActividadesDal {
     Statement st = null;
     ResultSet rs = null;
 
+    ActividadesMd cl = new ActividadesMd();
+
     public List<ActividadesMd> REGselect(String ano, String arribo, String actividad) throws SQLException {
         List<ActividadesMd> allActividades = new ArrayList<ActividadesMd>();
 
@@ -121,73 +123,72 @@ public class ActividadesDal {
         return allActividades;
     }
 
-    public void REGupdate(String ano_arribo, String num_arribo,/* String cod_actividad,*/ String nom_actividad,
-            String nom_practico, String boleta, String fecha_inicio1, String fecha_fin1,
-            String nom_remolcador2, String boleta1, String fecha_inicio2, String fecha_fin2,
-            String nom_remolcador3, String boleta2, String fecha_inicio3, String fecha_fin3,
-            String nom_remolcador4, String boleta3, String fecha_inicio4, String fecha_fin4,
-            String nom_lancha_piloto, String boleta4, String fecha_inicio5, String fecha_fin5,
-            String nom_lancha_almirante, String boleta5, String observaciones, String fondeo, String estatus_cobro) throws SQLException {
+    public ActividadesMd updateActividad(ActividadesMd data) throws SQLException {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String id = "";
+        int resp = 0;
+        cl = new ActividadesMd();
         try {
             conexion = cnn.Conexion();
             conexion.setAutoCommit(false);
+            int vl = 0;
             st = conexion.createStatement();
 
-            //los nombres de las tablas van siempre con a. b. c. d.?
-            st.executeUpdate("UPDATE epqop.if_bq_activ_buque SET"
-                    //  + "num_actividad1 = '" + cod_actividad + "',"
-                    + "nom_actividad = '" + nom_actividad + "',"
-                    //  + "correlativo2 = '" + correlativo + "',"
-                    + "nombre_particular = '" + nom_practico + "' "
-                    + "boleta_prac = '" + boleta + "' "
-                    + "fecha_piloi = '" + fecha_inicio1 + "' "
-                    + "fecha_pilof = '" + fecha_fin1 + "' "
-                    //   + "remolcador = '" + cod_remolcador2 + "' "//arreglar
-                    + "nom_remolcador = '" + nom_remolcador2 + "' "//arreglar
-                    + "boleta_rem1 = '" + boleta1 + "' "
-                    + "fecha_rem1i = '" + fecha_inicio2 + "' "
-                    + "fecha_rem1f = '" + fecha_fin2 + "' "
-                    //  + "remolcador2 = '" + cod_remolcador3 + "' "//arreglar
-                    + "nom_remolcador2 = '" + nom_remolcador3 + "' "//arreglar
-                    + "boleta_ram2 = '" + boleta2 + "' "
-                    + "fecha_rem2i = '" + fecha_inicio3 + "' "
-                    + "fecha_rem2f = '" + fecha_fin3 + "' "
-                    //  + "remolcador3 = '" + cod_remolcador4 + "' "//arreglar
-                    + "nom_remolcador3 = '" + nom_remolcador4 + "' "//arreglar
-                    + "boletas3Act = '" + boleta3 + "' "
-                    + "inicio3Act = '" + fecha_inicio4 + "' "
-                    + "fin3Act = '" + fecha_fin4 + "' "
-                    //  + "lanchaAct = '" + cod_lancha_piloto + "' "
-                    + "nomlanchaAct = '" + nom_lancha_piloto + "' "
-                    + "boletas4Act = '" + boleta4 + "' "
-                    + "inicio4Act = '" + fecha_inicio5 + "' "
-                    + "fin4Act = '" + fecha_fin5 + "' "
-                    //   + "lalmiranteAct = '" + cod_lancha_almirante + "' "
-                    + "nomlalmiranteAct = '" + nom_lancha_almirante + "' "
-                    + "boletas5Act = '" + boleta5 + "' "
-                    + "observacionesAct = '" + observaciones + "' "
-                    //  + "codigofonAct = '" + cod_fondeo + "' "
-                    + "nomfondeoAct = '" + fondeo + "' "
-                    + "estatus2Act = '" + estatus_cobro + "' "
-                    + "WHERE ano_arribo = '" + ano_arribo + "' "
-                    + "AND   num_arribo = '" + num_arribo + "' "
-                    + "AND   nom_actividad = '" + nom_actividad + "'");
-
-            //CODIGO DE LA ACTIVIDAD QUE SE QUIERE ACTUALIZAR
-            Clients.showNotification("REGISTRO ACTUALIZADO <br/> CON EXITO  <br/>");
-            System.out.println("Actualizacion Exitosa.! ");
+            vl = st.executeUpdate("UPDATE epqop.if_bq_reg_activida  SET\n"
+                    + "                    practico =  '" + data.getCodigo_practico()+ "'\n"
+                    + "                    ,boleta_prac =  '" + data.getBoleta()+ "'\n"
+                    + "                    ,fecha_piloi = '" + data.getFecha_inicio1()+ "'\n"
+                    + "                    ,fecha_pilof =    '" + data.getFecha_fin1()+ "'\n"
+                    + "                    ,remolcador =   '" + data.getCodigo_remolcador()+ "'\n"
+                    + "                    ,boleta_rem1 =    '" + data.getBoleta1()+ "'\n"
+                    + "                    ,fecha_rem1i =    '" + data.getFecha_inicio2()+ "'\n"
+                    + "                    ,fecha_rem1f =   '" + data.getFecha_fin2()+ "'\n"
+                    + "                    ,remolcador2 = '" + data.getCod_remolcador1()+ "'\n"
+                    + "                    ,boleta_rem2 =    '" + data.getBoleta2()+ "'\n"
+                    + "                    ,fecha_rem2i =    '" + data.getFecha_inicio3()+ "'\n"
+                    + "                    ,fecha_rem2f =    '" + data.getFecha_fin3()+ "'\n"
+                    + "                    ,remolcador3 =  '" + data.getCod_remolcador2()+ "'\n"
+                    + "                    ,boleta_rem3 =   '" + data.getBoleta3()+ "'\n"
+                    + "                    ,fecha_rem3i =    '" + data.getFecha_inicio4()+ "'\n"
+                    + "                    ,fecha_rem3f =    '" + data.getFecha_fin4()+ "'\n"
+                    + "                    ,lancha_piloto =   '" + data.getCod_lancha_piloto()+ "'\n"
+                    + "                    ,boleta_lancha =   '" + data.getBoleta4()+ "'\n"
+                    + "                    ,fecha_lan1i =   '" + data.getFecha_inicio5()+ "'\n"
+                    + "                    ,fecha_lan1f =    '" + data.getFecha_fin5()+ "'\n"
+                    + "                    ,lancha_almirante = '" + data.getCodigo_lancha()+ "'\n"
+                    + "                    ,boleta_lanad = '" + data.getBoleta5()+ "'\n"
+                    + "                    ,obse_actividad1 = '" + data.getObservaciones()+ "'\n"
+                    + "                    ,codigo_fondeos =   '" + data.getCod_fondeo()+ "'\n"
+                    + "                    WHERE ano_arribo = '" + data.getAno_arribo()+ "'\n"
+                    + "                    AND   num_arribo =    '" + data.getNum_arribo()+ "'\n"
+                    + "                    AND   num_actividad1 = '" + data.getActividad()+ "'");
+           
+            if (vl > 0) {
+                cl.setResp("1");
+                cl.setMsg("DATOS ACTUALIZADOS CORRECTAMENTE");
+                System.out.println("Actualizacion Exitosa");
+            } else {
+                cl.setResp("0");
+                cl.setMsg("DATOS NO ACTUALIZADOS");
+                System.out.println("Actualizacion Fallida");
+            }
             st.close();
+
             conexion.commit();
             conexion.close();
+
         } catch (SQLException e) {
+            System.out.println("ERROR CATCH.: " + e.getMessage());
             conexion.rollback();
             conexion.close();
-            String mensaje = e.getMessage();
-            Clients.showNotification("ERROR AL ACTUALIZAR <br/>'" + mensaje + "' <br/> REGISTROS! <br/> ",
-                    "warning", null, "middle_center", 0);
-            System.out.println("Actualizacion EXCEPTION.: " + mensaje);
+            cl.setResp("0");
+            cl.setMsg(e.getMessage());
+
         }
 
+        return cl;
     }
 
     //ACTIVIDADES
@@ -347,7 +348,7 @@ public class ActividadesDal {
         String query = "SELECT TRIM(codigo_particular),"
                 + "            TRIM(nombre_particular) "
                 + " FROM epqop.particulares "
-                + "WHERE tipo_particular = 'L'"
+                + "WHERE tipo_particular IN ('L','H')"
                 + "ORDER BY codigo_particular ASC ";
 
         try {
@@ -385,7 +386,7 @@ public class ActividadesDal {
         String query = "SELECT TRIM(codigo_particular),"
                 + "            TRIM(nombre_particular) "
                 + " FROM epqop.particulares "
-                + "WHERE tipo_particular = 'L'"
+                + "WHERE tipo_particular IN ('L','H')"
                 + "ORDER BY codigo_particular ASC ";
 
         try {
