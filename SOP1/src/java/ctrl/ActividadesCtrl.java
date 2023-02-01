@@ -11,7 +11,6 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.event.Events;
-import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Combobox;
@@ -427,68 +426,6 @@ public class ActividadesCtrl extends GenericForwardComposer {
         nomfondeoAct.setText("");
         estatus2Act.setText("");
         anoarriboAct.focus();
-    }
-
-    public void onClick$btnDelete(Event e) throws SQLException {
-        if (!anoarriboAct.getText().equals("") && !anoarriboAct.getText().equals("")) {
-            Messagebox.show("Estas seguro que Deseas Borrar este Registro?",
-                    "Pregunta?", Messagebox.OK | Messagebox.CANCEL,
-                    Messagebox.QUESTION,
-                    new org.zkoss.zk.ui.event.EventListener() {
-                public void onEvent(Event e) throws SQLException {
-                    if (Messagebox.ON_OK.equals(e.getName())) {
-
-                        rg.REGdelete(anoarriboAct.getText(), numarriboAct.getText());
-                        anoarriboAct.setDisabled(false);
-                        numarriboAct.setText("");
-                        actividadAct.setText("");
-                        nombreAct.setText("");
-                        practicoAct.setText("");
-                        nompracticoAct.setText("");
-                        boletasAct.setText("");
-                        inicioAct.setText("");
-                        finAct.setText("");
-                        remolcadorAct.setText("");
-                        nomremolcador1Act.setText("");
-                        boletas1Act.setText("");
-                        inicio1Act.setText("");
-                        fin1Act.setText("");
-                        remolcador2Act.setText("");
-                        nomremolcador2Act.setText("");
-                        boletas2Act.setText("");
-                        inicio2Act.setText("");
-                        fin2Act.setText("");
-                        remolcador3Act.setText("");
-                        nomremolcador3Act.setText("");
-                        boletas3Act.setText("");
-                        inicio3Act.setText("");
-                        fin3Act.setText("");
-                        lanchaAct.setText("");
-                        nomlanchaAct.setText("");
-                        boletas4Act.setText("");
-                        inicio4Act.setText("");
-                        fin4Act.setText("");
-                        lalmiranteAct.setText("");
-                        nomlalmiranteAct.setText("");
-                        boletas5Act.setText("");
-                        observacionesAct.setText("");
-                        codigofonAct.setText("");
-                        nomfondeoAct.setText("");
-                        estatus2Act.setText("");
-
-                        //   allatracadero = rg.RSelect();
-                        //  lb2.setModel(new ListModelList(allatracadero));
-                    } else if (Messagebox.ON_CANCEL.equals(e.getName())) {
-                        Clients.showNotification("REGISTRO NO SE HA  <br/> BORRADO  <br/>");
-                    }
-                }
-            }
-            );
-
-        } else {
-            Clients.showNotification("DEBE SELECCIONAR <br/> UN REGISTRO! <br/>",
-                    "warning", null, "middle_center", 50);
-        }
     }
 
     public void onClick$btnSalir() {
