@@ -143,47 +143,62 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
     }
 
+    public void onOK$numarriboAct(Event e) throws SQLException {
+        onChange$numarriboAct(e);
+    }
+
     public void onChange$numarriboAct(Event e) throws SQLException {
 
         alltipoact = rg.tipoactRSelect(anoarriboAct.getText(), numarriboAct.getText());
         nombreAct.setModel(new ListModelList(alltipoact));
+        clear();
+        
 
     }
 
     public void onClick$btnNuevo(Event e) throws SQLException {
 
-        anoarriboAct.setText("");
-        numarriboAct.setText("");
+        clear();
+
+    }
+
+    public void clear() {
+
+        nombreAct.setSelectedIndex(-1);
         nombreAct.setText("");
-        nompracticoAct.setText("");
+        nompracticoAct.setSelectedIndex(-1);
         boletasAct.setText("");
         inicioAct.setText("");
         finAct.setText("");
-        nomremolcador1Act.setText("");
+
+        nomremolcador1Act.setSelectedIndex(-1);
         boletas1Act.setText("");
         inicio1Act.setText("");
         fin1Act.setText("");
-        nomremolcador2Act.setText("");
+
+        nomremolcador2Act.setSelectedIndex(-1);
         boletas2Act.setText("");
         inicio2Act.setText("");
         fin2Act.setText("");
-        nomremolcador3Act.setText("");
+
+        nomremolcador3Act.setSelectedIndex(-1);
         boletas3Act.setText("");
         inicio3Act.setText("");
         fin3Act.setText("");
-        nomlanchaAct.setText("");
+
+        nomlanchaAct.setSelectedIndex(-1);
         boletas4Act.setText("");
         inicio4Act.setText("");
         fin4Act.setText("");
-        nomlalmiranteAct.setText("");
+
+        nomlalmiranteAct.setSelectedIndex(-1);
         boletas5Act.setText("");
         observacionesAct.setText("");
-        nomfondeoAct.setText("");
+        nomfondeoAct.setSelectedIndex(-1);
         estatus2Act.setText("");
 
         anoarriboAct.focus();
         VerDatos.setVisible(false);
-
     }
 
     //metodo para llamar un combobox con la informacion que se desea mostrar en pantalla
@@ -284,57 +299,103 @@ public class ActividadesCtrl extends GenericForwardComposer {
     }
 
     public void onClick$btnGuardar(Event e) throws SQLException {
+        int op = 0;
+        if (anoarriboAct.getText().trim().equals("")) {
+            op = 1;
+        }
+        if (numarriboAct.getText().trim().equals("")) {
+            op = 1;
+        }
+        if (nombreAct.getSelectedIndex() == -1) {
+            op = 1;
+        }
+        if (op == 0) {
+            manteniMD = new ActividadesMd();
 
-        manteniMD = new ActividadesMd();
+            manteniMD.setAno_arribo(anoarriboAct.getText());
+            manteniMD.setNum_arribo(numarriboAct.getText());
+            manteniMD.setActividad(nombreAct.getSelectedItem().getValue());
+            if (nompracticoAct.getSelectedIndex() == -1) {
+                manteniMD.setCodigo_practico("");
+            } else {
+                manteniMD.setCodigo_practico(nompracticoAct.getSelectedItem().getValue());
+            }
 
-        manteniMD.setAno_arribo(anoarriboAct.getText());
-        manteniMD.setNum_arribo(numarriboAct.getText());
-        manteniMD.setActividad(nombreAct.getSelectedItem().getValue());
+            manteniMD.setBoleta(boletasAct.getText().toUpperCase());
+            manteniMD.setFecha_inicio1(inicioAct.getText());
+            manteniMD.setFecha_fin1(finAct.getText());
+            if (nomremolcador1Act.getSelectedIndex() == -1) {
+                manteniMD.setCodigo_remolcador("");
+            } else {
+                manteniMD.setCodigo_remolcador(nomremolcador1Act.getSelectedItem().getValue());
+            }
 
-        manteniMD.setCodigo_practico(nompracticoAct.getSelectedItem().getValue());
-        manteniMD.setBoleta(boletasAct.getText().toUpperCase());
-        manteniMD.setFecha_inicio1(inicioAct.getText());
-        manteniMD.setFecha_fin1(finAct.getText());
+            manteniMD.setBoleta1(boletas1Act.getText());
+            manteniMD.setFecha_inicio2(inicio1Act.getText());
+            manteniMD.setFecha_fin2(fin1Act.getText());
+            if (nomremolcador2Act.getSelectedIndex() == -1) {
+                manteniMD.setCod_remolcador1("");
+            } else {
+                manteniMD.setCod_remolcador1(nomremolcador2Act.getSelectedItem().getValue());
+            }
 
-        manteniMD.setCodigo_remolcador(nomremolcador1Act.getSelectedItem().getValue());
-        manteniMD.setBoleta1(boletas1Act.getText());
-        manteniMD.setFecha_inicio2(inicio1Act.getText());
-        manteniMD.setFecha_fin2(fin1Act.getText());
+            manteniMD.setBoleta2(boletas2Act.getText());
+            manteniMD.setFecha_inicio3(inicio2Act.getText());
+            manteniMD.setFecha_fin3(fin2Act.getText());
+            if (nomremolcador3Act.getSelectedIndex() == -1) {
+                manteniMD.setCod_remolcador2("");
+            } else {
+                manteniMD.setCod_remolcador2(nomremolcador3Act.getSelectedItem().getValue());
+            }
 
-        manteniMD.setCod_remolcador1(nomremolcador2Act.getSelectedItem().getValue());
-        manteniMD.setBoleta2(boletas2Act.getText());
-        manteniMD.setFecha_inicio3(inicio2Act.getText());
-        manteniMD.setFecha_fin3(fin2Act.getText());
+            manteniMD.setBoleta3(boletas3Act.getText());
+            manteniMD.setFecha_inicio4(inicio3Act.getText());
+            manteniMD.setFecha_fin4(fin3Act.getText());
+            if (nomlanchaAct.getSelectedIndex() == -1) {
+                manteniMD.setCod_lancha_piloto("");
+            } else {
+                manteniMD.setCod_lancha_piloto(nomlanchaAct.getSelectedItem().getValue());
+            }
 
-        manteniMD.setCod_remolcador2(nomremolcador3Act.getSelectedItem().getValue());
-        manteniMD.setBoleta3(boletas3Act.getText());
-        manteniMD.setFecha_inicio4(inicio3Act.getText());
-        manteniMD.setFecha_fin4(fin3Act.getText());
+            manteniMD.setBoleta4(boletas4Act.getText());
+            manteniMD.setFecha_inicio5(inicio4Act.getText());
+            manteniMD.setFecha_fin5(fin4Act.getText());
+            if (nomlalmiranteAct.getSelectedIndex() == -1) {
+                manteniMD.setCodigo_lancha("");
+            } else {
+                manteniMD.setCodigo_lancha(nomlalmiranteAct.getSelectedItem().getValue());
+            }
 
-        manteniMD.setCod_lancha_piloto(nomlanchaAct.getSelectedItem().getValue());
-        manteniMD.setBoleta4(boletas4Act.getText());
-        manteniMD.setFecha_inicio5(inicio4Act.getText());
-        manteniMD.setFecha_fin5(fin4Act.getText());
+            manteniMD.setBoleta5(boletas5Act.getText());
+            manteniMD.setObservaciones(observacionesAct.getText());
+            if (nomfondeoAct.getSelectedIndex() == -1) {
+                manteniMD.setCod_fondeo("");
+            } else {
+                manteniMD.setCod_fondeo(nomfondeoAct.getSelectedItem().getValue());
+            }
 
-//        manteniMD.setCodigo_lancha(nomlalmiranteAct.getSelectedItem().getValue());
-//        manteniMD.setBoleta5(boletas5Act.getText());
+            manteniMD = rg.updateActividad(manteniMD);
 
-        manteniMD.setObservaciones(observacionesAct.getText());
-        manteniMD.setCod_fondeo(nomfondeoAct.getSelectedItem().getValue());
+            if (manteniMD.getResp().equals("1")) {
 
-        manteniMD = rg.updateActividad(manteniMD);
-
-        if (manteniMD.getResp().equals("1")) {
-
-            Clients.showNotification(manteniMD.getMsg() + "<brRegistros Guardados con Exito/>",
-                    Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
+                Clients.showNotification(manteniMD.getMsg() + "<brRegistros Guardados con Exito/>",
+                        Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
+                clear();
+            } else {
+                Clients.showNotification(manteniMD.getMsg() + "<brRegistro no Guardado revise los datos/>",
+                        Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+            }
         } else {
-            Clients.showNotification(manteniMD.getMsg() + "<brRegistro no Guardado revise los datos/>",
-                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+            Clients.showNotification("Seleccione  <br/>  <br/> Actividad <br/> <br/>Intentelo de Nuevo",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 0);
         }
     }
 
     public void onClick$btnSalir() {
+        rootPagina.setSrc("/Views/Principal.zul");
+    }
+
+    public void onCancel() {
         rootPagina.setSrc("/Views/Principal.zul");
     }
 }
