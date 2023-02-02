@@ -159,8 +159,8 @@ public class ActividadesDal {
                     + "                    ,fecha_lan1f =  to_date('" + data.getFecha_fin5()+ "','dd/mm/yyyy hh24:mi')  \n"
                     + "                    ,lancha_almirante = '" + data.getCodigo_lancha()+ "'\n"
                     + "                    ,boleta_lanad = '" + data.getBoleta5()+ "'\n"
-//                    + "                    ,obse_actividad1 = '" + data.getObservaciones()+ "'\n"
-//                    + "                    ,codigo_fondeos =   '" + data.getCod_fondeo()+ "'\n"
+                    + "                    ,obse_actividad1 = '" + data.getObservaciones()+ "'\n"
+                    + "                    ,codigo_fondeos =   '" + data.getCod_fondeo()+ "'\n"
                     + "                    WHERE ano_arribo = '" + data.getAno_arribo()+ "'\n"
                     + "                    AND   num_arribo =    '" + data.getNum_arribo()+ "'\n"
                     + "                    AND   num_actividad1 = '" + data.getActividad()+ "'");
