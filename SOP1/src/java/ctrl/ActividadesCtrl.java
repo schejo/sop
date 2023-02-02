@@ -316,8 +316,8 @@ public class ActividadesCtrl extends GenericForwardComposer {
         manteniMD.setFecha_inicio5(inicio4Act.getText());
         manteniMD.setFecha_fin5(fin4Act.getText());
 
-        manteniMD.setCodigo_lancha(nomlalmiranteAct.getSelectedItem().getValue());
-        manteniMD.setBoleta5(boletas5Act.getText());
+//        manteniMD.setCodigo_lancha(nomlalmiranteAct.getSelectedItem().getValue());
+//        manteniMD.setBoleta5(boletas5Act.getText());
 
         manteniMD.setObservaciones(observacionesAct.getText());
         manteniMD.setCod_fondeo(nomfondeoAct.getSelectedItem().getValue());
