@@ -197,7 +197,7 @@ public class ActividadesCtrl extends GenericForwardComposer {
         nomfondeoAct.setSelectedIndex(-1);
         estatus2Act.setText("");
 
-        anoarriboAct.focus();
+        nombreAct.focus();
         VerDatos.setVisible(false);
     }
 
