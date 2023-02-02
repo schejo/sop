@@ -149,10 +149,18 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
     public void onChange$numarriboAct(Event e) throws SQLException {
 
-        alltipoact = rg.tipoactRSelect(anoarriboAct.getText(), numarriboAct.getText());
-        nombreAct.setModel(new ListModelList(alltipoact));
-        clear();
-        
+        if (numarriboAct.getText().equals("")) {
+            Clients.showNotification("No hay Arribo <br/>  <br/> Ingresado",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 0);
+            nombreAct.getChildren().clear();
+            nombreAct.setText("");
+            clear();
+        } else {
+            alltipoact = rg.tipoactRSelect(anoarriboAct.getText(), numarriboAct.getText());
+            nombreAct.setModel(new ListModelList(alltipoact));
+            clear();
+
+        }
 
     }
 
@@ -164,8 +172,8 @@ public class ActividadesCtrl extends GenericForwardComposer {
 
     public void clear() {
 
-        nombreAct.setSelectedIndex(-1);
-        nombreAct.setText("");
+//        nombreAct.setSelectedIndex(-1);
+//        nombreAct.setText("");
         nompracticoAct.setSelectedIndex(-1);
         boletasAct.setText("");
         inicioAct.setText("");
@@ -219,81 +227,92 @@ public class ActividadesCtrl extends GenericForwardComposer {
     }
 
     //fin metodo
+    public void onClick$nombreAct(Event e) throws SQLException {
+        nombreAct.open();
+    }
+
     public void onChange$nombreAct(Event e) throws SQLException {
-
-        allatracadero = rg.REGselect(anoarriboAct.getText(), numarriboAct.getText(), nombreAct.getSelectedItem().getValue().toString());
-
-        if (anoarriboAct.getText().isEmpty()) {
-
-            anoarriboAct.setText("");
-            numarriboAct.setText("");
-            nombreAct.setText("");
-            nompracticoAct.setText("");
-            boletasAct.setText("");
-            inicioAct.setText("");
-            finAct.setText("");
-            nomremolcador1Act.setText("");
-            boletas1Act.setText("");
-            inicio1Act.setText("");
-            fin1Act.setText("");
-            nomremolcador2Act.setText("");
-            boletas2Act.setText("");
-            inicio2Act.setText("");
-            fin2Act.setText("");
-            nomremolcador3Act.setText("");
-            boletas3Act.setText("");
-            inicio3Act.setText("");
-            fin3Act.setText("");
-            nomlanchaAct.setText("");
-            boletas4Act.setText("");
-            inicio4Act.setText("");
-            fin4Act.setText("");
-            nomlalmiranteAct.setText("");
-            boletas5Act.setText("");
-            observacionesAct.setText("");
-            nomfondeoAct.setText("");
-
-            observacionesAct.setText("");
-            codigofonAct.setText("");
-
-            estatus2Act.setText("");
+        if (nombreAct.getSelectedIndex() == -1) {
+            Clients.showNotification("Seleccione  <br/>  <br/> Actividad",
+                    Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 0);
+            clear();
 
         } else {
-            VerDatos.setVisible(false);
-            for (ActividadesMd dt : allatracadero) {
 
-                BuscaItem(dt.getNombre_practico(), this.nompracticoAct);
-                boletasAct.setText(dt.getBoleta());
-                inicioAct.setText(dt.getFecha_inicio1());
-                finAct.setText(dt.getFecha_fin1());
+            allatracadero = rg.REGselect(anoarriboAct.getText(), numarriboAct.getText(), nombreAct.getSelectedItem().getValue().toString());
 
-                BuscaItem(dt.getNombre_remolcador(), this.nomremolcador1Act);
-                boletas1Act.setText(dt.getBoleta1());
-                inicio1Act.setText(dt.getFecha_inicio2());
-                fin1Act.setText(dt.getFecha_fin2());
+            if (anoarriboAct.getText().isEmpty()) {
 
-                BuscaItem(dt.getNom_remolcador1(), this.nomremolcador2Act);
-                boletas2Act.setText(dt.getBoleta2());
-                inicio2Act.setText(dt.getFecha_inicio3());
-                fin2Act.setText(dt.getFecha_fin3());
+                anoarriboAct.setText("");
+                numarriboAct.setText("");
+                nombreAct.setText("");
+                nompracticoAct.setText("");
+                boletasAct.setText("");
+                inicioAct.setText("");
+                finAct.setText("");
+                nomremolcador1Act.setText("");
+                boletas1Act.setText("");
+                inicio1Act.setText("");
+                fin1Act.setText("");
+                nomremolcador2Act.setText("");
+                boletas2Act.setText("");
+                inicio2Act.setText("");
+                fin2Act.setText("");
+                nomremolcador3Act.setText("");
+                boletas3Act.setText("");
+                inicio3Act.setText("");
+                fin3Act.setText("");
+                nomlanchaAct.setText("");
+                boletas4Act.setText("");
+                inicio4Act.setText("");
+                fin4Act.setText("");
+                nomlalmiranteAct.setText("");
+                boletas5Act.setText("");
+                observacionesAct.setText("");
+                nomfondeoAct.setText("");
 
-                BuscaItem(dt.getNom_remolcador2(), this.nomremolcador3Act);
-                boletas3Act.setText(dt.getBoleta3());
-                inicio3Act.setText(dt.getFecha_inicio4());
-                fin3Act.setText(dt.getFecha_fin4());
+                observacionesAct.setText("");
+                codigofonAct.setText("");
 
-                BuscaItem(dt.getNom_lancha_piloto(), this.nomlanchaAct);
-                boletas4Act.setText(dt.getBoleta4());
-                inicio4Act.setText(dt.getFecha_inicio5());
-                fin4Act.setText(dt.getFecha_fin5());
+                estatus2Act.setText("");
 
-                BuscaItem(dt.getNombre_lancha(), this.nomlalmiranteAct);
-                boletas5Act.setText(dt.getBoleta5());
+            } else {
+                VerDatos.setVisible(false);
+                for (ActividadesMd dt : allatracadero) {
 
-                observacionesAct.setText(dt.getObservaciones());
-                BuscaItem(dt.getFondeo(), this.nomfondeoAct);
+                    BuscaItem(dt.getNombre_practico(), this.nompracticoAct);
+                    boletasAct.setText(dt.getBoleta());
+                    inicioAct.setText(dt.getFecha_inicio1());
+                    finAct.setText(dt.getFecha_fin1());
+
+                    BuscaItem(dt.getNombre_remolcador(), this.nomremolcador1Act);
+                    boletas1Act.setText(dt.getBoleta1());
+                    inicio1Act.setText(dt.getFecha_inicio2());
+                    fin1Act.setText(dt.getFecha_fin2());
+
+                    BuscaItem(dt.getNom_remolcador1(), this.nomremolcador2Act);
+                    boletas2Act.setText(dt.getBoleta2());
+                    inicio2Act.setText(dt.getFecha_inicio3());
+                    fin2Act.setText(dt.getFecha_fin3());
+
+                    BuscaItem(dt.getNom_remolcador2(), this.nomremolcador3Act);
+                    boletas3Act.setText(dt.getBoleta3());
+                    inicio3Act.setText(dt.getFecha_inicio4());
+                    fin3Act.setText(dt.getFecha_fin4());
+
+                    BuscaItem(dt.getNom_lancha_piloto(), this.nomlanchaAct);
+                    boletas4Act.setText(dt.getBoleta4());
+                    inicio4Act.setText(dt.getFecha_inicio5());
+                    fin4Act.setText(dt.getFecha_fin5());
+
+                    BuscaItem(dt.getNombre_lancha(), this.nomlalmiranteAct);
+                    boletas5Act.setText(dt.getBoleta5());
+
+                    observacionesAct.setText(dt.getObservaciones());
+                    BuscaItem(dt.getFondeo(), this.nomfondeoAct);
 //                BuscaItem(dt.getEstatus_cobro(), this.estatus2Act);
 
+                }
             }
         }
     }
