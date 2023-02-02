@@ -7,50 +7,55 @@ public class ActividadesMd {
     private String Actividad;
     private String correlativo;
     private String nom_actividad;
-    
+
     private String cod_atracadero;
     private String nom_atracadero;
-    
+
     private String codigo_practico;
     private String nombre_practico;
     private String boleta;
     private String fecha_inicio1;
     private String fecha_fin1;
-    
+
     private String codigo_remolcador;
     private String nombre_remolcador;
     private String boleta1;
     private String fecha_inicio2;
     private String fecha_fin2;
-    
+
     private String cod_remolcador1;
     private String nom_remolcador1;
     private String boleta2;
     private String fecha_inicio3;
     private String fecha_fin3;
-    
+
     private String cod_remolcador2;
     private String nom_remolcador2;
     private String boleta3;
     private String fecha_inicio4;
     private String fecha_fin4;
-    
+
     private String cod_lancha_piloto;
     private String nom_lancha_piloto;
     private String boleta4;
     private String fecha_inicio5;
     private String fecha_fin5;
-    
+
     private String codigo_lancha;
     private String nombre_lancha;
     private String boleta5;
-    
+
     private String observaciones;
     private String cod_fondeo;
     private String fondeo;
     private String estatus_cobro;
     private String nombreAct;
     private String numAct;
+
+    //Variables para mensajes
+    private String resp;
+    private String msg;
+    private String dir;
 
     public String getNombreAct() {
         return nombreAct;
@@ -220,7 +225,6 @@ public class ActividadesMd {
         this.nom_remolcador2 = nom_remolcador2;
     }
 
-
     public String getBoleta2() {
         return boleta2;
     }
@@ -379,6 +383,31 @@ public class ActividadesMd {
 
     public void setEstatus_cobro(String estatus_cobro) {
         this.estatus_cobro = estatus_cobro;
+    }
+
+    //variables para mensajes
+    public String getResp() {
+        return resp;
+    }
+
+    public void setResp(String resp) {
+        this.resp = resp;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public String getDir() {
+        return dir;
+    }
+
+    public void setDir(String dir) {
+        this.dir = dir;
     }
 
 }
