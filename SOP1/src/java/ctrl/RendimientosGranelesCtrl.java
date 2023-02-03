@@ -127,7 +127,9 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     double horasOperacion = 0;
     
     public void onChange$num_arribo(Event e) throws SQLException {
+        
         manteniMD1 = new RendimientosGranelesMd();
+        
         manteniMD1 = ManbuDal.Rendimientos(anio_arribo.getText(), num_arribo.getText());
         String a, b;
         if (manteniMD1.getResp().equals("1")) {
@@ -159,7 +161,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             finopera.setText(manteniMD1.getFin_operacion());
             totalHoras.setText(manteniMD1.getTotal_hrs_operacion());
             double num = Double.parseDouble(a);
-            double num2 = Double.parseDouble(b);
+            double num2 = Double.parseDouble(b); //aca se quedo en el debug
             double suma = num + num2;
             tmplanificadas.setText(Double.toString(suma));
             horasOperacion = Double.parseDouble(manteniMD1.getHorasOperacion());
