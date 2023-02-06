@@ -320,7 +320,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     }
 
     public void onChange$txtNumArribo(Event evt) {
-
+                 nombreCliente.setSelectedIndex(-1);
         if (!txtAnioArribo.getText().equals("") && !txtNumArribo.getText().equals("")) {
             serviciosModelo = new ManteServiciosMd();
             serviciosModelo = ProductoDal.MostrarProducto(txtAnioArribo.getText(), txtNumArribo.getText());
@@ -328,6 +328,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 txtCodigoBuque.setText(serviciosModelo.getNumBuque());
                 txtNombreBuque.setText(serviciosModelo.getNomBuque());
                 txtTrbBuque.setText(serviciosModelo.getTrb());
+                cod_cli.setText(serviciosModelo.getCod_cliente());
                 btnBusca1.setVisible(true);
                 btninsert.setVisible(true);
                 btnBusAct.setVisible(true);
