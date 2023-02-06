@@ -64,7 +64,7 @@
                 </n:div> 
                 
                 <n:div class="form-group col-lg-4 col-md-2 dvlb" style="color:blue; border: none; margin-top:25px;">
-                    <label class="txtlbs" value="Actividad" />
+                    <label class="txtlbs" value="Actividad" style="color:red; font-weight: bold; font-size: 15px;"/>
                     <combobox id="nombreAct" buttonVisible="true" width="300px" autocomplete="true"  model="${alltipoact}" style="font-weight: bold; color:black; heigh:25px;"
                               autodrop="true" >
                         <template name="model">
@@ -94,12 +94,12 @@
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
+                    <label class="txtlbs" value="Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
                     <datebox id="inicioAct" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
+                    <label class="txtlbs" value="Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; "/>
                     <datebox id="finAct" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
@@ -124,12 +124,12 @@
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Inicio" style="color:blue;  font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
+                    <label class="txtlbs" value="Inicio" style="color:blue;  font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
                     <datebox id="inicio1Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Fin" style="color:blue;  font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
+                    <label class="txtlbs" value="Fin" style="color:blue;  font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
                     <datebox id="fin1Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                 
@@ -154,12 +154,12 @@
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
+                    <label class="txtlbs" value="Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
                     <datebox id="inicio2Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
+                    <label class="txtlbs" value="Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
                     <datebox id="fin2Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
@@ -184,12 +184,12 @@
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
+                    <label class="txtlbs" value="Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
                     <datebox id="inicio3Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
+                    <label class="txtlbs" value="Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
                     <datebox id="fin3Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                                              
@@ -215,12 +215,12 @@
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
+                    <label class="txtlbs" value="Inicio" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
                     <datebox id="inicio4Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
                 <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Fecha Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
+                    <label class="txtlbs" value="Fin" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
                     <datebox id="fin4Act" cols="11"   format="dd/MM/yyyy HH:mm" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                         
@@ -229,7 +229,7 @@
             <!-- FILA #07 -->
             <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
                        
-                <n:div class="form-group col-lg-3 col-md-2 dvlb" style="color:blue; border: none; margin-top:21px;">
+                <n:div class="form-group col-lg-3 col-md-2 dvlb" style="font-size: 15px; color: blue;">
                     <label class="txtlbs" value="Lancha Almirante" />
                     <combobox id="nomlalmiranteAct" buttonVisible="true" width="250px" autocomplete="true"  model="${allLanchaalmirante}" style="font-weight: bold; color:black; heigh:20px;"
                               autodrop="true" >
@@ -239,8 +239,8 @@
                     </combobox>
                 </n:div>
                         
-                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Boletas" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>                    
+                <n:div class="form-group col-lg-2 col-md-2 dvlb" style="font-size: 15px; color: blue;">
+                    <label class="txtlbs" value="Boletas" style="font-size: 15px; color: blue;"/>                    
                     <textbox id="boletas5Act" value=""  cols="12" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
                 </n:div>
                      
@@ -248,19 +248,20 @@
             
             <!-- FILA #08 -->  
             <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
-                        
-                <n:div class="form-group col-lg-1 col-md-4 dvlb" style="border: none;">
-                    <label class="txtlbs" value="Observaciones" style="color:blue; font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px;"/>
-                    <textbox id="observacionesAct" value=""  cols="110" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                   
+                
+                <n:div class="form-group col-lg-5 col-md-5 mydiv1">
+                    <label class="txtlbs" value="OBSERVACIONES:" style="font-size: 15px; color: blue;"/>
+                    <textbox class="form-control" rows="2" id="observacionesAct" value="" cols="5"  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
                 </n:div>
-                        
+                     
             </n:div>
             
             <!-- FILA #09 -->
             <n:div class="form-group col-lg-12 col-md-12 text-center dvfl" style="">
                         
                 <n:div class="form-group col-lg-3 col-md-3 dvlb" style="color:blue;">
-                    <label class="txtlbs" value="Fondeo" />
+                    <label class="txtlbs" value="Fondeo" style="font-size: 15px; color: blue;"/>
                     <combobox width="300px" cols="20" id="nomfondeoAct">
                         <comboitem label="ATRAQUE SIN NOVEDAD" value="1"/>
                         <comboitem label="ZARPE SIN NOVEDAD" value="2"/>
@@ -276,13 +277,15 @@
                     </combobox> 
                 </n:div>
                     
-                <n:div class="form-group col-lg-3 col-md-2 dvlb" style="color:blue;">
-                    <label class="txtlbs" value="Estatus Cobro" />
-                    <combobox width="100px" cols="20" id="estatus2Act">
+                <n:div class="form-group col-lg-3 col-md-3 dvlb" style="color:blue;">
+                    
+                    <label class="txtlbs" value="Cobro" style="font-size: 15px; color: blue;"/>
+                    <combobox width="300px" cols="20" id="estatus2Act" >
                         <comboitem label="M.I (S.R)" value="S"/>
                         <comboitem label="M.I (N.R)" value="N"/>
                         <comboitem label="N/A" value="T"/>
                     </combobox> 
+                    
                 </n:div>
                     
             </n:div>

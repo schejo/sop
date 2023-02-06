@@ -56,6 +56,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     
     @Override
     public void doAfterCompose(Component comp) throws Exception {
+        
         super.doAfterCompose(comp);
         tipoprod = rg.tipoactRSelect();
         producto.setModel(new ListModelList(tipoprod));
@@ -100,6 +101,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     }
     
     public void onChange$directa(Event e) {
+        
         if (directa.getText().equals("")) {
             Clients.showNotification("<br/>" + "DIRECTA NO PUEDE ESTAR VACIO",
                     Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
@@ -146,8 +148,6 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             terpac.setText(manteniMD1.getTerpac());
             a = manteniMD1.getTerpac();
             // tmplanificadas.setText(manteniMD1.getTmplanificadas());
-            BuscaItem(manteniMD1.getTipo_producto(), this.producto);
-            //producto.setValue(manteniMD1.getTipo_producto());
             BuscaItem(manteniMD1.getTipo_producto(), this.producto);
             //  directa.setText(manteniMD1.getDir());
             directa.setText(manteniMD1.getTm_despachadas());

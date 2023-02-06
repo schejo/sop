@@ -118,12 +118,12 @@
                     <n:div class="form-group col-lg-1 col-md-1 "></n:div>
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
-                        <label class="mylabel" value="AÑO ARRIBO" style="font-size: 15px;"/>
+                        <label class="mylabel" value="AÑO ARRIBO" style="font-size: 15px; color:red;"/>
                         <textbox class="form-control" id="anio_arribo" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
                     </n:div>
                     
                     <n:div class="form-group col-lg-5 col-md-5 mydiv1">
-                        <label class="mylabel" value="NUM ARRIBO" style="font-size: 15px;"/>
+                        <label class="mylabel" value="NUM ARRIBO" style="font-size: 15px; color:red;"/>
                         <textbox class="form-control" id="num_arribo" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
                     </n:div>
                     

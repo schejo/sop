@@ -199,7 +199,7 @@ public class ActividadesDal {
                 + "TRIM(a.nom_actividad) \n"
                 + "FROM epqop.if_bq_activ_buque a,\n"
                 + "     epqop.if_bq_reg_activida b\n"
-                + " where  a.NUM_ACTIVIDAD1=b.NUM_ACTIVIDAD1 and b.ano_arribo = " + ano + " AND b.num_arribo = " + numarribo + " ORDER BY a.num_actividad1 ASC";
+                + " WHERE  a.NUM_ACTIVIDAD1 = b.NUM_ACTIVIDAD1 and b.ano_arribo = " + ano + " AND b.num_arribo = " + numarribo + " ORDER BY a.num_actividad1 ASC";
 
         try {
             conexion = cnn.Conexion();

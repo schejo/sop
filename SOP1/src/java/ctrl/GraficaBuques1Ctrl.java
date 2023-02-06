@@ -11,7 +11,6 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Div;
@@ -43,10 +42,8 @@ import org.zkoss.zul.Div;
         //Bitacora bt = new Bitacora();
         //String rps = bt.login(Login.usuario, "Estadistica-Web", "Grafica", "null", 0, 0, "Grafica Tipo de Buque"); 
         Grafica1(Fecha_Inicial.getText(), Fecha_Final.getText());
-        Grafica2(Fecha_Inicial.getText(), Fecha_Final.getText());   
+        Grafica2(Fecha_Inicial.getText(), Fecha_Final.getText());
         
-        Clients.showNotification("NO SE GUARDO EL REGISTRO DEBE LLENAR LOS CAMPOS VACIOS!  <br/> INGRESE FECHAS POR FAVOR PARA GENERAR LA GRAFICA....!!!!<br/>",
-                    "warning", null, "middle_center", 5000);
     }
 
         //GRAFICA #1 en DAL
