@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns:n="native">
+    
+    <window id="modalDialog"  position="center,center" closable="true"
+            apply="ctrl.BuscaBuqueCtrl" >
+    
+        <div class="col-lg-12 col-md-12 col-sm-12" style="" >
+            <button id="btnSalir" label="Cerrar" image="bootstrap/img/cerrar.png" orient="vertical" height="50px" width="75px" style="float: right; font-weight: bold; background: transparent; border:none; border-radius: 20px; margin-right:0px; padding-right:0px;"/>
+            <n:h3>BUSCAR ARRIBO BUQUE</n:h3>
+            <n:div class="container " width="100%" height="200%">
+                <n:div id="dv1" class="col-lg-12 col-md-12 col-sm-12" width="100%" height="100%">
+                    <n:div class="row">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                        <n:div class="form-group col-lg-8 col-md-8 mydiv1">
+                            <label class="mylabel" value="Nombre del buque" style="font-size: 20px"/>
+                            <textbox class="form-control" id="bemp1" value=""  style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black; text-transform:uppercase; "/>
+                        </n:div>
+                    
+                    </n:div>
+                    
+                    <n:div class="row" width="100%" height="100%">
+                
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                
+                        <n:div class="form-group col-lg-10 col-md-10 "   style="">
+                            <listbox id="lb2" model="${data}" fixedLayout="true" height="150px" sizedByContent="true" span="true"  
+                                     onSelect="anoAc.value = self.selectedItem.getChildren().get(0).getLabel(); 
+                                                numeroAc.value = self.selectedItem.getChildren().get(1).getLabel();
+                                                " 
+                                     style="border:none; background-color: transparent;" >
+                        
+                             
+                                <listhead id="lh0" menupopup="auto" width="100%" height="100%">
+                                    
+                                    <listheader label="AÑO" width="7%" style="" />
+                                    
+                                    <listheader label="NUMERO" width="8%"  />
+                                    <listheader label="FECHA ATRAQUE" width="10%" style="" />
+                                    <listheader label="BUQUE" width="30%"  />
+                                    <listheader label="ESTADO" width="10%"  />
+                                    <listheader label="TIPO BUQUE" width="20%" style="" />
+                                    
+                                    
+                              
+                                </listhead>
+                                <template name="model" >
+                                    <listitem class = "mycss-listcell"  width="100%" height="200%">
+                                        <listcell  class = "mycss-listcell" label="${each.anoAc}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.numAc}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.fecha_atraque}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.buque}" style="" />
+                                          <listcell  class = "mycss-listcell" label="${each.estado}" style="" />
+                                        <listcell  class = "mycss-listcell" label="${each.tipoBu}" style="" />
+                                       
+                                   
+                                    </listitem>
+                                </template>
+                            </listbox>
+                        </n:div>
+                         <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+
+                    </n:div>
+                    
+                    <n:div class="row" width="100%" height="100%">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                        <n:div class="form-group col-lg-8 col-md-8 mydiv1">
+                            <textbox class="form-control" id="anoAc" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="numeroAc" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="fecha_atraque" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="buque" value=""  style="display:none; "/>
+                              <textbox class="form-control" id="estado" value=""  style="display:none; "/>
+                            <textbox class="form-control" id="tipoBu" value=""  style="display:none; "/>
+                         
+                           
+                        </n:div>
+                    
+                    </n:div>
+                    
+                    <n:div class="row ">
+                        <n:div class="form-group col-lg-1 col-md-1 "></n:div>
+                        <n:div class="form-group col-lg-10 col-md-10 mydiv1">
+                            <button id="btnAgregar" label="" type="button" iconSclass="z-icon-plus-circle" class="btn btn btn-primary btn-lg" style="float: right; margin-top:9px;" />
+                            <!--
+                            <button id="Upload2" label="" type="button" iconSclass="z-icon-upload" class="btn btn btn-success btn-lg" style="float: center; margin-top:9px;"/>
+                            -->
+                        </n:div>
+                    </n:div>
+                    
+                </n:div>
+            </n:div>
+        
+        </div>
+    </window>
+</zk>

@@ -64,9 +64,9 @@
                                     <menuitem label="Citas de Planificacion" id="ItemYG" image="bootstrap/img/casa.png"/>
                                     <menuitem label="Mantenimiento de Buques" id="ItemAAD" image="bootstrap/img/casa.png"/>
                                     <menuitem label="Mantenimiento de Arribos" id="ItemAAB" image="bootstrap/img/casa.png"/>
-                                    <menuitem label="Actividades de Buques" id="ItemAA" image="bootstrap/img/casa.png"/>
+                                    <menuitem label="Actividades Muelles y Equipos" id="ItemAA" image="bootstrap/img/casa.png"/>
                                     <menuitem label="Rendimiento de Graneles" id="ItemRG" image="bootstrap/img/casa.png"/>
-                                    <menuitem label="Actividades Buque Ramiro" id="ItemRH" image="bootstrap/img/casa.png"/>
+                                    <menuitem label="Actividades Buque" id="ItemRH" image="bootstrap/img/casa.png"/>
                                 </menupopup>
                             </menu> 
                             

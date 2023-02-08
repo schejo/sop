@@ -34,12 +34,18 @@ public class ManteServiciosDal {
         cl = new ManteServiciosMd();
         
         String query0 = "SELECT B.BUQUE CODIGO,UPPER(TRIM(B.NOM_BUQUE)) NOMBRE,"
-                + "             B.BUQ_TRB \n"
-                + "FROM EPQOP.IF_BQ_BUQUES B,"
-                + "     EPQOP.IF_BQ_ARRIBOS A\n"
-                + "WHERE B.BUQUE = A.BUQUE \n"
-                + "AND A.ANO_ARRIBO ='" + ano + "'\n"
-                + "AND A.NUM_ARRIBO ='" + arribo + "'";
+                + "             B.BUQ_TRB,TRIM(D.CODIGO_CLIENTE),D.NOM_NAVIERA  \n" +
+"                FROM EPQOP.IF_BQ_BUQUES B,\n" +
+"                     EPQOP.IF_BQ_ARRIBOS A,\n" +
+"                     EPQOP.IF_BQ_LINEAS_ARRIB C,\n" +
+"                     EPQOP.IF_BQ_NAVIERA  D\n" +
+"                WHERE B.BUQUE = A.BUQUE \n" +
+"                AND C.NAVIERA1= D.NAVIERA1\n" +
+"                AND A.ANO_ARRIBO = C.ANO_ARRIBO\n" +
+"                AND A.NUM_ARRIBO = C.NUM_ARRIBO\n" +
+"                AND A.ANO_ARRIBO = '" + ano + "'\n" +
+"                AND A.NUM_ARRIBO = '" + arribo + "'";
+        
         try {
             conn = obtener.Conexion();
 
@@ -50,6 +56,7 @@ public class ManteServiciosDal {
                 cl.setNumBuque(rs.getString(1));
                 cl.setNomBuque(rs.getString(2));
                 cl.setTrb(rs.getString(3));
+                cl.setCod_cliente(rs.getString(4));
 
                 cl.setResp("1");
                 cl.setMsg("ACTUALIZAR!");
