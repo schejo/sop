@@ -9,12 +9,13 @@
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/DAL/CitasPlanificacionDal.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ActividadesDal.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ActividadesCtrl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ManteServiciosCtrl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/MD/ManteServiciosMd.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ManteServiciosDal.java</file>
             <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/web/Views/ManteServicios.zul</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ActividadesDal.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ManteServiciosDal.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ManteServiciosCtrl.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/Conexion/Conexion.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/MD/ManteServiciosMd.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ActividadesCtrl.java</file>
         </group>
     </open-files>
 </project-private>
