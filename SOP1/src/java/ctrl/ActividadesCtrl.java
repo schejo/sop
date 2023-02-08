@@ -1,12 +1,16 @@
 package ctrl;
 
 import DAL.ActividadesDal;
+import DAL.CatalogoDal;
 import MD.ActividadesMd;
+import MD.CataloAcBuqueMd;
+import MD.CatalogosMd;
 import MD.VerActividadMd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.EventQueues;
@@ -19,6 +23,7 @@ import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Include;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Window;
 
 public class ActividadesCtrl extends GenericForwardComposer {
 
@@ -75,10 +80,13 @@ public class ActividadesCtrl extends GenericForwardComposer {
     private Include rootPagina;
 
     String actividadGlo = "";
+    List<CataloAcBuqueMd> lista = new ArrayList<CataloAcBuqueMd>();
+    CatalogoDal ctd = new CatalogoDal();
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
+         lista = ctd.consulta();
 
         allatracadero = rg.atracaderoRSelect();
 
@@ -122,7 +130,40 @@ public class ActividadesCtrl extends GenericForwardComposer {
                         }
                     }
                 });
+        
+         EventQueues.lookup("myEventSelecBuque", EventQueues.DESKTOP, true)
+                .subscribe(new EventListener() {
+                    public void onEvent(Event event) throws Exception {
+                        List<CataloAcBuqueMd> data = new ArrayList<CataloAcBuqueMd>();
+                        data.clear();
+                        data = (List<CataloAcBuqueMd>) event.getData();
+                        if (data.isEmpty()) {
+                            anoarriboAct.setText("");
+                            numarriboAct.setText("");
 
+                        } else {
+                            for (CataloAcBuqueMd item : data) {
+                                if(data.size()==1){
+                                anoarriboAct.setText(item.getAnoAc());
+                                numarriboAct.setText(item.getNumAc());
+                                 numarriboAct.setFocus(true);
+                                }
+                            }
+                        }
+                    }
+                });
+
+    }
+    
+      public void onClick$btnBusca1(Event e) {
+        
+        EventQueues.lookup("myEventQueue", EventQueues.DESKTOP, true)
+                .publish(new Event("onChangeNickname", null, lista));
+
+        //INVOCAR MODAL
+        Window window = (Window) Executions.createComponents(
+                "/Views/BuscaBuque.zul", null, null);
+        window.doModal();
     }
 
     public void BuscaItemAct(String letra, Combobox cb) {
