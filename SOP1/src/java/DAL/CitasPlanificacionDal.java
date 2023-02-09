@@ -26,7 +26,7 @@ public class CitasPlanificacionDal {
         List<CitasPlanificacionMd> allProductos = new ArrayList<CitasPlanificacionMd>();
 
         String query = "SELECT  ANO_ARRIBO,num_arribo FROM"
-                + " epqop.if_bq_citas_plani where ROWNUM <=500 ORDER BY  num_arribo ASC ";
+                + " epqop.if_bq_citas_plani  ORDER BY  num_arribo ASC ";
 
         try {
             conn = obtener.Conexion();
