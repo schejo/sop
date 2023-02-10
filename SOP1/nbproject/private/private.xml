@@ -12,9 +12,26 @@
             <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ActividadesCtrl.java</file>
         </group>
         <group name="Group 20210428-08:47:08">
+<<<<<<< HEAD
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/BuscarServicios.zul</file>
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/BuscarServiciosCtrl.java</file>
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/ManteServiciosCtrl.java</file>
+=======
+            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ManteServicios.zul</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/web/Views/ManteServicios.zul</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ActividadesDal.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ManteServiciosDal.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ManteServiciosCtrl.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/Conexion/Conexion.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/environment/Login1.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/Conexion/authbd.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/MD/ManteServiciosMd.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/Conexion/config.properties</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ActividadesCtrl.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/web/login.zul</file>
+>>>>>>> produccion
         </group>
     </open-files>
 </project-private>
