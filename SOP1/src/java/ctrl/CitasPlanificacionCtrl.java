@@ -60,7 +60,7 @@ public class CitasPlanificacionCtrl extends GenericForwardComposer {
             //para identifiacar si el arribo existe
             for (CitasPlanificacionMd dt : allProductos1) {
 
-                if (    dt.getNum_arribo().equals(numarribo.getText())  && dt.getAnio_arribo().equals(anioarribo.getText())   ) {
+                if (dt.getNum_arribo().equals(numarribo.getText()) && dt.getAnio_arribo().equals(anioarribo.getText())) {
                     op1++;
 
                 }
@@ -89,17 +89,17 @@ public class CitasPlanificacionCtrl extends GenericForwardComposer {
                 manteniMD.setFecha_hora(fecha.getText());
                 manteniMD.setLugar(lugar.getSelectedItem().getValue().toString().toUpperCase());
                 manteniMD.setObser(obs.getText());
-                 manteniMD.setEtap(etaP.getText());
+                manteniMD.setEtap(etaP.getText());
                 manteniMD = ManbuDal.updatePro(manteniMD);
 
             }
             if (manteniMD.getResp().equals("1")) {
                 clear();
                 Clients.showNotification(manteniMD.getMsg() + "<br/>",
-                        Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 3000);
+                        Clients.NOTIFICATION_TYPE_INFO, null, "middle_center", 10000);
             } else {
                 Clients.showNotification(manteniMD.getMsg() + "<br/>",
-                        Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
+                        Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 10000);
             }
 
         } else {
@@ -150,15 +150,15 @@ public class CitasPlanificacionCtrl extends GenericForwardComposer {
         anioarribo.setText("");
         anioarribo.setDisabled(false);
         numarribo.setText("");
-        fecha.setText("");
         lugar.setText("");
-        obs.setText("");
+        fecha.setText("");
         nomNaviera.setText("");
         eta.setText("");
         nomBuque.setText("");
+        etaP.setText("");
+        obs.setText("");
+        anioarribo.focus();
 
-//        fechaalta.setText("");
-//        usuarioalta.setText("");
     }
 
     public void onClick$btnSalir() {

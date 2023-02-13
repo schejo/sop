@@ -45,12 +45,13 @@ public class authbd {
         Connection conn = null;
         try {
             prop.load(is);
-            driver = prop.getProperty("driver2");
-            db = prop.getProperty("ipdb2");
-            port = prop.getProperty("port2");
-            sid = prop.getProperty("sid2");
-            Suser = prop.getProperty("user2");
-            Spwd = prop.getProperty("pwd2");
+            //dejar las variables sin el #2
+            driver = prop.getProperty("driver");
+            db = prop.getProperty("ipdb");
+            port = prop.getProperty("port");
+            sid = prop.getProperty("sid");
+            Suser = prop.getProperty("user");
+            Spwd = prop.getProperty("pwd");
 ////                        
             Class.forName(driver);
 
