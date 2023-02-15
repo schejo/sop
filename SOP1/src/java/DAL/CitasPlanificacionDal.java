@@ -87,7 +87,7 @@ public class CitasPlanificacionDal {
             conn.commit();
 //            cl.setCodigo(id);
             cl.setResp("1");
-            cl.setMsg("REGISTRO GUARDADO CORRECTAMENTE <br/> <br/> BUQUE PLANIFICADO <br/> " + data.getNomBuque() );
+            cl.setMsg("BUQUE PLANIFICADO CORRECTAMENTE  √ <br/> " + data.getNomBuque() );
 
             conn.close();
             obtener.desconectar();
