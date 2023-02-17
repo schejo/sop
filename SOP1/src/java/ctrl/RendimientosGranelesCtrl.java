@@ -56,6 +56,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     
     @Override
     public void doAfterCompose(Component comp) throws Exception {
+        
         super.doAfterCompose(comp);
         tipoprod = rg.tipoactRSelect();
         producto.setModel(new ListModelList(tipoprod));
@@ -100,6 +101,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     }
     
     public void onChange$directa(Event e) {
+        
         if (directa.getText().equals("")) {
             Clients.showNotification("<br/>" + "DIRECTA NO PUEDE ESTAR VACIO",
                     Clients.NOTIFICATION_TYPE_WARNING, null, "middle_center", 3000);
@@ -127,7 +129,9 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
     double horasOperacion = 0;
     
     public void onChange$num_arribo(Event e) throws SQLException {
+        
         manteniMD1 = new RendimientosGranelesMd();
+        
         manteniMD1 = ManbuDal.Rendimientos(anio_arribo.getText(), num_arribo.getText());
         String a, b;
         if (manteniMD1.getResp().equals("1")) {
@@ -145,8 +149,6 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             a = manteniMD1.getTerpac();
             // tmplanificadas.setText(manteniMD1.getTmplanificadas());
             BuscaItem(manteniMD1.getTipo_producto(), this.producto);
-            //producto.setValue(manteniMD1.getTipo_producto());
-            BuscaItem(manteniMD1.getTipo_producto(), this.producto);
             //  directa.setText(manteniMD1.getDir());
             directa.setText(manteniMD1.getTm_despachadas());
             b = manteniMD1.getTm_despachadas();
@@ -159,7 +161,7 @@ public class RendimientosGranelesCtrl extends GenericForwardComposer {
             finopera.setText(manteniMD1.getFin_operacion());
             totalHoras.setText(manteniMD1.getTotal_hrs_operacion());
             double num = Double.parseDouble(a);
-            double num2 = Double.parseDouble(b);
+            double num2 = Double.parseDouble(b); //aca se quedo en el debug
             double suma = num + num2;
             tmplanificadas.setText(Double.toString(suma));
             horasOperacion = Double.parseDouble(manteniMD1.getHorasOperacion());

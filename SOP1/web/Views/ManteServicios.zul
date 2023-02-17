@@ -127,7 +127,7 @@
                             <label value="INFORMACION DEL BUQUE " style="font-size:20px; font-weight:bold;"  />
                         </div>
                     </div>
-                     <div sclass="row" >
+                    <div sclass="row" >
                         <span class="input-group-btn">
                             <button id="btnBusAct" tooltip="status2" class="btn btn-primary" type="button" iconSclass="z-icon-check" > 
                             </button>
@@ -312,6 +312,7 @@
                     <button id="btnUpdate" label="Guardar Update" image="bootstrap/img/salvar2.png" orient="vertical" height="80px" width="100px"/>
                     <button id="btnSalir" label="Salir" image="bootstrap/img/cerrar.png" orient="vertical" height="80px" width="100px"/>
                     <button id="btnDelete" label="Anular BOLETA" image="bootstrap/img/registro.png" orient="vertical" height="80px" width="100px"/> 
+                    <button id="btnLimpiar" label="Limpiar" image="bootstrap/img/nuevo2.png" orient="vertical" height="80px" width="100px"/>  
                 </div>
                 
             </n:div>

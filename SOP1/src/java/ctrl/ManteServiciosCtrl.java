@@ -94,7 +94,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                         data = (List<CatalogosMd>) event.getData();
                         if (data.isEmpty()) {
                             cod_serv.setText("");
-                           
+
                             cod_part.setText("");
                             cod_cli.setText("");
                             fechaInicio.setText("");
@@ -119,7 +119,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                                     nombreCliente.setSelectedIndex(-1);
                                     nombreServicio.setSelectedIndex(-1);
                                     //nombreParticular.setText("");
-                                    
+
                                     nombreParticular.setVisible(false);
                                     nombreCliente.setVisible(false);
                                     nombreServicio.setVisible(false);
@@ -133,28 +133,24 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                         }
                     }
                 });
-        
-         EventQueues.lookup("myEventQueue1", EventQueues.DESKTOP, true)
+
+        EventQueues.lookup("myEventQueue1", EventQueues.DESKTOP, true)
                 .subscribe(new EventListener() {
                     public void onEvent(Event event) throws Exception {
-                         List<CatalogosMd> data = new ArrayList<CatalogosMd>();
+                        List<CatalogosMd> data = new ArrayList<CatalogosMd>();
                         data.clear();
                         data = (List<CatalogosMd>) event.getData();
-                         EventQueues.lookup("myEventQueue2", EventQueues.DESKTOP, true)
-               .publish(new Event("onChangeNickname", null, data));
+                        EventQueues.lookup("myEventQueue2", EventQueues.DESKTOP, true)
+                                .publish(new Event("onChangeNickname", null, data));
 
-                       
-                  rootPagina.setSrc("/Views/Actividades.zul");
-                                
-                            
-                        
+                        rootPagina.setSrc("/Views/Actividades.zul");
+
                     }
                 });
 
     }
-    
-        public void onClick$btnBusAct(Event e) {
 
+    public void onClick$btnBusAct(Event e) {
 
         session.setAttribute("anioArribo", txtAnioArribo.getText());
         session.setAttribute("numeroArribo", txtNumArribo.getText());
@@ -320,7 +316,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
     }
 
     public void onChange$txtNumArribo(Event evt) {
-
+        nombreCliente.setSelectedIndex(-1);
         if (!txtAnioArribo.getText().equals("") && !txtNumArribo.getText().equals("")) {
             serviciosModelo = new ManteServiciosMd();
             serviciosModelo = ProductoDal.MostrarProducto(txtAnioArribo.getText(), txtNumArribo.getText());
@@ -328,8 +324,19 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
                 txtCodigoBuque.setText(serviciosModelo.getNumBuque());
                 txtNombreBuque.setText(serviciosModelo.getNomBuque());
                 txtTrbBuque.setText(serviciosModelo.getTrb());
+                cod_cli.setText(serviciosModelo.getCod_cliente());
+                //codigo ramiro
+                cod_serv.setText(serviciosModelo.getCod_servicio());
+                nombreServicio.setText(serviciosModelo.getNom_servicio());
+                cod_part.setText(serviciosModelo.getCod_particular());
+                nombreParticular.setText(serviciosModelo.getNom_particular());
+                fechaInicio.setText(serviciosModelo.getFechaInicio());
+                fechaFin.setText(serviciosModelo.getFechaFin());
+                boleta.setText(serviciosModelo.getBoleta());
+                observaciones.setText(serviciosModelo.getObs());
                 btnBusca1.setVisible(true);
                 btninsert.setVisible(true);
+                btnUpdate.setVisible(false);
                 btnBusAct.setVisible(true);
 
             } else {
@@ -340,8 +347,16 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
 
     }
 
+    public void onClick$btnLimpiar(Event e) throws SQLException {
+
+        clear();
+
+    }
+
     public void clear() {
 
+        txtAnioArribo.setText("");
+        txtNumArribo.setText("");
         txtCodigoBuque.setText("");
         txtNombreBuque.setText("");
         txtTrbBuque.setText("");
@@ -358,6 +373,7 @@ public class ManteServiciosCtrl extends GenericForwardComposer {
         btnUpdate.setVisible(false);
         btninsert.setVisible(false);
         btnBusca1.setVisible(false);
+        txtAnioArribo.setFocus(true);
 
     }
 

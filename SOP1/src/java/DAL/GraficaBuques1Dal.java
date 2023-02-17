@@ -15,7 +15,7 @@ public class GraficaBuques1Dal {
       
  public List<GraficaBuques1Md> Grafica1(String sFecha_inicial, String sFecha_final) throws SQLException {
         List<GraficaBuques1Md> lstDatos = new ArrayList<GraficaBuques1Md>();
-        System.out.println("Linea 21 Dal");
+        System.out.println("Linea 18 Dal");
 
         PreparedStatement smt = null;
         Connection conn;
@@ -26,16 +26,16 @@ public class GraficaBuques1Dal {
         
         try {
             
-            sql = " select count(b.nom_tipo_buque) as Total_buques," 
+            sql = " SELECT COUNT(b.nom_tipo_buque) AS Total_buques," 
                  + " b.nom_tipo_buque as Buques" 
-                 + " from epqop.if_bq_arribos a," 
+                 + " FROM epqop.if_bq_arribos a," 
                  + " epqop.if_bq_tipo_arribo b" 
-                 + " where a.tipo_buque = b.tipo_buque"
-                 + " and  a.fecha_atraque >= TO_DATE('"+sFecha_inicial+"','DD/MM/YYYY') " 
-                 + " and  a.fecha_atraque <= TO_DATE('"+sFecha_final+"','DD/MM/YYYY') "
-                 + " and  a.status3  <> 'V'"
-                 + " and  b.tipo_buque not in (7,8,9,10,20)"   
-                 + " group by b.nom_tipo_buque";
+                 + " WHERE a.tipo_buque = b.tipo_buque"
+                 + " AND  a.fecha_atraque >= TO_DATE('"+sFecha_inicial+"','DD/MM/YYYY') " 
+                 + " AND  a.fecha_atraque <= TO_DATE('"+sFecha_final+"','DD/MM/YYYY') "
+                 + " AND  a.status3  <> 'V'"
+                 + " AND  b.tipo_buque not in (7,8,9,10,12)"   
+                 + " GROUP BY b.nom_tipo_buque";
             
             smt = conn.prepareStatement(sql);
             rs  = smt.executeQuery();
@@ -78,16 +78,16 @@ public class GraficaBuques1Dal {
         ResultSet result2 = null;
         try {
             
-            sql = " select count(b.nom_tipo_buque) as Total_buques," 
+            sql = " SELECT COUNT(b.nom_tipo_buque) AS Total_buques," 
                  + " b.nom_tipo_buque as Buques" 
-                 + " from epqop.if_bq_arribos a," 
+                 + " FROM epqop.if_bq_arribos a," 
                  + " epqop.if_bq_tipo_arribo b" 
-                 + " where a.tipo_buque = b.tipo_buque"
-                 + " and  a.fecha_atraque >= TO_DATE('"+sFecha_inicial+"','DD/MM/YYYY') " 
-                 + " and  a.fecha_atraque <= TO_DATE('"+sFecha_final+"','DD/MM/YYYY') "
-                 + " and  a.status3  <> 'V'"
-                 + " and  b.tipo_buque not in (7,8,9,10,20)"   
-                 + " group by b.nom_tipo_buque";
+                 + " WHERE a.tipo_buque = b.tipo_buque"
+                 + " AND  a.fecha_atraque >= TO_DATE('"+sFecha_inicial+"','DD/MM/YYYY') " 
+                 + " AND  a.fecha_atraque <= TO_DATE('"+sFecha_final+"','DD/MM/YYYY') "
+                 + " AND  a.status3  <> 'V'"
+                 + " AND  b.tipo_buque not in (7,8,9,10,12)"   
+                 + " GROUP BY b.nom_tipo_buque";
             
             smt = conn.prepareStatement(sql);
             result2 = smt.executeQuery();
