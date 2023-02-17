@@ -8,6 +8,10 @@
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/ActividadesCtrl.java</file>
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/DAL/ActividadesDal.java</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/C:/Users/HP%2015/Documents/programacion/GitP/SOP/SOP1/web/Views/Actividades.zul</file>
+            <file>file:/C:/Users/HP%2015/Documents/programacion/GitP/SOP/SOP1/src/java/DAL/CitasPlanificacionDal.java</file>
+            <file>file:/C:/Users/HP%2015/Documents/programacion/GitP/SOP/SOP1/src/java/DAL/ActividadesDal.java</file>
+        </group>
     </open-files>
 </project-private>
