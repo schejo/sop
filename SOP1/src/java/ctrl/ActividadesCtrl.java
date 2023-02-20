@@ -1,3 +1,15 @@
+/*
+autor: sergio perez y Ramyro hernandez se trabaja con github
+se trabajo con metodologia XP
+se agregaron las siguientes funciones:
+public void onOK$numarriboAct(Event e)
+public void onChange$numarriboAct(Event e)
+public void onClick$nombreAct(Event e)
+public void onChange$nombreAct(Event e)
+public void onClick$btnGuardar(Event e)c
+*/
+
+
 package ctrl;
 
 import DAL.ActividadesDal;
