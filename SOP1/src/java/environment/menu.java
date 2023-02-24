@@ -197,9 +197,14 @@ public class menu extends GenericForwardComposer {
     public void onClick$ItemCJ(Event evt) {
         rootPagina.setSrc("/Views/Reporteactiviconte.zul");
     }
+    
 
     public void onClick$ItemCK(Event evt) {
         rootPagina.setSrc("/Views/ReporteGeneralPlani.zul");
+    }
+
+    public void onClick$ItemCL(Event evt) {
+        rootPagina.setSrc("/Views/ReporteCitasPlani.zul");
     }
 
     //GRAFICAS
@@ -330,7 +335,6 @@ public class menu extends GenericForwardComposer {
         rootPagina.setSrc("/Views/ResumenReporteConteneFecha.zul");
     }
 
-    
     //INFORMATICA
     public void onClick$Itempesaje(Event evt) {
         rootPagina.setSrc("/Views/manCicloCamion.zul");

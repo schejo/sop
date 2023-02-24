@@ -165,4 +165,7 @@ public class CitasPlanificacionCtrl extends GenericForwardComposer {
         rootPagina.setSrc("/Views/Principal.zul");
     }
 
+    public void onClick$btnhistori() {
+        rootPagina.setSrc("/Views/ReporteCitasPlani.zul");
+    }
 }

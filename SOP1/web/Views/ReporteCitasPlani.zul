@@ -1,0 +1,75 @@
+<zk xmlns:n="native">
+    <style>
+        @font-face {
+        font-family: "Satisfy02";
+        src: url("font/Satisfy-Regular.ttf") format('truetype');
+        }
+        .ltitle2 {
+        font-family: "Satisfy02";
+        word-wrap: break-word; 
+        /*font-weight: bold; */
+        font-size: 25px; 
+        color: black; 
+        margin-left:1px; 
+        padding-left:0px;
+        }
+        
+        .z-datebox-input{
+        font-size: 25px;
+        height: 48px;
+        }
+        .z-datebox-button{
+        font-size: 25px;
+        height: 48px;
+        width:35px;
+        text-align: center;
+        padding-top: 15px;
+        }
+    </style>
+    <div>
+        <n:br/>
+        <n:br/>
+        <n:br/>
+        <n:br/>
+    </div>
+    <div class="col col-md-12 col-sm-12" apply="ctrl.ReporteCitasPlaniCtrl" >
+        <div class="col col-md-12 col-sm-12 ">
+            <n:br/>
+            <n:br/>
+            <div class="col col-md-12 col-xs-12">
+                <label class="ltitle2" value="REPORTE DE HISTORIAL CONVOCATORIAS" style="" />
+            </div>
+            <n:br/>
+            <n:br/>
+            <n:br/>
+            
+            <n:div class="row" style="text-align: left;">
+                <div class="col col-lg-5 col-md-4 "></div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <label value="Fecha Inicio" style="font-size:25px;font-weight:bold;" />
+                    <datebox id="fecha_inicio"  format="dd/MM/yyyy HH:mm" locale="gt" width="100%"/>
+                </div>
+            </n:div>
+            
+            <n:br/>
+            
+            <n:div class="row" style="text-align: left;">
+                <div class="col col-lg-5 col-md-4 "></div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <label value="Fecha Fin" style="font-size:25px;font-weight:bold;" />
+                    <datebox id="fechaFin"  format="dd/MM/yyyy HH:mm" locale="gt" width="100%"/>
+                </div>
+            </n:div>
+            
+            <n:br/>
+            
+            <n:div class="row" style="text-align: right;">
+                <div class="col col-lg-5 col-md-4 "></div>
+                <div class="col col-lg-2 col-md-4 ">
+                    <button sclass="btn btn-success" id="btnDescargar" label="Descarga Reporte" iconSclass="z-icon-download" />    
+                </div>
+            </n:div>
+   
+        </div>
+    </div>
+</zk>
