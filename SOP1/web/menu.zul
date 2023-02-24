@@ -109,7 +109,7 @@
                                     <menuitem label="Reporte por Tipo de Vehiculos" id="ItemCI" image="bootstrap/img/login.png"/>
                                     <!--    <menuitem label="Reporte Actividades de Contenedores" id="ItemCJ" image="bootstrap/img/login.png"/> -->
                                     <menuitem label="Reporte De Chamarra Planificacion" id="ItemCK" image="bootstrap/img/login.png"/>
-
+                                    <menuitem label="Reporte Historial Convocatorias" id="ItemCL" image="bootstrap/img/login.png"/>
                                 </menupopup>
                             </menu>
                             
@@ -163,7 +163,7 @@
                                     <menuitem label="Reporte Contenedores APM" id="ItemAZ2" image="bootstrap/img/Nestadistica.png"/>
                                     <menuitem label="Resumen Contenedores APM" id="ItemAZ3" image="bootstrap/img/Nestadistica.png"/>
                                     <menuitem label="Resumen Contenedores APM Por Mes" id="ItemAZ4" image="bootstrap/img/Nestadistica.png"/>
-                                   <menuitem label="Mantenimiento De Servicios" id="ItemServ" image="bootstrap/img/Nestadistica.png"/>
+                                    <menuitem label="Mantenimiento De Servicios" id="ItemServ" image="bootstrap/img/Nestadistica.png"/>
 
                                 </menupopup>
                             </menu> 

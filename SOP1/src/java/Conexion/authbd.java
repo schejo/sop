@@ -45,6 +45,9 @@ public class authbd {
         Connection conn = null;
         try {
             prop.load(is);
+
+            //dejar las variables sin el #2
+
             driver = prop.getProperty("driver");
             db = prop.getProperty("ipdb");
             port = prop.getProperty("port");
