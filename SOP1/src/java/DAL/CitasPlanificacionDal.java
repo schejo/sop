@@ -26,7 +26,7 @@ public class CitasPlanificacionDal {
         List<CitasPlanificacionMd> allProductos = new ArrayList<CitasPlanificacionMd>();
 
         String query = "SELECT  ANO_ARRIBO,num_arribo FROM"
-                + " epqop.if_bq_citas_plani ORDER BY  ANO_ARRIBO desc ,NUM_ARRIBO desc";
+                + " epqop.if_bq_citas_plani ORDER BY  ANO_ARRIBO desc ,NUM_ARRIBO DESC";
 
         try {
             conn = obtener.Conexion();
@@ -63,7 +63,7 @@ public class CitasPlanificacionDal {
         cl = new CitasPlanificacionMd();
 //        String query1 = " SELECT max(pro_id)+1 as id FROM productos ";
         String sql = "INSERT INTO epqop.if_bq_citas_plani \n"
-                + "         VALUES  (?,?, TO_date(? , 'dd/mm/yyyy hh24:mi'),?,?,TO_date(? ,'dd/mm/yyyy hh24:mi'),null,SYSDATE,?,TO_date(? ,'dd/mm/yyyy hh24:mi'))";
+                + "         VALUES  (?,?, TO_DATE(? , 'dd/mm/yyyy hh24:mi'),?,?,TO_DATE(? ,'dd/mm/yyyy hh24:mi'),null,SYSDATE,?,TO_DATE(? ,'dd/mm/yyyy hh24:mi'))";
 
         try {
             conn = obtener.Conexion();
@@ -170,7 +170,7 @@ public class CitasPlanificacionDal {
                 + "         ano_arribo,num_arribo,TO_CHAR(fecha_hora,'dd/mm/yyyy hh24:mi'),"
                 + "        (DECODE(lugar,'V','VIRTUAL','P','PRESENCIAL')),observaciones,eta_cita,\n"
                 + "        TO_CHAR(eta_plani,'DD/MM/RRRR')||' '||TO_CHAR(eta_plani,'HH24:MI:SS') ETA_PLANI,\n"
-                + "        estado,to_char(fecha_alta,'dd/mm/yyyy hh24:mi'),usuario_alta\n"
+                + "        estado,TO_CHAR(fecha_alta,'dd/mm/yyyy hh24:mi'),usuario_alta\n"
                 + "FROM    epqop.if_bq_citas_plani\n"
                 + "WHERE   ano_arribo =  " + anio + "\n"
                 + "AND     num_arribo =  " + numero + " ";
@@ -231,10 +231,10 @@ public class CitasPlanificacionDal {
             st = conn.createStatement();
 
             vl = st.executeUpdate("UPDATE  epqop.if_bq_citas_plani\n"
-                    + "SET     fecha_hora = to_date('" + data.getFecha_hora() + "',"
+                    + "SET     fecha_hora = TO_DATE('" + data.getFecha_hora() + "',"
                     + "'dd/mm/yyyy hh24:mi'),lugar = '" + data.getLugar() + "'\n"
                     + ",observaciones = '" + data.getObser() + "'\n"
-                    + ",eta_plani = to_date('" + data.getEtap() + "','dd/mm/yyyy hh24:mi')\n"
+                    + ",eta_plani = TO_DATE('" + data.getEtap() + "','dd/mm/yyyy hh24:mi')\n"
                     + "WHERE   ano_arribo = " + data.getAnio_arribo() + ""
                     + "AND     num_arribo = " + data.getNum_arribo() + "");
 

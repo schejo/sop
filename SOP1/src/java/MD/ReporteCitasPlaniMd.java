@@ -1,14 +1,14 @@
-
 package MD;
 
 public class ReporteCitasPlaniMd {
-    
+
     private String anio_arribo;
     private String num_arribo;
     private String nombre_buque;
     private String eta_cita;
     private String fecha_hora;
     private String observaciones;
+    private String hras_plani;
 
     public String getAnio_arribo() {
         return anio_arribo;
@@ -57,7 +57,13 @@ public class ReporteCitasPlaniMd {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-    
-    
-    
+
+    public String getHras_plani() {
+        return hras_plani;
+    }
+
+    public void setHras_plani(String hras_plani) {
+        this.hras_plani = hras_plani;
+    }
+
 }
