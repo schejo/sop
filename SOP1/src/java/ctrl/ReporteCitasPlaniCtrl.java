@@ -91,15 +91,19 @@ public class ReporteCitasPlaniCtrl extends GenericForwardComposer {
         Cell cE5 = encabezado.createCell(4);
         cE5.setCellValue("FECHA CONVOCATORIA");
         cE5.setCellStyle(style2);
-        
+
         Cell cE6 = encabezado.createCell(5);
         cE6.setCellValue("OBSERVACIONES");
         cE6.setCellStyle(style2);
-        
+
         Cell cE7 = encabezado.createCell(6);
         cE7.setCellValue("HRS OPERACION");
         cE7.setCellStyle(style2);
-        
+
+        Cell cE8 = encabezado.createCell(7);
+        cE8.setCellValue("NAVIERA");
+        cE8.setCellStyle(style2);
+
         for (ReporteCitasPlaniMd item : lista) {
             Row contenido = listSheet.createRow(index++);
 
@@ -126,11 +130,15 @@ public class ReporteCitasPlaniCtrl extends GenericForwardComposer {
             Cell cC6 = contenido.createCell(5);
             cC6.setCellValue(item.getObservaciones());
             cC6.setCellStyle(styleEntero);
-            
+
             Cell cC7 = contenido.createCell(6);
             cC7.setCellValue(item.getHras_plani());
             cC7.setCellStyle(styleEntero);
-            
+
+            Cell cC8 = contenido.createCell(7);
+            cC8.setCellValue(item.getNom_naviera());
+            cC8.setCellStyle(styleEntero);
+
         }
 
         try {
