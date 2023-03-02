@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group name="Group 20210428-08:47:08">
 <<<<<<< HEAD
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ManteServicios.zul</file>
@@ -44,5 +45,8 @@
             <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ReporteCitasPlani.zul</file>
 >>>>>>> 955f2b57f6f887cbaf71dda51f7fa2a7c9b05b07
         </group>
+=======
+        <group name="Group 20210428-08:47:08"/>
+>>>>>>> dd389ad67f59936575591bdd0c8d464ee9ecdf59
     </open-files>
 </project-private>
