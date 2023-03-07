@@ -109,6 +109,8 @@
                                     <menuitem label="Reporte por Tipo de Vehiculos" id="ItemCI" image="bootstrap/img/login.png"/>
                                     <!--    <menuitem label="Reporte Actividades de Contenedores" id="ItemCJ" image="bootstrap/img/login.png"/> -->
                                     <menuitem label="Reporte De Chamarra Planificacion" id="ItemCK" image="bootstrap/img/login.png"/>
+                                    <menuitem label="Reporte De Despacho Por Naviera" id="ItemRDN" image="bootstrap/img/login.png"/>
+                                    
 
                                 </menupopup>
                             </menu>
