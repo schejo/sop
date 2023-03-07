@@ -1,0 +1,60 @@
+<zk xmlns:n="native">
+      <style>
+        @font-face {
+        font-family: "Satisfy02";
+        src: url("font/Satisfy-Regular.ttf") format('truetype');
+        }
+        .ltitle2 {
+        font-family: "Satisfy02";
+        word-wrap: break-word; 
+        /*font-weight: bold; */
+        font-size: 25px; 
+        color: black; 
+        margin-left:1px; 
+        padding-left:0px;
+        }
+        
+        .z-datebox-input{
+        font-size: 25px;
+        height: 48px;
+        }
+        .z-datebox-button{
+        font-size: 25px;
+        height: 48px;
+        width:35px;
+        text-align: center;
+        padding-top: 15px;
+        }
+    </style>
+    <div>
+      
+    </div>
+    <div class="col col-md-12 col-sm-12" apply="ctrl.ReporteDesPorNavieraCtrl" >
+        <div class="col col-md-12 col-sm-12 text-center">
+            <div class="col col-md-12 col-xs-12">
+                <label value="REPORTE DE DESPACHO POR NAVIERA" style="font-size:25px;font-weight:bold;color:blue;" />
+            </div>
+            
+            <div class="col col-md-12 col-xs-12">
+                
+                <label value="Fecha Inicio.: " style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <datebox id="fechaInicio" cols="11"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                
+                <label value="Fecha Fin.: " style="color: blue; font-weight: bold; font-size: 20px;"/>
+                <datebox id="fechaFin" cols="11"   format="dd/MM/yyyy" locale="gt" style="font-weight: bold; font-size: 15px; margin-left:0px; heigh:20px; color:black;"/>
+                 <label value="Iniciales De Naviera " style="color: blue; font-weight: bold; font-size: 20px;"/>
+                 <textbox id="Naviera" value="" cols="20" style="font-weight: bold; font-size: 20px; margin-left:0px; heigh:20px; text-transform:uppercase; color:black;"/>
+                
+               <n:br/>
+               <n:br/>
+            </div>
+                
+            <div class="col col-md-12 col-xs-12">
+                <button type="button" class="btn btn-success"  id="btnDescargar3" label="Descargar" iconSclass="z-icon-download" />
+
+            </div>             
+        </div>
+    </div>
+</zk>
+
+
