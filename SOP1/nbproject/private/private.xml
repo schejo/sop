@@ -2,51 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group name="Group 20210428-08:47:08">
-<<<<<<< HEAD
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ManteServicios.zul</file>
-        </group>
->>>>>>> produccion
         <group>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/web/Views/ManteServicios.zul</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ActividadesDal.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ManteServiciosDal.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ManteServiciosCtrl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/Conexion/Conexion.java</file>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/MD/ManteServiciosMd.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ActividadesCtrl.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ReporteDesPorNavieraCtrl.java</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/web/Views/ReporteDesPorNaviera.zul</file>
+            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/DAL/ReporteDesPorNavieraDal.java</file>
         </group>
-        <group name="Group 20210428-08:47:08">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/BuscarServicios.zul</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/BuscarServiciosCtrl.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/ManteServiciosCtrl.java</file>
-=======
->>>>>>> sergio
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ManteServicios.zul</file>
-=======
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/environment/Login1.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/Conexion/authbd.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/MD/ManteServiciosMd.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/Conexion/config.properties</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/src/java/ctrl/ActividadesCtrl.java</file>
-            <file>file:/C:/Users/Usuario/Documents/GitProduccion/sop/SOP1/web/login.zul</file>
->>>>>>> produccion
-=======
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/DAL/ReporteCitasPlaniDal.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/ReporteGeneralPlaniCtrl.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/ctrl/ReporteCitasPlaniCtrl.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/src/java/DAL/ReporteGeneralPlaniDal.java</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/CitasPlanificacion.zul</file>
-            <file>file:/C:/Users/Informatica/Documents/GitHub/sop/SOP1/web/Views/ReporteCitasPlani.zul</file>
->>>>>>> 955f2b57f6f887cbaf71dda51f7fa2a7c9b05b07
-        </group>
-=======
-        <group name="Group 20210428-08:47:08"/>
->>>>>>> dd389ad67f59936575591bdd0c8d464ee9ecdf59
     </open-files>
 </project-private>
