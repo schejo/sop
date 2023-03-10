@@ -62,6 +62,7 @@ public class CitasPlanificacionCtrl extends GenericForwardComposer {
 
                 if (    dt.getNum_arribo().equals(numarribo.getText())  && dt.getAnio_arribo().equals(anioarribo.getText())   ) {
                     op1++;
+                    break;
 
                 }
             }

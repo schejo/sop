@@ -46,7 +46,7 @@
             <n:div class="col-lg-2 " style="" ></n:div>
             <n:div class="col-lg-8 " style="" ></n:div>
         
-            <n:h1>ACTIVIDADES DE BUQUES</n:h1>
+            <n:h1 style="color:green;">ACTIVIDADES DE BUQUES</n:h1>
             <span class="input-group-btn">
                 <button id="btnBusca1" class="btn btn-primary" type="button" iconSclass="z-icon-search" > 
                 </button>

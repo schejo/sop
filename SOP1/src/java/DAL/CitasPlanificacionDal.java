@@ -26,7 +26,9 @@ public class CitasPlanificacionDal {
         List<CitasPlanificacionMd> allProductos = new ArrayList<CitasPlanificacionMd>();
 
         String query = "SELECT  ANO_ARRIBO,num_arribo FROM"
+
                 + " epqop.if_bq_citas_plani ORDER BY  ANO_ARRIBO desc ,NUM_ARRIBO desc";
+
 
         try {
             conn = obtener.Conexion();
