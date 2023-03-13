@@ -48,6 +48,8 @@ public class ReporteDesPorNavieraCtrl extends GenericForwardComposer{
                
            }else{
                ReporteExcel(fechaInicio.getText(), fechaFin.getText(),Naviera.getText().trim().toUpperCase());
+               Clients.showNotification("EMTRO AL REPORTE EXCEL! <br/>",
+                    "warning", null, "middle_center", 5000);
            }
            
         
